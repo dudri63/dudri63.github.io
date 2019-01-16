@@ -13,13 +13,7 @@
     
 
     
-        <meta name="description" content="4. 알고리즘의 분류5. 알고리즘의 효율성 표현6. 복잡도의 점근적 표기7. 왜 효율적인 알고리즘이 필요한가?
-
-4. 알고리즘의 분류
-알고리즘은 문제의 해결 방식에 따라 다음과 같이 분류된다.
-
-분할 정복 알고리즘(Divide-and-Conquer)
-그리디 알고리즘(G">
+        <meta name="description" content="Reference*">
     
 
     <!--Author-->
@@ -29,18 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="[Algorithm] 알고리즘을 배우기 위한 준비(2)">
+        <meta property="og:title" content="[Algorithm]분할 정복 알고리즘">
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="4. 알고리즘의 분류5. 알고리즘의 효율성 표현6. 복잡도의 점근적 표기7. 왜 효율적인 알고리즘이 필요한가?
-
-4. 알고리즘의 분류
-알고리즘은 문제의 해결 방식에 따라 다음과 같이 분류된다.
-
-분할 정복 알고리즘(Divide-and-Conquer)
-그리디 알고리즘(G">
+        <meta property="og:description" content="Reference*">
     
 
     <!--Open Graph Site Name-->
@@ -67,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>[Algorithm] 알고리즘을 배우기 위한 준비(2) - Seo&#39;s Blog</title>
+    <title>[Algorithm]분할 정복 알고리즘 - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -177,7 +165,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>[Algorithm] 알고리즘을 배우기 위한 준비(2)</h1>
+                    <h1>[Algorithm]분할 정복 알고리즘</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -204,7 +192,7 @@
                         
 
 
-<a href="/tags/Algorithm/">#Algorithm</a>
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/분할-정복/">#분할 정복</a>
 
 
                     
@@ -213,7 +201,7 @@
                     
                         
 
-<a href="/categories/Algorithm/">Algorithm</a>
+<a href="/categories/Algorithm/">Algorithm</a>/ <a href="/categories/Algorithm/Algorithm-분할-정복/">Algorithm - 분할 정복</a>
 
                     
                 </div>
@@ -224,50 +212,8 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#4">4. 알고리즘의 분류</a><br><a href="#5">5. 알고리즘의 효율성 표현</a><br><a href="#6">6. 복잡도의 점근적 표기</a><br><a href="#7">7. 왜 효율적인 알고리즘이 필요한가?</a></p>
-<hr>
-<p><a name="4">4. 알고리즘의 분류</a></p>
-<p>알고리즘은 문제의 해결 방식에 따라 다음과 같이 분류된다.</p>
-<ul>
-<li>분할 정복 알고리즘(Divide-and-Conquer)</li>
-<li>그리디 알고리즘(Greedy)</li>
-<li>동적 계획 알고리즘(Dynamic Programming)</li>
-<li>근사 알고리즘(Approximation)</li>
-<li>백트래킹 기법(Backtracking)</li>
-<li>분기 한정 기법(Branch-and-Bound)</li>
-</ul>
-<p>이 외에도 랜덤 알고리즘, 병렬 알고리즘, 분산 알고리즘, 양자 알고리즘, 유전자 알고리즘 등이 있다.<br>문제에 따라 어떤 알고리즘이 더 효율적일지는 다를 것이다.<br>또한, 이름 지어지지 못한 알고리즘들도 다수 존재한다.<br>위와 같이 해결 방식에 따른 알고리즘 분류 외에도 문제에 기반을 두어 알고리즘을 분류하기도 한다.<br>정렬 알고리즘, 그래프 알고리즘, 기하 알고리즘 등이 그 예이다.</p>
-<hr>
-<p><a name="5">5. 알고리즘의 효율성 표현</a></p>
-<p>알고리즘의 효율성은 알고리즘의 ‘수행 시간’ 또는 알고리즘이 수행하는 동안 사용되는 ‘메모리 공간의 크기’로 나타낼 수 있다. 이들을 각각 <strong>‘시간복잡도’</strong>, <strong>‘공간복잡도’</strong>라고 한다. 일반적으로 알고리즘들을 비교할 때에는 시간복잡도가 주로 사용된다.</p>
-<p>알고리즘을 프로그램으로 구현 및 실행 시켜 시간을 측정할 수 있으나, 이러한 방법은 객관적으로 평가하기가 어렵다. 왜냐하면 컴퓨터 환경, 프로그래밍 언어, 프로그래머 실력 등에 의하여 달라질 수 있기 때문이다. 그리하여 시간복잡도는 알고리즘이 수행하는 기본적인 연산 횟수를 입력 크기에 대한 함수로 표현한다.<br>예를 들어, n장의 숫자 카드 중에서 최대 숫자를 찾는데, 순차탐색으로 찾을 경우, (n-1)번의 비교를 수행한다. 이 경우, 시간복잡도는 (n-1)이다.</p>
-<p>알고리즘의 복잡도를 표현하는 대는 다음과 같은 분석 방법들이 있다.</p>
-<ul>
-<li>최악 경우 분석(worst case analysis)</li>
-<li>평균 경우 분석(average case analysis)</li>
-<li>최선 경우 분석(best case analysis)</li>
-</ul>
-<p>일반적으로 ‘최악 경우 분석’으로 알고리즘의 복잡도를 나타낸다.</p>
-<hr>
-<p><a name="6">6. 복잡도의 점근적 표기</a></p>
-<p>시간복잡도, 공간복잡도는 입력 크기에 대한 함수로 표기한다.<br>이 때, 함수는 주로 다항식인데, 이를 단순하게 나타내기 위해 ‘점근적 표기(asymptotic notation)’를 사용한다. 이는 입력 크기 n이 무한대로 커질 때의 복잡도롤 간단하게 표현하기 위함이다.</p>
-<p>예를 들어, 3n<sup>3</sup>-15n<sup>2</sup>+10n-18을 n<sup>3</sup>으로, 4n+6을 n으로 단순화시킨다.<br>이 단순화된 식에 상한, 하한, 동일한 증가율과 같은 개념을 적용하여, 다음과 같이 점근적 표기를 사용한다.</p>
-<ul>
-<li>O(Big-Oh)-표기</li>
-<li>Ω(Big-Omega)-표기</li>
-<li>θ(Theta)-표기</li>
-</ul>
-<p>O-표기는 복잡도의 ‘점근적 상한’, Ω-표기는 복잡도의 ‘점근적 하한’, θ-표기는 복잡도의 ‘상한과 하한이 동시에 적용’되는 경우를 나타낸다.</p>
-<p>복잡도가 f(n) = 2n<sup>2</sup>-8n+3이라면, f(n)의 O-표기는 O(n<sup>2</sup>)이다. 의미는 다음과 같다.<br>f(n)의 단순화된 표현 n<sup>2</sup>에 임의의 상수 c를 곱한 cn<sup>2</sup>이 n이 증가함에 따라 f(n)의 상한이 된다. 단, c&gt;0</p>
-<p>위 경우, f(n)의 Ω-표기는 Ω(n<sup>2</sup>)이다. 단, 의미는 ‘n이 증가함에 따라 2n<sup>2</sup>-8n+3이 cn<sup>2</sup>보다 작을 수 없다.’이다.</p>
-<p>θ-표기는 복잡도의 O-표기와 θ-표기가 같은 경우에 사용한다. 의미는 ‘f(n)은 n이 증가함에 따라 n<sup>2</sup>과 동일한 증가율을 가진다.’라는 뜻이다.</p>
-<hr>
-<p><a name="7">7. 왜 효율적인 알고리즘이 필요한가?</a></p>
-<p>입력이 커질수록 알고리즘에 따른 수행 시간의 차이가 매우 커지게 된다. 효율적인 알고리즘은 값비싼 하드웨어의 기술 개발보다 훨씬 더 경제적이다.</p>
-<hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
-</ul>
+                <hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
 
 
                 

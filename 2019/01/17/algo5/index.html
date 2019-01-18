@@ -13,10 +13,13 @@
     
 
     
-        <meta name="description" content="1. 분할 정복 알고리즘이란?2. 분할 정복 알고리즘의 분류
+        <meta name="description" content="1. 합병 정렬이란?2. 합병 정렬 알고리즘3. 시간 복잡도4. 응용
 
-1. 분할 정복 알고리즘이란?
-‘분할 정복(Divide-and-Conquer) 알고리즘’이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.분할된 입력에 대하여 동일한 알고리즘을 ">
+1. 합병 정렬이란?
+‘합병 정렬(Merge Sort)’은 입력이 2개의 부분문제로 분할, 부분 문제의 크기가 1/2로 감소하는 분할 정복 알고리즘이다.
+
+
+합병 과정이 문제를 정복한다는 것이 중요">
     
 
     <!--Author-->
@@ -26,15 +29,18 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="[Algorithm] 분할 정복 알고리즘">
+        <meta property="og:title" content="[Algorithm] 합병 정렬 (분할정복)">
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1. 분할 정복 알고리즘이란?2. 분할 정복 알고리즘의 분류
+        <meta property="og:description" content="1. 합병 정렬이란?2. 합병 정렬 알고리즘3. 시간 복잡도4. 응용
 
-1. 분할 정복 알고리즘이란?
-‘분할 정복(Divide-and-Conquer) 알고리즘’이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.분할된 입력에 대하여 동일한 알고리즘을 ">
+1. 합병 정렬이란?
+‘합병 정렬(Merge Sort)’은 입력이 2개의 부분문제로 분할, 부분 문제의 크기가 1/2로 감소하는 분할 정복 알고리즘이다.
+
+
+합병 과정이 문제를 정복한다는 것이 중요">
     
 
     <!--Open Graph Site Name-->
@@ -61,7 +67,7 @@
 
     <!-- Title -->
     
-    <title>[Algorithm] 분할 정복 알고리즘 - Seo&#39;s Blog</title>
+    <title>[Algorithm] 합병 정렬 (분할정복) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -171,13 +177,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>[Algorithm] 분할 정복 알고리즘</h1>
+                    <h1>[Algorithm] 합병 정렬 (분할정복)</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2019-01-16
+                            2019-01-17
                         
                     </span>
                 </div>
@@ -218,26 +224,43 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#1">1. 분할 정복 알고리즘이란?</a><br><a href="#2">2. 분할 정복 알고리즘의 분류</a></p>
+                <p><a href="#1">1. 합병 정렬이란?</a><br><a href="#2">2. 합병 정렬 알고리즘</a><br><a href="#3">3. 시간 복잡도</a><br><a href="#4">4. 응용</a></p>
 <hr>
-<p><a name="1">1. 분할 정복 알고리즘이란?</a></p>
-<p><strong>‘분할 정복(Divide-and-Conquer) 알고리즘’</strong>이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.<br>분할된 입력에 대하여 동일한 알고리즘을 적용 및 계산하고 결과들을 취합하여 원래 문제의 결과를 얻는다.<br>분할된 입력에 대한 문제를 부분문제(subproblem)라고 하고, 부분문제의 해를 부분해라고 한다. 부분문제는 더이상 분할할 수 없을 때까지 계속 분할한다.</p>
-<p><div align="center"><br><img src="/image/algo4-1.jpeg" width="400" height="500"><br></div><br>위 이미지는 분할 정복의 예이다.</p>
-<p>그렇다면 입력 크기가 n일 때 총 몇 번 분할하여야 더 이상 분할할 수 없는 크기인 1이 될까?</p>
-<p>답을 계산하기 위해 분할한 총 횟수를 k라고 하고, 1번 분할할 때마다 각각의 입력 크기가 절반씩 줄어든다고 가정한다. 이 때, k번 분할하였으면, 입력의 크기는 n/2<sup>k</sup>이고, 입력 크기가 n/2<sup>k</sup>=1일 때 더 이상 분할할 수 없으므로, k = log<sub>2</sub>n이다.</p>
+<p><a name="1">1. 합병 정렬이란?</a></p>
+<p><strong>‘합병 정렬(Merge Sort)’</strong>은 입력이 2개의 부분문제로 분할, 부분 문제의 크기가 1/2로 감소하는 분할 정복 알고리즘이다.</p>
+<div align="center"><br><img src="/image/algo5-1.png" width="400" height="500"><br></div>
+
+<p>합병 과정이 문제를 정복한다는 것이 중요하다.<br><strong>합병(merge)</strong>이란 2개의 각각 <strong>정렬된</strong> 숫자들을 1개의 <strong>정렬된</strong> 숫자들로 <strong>합치는 것</strong>이다. </p>
 <hr>
-<p><a name="2">2. 분할 정복 알고리즘의 분류</a></p>
-<p>분할 정복 알고리즘은 분할되는 부분문제의 수와 부분문제의 크기에 따라서 다음과 같이 분류할 수 있다.</p>
+<p><a name="2">2. 합병 정렬 알고리즘</a></p>
+<p>다음은 분할 정복에 기반을 둔 합병 정렬 알고리즘이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MereSort(A,p,q)</span><br><span class="line">입력: A[p]~A[q]</span><br><span class="line">출력: 정렬된 A[p]~A[q]</span><br><span class="line">if(p &gt; q) &#123;				// 배열의 원소의 수가 2개 이상이면,</span><br><span class="line">  k = [(p+q)/2]				// (k는 배열을 반으로 나누기 위한 중간 원소의 인덱스이다.)</span><br><span class="line">  MergeSort(A,p,k)			// 앞부분 재귀 호출</span><br><span class="line">  MergeSort(A,k+1,q)			// 뒷부분 재귀 호출</span><br><span class="line">  A[p]~A[q]와 A[k+1]~A[q]를 합병한다.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>분할하여 재귀 호출하는 것은 line 6, 7에서 수행되고, 합병은 line 8에서 수행된다.</p>
+<p>위 그림에 이 알고리즘을 적용하여 살펴본다.</p>
+<ol>
+<li>A를 그림에서 가장 상위에 있는 배열, p를 6, q를 0이라고 한다.</li>
+<li>그리하여 k는 3이 되고, 배열 A는 A[0]~A[3], A[4]~A[6] 두 부분으로 나뉜다.</li>
+<li>이 작업을 배열의 원소가 한 개씩 남을 때까지 반복한다.</li>
+<li>원소가 단, 1개인 배열들을 2개씩 합병한다.</li>
+<li>분할된 배열들이 완성된 한 개의 배열이 될 때까지 4번을 반복한다.</li>
+</ol>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>정렬의 시간복잡도는 일반적으로 숫자의 <strong>비교 횟수</strong>로 나타낸다.<br>위 그림에서 알고리즘이 수행한 비교 횟수를 본다.<br>분할하는 부분은 배열의 중간 인덱스 계산과 2번의 재귀 호출을 하는 것이므로 O(1) 시간이 걸린다.<br>이에 반해, 합병의 수행 시간은 입력의 크기에 비례한다.<br>2개의 정렬된 배열 A, B의 크기가 각각 n, m이라면 <strong>최대 비교 횟수는 (n+m+-1)</strong>이다.<br>마지막에 합병되는 숫자는 비교할 대상이 없으므로, -1을 한다.<br>(그림에서 3,27,38,43 배열과 9,10,82 배열을 합치는 과정을 보면, 3을 9,10,82와 비교(3번), 27을 9,10,82와 비교(3번), 38을 82와 비교(1번), 43을 82와 비교(1번)이다. 총 8번의 비교를 하였다.)<br>즉, 합병의 시간복잡도는 O(n+m)이다.</p>
+<p>그러나 비교 횟수를 직접 세보는 것보다 더 쉬운 계산은 층별로 살피는 것이다.<br>합병 과정에서 최종으로 만들어진 하나의 배열을 제외, 원소가 단 하나인 배열들로 구성된 층을 포함하여 총 3개의 층으로 이루어져 있는데, 각 층에서 모든 숫자가 합병에 참여하고 있다. 앞서 알아보았 듯이, 합병은 입력의 크기에 비례하므로 각 층에서 수행된 비교 횟수는 O(n)이다. 그런데, 층이 높아질수록(위로 올라갈수록) 입력의 크기(배열의 크기)가 반씩 줄어든다. 즉, 다음과 같다.</p>
 <ul>
-<li>입력이 2개의 부분문제로 분할, 부분문제의 크기가 1/2로 감소하는 알고리즘<br>-&gt; 합병 정렬(Merge Sort)</li>
-<li>입력이 2개로 분할되고, 부분문제의 크기가 일정하지 않은 크기로 감소하는 알고리즘<br>-&gt; 퀵 정렬(Quick Sort)</li>
-<li>입력이 2개로 분할되나, 그 중에 1개의 부분문제는 고려할 필요가 없는 알고리즘<br>-&gt; 이진 탐색(Binary Search)</li>
-<li>입력이 2개로 분할되나, 그 중에 1개의 부분문제는 고려할 필요가 없고, 부분문제의 크기가 일정하지 않은 크기로 감소하는 알고리즘<br>-&gt; 선택 문제(Selection)</li>
+<li>3층 : n/2<sup>3</sup> = 1 / {38}, {27}, {43}, {3}, {9}, {82}, {10} (n은 7)</li>
+<li>2층 : n/2<sup>2</sup> = 2 / {27,38}, {3,43}, {9,82}, {10}</li>
+<li>1층 : n/2 = 4 / {3,27,38,43}, {9,10,82}</li>
 </ul>
+<p>k번 1/2로 분할하였으면 k개의 층이 생기는 것이고, k=log<sub>2</sub>n임을 알 수 있다.<br>결과적으로 합병 정렬의 시간복잡도는 (층수)XO(n) = log<sub>2</sub>nXO(n) = <strong>O(nlogn)</strong>이다.<br>(각 층마다 모든 입력의 합은 n이다. 헷갈리지 말자. 그림을 보자.)</p>
+<p>합병 정렬 알고리즘의 공간 복잡도는 O(n)이다. 왜냐하면 입력을 위한 메모리 공간 외에 추가로 입력과 같은 크기의 공간이 별도로 필요하기 때문이다. 2개의 정렬된 부분을 하나로 합병하는 데 있어서, 합병된 결과를 저장할 곳이 필요하다.</p>
+<hr>
+<p><a name="4">4. 응용</a></p>
+<p>합병 정렬은 외부정렬의 기본이 되는 정렬 알고리즘이다. 연결 리스트에 있는 데이터를 정렬할 때 퀵 정렬이나 힙 정렬보다 훨씬 효율적이다. CPU와 GPU를 이용한 병렬 프로세싱에서도 합병 정렬 알고리즘이 활용된다.</p>
 <hr>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
-<li>“Divide-and-conquer algorithm”, Wikipedia, 2019. 1. 16, <a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm</a></li>
+<li>“Merge Sort”, Wikipedia, 2019. 1. 17, <a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Merge_sort</a></li>
 </ul>
 
 

@@ -206,7 +206,7 @@ hr.small {
   }
 }
 .intro-header .post-heading h1 {
-  font-size: 35px;
+  font-size: 30px;
 }
 .intro-header .post-heading .subheading,
 .intro-header .post-heading .meta {
@@ -228,10 +228,13 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .intro-header .post-heading h1 {
-    font-size: 55px;
+    font-size: 40px;
+  }
+  .intro-header .post-heading h2 {
+    font-size: 25px;
   }
   .intro-header .post-heading .subheading {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 .post-preview > a {
@@ -243,7 +246,7 @@ hr.small {
   color: #0085a1;
 }
 .post-preview > a > .post-title {
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -251,6 +254,7 @@ hr.small {
   font-size: 22px;
 }
 .post-preview > a > .post-subtitle {
+  font-size: 18px;
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px;

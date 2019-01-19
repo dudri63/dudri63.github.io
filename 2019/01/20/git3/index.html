@@ -13,6 +13,11 @@
     
 
     
+        <meta name="description" content="1. Setting2. $ git commit3. $ git log
+
+1. Setting
+Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.123$ git config --global user.nam">
+    
 
     <!--Author-->
     
@@ -21,10 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Seo&#39;s Blog">
+        <meta property="og:title" content="[Git] Setting, Commit, Log">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. Setting2. $ git commit3. $ git log
+
+1. Setting
+Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.123$ git config --global user.nam">
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +42,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -51,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>Init - Seo&#39;s Blog</title>
+    <title>[Git] Setting, Commit, Log - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,49 +163,110 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>#Init</h1>
+                <div class="post-heading">
+                    <h1>[Git] Setting, Commit, Log</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. Setting / 2. $ git commit / 3. $ git log
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-20
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Git/">#Git</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Git/">Git</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2019/01/19/git2/">
-        <h1 class="post-title archive">
-            [Git] Init, Add
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-01-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. Setting</a><br><a href="#2">2. $ git commit</a><br><a href="#3">3. $ git log</a></p>
+<hr>
+<p><a name="1">1. Setting</a></p>
+<p>Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;이름&quot;</span><br><span class="line">$ git config --global user.email &quot;이메일 주소&quot;</span><br><span class="line">$ git config --list		// 입력한 사용자 정보 조회</span><br></pre></td></tr></table></figure></p>
+<div align="center"><br><img src="/image/git3-1.png" width="700" height="auto"><br></div>
+
+<hr>
+<p><a name="2">2. $ git commit</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit	// 버전 생성</span><br></pre></td></tr></table></figure>
+<p><strong>git commit</strong> 명령어를 실행하면, add한 파일들에 한하여 해당 버전에 추가한다.<br>또한, git commit 명령어를 실행하면, commit message를 작성할 수 있는데, commit message에는 어떠한 변화가 있는지 혹은 변화의 이유에 대하여 작성하도록 한다.</p>
+<p>파일에 대하여 commit하고 싶으면 반드시 이전에 add하여야 한다. </p>
+<h5 id="cf"><a href="#cf" class="headerlink" title="cf."></a>cf.</h5><h5 id="버전-의미-있는-변화-완성된-코드-단위"><a href="#버전-의미-있는-변화-완성된-코드-단위" class="headerlink" title="버전 : 의미 있는 변화, 완성된 코드 단위"></a>버전 : 의미 있는 변화, 완성된 코드 단위</h5><h5 id="git-add-commit-대기-상태에-들어가게-한다"><a href="#git-add-commit-대기-상태에-들어가게-한다" class="headerlink" title="git add : commit 대기 상태에 들어가게 한다."></a>git add : commit 대기 상태에 들어가게 한다.</h5><h5 id="git-commit-commit-대기-상태에-있는-파일들만-해당-버전에-추가한다"><a href="#git-commit-commit-대기-상태에-있는-파일들만-해당-버전에-추가한다" class="headerlink" title="git commit : commit 대기 상태에 있는 파일들만 해당 버전에 추가한다."></a>git commit : commit 대기 상태에 있는 파일들만 해당 버전에 추가한다.</h5><h5 id="commit-대기-상태-stage-area에-올린다"><a href="#commit-대기-상태-stage-area에-올린다" class="headerlink" title="commit 대기 상태 : stage area에 올린다."></a>commit 대기 상태 : stage area에 올린다.</h5><div align="center"><br><img src="/image/git3-2.png" width="700" height="auto"><br><br><img src="/image/git3-3.png" width="700" height="auto"><br><br><img src="/image/git3-4.png" width="700" height="auto"><br></div>
+
+<hr>
+<p><a name="3">3. $ git log</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log		// 버전 생성이 되었는지 확인 가능</span><br></pre></td></tr></table></figure>
+<p><strong>git log</strong> 명령어를 실행하면, 각 버전들의 verseion message, author, date 등을 확인할 수 있다.</p>
+<div align="center"><br><img src="/image/git3-5.png" width="700" height="auto"><br></div>
+
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 19, <a href="https://opentutorials.org/course/2708/15202" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15202</a></li>
 </ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr>
@@ -256,7 +327,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

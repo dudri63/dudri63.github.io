@@ -13,6 +13,11 @@
     
 
     
+        <meta name="description" content="1. Git을 쓰는 이유2. $ git branch, $ git checkout ‘branch name’
+
+1. Git을 쓰는 이유
+예를 들어, report.xsl file을 버전 관리한다고 가정한다.파일 내용이 변경될 때마다 새로운 이름으로 저장한다. report1.">
+    
 
     <!--Author-->
     
@@ -21,10 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Tags">
+        <meta property="og:title" content="[Git] Branch (1)">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. Git을 쓰는 이유2. $ git branch, $ git checkout ‘branch name’
+
+1. Git을 쓰는 이유
+예를 들어, report.xsl file을 버전 관리한다고 가정한다.파일 내용이 변경될 때마다 새로운 이름으로 저장한다. report1.">
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>Tags - Seo&#39;s Blog</title>
+    <title>[Git] Branch (1) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,67 +163,105 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/Algorithm/">
-        <h1 class="post-title archive">
-            Algorithm
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/분할-정복/">
-        <h1 class="post-title archive">
-            분할 정복
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Git/">
-        <h1 class="post-title archive">
-            Git
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/원격-저장소/">
-        <h1 class="post-title archive">
-            원격 저장소
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>[Git] Branch (1)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. Git을 쓰는 이유 / 2. $ git branch, $ git checkout 'branch name'
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-20
+                        
+                    </span>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Git/">#Git</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Git/">Git</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. Git을 쓰는 이유</a><br><a href="#2">2. $ git branch, $ git checkout ‘branch name’</a></p>
+<hr>
+<p><a name="1">1. Git을 쓰는 이유</a></p>
+<p>예를 들어, report.xsl file을 버전 관리한다고 가정한다.<br>파일 내용이 변경될 때마다 새로운 이름으로 저장한다. report1.xsl, report2.xsl, ….<br>그런데, 순차적으로 수정이 되다가 경우에 따라서 나뉘어서 수정될 수 있다.<br>고객용으로 수정되면, report2_client.xsl으로 파일 이름을 저장할 수 있다.<br>그리고, 고객용이 아니라 또 다시 내용 변경되면, report3.xsl으로 파일 이름을 저장할 수 있다.<br>이렇게 나뉘어서 버전이 증가하다가, 다시 합쳐지는 경우도 있음.</p>
+<div align="center"><br><img src="/image/git6-1.png" width="700" height="auto"><br></div>
+
+<p>위와 같이 버전 관리를 할 경우, 파일 이름을 변경해야 하는데, 작업이 분기되거나 합쳐질 경우, 매우 복잡하다.<br><strong>git</strong>을 쓰면 위와 같이 과정을 쉽고, 세련되게 할 수 있다.</p>
+<hr>
+<p><a name="2">2. $ git branch, $ git checkout ‘branch name’</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch			// 현재 저장소의 branch들, 현재의 branch</span><br><span class="line">$ git branch &apos;branch name&apos;	// 새로운 branch 생성</span><br><span class="line">$ git checkout &apos;branch name&apos;	// 해당 branch로 이동</span><br></pre></td></tr></table></figure>
+<p>$ git branch 명령어를 실행하면 현재 저장소의 모든 branch들과 함께 현재 속해 있는 branch가 무엇인지 알 수 있다.<br>$ gir branch ‘branch name’ 명령어를 실행하면 해당 name의 새로운 branch가 생성된다.<br>$ git checkout ‘branch name’ 명령어를 입력하면 해당 branch로 이동한다.</p>
+<div align="center"><br><img src="/image/git6-2.png" width="700" height="auto"><br></div>
+
+<p>기본적으로 저장소에는 master branch가 존재한다. $ git branch 명령어를 실행하면, master branch가 있음을 알 수 있고, $ git branch exp 명령어를 실행하여 새로운 branch exp를 만든 뒤, $ git checkout exp 명령어를 실행하여 exp branch로 이동하였다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 20, <a href="https://opentutorials.org/course/2708/15260" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15260</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
 
 
-
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr>

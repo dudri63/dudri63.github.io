@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="1. $ git log –branches –decorate2. $ git log –branches –decorate –graph3. $ git log –branches –decorate –graph –oneline4. $ git log ‘branch name a’..’">
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Tags">
+        <meta property="og:title" content="[Git] Branch (2)">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. $ git log –branches –decorate2. $ git log –branches –decorate –graph3. $ git log –branches –decorate –graph –oneline4. $ git log ‘branch name a’..’">
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Tags - Seo&#39;s Blog</title>
+    <title>[Git] Branch (2) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,67 +157,118 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/Algorithm/">
-        <h1 class="post-title archive">
-            Algorithm
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/분할-정복/">
-        <h1 class="post-title archive">
-            분할 정복
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Git/">
-        <h1 class="post-title archive">
-            Git
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/원격-저장소/">
-        <h1 class="post-title archive">
-            원격 저장소
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>[Git] Branch (2)</h1>
+                    
+                    <h2 class="post-subheading">
+                        $ git log --branches, --decorate, --graph, --oneline, 'branch name a'..'branch name b'
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-20
+                        
+                    </span>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Git/">#Git</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Git/">Git</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. $ git log –branches –decorate</a><br><a href="#2">2. $ git log –branches –decorate –graph</a><br><a href="#3">3. $ git log –branches –decorate –graph –oneline</a><br><a href="#4">4. $ git log ‘branch name a’..’branch name b’</a></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a name=&quot;1&quot;&gt;1. $ git log --branches --decorate&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">$ git log --branches --decorate</span><br></pre></td></tr></table></figure>
+<p>기본적으로 $ git log 명령어는 현재 속해있는 branch의 버전 history만을 출력한다. 그러나 –branches 옵션을 추가로 실행하면, 현재 checkout되어 있는 branch 뿐만 아니라 저장소에 속해있는 모든 branches의 버전 정보들을 출력한다.</p>
+<div align="center"><br><img src="/image/git7-1.png" width="700" height="auto"><br><br><img src="/image/git7-2.png" width="700" height="auto"><br></div>
+
+<p>master의 최신 commit이 2, exp의 최신 commit이 4, 현재 checkout된 branch는 exp임을 알 수 있다.</p>
+<hr>
+<p><a name="2">2. $ git log –branches –decorate –graph</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --branches --decorate --graph</span><br></pre></td></tr></table></figure>
+<p>–graph 옵션을 추가로 실행하면, 버전이 진행된 것을 도형(선)으로 나타내어 효율적으로 버전 정보들을 파악할 수 있다.</p>
+<div align="center"><br><img src="/image/git7-3.png" width="700" height="auto"><br><br><img src="/image/git7-4.png" width="700" height="auto"><br></div>
+
+<p>위와 같이 graph가 나타나 효율적으로 버전 histories를 파악할 수 있다. 2 version에서 exp branch는 3,4 version으로 차례대로 변화, master branch는 5 version으로 변화하였음을 알 수 있다.</p>
+<hr>
+<p><a name="3">3. $ git log –branches –decorate –graph –oneline</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --branches --decorate --graph --oneline</span><br></pre></td></tr></table></figure>
+<p>더 간결하게 histories를 graph로 나타낸다.</p>
+<div align="center"><br><img src="/image/git7-5.png" width="700" height="auto"><br></div>
+
+<hr>
+<p><a name="4">4. $ git log ‘branch name a’..’branch name b’</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log &apos;branch name a&apos;..&apos;branch name b&apos;</span><br></pre></td></tr></table></figure>
+<p>위 명령어는 branch name a에는 없는 branch name b의 commit들을 전시한다.</p>
+<div align="center"><br><img src="/image/git7-6.png" width="700" height="auto"><br></div>
+
+<p>master branch에는 없는 exp branch들의 commit들을 나타내었다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 20, <a href="https://opentutorials.org/course/2708/15261" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15261</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
 
 
-
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr>

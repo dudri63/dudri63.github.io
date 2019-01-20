@@ -13,6 +13,9 @@
     
 
     
+        <meta name="description" content="작업을 분기한 뒤, 각자의 history들을 이어가다가 병합할 필요성이 있을 수 있다.1$ git merge &amp;apos;branch name&amp;apos;
+이럴 경우, $ git merge ‘branch name’ 명령어를 실행하면 현재 chekcout되어 있는 branc">
+    
 
     <!--Author-->
     
@@ -21,10 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Tags">
+        <meta property="og:title" content="[Git] Branch (3)">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="작업을 분기한 뒤, 각자의 history들을 이어가다가 병합할 필요성이 있을 수 있다.1$ git merge &amp;apos;branch name&amp;apos;
+이럴 경우, $ git merge ‘branch name’ 명령어를 실행하면 현재 chekcout되어 있는 branc">
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>Tags - Seo&#39;s Blog</title>
+    <title>[Git] Branch (3) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,67 +159,99 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/Algorithm/">
-        <h1 class="post-title archive">
-            Algorithm
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/분할-정복/">
-        <h1 class="post-title archive">
-            분할 정복
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Git/">
-        <h1 class="post-title archive">
-            Git
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/원격-저장소/">
-        <h1 class="post-title archive">
-            원격 저장소
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>[Git] Branch (3)</h1>
+                    
+                    <h2 class="post-subheading">
+                        $ git merge 'branch name'
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-20
+                        
+                    </span>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Git/">#Git</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Git/">Git</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>작업을 분기한 뒤, 각자의 history들을 이어가다가 병합할 필요성이 있을 수 있다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge &apos;branch name&apos;</span><br></pre></td></tr></table></figure></p>
+<p>이럴 경우, $ git merge ‘branch name’ 명령어를 실행하면 현재 chekcout되어 있는 branch에서 명령어에 함께 입력한 branch의 버전 정보들을 포함하는 새로운 commit이 생성된다.</p>
+<div align="center"><br><img src="/image/git8-1.png" width="700" height="auto"><br></div>
+
+<p>현재 저장소에 2 version에서 5 version으로 진행된 master branch, 3,4 version으로 진행된 exp branch가 있다고 가정한다.</p>
+<div align="center"><br><img src="/image/git8-2.png" width="700" height="auto"><br><br><img src="/image/git8-3.png" width="700" height="auto"><br><br><img src="/image/git8-4.png" width="700" height="auto"><br><br><img src="/image/git8-5.png" width="700" height="auto"><br></div>
+
+<p>master branch에서 $ git merge exp 명령어를 실행하면, commit message를 작성하는 화면이 나온다. 이 때, commit message를 작성 완료한 뒤, $ git log –branches 명령어를 실행하면, master branch에서 각 branch의 최신 commit들을 병합한 새로운 commit이 생성되었음을 확인할 수 있다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 20, <a href="https://opentutorials.org/course/2708/15261" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15261</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
 
 
-
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr>

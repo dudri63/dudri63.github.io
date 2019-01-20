@@ -13,10 +13,11 @@
     
 
     
-        <meta name="description" content="1. Setting2. $ git commit3. $ git log
+        <meta name="description" content="1. 원격 저장소란1. 원격 저장소 생성
 
-1. Setting
-Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.123$ git config --global user.nam">
+1. 원격 저장소란
+원격 저장소(Remote Repository)란 흔히 지역 저장소(Local Repository)와 구별되는 개념이다.
+자신의 컴퓨터에서 작업하고 commit하면 저장되는 곳이 지역 저장소이다. 그런데, 작">
     
 
     <!--Author-->
@@ -26,15 +27,16 @@ Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음�
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="[Git] Setting, Commit, Log">
+        <meta property="og:title" content="[Git] 원격 저장소(Remote Repository)">
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1. Setting2. $ git commit3. $ git log
+        <meta property="og:description" content="1. 원격 저장소란1. 원격 저장소 생성
 
-1. Setting
-Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.123$ git config --global user.nam">
+1. 원격 저장소란
+원격 저장소(Remote Repository)란 흔히 지역 저장소(Local Repository)와 구별되는 개념이다.
+자신의 컴퓨터에서 작업하고 commit하면 저장되는 곳이 지역 저장소이다. 그런데, 작">
     
 
     <!--Open Graph Site Name-->
@@ -61,7 +63,7 @@ Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음�
 
     <!-- Title -->
     
-    <title>[Git] Setting, Commit, Log - Seo&#39;s Blog</title>
+    <title>[Git] 원격 저장소(Remote Repository) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -171,17 +173,17 @@ Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음�
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>[Git] Setting, Commit, Log</h1>
+                    <h1>[Git] 원격 저장소(Remote Repository)</h1>
                     
                     <h2 class="post-subheading">
-                        1. Setting / 2. $ git commit / 3. $ git log
+                        1. 원격 저장소란 / 2. 원격 저장소 생성
                     </h2>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2019-01-20
+                            2019-01-21
                         
                     </span>
                 </div>
@@ -202,7 +204,7 @@ Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음�
                         
 
 
-<a href="/tags/Git/">#Git</a>
+<a href="/tags/Git/">#Git</a> <a href="/tags/원격-저장소/">#원격 저장소</a>
 
 
                     
@@ -222,28 +224,45 @@ Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음�
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#1">1. Setting</a><br><a href="#2">2. $ git commit</a><br><a href="#3">3. $ git log</a></p>
+                <p><a href="#1">1. 원격 저장소란</a><br><a href="#1">1. 원격 저장소 생성</a></p>
 <hr>
-<p><a name="1">1. Setting</a></p>
-<p>Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;이름&quot;</span><br><span class="line">$ git config --global user.email &quot;이메일 주소&quot;</span><br><span class="line">$ git config --list		// 입력한 사용자 정보 조회</span><br></pre></td></tr></table></figure></p>
-<div align="center"><br><img src="/image/git3-1.png" width="700" height="auto"><br></div>
-
+<p><a name="1">1. 원격 저장소란</a></p>
+<p><strong>원격 저장소(Remote Repository)</strong>란 흔히 <strong>지역 저장소(Local Repository)</strong>와 구별되는 개념이다.</p>
+<p>자신의 컴퓨터에서 작업하고 commit하면 저장되는 곳이 지역 저장소이다. 그런데, 작업물들을 인터넷에 올려서 백업을 하거나 다른 사람들과 협업을 할 경우, 컴퓨터와 연결된 다른 저장소가 필요하다.</p>
+<p>원격 저장소의 역할은 크게 다음과 같다.</p>
+<ul>
+<li>협업</li>
+<li>백업</li>
+</ul>
+<p>일반적으로 원격 저장소는 같은 컴퓨터에 연결되어 있지 않고, 인터넷을 통하여 다른 컴퓨터와 연결되어 있다. 원격 저장소는 프로젝트가 커지는 과정에서 굉장히 중요한 역할을 한다. 그러나 혼자서 프로젝트를 진행할 때에는 원격 저장소가 필요한 일은 많지 않다. 주로, dropbox 등과 같은 서비스를 이용한다.</p>
 <hr>
-<p><a name="2">2. $ git commit</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit	// 버전 생성</span><br></pre></td></tr></table></figure>
-<p><strong>git commit</strong> 명령어를 실행하면, add한 파일들에 한하여 해당 버전에 추가한다.<br>또한, git commit 명령어를 실행하면, commit message를 작성할 수 있는데, commit message에는 어떠한 변화가 있는지 혹은 변화의 이유에 대하여 작성하도록 한다.</p>
-<p>파일에 대하여 commit하고 싶으면 반드시 이전에 add하여야 한다. </p>
-<h5 id="cf"><a href="#cf" class="headerlink" title="cf."></a>cf.</h5><h5 id="버전-의미-있는-변화-완성된-코드-단위"><a href="#버전-의미-있는-변화-완성된-코드-단위" class="headerlink" title="버전 : 의미 있는 변화, 완성된 코드 단위"></a>버전 : 의미 있는 변화, 완성된 코드 단위</h5><h5 id="git-add-commit-대기-상태에-들어가게-한다"><a href="#git-add-commit-대기-상태에-들어가게-한다" class="headerlink" title="git add : commit 대기 상태에 들어가게 한다."></a>git add : commit 대기 상태에 들어가게 한다.</h5><h5 id="git-commit-commit-대기-상태에-있는-파일들만-해당-버전에-추가한다"><a href="#git-commit-commit-대기-상태에-있는-파일들만-해당-버전에-추가한다" class="headerlink" title="git commit : commit 대기 상태에 있는 파일들만 해당 버전에 추가한다."></a>git commit : commit 대기 상태에 있는 파일들만 해당 버전에 추가한다.</h5><h5 id="commit-대기-상태-stage-area에-올린다"><a href="#commit-대기-상태-stage-area에-올린다" class="headerlink" title="commit 대기 상태 : stage area에 올린다."></a>commit 대기 상태 : stage area에 올린다.</h5><div align="center"><br><img src="/image/git3-2.png" width="700" height="auto"><br><br><img src="/image/git3-3.png" width="700" height="auto"><br><br><img src="/image/git3-4.png" width="700" height="auto"><br></div>
-
+<p><a name="2">2. 원격 저장소 생성</a></p>
+<p>앞서 이야기하였듯이, 원격 저장소는 주로 인터넷을 통해 연결, 같은 컴퓨터 안에 있지 않는다. 그러나 원격 저장소 개념을 알기 위하여 본 포스팅에서는 한 대의 컴퓨터, 다른 디렉토리에 원격 저장소를 생성, 원격 저장소에 commit할 것이다.</p>
+<p><img src="/image/git10-1.png" width="700" height="auto"></p>
+<p><img src="/image/git10-2.png" width="700" height="auto"></p>
+<p>위와 같이 gitfth2 디렉토리에 ‘local’이라는 이름의 저장소를 생성한다. 이 후, f1.txt를 add하고 commit한다.<br>(local 이름의 저장소를 지역 저장소라고 가정한다.)</p>
+<p><img src="/image/git10-3.png" width="700" height="auto"></p>
+<p>gitfth2 디렉토리에 또 다른 저장소 ‘remote’를 생성한다.<br>(remote 이름의 저장소를 원격 저장소라고 가정한다.)</p>
 <hr>
-<p><a name="3">3. $ git log</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git log		// 버전 생성이 되었는지 확인 가능</span><br><span class="line">$ git log -p 		// 각 commit 사이의 소스상 차이점을 파악할 수 있음</span><br></pre></td></tr></table></figure>
-<p><strong>git log</strong> 명령어를 실행하면, 각 버전들의 verseion message, author, date 등을 확인할 수 있다.(version history를 파악할 수 있음)</p>
-<p><div align="center"><br><img src="/image/git3-5.png" width="700" height="auto"><br></div><br>$ git log 명령어를 입력하면 각 commit들의 정보를 파악할 수 있다.</p>
-<p><div align="center"><br><img src="/image/git3-6.png" width="700" height="auto"><br><img src="/image/git3-7.png" width="700" height="auto"><br></div><br>$ git log -p 명령어를 입력하면 각 버전들 사이의 소스상 차이점을 알 수 있다.<br>위 경우, version 4(commit message가 ‘4’인 버전) commit에서, version 4의 f1.txt의 내용이 ‘f1.txt : 4’, version 3의 f1.txt의 내용이 ‘source : 2’이었음을 알 수 있다.<br>또한, version 3 commit에서, version 2에서는 f2.txt가 없었으나 version 3에서는 그 내용을 ‘source : 2’로 하는 f2.txt가 새로 생성되었음을 알 수 있다.</p>
+<p>cf.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init --bare &apos;저장소 이름&apos;		// 작업이 불가능, 저장만 가능한 저장소를 생성</span><br></pre></td></tr></table></figure></p>
+<p>remote 저장소는 –bare option을 적용하였기 때문에 .git 디렉토리가 내부에 존재하지 않고 위와 같은 파일들이 존재한다.<br>원격 저장소는 일반적으로 작업을 하지 않고, 저장만 하는 경우가 많다.</p>
+<hr>
+<p><img src="/image/git10-4.png" width="700" height="auto"></p>
+<hr>
+<p>cf.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add &apos;별명&apos; &apos;경로&apos;	// 경로에 있는 디렉토리를 별명으로 설정 및 원격저장소로 연결</span><br><span class="line">$ git remote -v 		// 연결된 저장소 및 별명을 파악할 수 있음</span><br><span class="line">$ git remote remove &apos;별명&apos;	// 연결된 원격원격소를 제거</span><br></pre></td></tr></table></figure></p>
+<p>별명을 설정하는 이유는 항상 경로를 입력하기가 불편하기 때문이다.</p>
+<hr>
+<p>위와 같이 remote 디렉토리를 origin이라는 별명으로 하여 원격저장소로서 연결한다.</p>
+<p><img src="/image/git10-5.png" width="700" height="auto"></p>
+<hr>
+<p>cf.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git push 					// 현재 저장소의 현재 branch를 연결시킨 원격 저장소에 upload</span><br><span class="line">$ git config --global push.default.simple	// git의 push 형식을 simple 방식으로 설정</span><br><span class="line">$ git push --set-upstream origin master 	// 현재 branch를 origin의 master branch로 push</span><br><span class="line">						// 또한, 앞으로 git push할 경우 위와 같이 psuh하겠음을 설정</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><img src="/image/git10-6.png" width="700" height="auto"></p>
+<p><img src="/image/git10-7.png" width="700" height="auto"></p>
+<p>remote 디렉토리에서 확인하면, push가 잘 되었음을 알 수 있다.</p>
 <hr>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 19, <a href="https://opentutorials.org/course/2708/15202" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15202</a></li>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 21, <a href="https://opentutorials.org/course/2708/15395" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15395</a></li>
 </ul>
 
 

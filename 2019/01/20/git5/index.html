@@ -13,6 +13,15 @@
     
 
     
+        <meta name="description" content="1. $ git reset2. $ git commit –help, -a, -m
+
+1. $ git reset
+버전 관리 시스템에서 과거로 돌아가기란 commit을 취소하는 것을 의미한다. Git에서 과거로 돌아가는 방법에는 크게 2가지가 있다.
+
+reset
+revert
+">
+    
 
     <!--Author-->
     
@@ -21,10 +30,19 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Tags">
+        <meta property="og:title" content="[Git] Reset, Command">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. $ git reset2. $ git commit –help, -a, -m
+
+1. $ git reset
+버전 관리 시스템에서 과거로 돌아가기란 commit을 취소하는 것을 의미한다. Git에서 과거로 돌아가는 방법에는 크게 2가지가 있다.
+
+reset
+revert
+">
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +69,7 @@
 
     <!-- Title -->
     
-    <title>Tags - Seo&#39;s Blog</title>
+    <title>[Git] Reset, Command - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,67 +171,109 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/Algorithm/">
-        <h1 class="post-title archive">
-            Algorithm
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/분할-정복/">
-        <h1 class="post-title archive">
-            분할 정복
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Git/">
-        <h1 class="post-title archive">
-            Git
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/원격-저장소/">
-        <h1 class="post-title archive">
-            원격 저장소
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>[Git] Reset, Command</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. $ git reset / 2. $ git commit --help, -a, -m
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-20
+                        
+                    </span>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Git/">#Git</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Git/">Git</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. $ git reset</a><br><a href="#2">2. $ git commit –help, -a, -m</a></p>
+<hr>
+<p><a name="1">1. $ git reset</a></p>
+<p>버전 관리 시스템에서 <strong>과거로 돌아가기</strong>란 commit을 취소하는 것을 의미한다. Git에서 과거로 돌아가는 방법에는 크게 2가지가 있다.</p>
+<ul>
+<li>reset</li>
+<li>revert</li>
+</ul>
+<p>과거로 돌아가는 작업은 상당히 위험한 작업이며, 프로젝트 폴더 전체를 copy한 뒤, 위험한 작업을 실시하는 것이 좋다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset &apos;Commit ID&apos; --hard		// Commit ID version이 최신이 됨</span><br><span class="line">$ git revert 				// Commit을 취소하면서 새로운 버전을 생성</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/git5-1.png" width="700" height="auto"><br><br><img src="/image/git5-2.png" width="700" height="auto"><br></div>
+
+<p>$ git reset 명령어 뒤에 3 commit ID를 붙여서 실행하였더니, 이 후에 버전들은 삭제되고, 3 commit이 최신 버전이 된 것을 확인할 수 있다.<br>(실제로 이후에 버전들이 삭제된 것은 아니다. Git은 특별한 경우를 제외하고는 버전에 관한 정보들을 삭제하지 않는다.)</p>
+<p>원격 저장소에 협업을 할 경우, 자신의 버전을 공유할 수 있다. 이 때, 공유한 이후에는 reset를 하면 안되고, reset은 local 저장소에서만 사용하도록 한다.</p>
+<hr>
+<p><a name="2">2. $ git commit –help, -a, -m</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --help 		// commit에 대한 도움말을 볼 수 있다.</span><br><span class="line">$ git commit -a, --all 		// 수정하거나 삭제한 파일을 자동으로 stage에 올린다.</span><br><span class="line">$ git commit -m, --message	// commit message를 바로 쓴다.</span><br></pre></td></tr></table></figure>
+<p>cf.<br>$ git commit -a : 자동으로 변경된 파일을 add시킨다. 그러나 이전에 한번도 add하지 않은 파일에 대해서는 add하지 않는다. 즉, 파일을 생성하면 최초 1회는 $ git add 명령어를 사용하여야 한다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 20, <a href="https://opentutorials.org/course/2708/15210" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15210</a>, <a href="https://opentutorials.org/course/2708/15211" target="_blank" rel="noopener">https://opentutorials.org/course/2708/15211</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
 
 
-
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr>

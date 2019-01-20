@@ -14,6 +14,8 @@
     
 
     
+        <meta name="description" content="분할 정복은 분활된 부분문제의 크기의 합이 분할되기 전의 입력 크기보다 매우 커지는 경우 사용기하게 부적절하다.예를 들어, 피보나치 수를 구할 때, F(n) = F(n-1) + F(n-2)로 정의되므로 재귀 호출을 한다고 가정한다. 그러나 이 경우는 n이라는 숫자로 인">
+    
 
     <!--Author-->
     
@@ -22,10 +24,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Seo&#39;s Blog">
+        <meta property="og:title" content="[Algorithm] 주의할 점 (분할정복)">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="분할 정복은 분활된 부분문제의 크기의 합이 분할되기 전의 입력 크기보다 매우 커지는 경우 사용기하게 부적절하다.예를 들어, 피보나치 수를 구할 때, F(n) = F(n-1) + F(n-2)로 정의되므로 재귀 호출을 한다고 가정한다. 그러나 이 경우는 n이라는 숫자로 인">
     
 
     <!--Open Graph Site Name-->
@@ -33,7 +37,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -52,7 +56,7 @@
 
     <!-- Title -->
     
-    <title>Seo&#39;s Blog</title>
+    <title>[Algorithm] 주의할 점 (분할정복) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -162,7 +166,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Untitled</h1>
+                    <h1>[Algorithm] 주의할 점 (분할정복)</h1>
+                    
+                    <h2 class="post-subheading">
+                        분할 정복 알고리즘을 사용할 시에 주의할 점
+                    </h2>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -184,13 +192,42 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/분할-정복/">#분할 정복</a> <a href="/tags/Divide-and-Conquer/">#Divide-and-Conquer</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+                <p>분할 정복은 분활된 부분문제의 크기의 합이 분할되기 전의 입력 크기보다 매우 커지는 경우 사용기하게 부적절하다.<br>예를 들어, 피보나치 수를 구할 때, F(n) = F(n-1) + F(n-2)로 정의되므로 재귀 호출을 한다고 가정한다. 그러나 이 경우는 n이라는 숫자로 인해 2개의 부분문제인 F(n-1), F(n-2)이 만들어지고, 입력의 크기의 합이 (n-1) + (n-2)가 되어 분할 후 입력의 총 크기가 거의 2배가 된다.</p>
+<p><div align="center"><br><img src="/image/algo9-1.png" width="400" height="500"><br></div><br>위와 같이 6의 피보나치 수를 구할 때, 분할 정복을 사용하면, 중복되는 부분문제들이 생겨서 오히려 총 소요 시간이 증가함을 알 수 있다.</p>
+<p>피보나치 수와 같은 경우에는 분할 정복(재귀 호출)을 사용하지 않고, for-루프를 사용하는 것이 더욱 효율적이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FiboNumber(n)</span><br><span class="line">F[0]=0</span><br><span class="line">F[1]=1</span><br><span class="line">for i=2 to n</span><br><span class="line">  F[i] = F[i-1] + F[i-2]</span><br></pre></td></tr></table></figure></p>
+<p>위와 같은 알고리즘을 사용하면, 루프의 수행 횟수로서 시간복잡도가 O(n)이 된다.</p>
+<p>주어진 문제를 분할 정복 알고리즘으로 해결하려고 하라 때 중의해야 하는 점 중 다른 하나는 취합 과정이다. 입력을 분할 한다고 해서 효율적인 알고리즘이 만들어지는 것은 아니다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“3장분할정복알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 21, <a href="https://prof.ysu.ac.kr/down.asp?file=3%C0%E5%BA%D0%C7%D2%C1%A4%BA%B9%BE%CB%B0%ED%B8%AE%C1%F2%20-%200.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=3%C0%E5%BA%D0%C7%D2%C1%A4%BA%B9%BE%CB%B0%ED%B8%AE%C1%F2%20-%200.pptx&amp;kid=</a></li>
+</ul>
+
 
                 
             </div>

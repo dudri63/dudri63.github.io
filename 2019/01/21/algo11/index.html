@@ -9,15 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Description-->
-    <link rel="canonical" href="http://dudri63.github.io/2019/01/17/algo6/">
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/21/algo11/">
 
     
 
     
-        <meta name="description" content="1. 퀵 정렬이란2. 퀵 정렬 알고리즘3. 시간 복잡도4. 응용
+        <meta name="description" content="1. 동전 거스름돈 문제란2. 동전 거스름돈 알고리즘
 
-1. 퀵 정렬이란
-‘퀵 정렬(Quick Sort)’은 분할 정복 알고리즘으로 분류되나, 사실 알고리즘이 수행되는 과정을 살펴보면 정복 후 분할하는 알고리즘이다. 퀵 정렬 알고리즘은 문제를 2개의 부분문제">
+1. 동전 거스름돈 문제란
+거스름돈을 동전으로 받아야 할 때, 누구나 적은 수의 동전을 거스름돈으로 받기를 원한다고 가정한다.동전 거스름돈 문제를 해결하는 가장 간단하고 효율적인 방법은 남은 액수를 초과하지 않는 ">
     
 
     <!--Author-->
@@ -27,15 +27,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="[Algorithm] 퀵 정렬 (분할정복)">
+        <meta property="og:title" content="[Algorithm] 동전 거스름돈 (그리디)">
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1. 퀵 정렬이란2. 퀵 정렬 알고리즘3. 시간 복잡도4. 응용
+        <meta property="og:description" content="1. 동전 거스름돈 문제란2. 동전 거스름돈 알고리즘
 
-1. 퀵 정렬이란
-‘퀵 정렬(Quick Sort)’은 분할 정복 알고리즘으로 분류되나, 사실 알고리즘이 수행되는 과정을 살펴보면 정복 후 분할하는 알고리즘이다. 퀵 정렬 알고리즘은 문제를 2개의 부분문제">
+1. 동전 거스름돈 문제란
+거스름돈을 동전으로 받아야 할 때, 누구나 적은 수의 동전을 거스름돈으로 받기를 원한다고 가정한다.동전 거스름돈 문제를 해결하는 가장 간단하고 효율적인 방법은 남은 액수를 초과하지 않는 ">
     
 
     <!--Open Graph Site Name-->
@@ -62,7 +62,7 @@
 
     <!-- Title -->
     
-    <title>[Algorithm] 퀵 정렬 (분할정복) - Seo&#39;s Blog</title>
+    <title>[Algorithm] 동전 거스름돈 (그리디) - Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -172,17 +172,17 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>[Algorithm] 퀵 정렬 (분할정복)</h1>
+                    <h1>[Algorithm] 동전 거스름돈 (그리디)</h1>
                     
                     <h2 class="post-subheading">
-                        1. 퀵 정렬(Quick Sort)이란 / 2. 퀵 정렬 알고리즘 / 3. 시간 복잡도 / 4. 응용
+                        1. 동전 거스름돈 문제란 / 2. 동전 거스름돈 알고리즘
                     </h2>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2019-01-17
+                            2019-01-21
                         
                     </span>
                 </div>
@@ -203,7 +203,7 @@
                         
 
 
-<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/분할-정복/">#분할 정복</a> <a href="/tags/Divide-and-Conquer/">#Divide-and-Conquer</a>
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/그리디/">#그리디</a> <a href="/tags/Greedy/">#Greedy</a>
 
 
                     
@@ -223,46 +223,17 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#1">1. 퀵 정렬이란</a><br><a href="#2">2. 퀵 정렬 알고리즘</a><br><a href="#3">3. 시간 복잡도</a><br><a href="#4">4. 응용</a></p>
+                <p><a href="#1">1. 동전 거스름돈 문제란</a><br><a href="#2">2. 동전 거스름돈 알고리즘</a></p>
 <hr>
-<p><a name="1">1. 퀵 정렬이란</a></p>
-<p><strong>‘퀵 정렬(Quick Sort)’</strong>은 분할 정복 알고리즘으로 분류되나, 사실 알고리즘이 수행되는 과정을 살펴보면 <strong>정복 후 분할하는 알고리즘</strong>이다. 퀵 정렬 알고리즘은 문제를 2개의 부분문제로 분할하는데, <strong>각 부분문제의 크기가 일정하지 않은 형태</strong>의 분할 정복 알고리즘이다.</p>
-<p>퀵 정렬의 아이디어는 <strong>피봇(pivot)</strong>이라 일컫는 배열의 원소를 기준으로 피봇보다 작은 숫자들은 왼편으로, 피봇보다 큰 숫자들은 오른편에 위치하도록 분할하고, 피봇을 그 사이에 놓는 것이다.<br>단, 피봇은 분할된 왼편이나 오른편 부분에 포함되지 않는다.</p>
-<div align="center"><br><img src="/image/algo6-2.png" width="500" height="auto"><br></div>
-
-<p>위 경우는 피봇을 분할된 왼편과 오른편 부분에 가운데에 위치시켰다.</p>
+<p><a name="1">1. 동전 거스름돈 문제란</a></p>
+<p>거스름돈을 동전으로 받아야 할 때, 누구나 적은 수의 동전을 거스름돈으로 받기를 원한다고 가정한다.<br>동전 거스름돈 문제를 해결하는 가장 간단하고 효율적인 방법은 남은 액수를 초과하지 않는 조건하에 ‘욕심내어’ 가장 큰 액면의 동전을 취하는 것이다.</p>
 <hr>
-<p><a name="2">2. 퀵 정렬 알고리즘</a></p>
-<p>다음은 퀵 정렬 알고리즘이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">QuickSort(A, left, right)</span><br><span class="line">입력: 배열 A[left]~A[right]</span><br><span class="line">출력: 정렬된 배열 A[left]~A[right]</span><br><span class="line">if(left&lt;right)&#123;			// 원소가 1개일 경우에는 정렬하지 않는다.</span><br><span class="line">  피봇을 A[left]~A[right] 중에서 선택,</span><br><span class="line">  피봇을 A[left]와 자리를 바꾼 후, 피봇과 배열의 각 원소를 비교,</span><br><span class="line">  피봇보다 작은 숫자들은 A[left]~A[p-1]로 옮기고,</span><br><span class="line">  피봇보다 큰 숫자들은 A[p+1]~A[right]로 옮긴다.</span><br><span class="line">  피봇은 A[p]에 놓는다.</span><br><span class="line">  QuickSort(A, left, p-1)	// 피봇보다 작은 그룹</span><br><span class="line">  QuickSort(A, p+1, right)	// 피봇보다 큰 그룹</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>위 이미지를 이 알고리즘에 적용하여 살펴본다.<br>초기상태의 배열에서 left는 0, right 8이다.<br>피봇(A[pivot])을 A[0]인 1으로 선택한다.<br>피봇 A[pivot]를 A[left]과 자리를 바꾼다.(이 경우, 피봇과 A[left]가 일치)<br>피봇과 배열의 각 원소들과 비교를 실시하여 자리를 옮긴 뒤 피봇의 위치를 A[p]로 옮긴다.<br>이 과정은 아래 그림에 잘 나와 있다.</p>
-<div align="center"><br><img src="/image/algo6-4.png" width="500" height="auto"><br></div>
-
-<p>A[left+1], A[right]에서 출발하여 각각 오른쪽, 왼쪽으로 이동하면서, 비교를 진행한다.<br>왼쪽에서 출발하는 인덱스는 가리키는 숫자가 피봇보다 작을 경우 정지,<br>오른쪽에서 출발하는 인덱스는 가리키는 숫자가 피봇보다 클 경우 정지한다.<br>양 쪽의 인덱스가 모두 정지하면 교환한다.<br>이 작업 계속 실시하다가 두 인덱스가 엇갈려서 지난 경우, stop한다.<br>이 후, 피봇의 위치를 가운데로 옮긴다.</p>
-<p>위 작업을 실시한 후, 왼쪽 부분 리스트와 오른쪽 부분 리스트에 대하여 위 작업을 반복한다.</p>
-<hr>
-<p><a name="3">3. 시간 복잡도</a></p>
-<p>퀵 정렬의 성능은 기본적으로 <strong>피봇 선택</strong>이 결정한다.<br>항상 1/2씩 분할한다면 최선의 경우가 되지만(O(nlogn)),<br>피봇으로 가장 작은 숫자 또는 가장 큰 숫자가 선택되면, 최악의 경우가 된다.(O(n<sup>2</sup>))</p>
-<ul>
-<li>최선의 경우<div align="center"><br><img src="/image/algo6-5.png"><br></div></li>
-<li>최악의 경우<div align="center"><br><img src="/image/algo6-6.png"><br></div>
-
-
-</li>
-</ul>
-<p><strong>피봇 선정 방법</strong></p>
-<p>퀵 저렬의 불균형한 분할을 완화시키기 위해서, 일반적으로 다음과 같은 피봇 선정 방법이 사용된다.</p>
-<ul>
-<li>랜덤하게 선정</li>
-<li>세 숫자의 중앙 값으로 선정하는 방법</li>
-</ul>
-<p>입력의 크기가 매우 클 때, 퀵 정렬의 성능을 더 향상시키기 위해서, 삽입 정렬이 동시에 사용되기도 한다. 퀵 정렬을 재귀 호출로 수행되어 문제가 크기가 작아지면 중단하고, 삽입 정렬을 사용하면 효율적이다.</p>
-<hr>
-<p><a name="4">4. 응용</a></p>
-<p>퀵 정렬은 커다란 크기의 입력에 대해서 가장 좋은 성능을 보이는 정렬 알고리즘이다. 퀵 정렬은 실질적으로 어느 정렬 알고리즘보다 좋은 성능을 보인다. 생물 정보 공학에서 특정 유전자를 효율적으로 찾는 데 퀵 정렬이 사용되곤 한다.</p>
+<p><a name="2">2. 동전 거스름돈 알고리즘</a></p>
+<p>다음은 동전 거스름돈 문제의 최소 동전 수를 찾는 그리디 알고리즘이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CoinChange(W)</span><br><span class="line">입력: 거스름돈 액수 W</span><br><span class="line">출력: 거스름돈 액수에 대한 최소 동전 수</span><br><span class="line">change=W, n500=n100=n50=n10=n1		//n500, n100, n50, n10, n1은 각각의 동전수를 위한 변수</span><br><span class="line">while(change&gt;=500) change=change-500, n500++	//500원짜리 동전수를 증가</span><br><span class="line">while(change&gt;=100) change=change-100, n100++	//100원짜리 동전수를 증가</span><br><span class="line">while(change&gt;=50)  change=change-50, n50++	//50원짜리 동전수를 증가</span><br><span class="line">while(change&gt;=10)  change=change-10, n10++	//10원짜리 동전수를 증가</span><br><span class="line">while(change&gt;=1)   change=change-1, n1++	//1원짜리 동전수를 증가</span><br><span class="line">return (n500+n100+n50+n10+n1)			//총 동전수를 반환</span><br></pre></td></tr></table></figure>
 <hr>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
-<li>“[알고리즘] 퀵 정렬(quick sort)이란”, Heee’s Development Blog, 2019. 1. 17, <a href="https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html" rel="external nofollow noopener noreferrer" target="_blank">https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html</a></li>
 </ul>
 
 

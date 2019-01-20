@@ -9,15 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Description-->
-    <link rel="canonical" href="http://dudri63.github.io/2019/01/16/algo4/">
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/21/algo9/">
 
     
 
-    
-        <meta name="description" content="1. 분할 정복 알고리즘이란?2. 분할 정복 알고리즘의 분류
-
-1. 분할 정복 알고리즘이란?
-‘분할 정복(Divide-and-Conquer) 알고리즘’이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.분할된 입력에 대하여 동일한 알고리즘을 ">
     
 
     <!--Author-->
@@ -27,15 +22,10 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="[Algorithm] 분할 정복 알고리즘">
+        <meta property="og:title" content="Seo&#39;s Blog">
     
 
     <!--Open Graph Description-->
-    
-        <meta property="og:description" content="1. 분할 정복 알고리즘이란?2. 분할 정복 알고리즘의 분류
-
-1. 분할 정복 알고리즘이란?
-‘분할 정복(Divide-and-Conquer) 알고리즘’이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.분할된 입력에 대하여 동일한 알고리즘을 ">
     
 
     <!--Open Graph Site Name-->
@@ -43,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article">
+        <meta property="og:type" content="website">
     
 
     <!--Page Cover-->
@@ -62,7 +52,7 @@
 
     <!-- Title -->
     
-    <title>[Algorithm] 분할 정복 알고리즘 - Seo&#39;s Blog</title>
+    <title>Seo&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -172,17 +162,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>[Algorithm] 분할 정복 알고리즘</h1>
-                    
-                    <h2 class="post-subheading">
-                        1. 분할 정복(Divide-and-Conquer) 알고리즘이란 / 2. 분할 정복 알고리즘의 분류
-                    </h2>
+                    <h1>Untitled</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2019-01-16
+                            2019-01-21
                         
                     </span>
                 </div>
@@ -198,53 +184,13 @@
 
             <!-- Tags and categories -->
            
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/분할-정복/">#분할 정복</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/Algorithm/">Algorithm</a>
-
-                    
-                </div>
-            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#1">1. 분할 정복 알고리즘이란?</a><br><a href="#2">2. 분할 정복 알고리즘의 분류</a></p>
-<hr>
-<p><a name="1">1. 분할 정복 알고리즘이란?</a></p>
-<p><strong>‘분할 정복(Divide-and-Conquer) 알고리즘’</strong>이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.<br>분할된 입력에 대하여 동일한 알고리즘을 적용 및 계산하고 결과들을 취합하여 원래 문제의 결과를 얻는다.<br>분할된 입력에 대한 문제를 부분문제(subproblem)라고 하고, 부분문제의 해를 부분해라고 한다. 부분문제는 더이상 분할할 수 없을 때까지 계속 분할한다.</p>
-<p><div align="center"><br><img src="/image/algo4-1.jpeg" width="400" height="500"><br></div><br>위 이미지는 분할 정복의 예이다.</p>
-<p>그렇다면 입력 크기가 n일 때 총 몇 번 분할하여야 더 이상 분할할 수 없는 크기인 1이 될까?</p>
-<p>답을 계산하기 위해 분할한 총 횟수를 k라고 하고, 1번 분할할 때마다 각각의 입력 크기가 절반씩 줄어든다고 가정한다. 이 때, k번 분할하였으면, 입력의 크기는 n/2<sup>k</sup>이고, 입력 크기가 n/2<sup>k</sup>=1일 때 더 이상 분할할 수 없으므로, k = log<sub>2</sub>n이다.</p>
-<hr>
-<p><a name="2">2. 분할 정복 알고리즘의 분류</a></p>
-<p>분할 정복 알고리즘은 분할되는 부분문제의 수와 부분문제의 크기에 따라서 다음과 같이 분류할 수 있다.</p>
-<ul>
-<li>입력이 2개의 부분문제로 분할, 부분문제의 크기가 1/2로 감소하는 알고리즘<br>-&gt; 합병 정렬(Merge Sort)</li>
-<li>입력이 2개로 분할되고, 부분문제의 크기가 일정하지 않은 크기로 감소하는 알고리즘<br>-&gt; 퀵 정렬(Quick Sort)</li>
-<li>입력이 2개로 분할되나, 그 중에 1개의 부분문제는 고려할 필요가 없는 알고리즘<br>-&gt; 이진 탐색(Binary Search)</li>
-<li>입력이 2개로 분할되나, 그 중에 1개의 부분문제는 고려할 필요가 없고, 부분문제의 크기가 일정하지 않은 크기로 감소하는 알고리즘<br>-&gt; 선택 문제(Selection)</li>
-</ul>
-<hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
-<li>“Divide-and-conquer algorithm”, Wikipedia, 2019. 1. 16, <a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" rel="external nofollow noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm</a></li>
-</ul>
-
+                
 
                 
             </div>

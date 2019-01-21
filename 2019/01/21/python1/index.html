@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/21/python1/">
+
+    
+
+    
+        <meta name="description" content="1. Execution2. 수와 계산3. 문자 및 문자열
+
+1. Execution
+1.1 대화형 모드로 실행
+
+터미널에서 python3를 입력한다.
+1.2 파일 모드로 실행
+대화형 모드로 간단하게 코드를 작성하기는 편리하지만, 크고 많은 양의 코드를 작성하는 것은 어려">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Python] 실행, 수와 계산, 문자 및 문자열">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. Execution2. 수와 계산3. 문자 및 문자열
+
+1. Execution
+1.1 대화형 모드로 실행
+
+터미널에서 python3를 입력한다.
+1.2 파일 모드로 실행
+대화형 모드로 간단하게 코드를 작성하기는 편리하지만, 크고 많은 양의 코드를 작성하는 것은 어려">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Python] 실행, 수와 계산, 문자 및 문자열 - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Python] 실행, 수와 계산, 문자 및 문자열</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-21
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Python/">#Python</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. Execution</a><br><a href="#2">2. 수와 계산</a><br><a href="#3">3. 문자 및 문자열</a></p>
+<hr>
+<p><a name="1">1. Execution</a></p>
+<p>1.1 대화형 모드로 실행</p>
+<p><img src="/image/py1-1.png"></p>
+<p>터미널에서 python3를 입력한다.</p>
+<p>1.2 파일 모드로 실행</p>
+<p>대화형 모드로 간단하게 코드를 작성하기는 편리하지만, 크고 많은 양의 코드를 작성하는 것은 어려움. 따라서 파일을 사용하여 실행한다.<br>windows의 경우, 메모장, linux의 경우 gedit을 사용할 수 있다.</p>
+<p><img src="/image/py1-2.png"></p>
+<p><img src="/image/py1-3.png"><br><img src="/image/py1-4.png"></p>
+<p>gedit을 연 뒤, 코드 작성, 확장자를 *.py로 하여 저장한다.<br>이 후, $ python3 명령어 뒤에 경로 및 파일이름, 확장자를 실행한다.</p>
+<hr>
+<p><a name="2">2. 수와 계산</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(10 + 5)</span><br><span class="line">print(10 - 5)</span><br><span class="line">print(10 * 5)</span><br><span class="line">print(10 / 5)</span><br></pre></td></tr></table></figure>
+<p><img src="/image/py1-5.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">print(math.ceil(2.2))	// ceil : 소수점 이하를 올림</span><br><span class="line">print(math.floor(2.7))  // floor : 소수점 이하를 버림</span><br><span class="line">print(math.pow(2,10)) 	// 2^10, pow  : 제곱</span><br><span class="line">print(math.pi)		// pi : 3.14</span><br></pre></td></tr></table></figure>
+<p>math 모듈을 가져오고, 해당 모듈을 이용하여 위와 같은 연산을 실시할 수 있다.</p>
+<p><img src="/image/py1-6.png"></p>
+<hr>
+<p><a name="3">3. 문자 및 문자열</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;Hello&apos;)</span><br><span class="line">print(&quot;Hello&quot;)</span><br><span class="line">print(&quot;Hello &apos;world&apos;&quot;)</span><br><span class="line">print(&apos;Hello &quot;world&quot;&apos;)</span><br></pre></td></tr></table></figure>
+<p><img src="/image/py1-7.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;Hello &apos;+&apos;world&apos;)   // 두 문자열을 합친 결과를 출력</span><br><span class="line">print(&apos;Hello &apos;*3)	  // 해당 문자열을 3회 출력</span><br><span class="line">print(&apos;Hello&apos;[0])	  // 해당 문자열(배열)의 특정 원소를 출력</span><br><span class="line">print(&apos;Hello&apos;[1])</span><br><span class="line">print(&apos;Hello&apos;[2])</span><br></pre></td></tr></table></figure>
+<p><img src="/image/py1-8.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;hello world&apos;.capitalize())	// 문자열의 첫 글자를 대문자로 변경</span><br><span class="line">print(&apos;hello world&apos;.upper())		// 문자열이 모든 문자를 대문자로 변경</span><br><span class="line">print(&apos;hello world&apos;.__len__())		// 문자열의 길이를 출력</span><br><span class="line">print(len(&apos;hello world&apos;))</span><br><span class="line">print(&apos;Hello world&apos;.replace(&apos;world&apos;, &apos;programming&apos;)) //특정 문자열을 다른 문자열로 변경</span><br></pre></td></tr></table></figure>
+<p><img src="/image/py1-9.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;egoing&apos;s \&quot;tutorial\&quot;&quot;)	// &quot;를 문자로서 출력하기 위해 \(escape)를 사용</span><br><span class="line">print(&quot;\\&quot;)			// 첫번째 \은 뒤의 \의 임무(escape)를 해제</span><br><span class="line">print(&quot;Hello\nworld&quot;)		// \: 줄바꿈</span><br><span class="line">print(&quot;Hello\t\tworld&quot;) 	// \t: 탭</span><br><span class="line">print(&quot;\a&quot;)			// \a: 경고음을 출력</span><br><span class="line">print(&apos;Hello\nworld&apos;)</span><br></pre></td></tr></table></figure>
+<p><img src="/image/py1-10.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(10+5)	// 수의 합을 출력</span><br><span class="line">print(&quot;10&quot;+&quot;5&quot;) // 문자열의 합을 출력</span><br></pre></td></tr></table></figure>
+<p><img src="/image/py1-11.png"></p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“Python &amp; Ruby”, 생활코딩, 2019. 1. 21, <a href="https://opentutorials.org/course/1750/9612" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/1750/9612</a>, <a href="https://opentutorials.org/course/1750/9614" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/1750/9614</a>, <a href="https://opentutorials.org/course/1750/9615" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/1750/9615</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

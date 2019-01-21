@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/21/git11/">
+
+    
+
+    
+        <meta name="description" content="1. GitHub란2. GitHub 둘러보기3. GitHub 프로젝트 가져오기
+
+1. GitHub란
+‘깃허브(GitHub)’는 분산 버전 관리 툴인 깃을 사용하는 프로젝트를 지원하는 웹호스팅 서비스이다. 다른 말로, 자신의 서버를 직접 운영하지 않고도, 온라인 서비스를">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Git] GitHub (1)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. GitHub란2. GitHub 둘러보기3. GitHub 프로젝트 가져오기
+
+1. GitHub란
+‘깃허브(GitHub)’는 분산 버전 관리 툴인 깃을 사용하는 프로젝트를 지원하는 웹호스팅 서비스이다. 다른 말로, 자신의 서버를 직접 운영하지 않고도, 온라인 서비스를">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Git] GitHub (1) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Git] GitHub (1)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. GitHub란 / 2. GitHub 둘러보기 / 3. GitHub 프로젝트 가져오기
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-21
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Git/">#Git</a> <a href="/tags/원격-저장소/">#원격 저장소</a> <a href="/tags/Github/">#Github</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Git/">Git</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. GitHub란</a><br><a href="#2">2. GitHub 둘러보기</a><br><a href="#3">3. GitHub 프로젝트 가져오기</a></p>
+<hr>
+<p><a name="1">1. GitHub란</a></p>
+<p><strong>‘깃허브(GitHub)’</strong>는 분산 버전 관리 툴인 <strong>깃</strong>을 사용하는 프로젝트를 지원하는 웹호스팅 서비스이다. 다른 말로, 자신의 서버를 직접 운영하지 않고도, 온라인 서비스를 이용하여 원격 저장소를 사용할 수 있게 해주는 웹 서비스이다.</p>
+<hr>
+<p><a name="2">2. GitHub 둘러보기(‘git’ project)</a></p>
+<div align="center"><br><img src="/image/git11-1.png"><br></div>
+
+<p>GitHub 홈페이지에서 git을 검색하여 git/git 항목으로 접속한다.<br>위와 같이 git이라는 오픈 소스 프로젝트의 원격 저장소를 볼 수 있다.<br>상위 리스트들의 수치가 의미하는 바는 다음과 같다.</p>
+<ul>
+<li>54,244 commits : 총 54,244번의 commit으로 현재까지 옴 (매우 큰 프로젝트)</li>
+<li>5 branches : 5개의 branch가 있음</li>
+<li>1240 contributors : 소스 코드에 접근하여 수정할 수 있는 인원</li>
+<li>Fork 14,817 : 다른 사람들에 의해 fork한 횟수</li>
+</ul>
+<p>cf. fork 버튼을 누르면 이 프로젝트 나의 것이 된다. contributor에 속하지 않아도 코드를 수정할 수 있다. 그러나 해당 프로젝트의 소스 코드를 수정하는 것이 아니라, 나의 저장소로 복제된 코드를 수정하는 것이다. fork 숫자가 높을수록 높은 영향력을 지닌 개발자의 코드이다.</p>
+<hr>
+<p><a name="3">3. Github 프로젝트 가져오기</a></p>
+<p>위 페이지에서 ‘Clone or download’라고 쓰인 초록색 버튼을 클릭하면, 주소가 나오는데 이를 복사한다.<br>이 후, 터미널에서 적당한 디렉토리로 이동한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &apos;주소&apos; &apos;디렉토리 이름&apos;</span><br></pre></td></tr></table></figure></p>
+<p>위와 같은 명령어를 실행하면 해당 디렉토리 이름으로 저장소를 만들고 그 곳의 주소가 가리키는 것들을 복사하여 저장한다.</p>
+<div align="center"><br><img src="/image/git11-2.png"><br><br><img src="/image/git11-3.png"><br><br><img src="/image/git11-4.png"><br><br><img src="/image/git11-5.png"><br></div>
+
+<p>gitsrc라는 저장소 생성 및 해당 저장소에 git 프로젝트를 복사하였다.<br>$git log 명령어를 실행하여 git 프로젝트의 commit history를 파악할 수 있다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --reverse	// commit을 과거순으로 확인 가능</span><br></pre></td></tr></table></figure>
+<p><div align="center"><br><img src="/image/git11-6.png"><br></div><br>$ git log –reverse 명령어를 실행하여 가장 상위에 있는 commit(최초의 commit) ID를 복사한다.</p>
+<p><div align="center"><br><img src="/image/git11-7.png"></div></p>
+<p><img src="/image/git11-8.png"><br><br>최초의 commit으로 checkout한 뒤, $ls -al 명령어를 실행하여 git 프로젝트의 최초 코드를 확인할 수 있다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“지옥에서 온 Git”, 생활코딩, 2019. 1. 21, <a href="https://opentutorials.org/course/2708/15426" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/2708/15426</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

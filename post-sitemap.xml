@@ -8,72 +8,8 @@
     </url>
 
     <url>
-        <loc>http://dudri63.github.io/2019/01/21/algo12/</loc>
-        <lastmod>2019-01-20T21:05:33.738Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/21/algo11/</loc>
-        <lastmod>2019-01-20T20:52:06.850Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/21/algo10/</loc>
-        <lastmod>2019-01-20T19:58:24.252Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/21/algo9/</loc>
-        <lastmod>2019-01-20T19:52:33.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/19/algo8/</loc>
-        <lastmod>2019-01-20T19:52:01.550Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/18/algo7/</loc>
-        <lastmod>2019-01-20T19:51:55.046Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/17/algo6/</loc>
-        <lastmod>2019-01-20T19:51:47.618Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/17/algo5/</loc>
-        <lastmod>2019-01-20T19:51:31.442Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/16/algo4/</loc>
-        <lastmod>2019-01-20T19:51:21.362Z</lastmod>
+        <loc>http://dudri63.github.io/2019/01/21/git12/</loc>
+        <lastmod>2019-01-21T03:23:44.085Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -81,7 +17,119 @@
 
     <url>
         <loc>http://dudri63.github.io/2019/01/21/git10/</loc>
-        <lastmod>2019-01-20T16:17:55.045Z</lastmod>
+        <lastmod>2019-01-21T03:12:49.676Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/21/git11/</loc>
+        <lastmod>2019-01-21T03:12:18.688Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/21/algo13/</loc>
+        <lastmod>2019-01-21T01:48:52.603Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/21/algo12/</loc>
+        <lastmod>2019-01-21T01:25:54.953Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/21/algo11/</loc>
+        <lastmod>2019-01-20T21:16:49.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/21/algo10/</loc>
+        <lastmod>2019-01-20T21:16:36.139Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/21/algo9/</loc>
+        <lastmod>2019-01-20T21:16:28.523Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/19/algo8/</loc>
+        <lastmod>2019-01-20T21:16:19.127Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/18/algo7/</loc>
+        <lastmod>2019-01-20T21:16:10.574Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/17/algo6/</loc>
+        <lastmod>2019-01-20T21:16:03.398Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/17/algo5/</loc>
+        <lastmod>2019-01-20T21:15:55.269Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/16/algo4/</loc>
+        <lastmod>2019-01-20T21:15:45.685Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/16/algo3/</loc>
+        <lastmod>2019-01-20T21:15:34.620Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/16/algo2/</loc>
+        <lastmod>2019-01-20T21:15:26.643Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/01/15/algo1/</loc>
+        <lastmod>2019-01-20T21:15:18.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -146,30 +194,6 @@
     <url>
         <loc>http://dudri63.github.io/2019/01/19/git1/</loc>
         <lastmod>2019-01-19T17:14:01.502Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/16/algo3/</loc>
-        <lastmod>2019-01-19T16:58:58.712Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/16/algo2/</loc>
-        <lastmod>2019-01-19T16:58:05.228Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/01/15/algo1/</loc>
-        <lastmod>2019-01-19T16:57:17.264Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

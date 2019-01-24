@@ -14,10 +14,10 @@
     
 
     
-        <meta name="description" content="1.
+        <meta name="description" content="1. 최단 경로 찾기1. 다익스트라 알고리즘1. 시간 복잡도1. 응용
 
 1. 최단 경로 찾기
-최단 경로(Shortest Path) 문제는 주어진 가중치 그래프에서 어느 한 출발점에서 또 다른 도착점까지의 최단 경로를 찾는 문제이다. 최단 경로를 찾는 가장 대표적인 그리디 알고리즘은 다익스트라(Dijkstra) 최단 경로 알고리즘이다">
+최단 경로(Shortest Path) 문제는 주어진 가중치 그래프에서 어느 한 출발점에서 또 다른 도착점까지의 최단 경로를 찾는 문제이다. 최단 경로를 찾는 가장 대표적인 그리">
     
 
     <!--Author-->
@@ -32,10 +32,10 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1.
+        <meta property="og:description" content="1. 최단 경로 찾기1. 다익스트라 알고리즘1. 시간 복잡도1. 응용
 
 1. 최단 경로 찾기
-최단 경로(Shortest Path) 문제는 주어진 가중치 그래프에서 어느 한 출발점에서 또 다른 도착점까지의 최단 경로를 찾는 문제이다. 최단 경로를 찾는 가장 대표적인 그리디 알고리즘은 다익스트라(Dijkstra) 최단 경로 알고리즘이다">
+최단 경로(Shortest Path) 문제는 주어진 가중치 그래프에서 어느 한 출발점에서 또 다른 도착점까지의 최단 경로를 찾는 문제이다. 최단 경로를 찾는 가장 대표적인 그리">
     
 
     <!--Open Graph Site Name-->
@@ -174,6 +174,10 @@
                 <div class="post-heading">
                     <h1>[Algorithm] 최단 경로 찾기 (그리디)</h1>
                     
+                    <h2 class="post-subheading">
+                        1. 최단 경로 찾기 / 2. 다익스트라(Dijkstra) 알고리즘 / 3. 시간 복잡도 / 4. 응용
+                    </h2>
+                    
                     <span class="meta">
                         <!-- Date and Author -->
                         
@@ -219,7 +223,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#1">1.</a></p>
+                <p><a href="#1">1. 최단 경로 찾기</a><br><a href="#1">1. 다익스트라 알고리즘</a><br><a href="#1">1. 시간 복잡도</a><br><a href="#1">1. 응용</a></p>
 <hr>
 <p><a name="1">1. 최단 경로 찾기</a></p>
 <p><strong>최단 경로(Shortest Path)</strong> 문제는 주어진 가중치 그래프에서 어느 한 출발점에서 또 다른 도착점까지의 최단 경로를 찾는 문제이다. 최단 경로를 찾는 가장 대표적인 그리디 알고리즘은 <strong>다익스트라(Dijkstra)</strong> 최단 경로 알고리즘이다.</p>
@@ -230,9 +234,21 @@
 </ol>
 <hr>
 <p><a name="2">2. 다익스트라 알고리즘</a></p>
-<p>다음은 다익스트라 최단 경로 알고리즘이다. 단, 입력 그래프는 양수의 가중치 그래프로서 하나의 연결요소로 되어 있다. 또한, s는 출발점이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ShortestPath(G, s)</span><br><span class="line">입력: 가중치 그래프 G=(V,E), |V|=n(점의 수), |E|=m(선분의 수)</span><br><span class="line">출력: 출발점 s로부터 (n-1)개의 점까지 각각 최단 거리르 저장한 배열 D</span><br></pre></td></tr></table></figure></p>
+<p>다음은 다익스트라 최단 경로 알고리즘이다. 단, 입력 그래프는 양수의 가중치 그래프로서 하나의 연결요소로 되어 있다. 또한, s는 출발점이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ShortestPath(G, s)</span><br><span class="line">입력: 가중치 그래프 G=(V,E), |V|=n(점의 수), |E|=m(선분의 수)</span><br><span class="line">출력: 출발점 s로부터 (n-1)개의 점까지 각각 최단 거리르 저장한 배열 D</span><br><span class="line">배열 D를 ∞로 초기화한다. 단, D[s]=0으로 초기화한다. // 배열 D[v]에는 출발점 s로부터 점 v까지의 거리로 저장된다.</span><br><span class="line">while (s로부터의 최단 거리가 확정되지 않은 점이 있으면)&#123;</span><br><span class="line">  현재까지 s로부터 최단 거리가 확정되지 않은 각 점 v에 대해 최소의 D[v]의 값을 가진 점 vmin을 선택, 출발점 s로부터 vmin까지의 최단 거리 D[vmin]을 확정시킨다.</span><br><span class="line">  s로부터 현재보다 짧은 거리로 점 vmin을 통해 우회 가능한 각 점 w에 대해서 D[w]를 갱신한다.&#125;</span><br><span class="line">return D</span><br></pre></td></tr></table></figure></p>
+<div align="center"><br><img src="/image/algo13-1.png" width="300" height="auto"><br><img src="/image/algo13-2.png" width="300" height="auto"><br><img src="/image/algo13-3.png" width="300" height="auto"><br><img src="/image/algo13-4.png" width="300" height="auto"><br><img src="/image/algo13-5.png" width="300" height="auto"><br><img src="/image/algo13-6.png" width="300" height="auto"><br><img src="/image/algo13-7.png" width="300" height="auto"><br><img src="/image/algo13-8.png" width="300" height="auto"><br><img src="/image/algo13-9.png" width="300" height="auto"><br><img src="/image/algo13-10.png" width="300" height="auto"><br><img src="/image/algo13-11.png" width="300" height="auto"><br><img src="/image/algo13-12.png" width="300" height="auto"><br><img src="/image/algo13-13.png" width="300" height="auto"><br><img src="/image/algo13-14.png" width="300" height="auto"><br><img src="/image/algo13-15.png" width="300" height="auto"><br><img src="/image/algo13-16.png" width="300" height="auto"><br><img src="/image/algo13-17.png" width="300" height="auto"><br><img src="/image/algo13-18.png" width="300" height="auto"><br></div>
+
+<p>위와 같이 서울에서부터 각 지역까지 최단 거리를 알 수 있다.</p>
 <hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>ShortestPath 알고리즘은 while-루프가 (n-1)번 반복되고, 1회 반복될 때 line 6에서 최소의 D[v]를 가진 점 vmin을 찾는 데 O(n) 시간이 걸린다.(입력만큼 비교)<br>또한 line 7에서 vmin에 연결된 점의 수가 최대 (n-1)개이므로, 각 D[w]를 갱신하는 데 걸리는 시간은 O(n이다.)<br>따라서 시간복잡도는 (n-1)X{O(n)+O(n)}=O(n<sup>2</sup>)이다.</p>
+<hr>
+<p><a name="4">4. 응용</a></p>
+<p>최단 경로 알고리즘은 구글 웹사이트의 지도 서비스에서 사용된다.<br>또한, 자동차 네비게이션, 네트워크 및 통신 분야, 로봇 공학 등에 널리 활용된다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“4장그리디알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 21, <a href="https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=</a></li>
+</ul>
 
 
                 

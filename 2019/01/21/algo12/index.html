@@ -226,7 +226,7 @@
                 <p><a href="#1">1. 최소 신장 트리란</a><br><a href="#2">2. 크러스컬 알고리즘</a><br><a href="#3">3. 크러스컬 알고리즘의 시간복잡도</a><br><a href="#4">4. 프림 알고리즘</a><br><a href="#5">5. 프림 알고리즘의 시간복잡도</a><br><a href="#6">6. 응용</a></p>
 <hr>
 <p><a name="1">1. 최소 신장 트리란</a></p>
-<p><strong>최소 신장 트리(Minimum Spanning Tree)</strong>란 주어진 가중치 그래프에서 사이클 없이 모든 점들을 연결시키 트리들 중 선분들의 가중치 합이 최소인 트리이다.</p>
+<p><strong>최소 신장 트리(Minimum Spanning Tree)</strong>란 주어진 가중치 그래프에서 사이클 없이 모든 점들을 연결시킨 트리들 중 선분들의 가중치 합이 최소인 트리이다.</p>
 <div align="center"><br><img src="/image/algo12-1.png" width="700" height="500"><br></div>
 
 <p>위 경우에서 (a)를 주어진 가중치 그래프라고 가정한다.<br>(점들끼리 연결된 선분들마다 가중치(숫자)가 다른 그래프이다.)</p>
@@ -236,14 +236,16 @@
 <li>(d) 부분그래프 : 주어진 가중치 그래프에서 사이클 없이 모든 점을 연결시키지 못함.</li>
 </ul>
 <p>그래프의 점의 수가 n이면, 신장 트리에는 정확히 (n-1)개의 선분이 있다. 만일 (n-1)개의 선분보다 많다면, 반드시 사이클이 만들어져 신장 트리가 아니게 된다.</p>
-<p>최소 신장 트리를 찾는 대표적인 그리디 알고리즘은 <strong>크러스컬(Kruskal)</strong>과 <strong>프림(prim)</strong> 알고리즘이 있다. </p>
+<p>최소 신장 트리를 찾는 대표적인 그리디 알고리즘은 <strong>크러스컬(Kruskal)</strong>과 <strong>프림(prim)</strong> 알고리즘이다. </p>
 <hr>
 <p><a name="2">2. 크러스컬 알고리즘</a></p>
 <p>다음은 크러스컬 알고리즘이다.<br>크러스컬 알고리즘은 가중치가 가장 적은 선분이 사이클을 만들지 않을 때에만 ‘욕심 내어’ 그 선분을 추가시킨다.<br>단, 알고리즘의 입력은 1개의 연결요소로 된 가중치 그래프이다.(<a href="#cf">cf. 연결요소</a>)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">KruskalMST(G)</span><br><span class="line">입력: 가중치 그래프 G=(V,E), |V|=n (점의 수), |E|=m (선분의 수)</span><br><span class="line">출력: 최소 신장 트리 T</span><br><span class="line">가중치의 오름차순으로 선분들을 정렬한다. 정렬된 선분 리스트를 L이라고 하자.</span><br><span class="line">T=∅ 		// 트리 T를 초기화시킨다.</span><br><span class="line">while (T의 선분 수 &lt; n-1) &#123;</span><br><span class="line">  L에서 가장 작은 가중치를 가진 선분 e를 가져오고, e를 L에서 제거한다.</span><br><span class="line">  if (선분 e가 T에 추가되어 사이클을 만들지 않으면)</span><br><span class="line">    e를 T에 추가시킨다.</span><br><span class="line">  else		// e가 T에 추라되어 사이클이 만들어지는 경우</span><br><span class="line">    e를 버린다.</span><br><span class="line">&#125;</span><br><span class="line">return 트리 T	// 이 때, T는 최소 신장 트리이다.</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/algo12-10.png" width="500" height="auto"><br><img src="/image/algo12-11.png" width="400" height="auto"><br><img src="/image/algo12-12.png" width="400" height="auto"><br><img src="/image/algo12-13.png" width="400" height="auto"><br><img src="/image/algo12-14.png" width="400" height="auto"><br><img src="/image/algo12-15.png" width="400" height="auto"><br><img src="/image/algo12-16.png" width="400" height="auto"><br><img src="/image/algo12-17.png" width="400" height="auto"><br></div>
+
 <hr>
 <p><a name="3">3. 크러스컬 알고리즘의 시간복잡도</a></p>
-<p>Line 4에서 선분들을 가중치를 기준으로 정렬하는데 O(mlogm)의 시간이 걸린다.<br>(이 때, m은 입력 그래프에 있는 선분의 수이다.)<br>Line 5에서는 T를 초기화하므로 O(1) 시간이 걸린다.<br>Line 6~11에서는 그래프의 선분을 검사하는데, 이 때, 선분의 수만큼 m번 수행된다.<br>또한, while-루프 내에서는 L로부터 가져온 e가 사이클을 만드는지를 검사하는데, O(log*m) 시간이 걸린다.<br>따라서 크러스컬 알고리즘의 시간복잡도는 O(mlogm)+O(mlog*m) = O(mlogm)이다.</p>
+<p>Line 4에서 선분들을 가중치를 기준으로 정렬하는데 O(mlogm)의 시간이 걸린다.<br>(이 때, m은 입력 그래프에 있는 선분의 수이다.)<br>Line 5에서는 T를 초기화하므로 O(1) 시간이 걸린다.<br>Line 6~11에서는 그래프의 선분을 검사하는데, 이 때, 선분의 수만큼 m번 수행된다.(최악의 경우)<br>또한, while-루프 내에서는 L로부터 가져온 e가 사이클을 만드는지를 검사하는데, O(log*m) 시간이 걸린다.<br>따라서 크러스컬 알고리즘의 시간복잡도는 O(mlogm)+O(mlog*m) = O(mlogm)이다.</p>
 <hr>
 <p><a name="4">4. 프림 알고리즘</a></p>
 <p>다음은 프림 알고리즘이다.<br>프림 알고리즘은 주어진 가중치 그래프에서 임의의 점 하나를 선택한 후, (n-1)개의 선분을 하나씩 추가시켜 트리를 만든다. 현재까지 만들어진 트리에 새로운 선분을 추가하면서 연결시킬 때 ‘욕심 내어서’ 항상 최소의 가중치로 연결되는 선분을 추가시킨다.<br>단, 알고리즘의 입력은 1개의 연결요소로 된 가중치 그래프이다.</p>
@@ -267,14 +269,14 @@
 <p>프림 알고리즘은 항상 T 밖에 있는 점을 추가하므로 사이클을 만들지 않는다.</p>
 <hr>
 <p><a name="5">5. 프림 알고리즘의 시간 복잡도</a></p>
-<p>프림 알고리즘은 while-루프가 (n-1)버 반복, 1회 반복될 때 line 9에서 T에 속하지 않은 각 점 v에 대해 vmin을 찾는 데 O(n) 시간이 걸린다. 따라서 프림 알고리즘의 시간복잡도는 (n-1)XO(n) = O(n<sup>2</sup>)이다.</p>
+<p>프림 알고리즘은 while-루프가 (n-1)번 반복, 1회 반복될 때 line 9에서 T에 속하지 않은 각 점 v에 대해 vmin을 찾는 데 O(n) 시간이 걸린다. 따라서 프림 알고리즘의 시간복잡도는 (n-1)XO(n) = O(n<sup>2</sup>)이다.</p>
 <hr>
 <p><a name="6">6. 응용 </a></p>
 <p>최소 신장 트리 알고리즘은 최소 비용으로 선로 또는 파이프 네트워크를 설치하는 데 활용되며, 여행자 문제를 근사적으로 해결하는 데 이용된다.</p>
 <hr>
 <p><a name="cf">cf. 연결요소</a></p>
-<p><img src="/image/algo12-2.png" width="400" height="auto"><br>1개의 연결요소로 된 그래프</p>
-<p><img src="/image/algo12-3.jpeg" width="500" height="auto"><br>2개의 연결요소로 된 그래프</p>
+<p><img src="/image/algo12-2.png" width="300" height="auto"><br>1개의 연결요소로 된 그래프</p>
+<p><img src="/image/algo12-3.jpeg" width="400" height="auto"><br>2개의 연결요소로 된 그래프</p>
 <hr>
 <hr>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>

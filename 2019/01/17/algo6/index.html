@@ -234,21 +234,24 @@
 <hr>
 <p><a name="2">2. 퀵 정렬 알고리즘</a></p>
 <p>다음은 퀵 정렬 알고리즘이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">QuickSort(A, left, right)</span><br><span class="line">입력: 배열 A[left]~A[right]</span><br><span class="line">출력: 정렬된 배열 A[left]~A[right]</span><br><span class="line">if(left&lt;right)&#123;			// 원소가 1개일 경우에는 정렬하지 않는다.</span><br><span class="line">  피봇을 A[left]~A[right] 중에서 선택,</span><br><span class="line">  피봇을 A[left]와 자리를 바꾼 후, 피봇과 배열의 각 원소를 비교,</span><br><span class="line">  피봇보다 작은 숫자들은 A[left]~A[p-1]로 옮기고,</span><br><span class="line">  피봇보다 큰 숫자들은 A[p+1]~A[right]로 옮긴다.</span><br><span class="line">  피봇은 A[p]에 놓는다.</span><br><span class="line">  QuickSort(A, left, p-1)	// 피봇보다 작은 그룹</span><br><span class="line">  QuickSort(A, p+1, right)	// 피봇보다 큰 그룹</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>위 이미지를 이 알고리즘에 적용하여 살펴본다.<br>초기상태의 배열에서 left는 0, right 8이다.<br>피봇(A[pivot])을 A[0]인 1으로 선택한다.<br>피봇 A[pivot]를 A[left]과 자리를 바꾼다.(이 경우, 피봇과 A[left]가 일치)<br>피봇과 배열의 각 원소들과 비교를 실시하여 자리를 옮긴 뒤 피봇의 위치를 A[p]로 옮긴다.<br>이 과정은 아래 그림에 잘 나와 있다.</p>
-<div align="center"><br><img src="/image/algo6-4.png" width="500" height="auto"><br></div>
+<p>위 이미지를 이 알고리즘에 적용하여 살펴본다.<br>초기상태의 배열에서 left는 0, right은 8이다.<br>피봇(A[pivot])을 A[0]인 1으로 선택한다.<br>피봇 A[pivot]를 A[left]과 자리를 바꾼다.(이 경우, 피봇과 A[left]가 일치)<br>피봇과 배열의 각 원소들과 비교를 실시하여 자리를 옮긴 뒤 피봇의 위치를 A[p]로 옮긴다.<br>이 과정은 아래 그림에 잘 나와 있다.</p>
+<div align="center"><br><img src="/image/algo6-4.png" width="400" height="auto"><br></div>
 
-<p>A[left+1], A[right]에서 출발하여 각각 오른쪽, 왼쪽으로 이동하면서, 비교를 진행한다.<br>왼쪽에서 출발하는 인덱스는 가리키는 숫자가 피봇보다 작을 경우 정지,<br>오른쪽에서 출발하는 인덱스는 가리키는 숫자가 피봇보다 클 경우 정지한다.<br>양 쪽의 인덱스가 모두 정지하면 교환한다.<br>이 작업 계속 실시하다가 두 인덱스가 엇갈려서 지난 경우, stop한다.<br>이 후, 피봇의 위치를 가운데로 옮긴다.</p>
-<p>위 작업을 실시한 후, 왼쪽 부분 리스트와 오른쪽 부분 리스트에 대하여 위 작업을 반복한다.</p>
+<p>2개의 인덱스가 A[left+1], A[right]에서 출발하여 각각 오른쪽, 왼쪽으로 이동하면서, 비교를 진행한다.<br>왼쪽에서 출발하는 인덱스는 가리키는 숫자가 피봇보다 작을 경우 정지,<br>오른쪽에서 출발하는 인덱스는 가리키는 숫자가 피봇보다 클 경우 정지한다.<br>양 쪽의 인덱스가 모두 정지하면 교환한다.<br>교환한 후 인덱스는 다시 각각 오른쪽 왼쪽으로 이동하면서, 위 작업을 반복한다.<br>작업을 계속 실시하다가 두 인덱스가 엇갈려서 지난 경우, stop한다.<br>이 후, 피봇의 위치를 가운데로 옮긴다.</p>
+<p>위 작업을 실시하면 피봇을 기준으로 왼쪽 부분 리스트와 오른쪽 부분 리스트가 생긴다.<br>각 리스트들에 대해서도, 이 작업을 반복, 배열의 원소가 1개만 남을 때까지 반복한다.</p>
+<div align="center"><br><img src="/image/algo6-7.png" width="400" height="auto"><br></div>
+
 <hr>
 <p><a name="3">3. 시간 복잡도</a></p>
-<p>퀵 정렬의 성능은 기본적으로 <strong>피봇 선택</strong>이 결정한다.<br>항상 1/2씩 분할한다면 최선의 경우가 되지만(O(nlogn)),<br>피봇으로 가장 작은 숫자 또는 가장 큰 숫자가 선택되면, 최악의 경우가 된다.(O(n<sup>2</sup>))</p>
+<p>퀵 정렬의 성능은 기본적으로 <strong>피봇 선택</strong>이 결정한다.<br>항상 1/2씩 분할한다면 최선의 경우가 되지만(O(nlogn))(합병 정렬과 일치),<br>피봇으로 가장 작은 숫자 또는 가장 큰 숫자가 선택되면, 최악의 경우가 된다.(O(n<sup>2</sup>))</p>
 <ul>
-<li>최선의 경우<div align="center"><br><img src="/image/algo6-5.png"><br></div></li>
-<li>최악의 경우<div align="center"><br><img src="/image/algo6-6.png"><br></div>
-
-
+<li><p>최선의 경우</p>
+<div align="center"><br><img src="/image/algo6-5.png"><br></div>
+</li>
+<li><p>최악의 경우<br><img src="/image/algo6-6.png" width="380" height="auto"></p>
 </li>
 </ul>
+<p>그럼에도 불구하고 퀵 정렬은 합병정렬보다 빠를뿐 아니라 정렬 알고리즘 중에서 평균적으로 가장 빠르다.<br>퀵 정렬을 불필요한 데이터 이동을 줄이고, 먼 거리의 데이터를 교환, 한 번 결정된 피봇들이 추후 연산에서 제외되는 특성 때문이다.</p>
 <p><strong>피봇 선정 방법</strong></p>
 <p>퀵 저렬의 불균형한 분할을 완화시키기 위해서, 일반적으로 다음과 같은 피봇 선정 방법이 사용된다.</p>
 <ul>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/29/algo21/">
+
+    
+
+    
+        <meta name="description" content="1. 편집 거리 문제2. 알고리즘3. 시간 복잡도
+
+1.편집 거리 문제
+문서 편집기를 사용하는 중에 하나의 문자열을 수정하여 다른 문자열로 변환시키고자 할 때, 삽입(insert), 삭제(delete), 대체(substitute) 연산이 사용된다. 예를 들어, A를 B">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 편집 거리 문제 (동적계획)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 편집 거리 문제2. 알고리즘3. 시간 복잡도
+
+1.편집 거리 문제
+문서 편집기를 사용하는 중에 하나의 문자열을 수정하여 다른 문자열로 변환시키고자 할 때, 삽입(insert), 삭제(delete), 대체(substitute) 연산이 사용된다. 예를 들어, A를 B">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 편집 거리 문제 (동적계획) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 편집 거리 문제 (동적계획)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 편집 거리(Edit Distance) 문제 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-29
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/동적계획/">#동적계획</a> <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 편집 거리 문제</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1.편집 거리 문제</a></p>
+<p>문서 편집기를 사용하는 중에 하나의 문자열을 수정하여 다른 문자열로 변환시키고자 할 때, <strong>삽입(insert)</strong>, <strong>삭제(delete)</strong>, <strong>대체(substitute)</strong> 연산이 사용된다. 예를 들어, A를 B로 변환시키는 데 필요한 최소의 편집 연산 횟수를 <strong>편집 거리(Edit Distance)</strong>라고 한다. 편집 거리 문제는 편집 거리를 찾는 문제이다.</p>
+<p>예를 들어, ‘strong’을 ‘stone’으로 편집하는 과정을 본다.</p>
+<div align="center"><br><img src="/image/algo21-1.png"><br></div>
+
+<p>‘s’, ‘t’는 그대로 사용, ‘o’를 삽입, ‘r’, ‘o’를 삭제, ‘n’을 그대로 사용, ‘g’를 ‘e’로 대체한다.<br>이 경우, 총 4회의 편집 연산이 수행되었다.(삽입 1회, 삭제 2회, 대체 1회)</p>
+<div align="center"><br><img src="/image/algo21-2.png"><br></div>
+
+<p>반면에 위 경우, ‘r’ 삭제, ‘g’를 ‘e’로 대체, 단 2회의 편집 연산을 수행하였다.</p>
+<p>이처럼 문자를 편집할 때, 어떤 연산을 어느 문자에 수행하느냐에 따라서 편집 연산 횟수가 달라진다.</p>
+<div align="center"><br><img src="/image/algo21-3.png"><br></div>
+
+<p>부분 문제를 정의하기 위하여 스트링 S, T를 위와 같이 지정하고, 길이를 각각 m, n이라고 한다. 그리고 각각의 문자를 s<sub>i</sub>,t<sub>i</sub>이라 한다.</p>
+<p>E[i,j]는 S의 접두부의 i개 문자를 T의 접두부 j개 문자로 변환시키는 데 필요한 최소 편집 연산 횟수, 즉 편집 거리이다.<br>예를 들어, ‘strong’의 접두부는 ‘stro’이므로 i = 4, ‘stone’의 접두부는 ‘sto’이므로 j = 3인데, 각 문자열의 접두부를 바꾸기 위한 편집 거리를 찾는 문제는 E[i,j] = E[4,3]이다.<br>E[4,3]을 점진적으로 E[6,5]를 해결하면 문제의 해를 찾을 수 있다.</p>
+<div align="center"><br><img src="/image/algo21-4.png"><br></div>
+
+<ul>
+<li>s<sub>1</sub> -&gt; t<sub>1</sub> 부분문제 : E[1,1] = 0</li>
+<li>S<sub>1</sub> -&gt; t<sub>1</sub>t<sub>2</sub> 부분문제 : E[1,2] = 1, ‘s’를 ‘st’로 편집, ‘t’ 삽입 1회 연산</li>
+<li>s<sub>1</sub>s<sub>2</sub> -&gt; t<sub>1</sub> 부분문제 : E[2,1] = 1, ‘st’를 ‘s’로 편집, ‘t’ 삭제 1회 연산</li>
+<li>s<sub>1</sub>s<sub>2</sub> -&gt; t<sub>1</sub>t<sub>2</sub> 부분문제 : E[2,2] = 0</li>
+</ul>
+<p>이 때, 부분문제 s<sub>1</sub>s<sub>2</sub>s<sub>3</sub>s<sub>4</sub> -&gt; t<sub>1</sub>t<sub>2</sub>t<sub>3</sub> : E[4,3], ‘stro’를 ‘sto’로 편집은 어떻게 계산하는가?</p>
+<ul>
+<li>E[4,2] (부분문제 s<sub>1</sub>s<sub>2</sub>s<sub>3</sub>s<sub>4</sub> -&gt; t<sub>1</sub>t<sub>2</sub>)를 알면, t<sub>3</sub> = ‘o’를 삽입하면 된다. 그러므로 E[4,3] = E[4,2] + 1이다.</li>
+<li>E[3,3] (부분문제 s<sub>1</sub>s<sub>2</sub>s<sub>3</sub> -&gt; t<sub>1</sub>t<sub>2</sub>t<sub>3</sub>)를 알면, s<sub>4</sub> = ‘o’를 삭제하면 된다. 그러므로 E[4,3] = E[3,3] + 1이다.</li>
+<li>E[3,2] (부분문제 s<sub>1</sub>s<sub>2</sub>s<sub>3</sub> -&gt; t<sub>1</sub>t<sub>2</sub>)를 알면, s<sub>4</sub> -&gt; t<sub>3</sub>로 편집하는데 필요한 연산을 계산하면 도니다. 그러나 이 경우, 2개의 문자가 ‘o’로 같으므로 편집할 필요가 없다. 그러므로 E[4,3] = E[3,2]이다.</li>
+</ul>
+<div align="center"><br><img src="/image/algo21-5.png"><br></div>
+
+<p>따라서 E[4,3]의 편집 거리를 계산하려면 앞의 3가지 부분문제의 해, 즉, E[4,2], E[3,3], E[3,2]의 편집 거리를 알아야 한다. 그런데 이 경우, (2+1), (1+1), 1 중에서 최솟값인 1이 E[4,3]의 편집 거리가 된다.</p>
+<p>일반적으로 E[i-1,j], E[i,j-1], E[i-1,j-1]의 해가 미리 계산되어 있으면 E[i,j]를 계산할 수 있다. 그러므로 편집 거리 문제의 부분문제 간의 함축적인 순서는 다음과 같다.</p>
+<div align="center"><br><img src="/image/algo21-6.png"><br></div>
+
+<p>위 E[4,3] 예제와 비교하면, 위 그림이 의미하는 바는 금방 파악된다.<br>세 가지 경우 중 가장 적은 값을 E[i,j]의 해로서 선택한다.<br>E[i,j] = min{E[i,j-1]+1, E[i-1,j]+1, E[i-1,j-1]+a} 단, if s<sub>i</sub>=t<sub>j</sub> a=0, else a=1</p>
+<p>위 식을 위해, E[0,0], E[1,0], … , E[m,0]과 E[0,1], E[0,2], … , E[0,n]을 다음과 같이 초기화한다.</p>
+<div align="center"><br><img src="/image/algo21-7.png"><br>ε = (공 문자열)<br></div><br>공 문자열에서 문자열이 하나씩 추가되는 것이므로 삽입 연산에 의해 1씩 증가하는 것은 자명한 사실이다.<br><br><strong><strong><em>**</em></strong></strong><br><br><a name="2">2. 알고리즘</a><br><br>다음은 편집 거리 문제를 위한 동적 계획 알고리즘이다. 알고리즘에서 2차원 배열 E는 편집 거리를 저장하는 데 사용된다.<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">EditDistance</span><br><span class="line">입력: 스트링 S,T, 단, S와 T의 길이는 각각 m,n이다.</span><br><span class="line">출력: S를 T로 변환하는 편집 거리, E[m,n]</span><br><span class="line">for i=0 to m E[i,0]=i	// 0번 열의 초기화</span><br><span class="line">for j=0 to n E[0,j]=j	// 0번 행의 초기화</span><br><span class="line">for i=1 to m</span><br><span class="line">  for j=1 to n</span><br><span class="line">    E[i,j] = min&#123;E[i,jj-1]+1, E[i-1,j]+1, E[i-1,j-1]+a&#125;</span><br><span class="line">return E[m,n]</span><br></pre></td></tr></table></figure><br><br><div align="center"><br><img src="/image/algo21-8.png"><br></div>
+
+<p>위 그림은 EditDistance 알고리즘이 ‘strong’을 ‘stone’으로 바꾸는 데 필요한 거리를 계산한 결과인 배열 E이다.<br>a = 0 or a = 1인 경우에 유의하여 9시, 11시, 12시 방향에서 가장 작은 값을 푸른색 배경의 셀에 넣으면서 나아가면 된다.</p>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>EditDistance 알고리즘의 시간복잡도는 O(mn)이다. 총 부분문제의 수가 m*n이고, 각 부분문제를 해결하기 위해서 주위의 3개의 부분문제들의 해를 참조한 후 최솟값을 찾는 것이므로 O(1) 시간이 걸리기 때문이다. </p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“5장동적계획알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 26, <a href="https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

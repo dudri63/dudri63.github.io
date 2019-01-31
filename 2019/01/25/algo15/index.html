@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/25/algo15/">
+
+    
+
+    
+        <meta name="description" content="1. 집합 커버 문제2. 알고리즘3. 시간 복잡도
+
+1. 집합 커버 문제
+n개의 원소를 가진 집합인 U가 있고, U의 부분 집합들을 원소로 하는 집합 F가 주어질 때, F의 원소들인 집합들 중에서 어떤 집합들을 선택하여 합집합하면 U와 같게 되는가?집합 커버(Set C">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 집합 커버 문제 (그리디)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 집합 커버 문제2. 알고리즘3. 시간 복잡도
+
+1. 집합 커버 문제
+n개의 원소를 가진 집합인 U가 있고, U의 부분 집합들을 원소로 하는 집합 F가 주어질 때, F의 원소들인 집합들 중에서 어떤 집합들을 선택하여 합집합하면 U와 같게 되는가?집합 커버(Set C">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 집합 커버 문제 (그리디) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 집합 커버 문제 (그리디)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 집합 커버 문제 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-25
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/그리디/">#그리디</a> <a href="/tags/Greedy/">#Greedy</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 집합 커버 문제</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 집합 커버 문제</a></p>
+<p>n개의 원소를 가진 집합인 U가 있고, U의 부분 집합들을 원소로 하는 집합 F가 주어질 때, F의 원소들인 집합들 중에서 어떤 집합들을 선택하여 합집합하면 U와 같게 되는가?<br><strong>집합 커버(Set Cover)</strong> 문제는 F에서 선택하는 집합들의 수를 최소화하는 문제이다.</p>
+<p>다음은 신도시를 계획함에 있어서 학교를 배치하는 문제이다.</p>
+<div align="center"><br><img src="/image/algo15-1.png"><br></div>
+
+<p>위 그림과 같이 신도시에 10개의 마을이 만들어질 계획이다.<br>이 때, 아래의 2가지 조건이 만족되도록 학교의 위치를 선정하여야 한다고 가정한다.</p>
+<ul>
+<li>학교는 마을에 위치한다.</li>
+<li>등교 거리는 걸어서 15분 이내여야 한다.</li>
+</ul>
+<p>어느 마을에 학교를 신설해야 학교의 수가 최소로 될 것인가?<br>2번 마을에 학교를 만들면 마을 1, 2, 3, 4, 8이 커버된다.<br>또한, 6번 마을에 학교를 만들면 마을 5, 6, 7, 9, 10이 커버된다.<br>즉, 2번과 6번을 선택하면 학교 수를 최소로 신설할 수 있다.</p>
+<div align="center"><br><img src="/image/algo15-2.png"><br></div>
+
+<p>위 신도시 계획 문제를 집합 커버 문제로 변환하면 아래와 같다.</p>
+<p>U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10} // 신도시의 마을 10개<br>F = {S1, S2, S3, S4, S5, S6, S7, S8, S9, S10}<br>S1 = {1, 2, 3, 8}<br>S2 = {1, 2, 3, 4, 8}<br>S3 = {1, 2, 3, 4}<br>S4 = {2, 3, 4, 8}<br>S5 = {4, 5, 6, 7}<br>S6 = {5, 6, 7, 9, 10}<br>S7 = {4, 5, 6, 7}<br>S8 = {1, 2, 4, 8}<br>S9 = {6, 9}<br>S10 = {6, 10}</p>
+<p>S<sub>i</sub> 집합들 중에서 어떤 집합들을 선택하여야 그들의 합집합이 U와 같은가?<br>(단, 선택된 집합의 수는 최소이어야 한다.)<br>답은 S2 ∪ S6 = {1, 2, 3, 4, 8} ∪ {5, 6, 7, 9, 10} = {1, 2, 3, 4, 5, 6, 7, 8, 9 10} = U</p>
+<p>집합 커버 문제의 최적해를 찾는 가장 간단한 방법은 F에 있는 집합들의 모든 조합을 하나씩 합집합하여 U가 되는지 확인, U가 되는 조합의 집합 수가 최소인 것을 찾는 것이다.<br>그런데 이 경우 F에 n개의 원소가 있으면 (2<sup>n</sup>-1)개를 다 검사, n이 커지면 최적해를 찾는 것은 실질적으로 불가능하다.</p>
+<p>이를 극복하기 위한 방법은 최적해를 찾는 대신 최적해에 근사한 <strong>근사해(Approximation Solution)</strong>을 찾는 것이다.</p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>다음은 집합 커버 문제를 위한 근사 알고리즘이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SetCover</span><br><span class="line">입력: U, F=&#123;Si&#125;, i=1,2,...,n</span><br><span class="line">출력: 집합 커버 C</span><br><span class="line">C = ∅</span><br><span class="line">while (U ≠ ∅) do &#123;</span><br><span class="line">  U의 원소들을 가장 많이 포함하고 있는 집합 Si를 F에서 선택한다.</span><br><span class="line">  U = U - Si</span><br><span class="line">  Si를 F에서 제거하고, Si를 C에 추가한다.</span><br><span class="line">&#125;</span><br><span class="line">return C</span><br></pre></td></tr></table></figure>
+<p>위 신도시 계획 문제에 이 알고리즘을 적용한다.</p>
+<ul>
+<li>Line 4 : C = ∅로 초기화한다.</li>
+<li>Line 5 : while-조건 (U ≠ ∅)을 만족한다.</li>
+<li>Line 6 : U의 원소들을 가장 많이 커버하는 집합인 S4를 F에서 선택한다.</li>
+<li>Line 7 : U - S4 = {1, 6, 9, 10}</li>
+<li>Line 8 : S4를 F에서 제거, 즉, F = {S1, S2, S3, S5, S6, S7, S8, S9, S10},<br>S4를 C에 추가, 즉, C = {S4}</li>
+<li>Line 5 : while-조건 만족</li>
+<li>Line 6 : U의 원소들을 가장 많이 커버하는 집합인 S6를 F에서 선택.</li>
+<li>Line 7 : U = S6 = {1]</li>
+<li>Line 8 : S6를 F에서 제거, F = {S1, S2, S3, S5, S7, S8, S9, S10},<br>S6를 C에 추가, C = {S4, S6}</li>
+<li>Line 5 : while-조건 만족</li>
+<li>Line 6 : U의 원소들을 가장 많이 커버하는 집합인 S1을 F에서 선택.<br>(S2, S3, S8을 선택해도 무방)</li>
+<li>Line 7 : U = ∅</li>
+<li>Line 8 : S1을 F에서 제거,<br>S1을 C에 추가, C = {S1, S4, S6}</li>
+<li>Line 5 : while-조건 불만족</li>
+<li>Line 9 : C={S1, S4, S6}를 리턴</li>
+</ul>
+<div align="center"><br><img src="/image/algo15-3.png"><br></div>
+
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>Line 5 : while-루프 조건 검사 시간 O(1)<br>Line 6 : Si 각각을 U와 비교하여야 한다. Si들의 수가 최대 n이라면, O(n<sup>2</sup>) 시간<br>Line 7 : 집합 U에서 집합 Si의 원소를 제거, O(n) 시간이 걸린다.<br>Line 8 : Si를 F에서 제거, Si를 C에 추가, O(1) 시간이 걸린다.<br>따라서 루프 1회의 시간 복잡도는 O(1)+O(n<sup>2</sup>)+O(n)+O(1) = O(n<sup>2</sup>)이다.<br>그러므로 SetCover 알고리즘의 시간복잡도는 O(n)*O(n<sup>2</sup>) = O(n<sup>3</sup>)</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“4장그리디알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 21, <a href="https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

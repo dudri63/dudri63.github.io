@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/29/python7/">
+
+    
+
+    
+        <meta name="description" content="1. 함수2. 모듈
+
+1. 함수
+함수란 믹서기와 같다. 입력값을 가지고 어떤 일을 수핸한 다음에 그 결과물을 내놓는 역할을 한다.예를 들어 y = 4x + 5도 함수이다.
+프로그래밍을 하다 보면 똑같은 내용을 반복해서 작성할 수 있다. 이 때, 함수를 사용하면 유용하다">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Python] 함수, 모듈">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 함수2. 모듈
+
+1. 함수
+함수란 믹서기와 같다. 입력값을 가지고 어떤 일을 수핸한 다음에 그 결과물을 내놓는 역할을 한다.예를 들어 y = 4x + 5도 함수이다.
+프로그래밍을 하다 보면 똑같은 내용을 반복해서 작성할 수 있다. 이 때, 함수를 사용하면 유용하다">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Python] 함수, 모듈 - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Python] 함수, 모듈</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-29
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Python/">#Python</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 함수</a><br><a href="#2">2. 모듈</a></p>
+<hr>
+<p><a name="1">1. 함수</a></p>
+<p>함수란 믹서기와 같다. 입력값을 가지고 어떤 일을 수핸한 다음에 그 결과물을 내놓는 역할을 한다.<br>예를 들어 y = 4x + 5도 함수이다.</p>
+<p>프로그래밍을 하다 보면 똑같은 내용을 반복해서 작성할 수 있다. 이 때, 함수를 사용하면 유용하다.<br>또한, 프로그램을 함수화하면 프로그램의 흐름을 일목요연하게 볼 수 있다. 이 경우, 에러가 발생 시에도 어디서 발생하였는지 금방 알 수 있다.</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def a3():	# 함수 a3() 정의</span><br><span class="line">    print(&apos;aaa&apos;)</span><br><span class="line">a3()</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py7-1.png"><br></div>
+
+<p>def : 함수를 정의한다.</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def a3():</span><br><span class="line">    return &apos;aaa&apos;</span><br><span class="line">print(a3())</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py7-2.png"><br></div>
+
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def a(num):</span><br><span class="line">    return &apos;a&apos;*num</span><br><span class="line">print(a(3))</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py7-3.png"><br></div>
+
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def make_string(str, num):</span><br><span class="line">    return str*num</span><br><span class="line">print(make_string(&apos;b&apos;, 3))</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py7-4.png"><br></div>
+
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">input_id = input(&quot;아이디를 입력해주세요.\n&quot;)</span><br><span class="line">def login(_id):</span><br><span class="line">    members = [&apos;egoing&apos;, &apos;k8805&apos;, &apos;leezche&apos;]</span><br><span class="line">    for member in members:</span><br><span class="line">        if member == _id:</span><br><span class="line">            return True</span><br><span class="line">    return False</span><br><span class="line">if login(input_id):</span><br><span class="line">    print(&apos;Hello, &apos;+input_id)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;Who are you?&apos;)</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py7-5.png"><br></div>
+
+<hr>
+<p><a name="2">2. 모듈</a></p>
+<p>모듈이란 함수나 변수 또는 클래스들을 모아놓은 파일이다.<br>또한, 모듈은 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만들어진 파이썬 파일이라고도 할 수 있다.<br>다른 사람들이 이미 만들어놓은 모듈을 사용할 수도 있고, 직접 만들어서 사용할 수도 있다.</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">print(math.ceil(2.9))</span><br><span class="line">print(math.floor(2.9))</span><br><span class="line">print(math.sqrt(16))</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py7-6.png"><br></div>
+
+<p>math 모듈은 여러가지 수학 관련 함수를 담고 있는 모듈이다.</p>
+<p>ceil(x) : x를 가까운 정수까지 반올림한 뒤 반환<br>floor(x) : x를 가까운 정수까지 버림한 뒤 반환<br>sqrt(x) : x의 제곱근을 반환</p>
+<hr>
+<p>egoing.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def a():</span><br><span class="line">    return &apos;a&apos;</span><br><span class="line">def b():</span><br><span class="line">    return &apos;b&apos;</span><br><span class="line">def c():</span><br><span class="line">    return &apos;c&apos;</span><br></pre></td></tr></table></figure></p>
+<p>k8805.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def a():</span><br><span class="line">    return &apos;B&apos;</span><br></pre></td></tr></table></figure></p>
+<p>6.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from egoing import a as z</span><br><span class="line">import k8805 as k</span><br><span class="line">print(z())</span><br><span class="line">print(k.a())</span><br></pre></td></tr></table></figure></p>
+<div align="center"><br><img src="/image/py7-7.png"><br></div>
+
+<p>egoing 모듈로부터 모듈함수를 import할 수 있다. 이 경우, 모듈이름을 붙이지 않고 바로 해당 모듈의 함수를 사용할 수 있다.<br>또한, 모듈을 import할 경우, 해당 모듈 함수를 사용하기 위해서는 모듈이름을 붙여야 한다.</p>
+<hr>
+<p>auth.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def login(_id):</span><br><span class="line">    members = [&apos;egoing&apos;, &apos;k8805&apos;, &apos;leezche&apos;]</span><br><span class="line">    for member in members:</span><br><span class="line">        if member == _id:</span><br><span class="line">            return True</span><br><span class="line">    return False</span><br></pre></td></tr></table></figure></p>
+<p>6.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import auth</span><br><span class="line">input_id = input(&quot;아이디를 입력해주세요.\n&quot;)</span><br><span class="line">if auth.login(input_id):</span><br><span class="line">    print(&apos;Hello, &apos;+input_id)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;Who are you?&apos;)</span><br></pre></td></tr></table></figure></p>
+<div align="center"><br><img src="/image/py7-8.png"><br></div>
+
+
+
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>‘04-1 함수’, 점프 투 파이썬, 2019. 1. 29, <a href="https://wikidocs.net/24#_1" rel="external nofollow noopener noreferrer" target="_blank">https://wikidocs.net/24#_1</a></li>
+<li>‘05-5 내장 함수’, 점프 투 파이썬, 2019. 1. 29, <a href="https://wikidocs.net/32#len" rel="external nofollow noopener noreferrer" target="_blank">https://wikidocs.net/32#len</a></li>
+<li>‘[파이썬]공통함수,수학(math) 함수’, andamiro25, 2019. 1. 29, <a href="https://andamiro25.tistory.com/" rel="external nofollow noopener noreferrer" target="_blank">https://andamiro25.tistory.com/</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

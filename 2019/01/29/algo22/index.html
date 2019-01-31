@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/29/algo22/">
+
+    
+
+    
+        <meta name="description" content="1. 배낭 문제2. 알고리즘3. 시간 복잡도
+
+1. 배낭 문제
+배낭 문제(Knapsack)는 n개의 물건과 각 물건 i의 무게 wi와 가치 vi가 주어지고, 배낭의 용량이 C일 때, 배낭에 담을 수 있는 물건의 최대 가치를 찾는 문제이다.단, 배나에 담은 물건의 무게의">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 배낭 문제 (동적계획)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 배낭 문제2. 알고리즘3. 시간 복잡도
+
+1. 배낭 문제
+배낭 문제(Knapsack)는 n개의 물건과 각 물건 i의 무게 wi와 가치 vi가 주어지고, 배낭의 용량이 C일 때, 배낭에 담을 수 있는 물건의 최대 가치를 찾는 문제이다.단, 배나에 담은 물건의 무게의">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 배낭 문제 (동적계획) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 배낭 문제 (동적계획)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 배낭 문제 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-29
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/동적계획/">#동적계획</a> <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 배낭 문제</a><br><a href="#1">2. 알고리즘</a><br><a href="#1">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 배낭 문제</a></p>
+<p><strong>배낭 문제(Knapsack)</strong>는 n개의 물건과 각 물건 i의 무게 w<sub>i</sub>와 가치 v<sub>i</sub>가 주어지고, 배낭의 용량이 C일 때, 배낭에 담을 수 있는 물건의 최대 가치를 찾는 문제이다.<br>단, 배나에 담은 물건의 무게의 합이 C를 초과하지 말아야 하고, 각 물건은 1개씩만 있다. 이러한 배낭 문제를 <strong>0-1 배낭 문제</strong>라고 하는데, 이는 각 물건이 담기지 않은 경우 ‘0’, 담긴 경우 ‘1’로 간주하기 때문이다.</p>
+<p>배낭 문제는 제한적입 입력에 대해서 동적 계획 알고리즘으로 풀 수 있다.<br>배낭 문제의 부분 문제를 정의하기 위해서 물건, 물건의 무게, 물건의 가치, 배낭의 용량, 4가지의 요소를 고려할 수 있다.</p>
+<p>배낭 문제의 부분문제의 정의를 위해 물건은 하나씩 차례로 고려하면 되지만, 물건의 무게는 각각 다를 수 있기 때문에, 무게에 대해서는 배낭의 용량 0(kg)으로부터 1(kg)씩 증가하여 입력으로 주어진 용량 C가 될 때까지 변화시켜 가며 물건을 배낭에 담는 것이 가치가 더 커지는지를 결정해야 한다. 따라서 배낭 용량이 0부터 1씩 증가할 경우의 용량을 ‘임시’ 배낭 용량이라고 한다.<br>따라서 배낭 문제의 부분문제를 다음과 같이 정의할 수 있다.</p>
+<p>K[i,w] = 물건 1~i까지만 고려하고, (임시) 배낭 용량이 w일 때의 최대 가치<br>단, i - 1, 2, …, n, w = 1, 2, 3, …, C이다.</p>
+<p>문제의 최적해는 K[n,C]이다.</p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>다음은 배낭 문제의 동적 계획 알고리즘이다. 2차원 배열 K가 최대 가치를 저장하는 데 사용된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Knapsack</span><br><span class="line">입력: 배낭의 용량 C, n개의 물건, 각 물건 i의 무게 wi, 가치 vi, 단, i = 1,2,3,...,n</span><br><span class="line">출력: K[n,C]</span><br><span class="line">for i = 0 to n	K[i,0]=0	// 배낭의 용량이 0일 때 총 가치 0으로 초기화</span><br><span class="line">for w = 0 to C	K[0,w]=0	// 배낭에 아무것도 담기지 않았을 때 총 가치 0으로 초기화</span><br><span class="line">for i = 1 to n &#123;</span><br><span class="line">  for w = 1 to C &#123;	</span><br><span class="line">    if (wi &gt; w)		// 물건 i의 무게가 임시 배낭의 용량을 초과하면</span><br><span class="line">      K[i,w] = K[i-1,w]</span><br><span class="line">    else		// 물건 i를 배낭에 담지 않을 경우와 담을 경우를 고려</span><br><span class="line">      K[i,w] = max&#123;K[i-1,w], K[i-1,w-wi]+vi&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return K[n,C]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Line 8~9 : 현재 배낭에 담으려고 고려하는 물건 i의 무게 w<sub>i</sub>가 임시 배낭의 무게 w보다 크면 배낭에 담을 수 없다. 따라서 K[i,w]는 물건 (i-1)까지 담은 K[i-1,w]가 된다.</li>
+<li>Line 10~11 : 고려하는 물건 i의 무게 w<sub>i</sub>가 임시 배낭의 무게 w보다 같거나 작으면, 물건 i를 배낭에 담을 수 있다. 그러나 배낭에서 물건 i를 담을 공간을 마련하는 작업을 고려하여야 한다.(배낭의 무게가 부족할 경우)</li>
+</ul>
+<p>즉, 물건 i를 배낭에 담기 위해서는 2가지 경우를 살펴보아야 한다.</p>
+<div align="center"><br><img src="/image/algo22-1.png"><br></div>
+
+<p>1) 물건 i를 배낭에 담을 수 없는 경우, K[i,w] = K[i-1,w]<br>2) 물건 i를 배낭에 담을 수 있는 경우, K[i,w] = max{K[i-1,w],K[i-1,w-w<sub>i</sub>]+v<sub>i</sub>}, 기존 물건을 빼고 물건 i를 담거나, 물건 i를 담지 않거나, 기존 물건들은 배낭에 냅둔 체 물건 i를 새롭게 담는 경우로서 3가지 경우를 망라한다.</p>
+<p>배낭의 용량이 C=10kg, 각 물건의 무게와 가치가 다음과 같을 때 위 알고리즘이 적용되는 것을 본다.</p>
+<div align="center"><br><img src="/image/algo22-2.png"><br><br></div>
+
+<ul>
+<li>Line 3~4 : 0번 행과 0번 열의 각 원소를 ‘0’으로 초기화한다.</li>
+</ul>
+<div align="center"><br><img src="/image/algo22-3.png"><br><br></div>
+
+<ul>
+<li><p>Line 5 : 물건을 하나씩 고려하기 위해 물건 번호 i가 1~4까지 변화<br>Line 6 : 배낭의 임시 용량 w가 1씩 증가하여 마지막엔 10kg이 된다.</p>
+<ul>
+<li><p>i = 1일 때,</p>
+<ul>
+<li>w = 1일 때, 물건 1을 배낭에 담으려고 한다. 그러나 w<sub>1</sub>=5 &gt; w=1, K[1,1] = K[1-1,1] = 0</li>
+<li>w = 2, 3, 4일 때, w<sub>1</sub> &gt; w, K[1,2]=K[1,3]=K[1,4]=0</li>
+<li>w = 5일 때, w<sub>1</sub> = w = 5,<br>K[1,5] = max{K[i-1,w], K[i-1,w-w<sub>i</sub>]+v<sub>i</sub>} = max{K[0,5], K[0,0] + 10} = max{0, 10} = 10</li>
+<li>w = 6, 7, 8, 9, 10일 때, w = 5일 때와 같다. K[1,6] = K[1,7] = K[1,8] = K[1,9] = K[1,10] = 10이다.<br><img src="/image/algo22-4.png"></li>
+</ul>
+</li>
+<li><p>i = 2일 때, 물건 1에 대한 부분문제들의 해는 구한 상태, 이를 이용하여 물건 2를 고려한다.</p>
+<ul>
+<li>w = 1, 2, 3일 때, 물건 2를 배낭에 담으려고 한다. 그러나 w<sub>2</sub>=4 &gt; w, K[2,1] = K[2,2] = K[2,3] = 0</li>
+<li>w = 4일 때, 물건 2를 배낭에 담을 수 있다.<br>K[2,4] = max{K[i-1,w], K[i-1,w-w<sub>i</sub>]+v<sub>i</sub>} = max{K[1,4], K[1,0]+40} = max{0, 40} = 40</li>
+<li>w = 5일 때, 물건 2를 배낭에 담을 수 있다. 그러나 물건 1이 배낭에 담았을 때의 가치와 물건 2를 담았을 때의 가치를 비교하여, 더 큰 가치를 얻는 물건을 배낭에 담는다.<br>K[2,5] = max{K[i-1,w], K[i-1,w-w<sub>i</sub>]+v<sub>i</sub>} = max{K[1,5], K[1,1]+40} = max{10,40} = 40<br>물건 1을 배낭에서 뺀 후, 물건 2를 담는 것의 가치가 더 높으므로 물건 2를 담는다.</li>
+<li>w = 6, 7, 8일 때, 물건 1을 빼내고 물건 2를 담는 것이 더 큰 가치를 얻는다. K[2,6] = K[2,7] = K[2,8] = 40</li>
+<li>w = 9일 때, 물건 2를 배낭에 담을 수 있다.<br>K[2,9] = max{K[i-1,w], K[i-1,w-w<sub>i&lt;/sub]&gt;+v<sub>i</sub>} = max{10,50} = 50<br>배낭에 물건 1,2를 모두 담을 수 있고, 그때 가치가 50이 된다.</sub></li>
+<li>w = 10일 때, w = 9일 때와 마찬가지로 물건 1,2를 모두 담을 수 있고, K[2,10] = 50이 된다.<br><img src="/image/algo22-5.png"></li>
+</ul>
+</li>
+<li><p>i = 3, 4일 때 알고리즘 수행 결과는 다음과 같다.<br><img src="/image/algo22-6.png"></p>
+</li>
+</ul>
+</li>
+<li><p>최적해는 물건 2와 4의 가치의 합인 90이다.</p>
+</li>
+</ul>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>Knapsack 알고리즘은 line 8에서 무게를 한번 비교한 후 line 9에서 1개의 부분문제의 해를 참조 line 11에서 2개희 해를 참조한 계산이므로 O(1) 시간이 걸린다. 그런데, 부분문제의 수는 원소 수인 n*C이므로, 시간복잡도는 O(1)*n*C = O(nC)이다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“5장동적계획알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 26, <a href="https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

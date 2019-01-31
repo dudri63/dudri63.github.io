@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/25/algo17/">
+
+    
+
+    
+        <meta name="description" content="1. 허프만 압축2. 알고리즘3. 시간 복잡도
+
+1. 허프만 압축
+파일의 각 문자가 8bit 아스키(ASCII) 코드로 저장되면, 그 파일의 bit 수는 8 * (파일의 문자수)이다.즉, 파일의 각 문자는 고정된 크기의 코드로 표현된다.이러한 고정된 크기의 코드로 구성">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 허프만 압축 (그리디)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 허프만 압축2. 알고리즘3. 시간 복잡도
+
+1. 허프만 압축
+파일의 각 문자가 8bit 아스키(ASCII) 코드로 저장되면, 그 파일의 bit 수는 8 * (파일의 문자수)이다.즉, 파일의 각 문자는 고정된 크기의 코드로 표현된다.이러한 고정된 크기의 코드로 구성">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 허프만 압축 (그리디) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 허프만 압축 (그리디)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 허프만 압축(Huffman Compression) / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-25
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/그리디/">#그리디</a> <a href="/tags/Greedy/">#Greedy</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 허프만 압축</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 허프만 압축</a></p>
+<p>파일의 각 문자가 8bit 아스키(ASCII) 코드로 저장되면, 그 파일의 bit 수는 8 * (파일의 문자수)이다.<br>즉, 파일의 각 문자는 고정된 크기의 코드로 표현된다.<br>이러한 고정된 크기의 코드로 구성된 파일을 저장하거나 전송할 때 파일의 크기를 줄이고, 필요시 원래의 파일로 변환할 수 있으면,<br>메모리 공간을 효율적으로 사용할 수 있고, 파일 전송 시간을 단축시킬 수 있다.<br>주어진 파일의 크기를 줄이는 방법을 <strong>파일 압축(file compression)</strong>이라고 한다.</p>
+<p><strong>허프만(Huffman) 압축</strong>은 파일에 빈번히 나타나는 문자에는 짧은 이진 코드를 할당, 드물게 나타나는 문자에는 긴 이진 코드를 할당한다.</p>
+<p>허프만 압축 방법으로 변환시킨 문자 코드들 사이에는 접두부 특성(Prefix Property)이 존재한다.<br>이는 각 문자에 할당된 이진 코드는 어떤 다른 문자에 할당된 이진 코드의 접두부가 되지 않는다는 것을 의미.<br>즉, 문자 ‘a’에 할당된 코드가 ‘101’이라면, 다른 모든 문자의 코드는 ‘101’로 시작되지 않으며 또한 ‘1’이나 ‘10’으로도 시작되지 않는다.<br>접두부 특성을 가진 코드의 장점은 코드와 코드 사이를 구분할 특별한 코드가 필요 없다는 것이다.<br>예를 들어. 101#100#0#111#…에서 ‘#’이 인접한 코드를 구분 짓는데, 허프만 압축에서는 이러한 특별한 코드가 필요 없이 파일을 압축 및 해제할 수 있다.</p>
+<p>허프만 압축은 입력 파일에 대해 각 문자의 출현 빈도수에 기반을 둔 이진트리를 만든 뒤, 각 문자에 이진 코드를 할당한다. 이 때, 이 이진 코드를 <strong>허프만 코드</strong>라고 한다.</p>
+<hr>
+<p><a name="2">2. 알고리즘 </a></p>
+<p>다음은 파일 압축을 위한 허프만 코드를 찾기 위한 그리디 알고리즘이다.<br>입력 파일에 대해 각 문자에 할당될 이진 코드를 추출할 이진 트리인 <strong>허프만 트리</strong>를 리턴한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HuffmanCoding</span><br><span class="line">입력: 입력 파일의 n개의 문자에 대한 각각의 빈도수</span><br><span class="line">출력: 허프만 트리</span><br><span class="line">각 문자에 대해 노드를 만들고, 그 문자의 빈도수를 노드에 저장한다.</span><br><span class="line">n개의 노드들의 빈도수에 대해 우선순위 큐 Q를 만든다.</span><br><span class="line">while (Q에 있는 노드 수 &gt;=2) &#123;</span><br><span class="line">  빈도수가 가장 작은 2개의 노드(A와 B)를 Q에서 제거한다.</span><br><span class="line">  새 노드 N을 만들고, A와 B를 N의 자식 노드로 만든다.</span><br><span class="line">  노드 N을 Q에 삽입한다.</span><br><span class="line">&#125;</span><br><span class="line">return Q	// 허프만 트리의 루트를 리턴하는 것이다.</span><br></pre></td></tr></table></figure></p>
+<p>입력 파일이 4개의 문자로 구성되어 있고, 각 문자의 빈도수는 다음과 같다고 가정한다.</p>
+<p>A: 450     T: 90    G:120    C:270</p>
+<ul>
+<li><p>Line 5 : 4개의 문자들의 빈도수에 대해 우선순위 Q를 만든다. </p>
+<div align="center"><br><img src="/image/algo17-1.png"><br></div>
+</li>
+<li><p>Line 6 : while-루프 조건이 ‘참’이므로, Line 7~10을 수행한다.<br>즉, Q에서 ‘T’와 ‘G’를 제거한 후, 새 부모 노드를 Q에 삽입한다.</p>
+<div align="center"><br><img src="/image/algo17-2.png"><br></div>
+</li>
+<li><p>Line 6 : while-루프 조건 ‘참’, Line 7~10을 수행.<br>즉, Q에서 ‘T’와 ‘G’의 ‘부모 노드’와 ‘C’를 제거한 후, 새 부모 노드를 Q에 삽입한다.</p>
+<div align="center"><br><img src="/image/algo17-3.png"><br></div>
+</li>
+<li><p>Line 6 : while-루프 조건 ‘참’, Line 7~10을 수행.<br>즉, Q에서 ‘c’의 ‘부모 노드’와 ‘A’를 제거한 후, 새 부모 노드를 Q에 삽입한다.</p>
+<div align="center"><br><img src="/image/algo17-4.png"><br></div>
+</li>
+<li><p>Line 6 : while-루프 조건 ‘거짓’, Line 11에서 Q에 있는 노드를 리턴.<br>즉, 허프만 트리의 루트가 리턴된다.</p>
+</li>
+</ul>
+<div align="center"><br><img src="/image/algo17-5.png"><br></div>
+
+<p>반환한 트리를 보면, 문자는 leaf 노드에만 존재한다.<br>루트로부터 왼쪽 자식 노드로 내려가면 ‘0’, 오른쪽 자식 노드로 내려가면 ‘1’을 부여할 수 있다.<br>그리하여 leaf 노드에 도착할 때까지 이진수를 추출, 문자의 이진코드를 구할 수 있다.<br>빈도수가 가장 높은 ‘A’는 가장 짧은 코드인 ‘0’,<br>빈도수가 가장 낮은 ‘T’는 가장 긴 코드인 ‘100’이 부여됐다.<br>또한 이렇게 얻은 숫자에 대한 코드는 접두부 특성을 가지고 있다.<br>(왜냐하면, leaf 노드에만 문자가 있고, 내부 노드에는 문자 없으며 코드를 부여하지 않았기 때문)</p>
+<p>위 예제에서 압축된 파일의 bit 수는 (450*1)+(90*3)+(120*3)+(270*3) = 1620 bit이다.<br>반면에 아스키 코드로 된 파일 크기는 (450+90+120+270)*8 = 7440 bit이다.<br>압축률은 (1620/7440)*100 = 21.8%이다.</p>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>line 4, n개의 노드생성, 각 빈도수를 노드에 저장, O(n)<br>line 5, n개의 노드로 우선순위 큐 Q를 만듬. 힙 자료 구조 사용, O(n)<br>line 6~10, 노드 2개를 Q에서 제거, 새 노드를 Q에 삽입하므로 O(long), while-루프는 (n-1)번 반복, (n-1)*O(logn) = O(nlogn)<br>line 8, 트리의 루트를 리턴, O(1)</p>
+<p>따라서 HuffmanCoding의 알고리즘은 O(nlogn)</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“4장그리디알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 25, <a href="https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

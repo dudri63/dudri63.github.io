@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/29/algo23/">
+
+    
+
+    
+        <meta name="description" content="1. 동전 거스름돈2. 알고리즘3. 시간 복잡도
+
+1. 동전 거스름돈
+거스름돈을 동전으로 받을 때, 누구나 적은 수의 동전을 받길 원한다고 가정한다.동전 거스름돈 문제는 그리디 알고리즘으로 해결할 수도 있으나, 160원짜리 동전을 추가로 발행하는 등의 상황이 있을 때는">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 동전 거스름돈 (동적계획)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 동전 거스름돈2. 알고리즘3. 시간 복잡도
+
+1. 동전 거스름돈
+거스름돈을 동전으로 받을 때, 누구나 적은 수의 동전을 받길 원한다고 가정한다.동전 거스름돈 문제는 그리디 알고리즘으로 해결할 수도 있으나, 160원짜리 동전을 추가로 발행하는 등의 상황이 있을 때는">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 동전 거스름돈 (동적계획) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 동전 거스름돈 (동적계획)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 동전 거스름돈 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-29
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/동적계획/">#동적계획</a> <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 동전 거스름돈</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 동전 거스름돈</a></p>
+<p>거스름돈을 동전으로 받을 때, 누구나 적은 수의 동전을 받길 원한다고 가정한다.<br>동전 거스름돈 문제는 그리디 알고리즘으로 해결할 수도 있으나, 160원짜리 동전을 추가로 발행하는 등의 상황이 있을 때는 항상 최적해를 찾을 수는 없다.<br>동적 계획 알고리즘은 모든 동전 거스름돈 문제에 대하여 항상 최적해를 찾는다.</p>
+<p>다른 문제들과 마찬가지로 동적 계획 알고리즘을 고안하기 위해서는 부분문제들을 찾아내야 한다.<br>동전 거스름돈 문제에 주어지는 일반적인 문제 요소들을 고려한다.<br>정해진 동전의 종류, 거스름돈이 그것들이다.</p>
+<p>동전 거스름돈 문제도 배낭 문제와 마찬가지로 동전 거스름돈도 1원씩 증가시켜 문제를 해결한다.<br>그리고 부분문제들의 해를 1차원 배열 C에 저장한다.</p>
+<ul>
+<li>1원을 거슬러 받을 때 사용되는 최소의 동전 수 C[1]</li>
+<li>2원을 거슬러 받을 때 사용되는 최소의 동전 수 C[2]</li>
+<li>3원을 거슬러 받을 때 사용되는 최소의 동전 수 C[3]<br>…</li>
+<li>n원을 거슬러 받을 때 사용되는 최소의 동전 수 C[n]</li>
+</ul>
+<p>그렇다면, C[j]를 구하는 데 어떤 부분문제가 필요한가?</p>
+<ul>
+<li>500원짜리 동전이 거스름돈 j원에 필요하면 C[j-500] = C[j-d<sub>1</sub>]에 500원짜리 동전 1개를 추가한다.</li>
+<li>100원짜리 동전이 거스름돈 j원에 필요하면 C[j-100] = C[j-d<sub>2</sub>]에 100원짜리 동전 1개를 추가&gt;한다. </li>
+<li>50원짜리 동전이 거스름돈 j원에 필요하면 C[j-50] = C[j-d<sub>3</sub>]에 50원짜리 동전 1개를 추가&gt;한다.</li>
+<li>10원짜리 동전이 거스름돈 j원에 필요하면 C[j-10] = C[j-d<sub>4</sub>]에 10원짜리 동전 1개를 추가&gt;한다.</li>
+<li>1원짜리 동전이 거스름돈 j원에 필요하면 C[j-1] = C[j-d<sub>5</sub>]에 1원짜리 동전 1개를 추가&gt;한다.</li>
+</ul>
+<p>위 다섯 가지 중에서 가장 작은 값을 C[j]로 정한다. 그리하여 C[j]의 정의는 다음과 같다.</p>
+<p>C[j] = min<sub>1&lt;=i&lt;=k</sub>{C[j-d<sub>i</sub>] + 1}, if j &gt;= d<sub>i</sub></p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>다음은 거스름돈 문제를 위한 동적 계획 알고리즘이다. 알고리즘에서 배열 C는 최소의 동전 수를 저장하는 데 사용된다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DPCoinChange</span><br><span class="line">입력: 거스름돈 n원, k개의 동전의 액면, d1&gt;d2&gt;...&gt;dk=1</span><br><span class="line">출력: C[n]</span><br><span class="line">for i = 1 to n C[i] = ∞</span><br><span class="line">C[0] = 0</span><br><span class="line">for j = 1 to n &#123;	// j는 1원부터 증가하는 임시 거스름돈 액수, j=n이면 입력에 주어진 거스름돈</span><br><span class="line">  for i = 1 to k &#123;	// 액면이 가장 높은 동전부터 1원짜리 동전까지</span><br><span class="line">    if (di &lt;= j) and (C[j-di] + 1 &lt; C[j])	// 액면이 가장 높은 동전부터 1원짜리 동전까지</span><br><span class="line">      C[j] = C[j-di] + 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return C[n]</span><br></pre></td></tr></table></figure></p>
+<p>다음은 d<sub>1</sub>=16, d<sub>2</sub>=10, d<sub>3</sub>=5, d<sub>4</sub>=1이고, 거스름돈 n=20일 때, DPCoinChange 알고리즘이 수행되는 과정이다.</p>
+<div align="center"><br><img src="/image/algo23-1.png"><br></div>
+
+<ul>
+<li><p>Line 4~5 : 배열 C를 초기화한다.<br><img src="/image/algo23-2.png">  </p>
+</li>
+<li><p>Line 6~9 : j = 1일 때(임시 거스름론), </p>
+<ul>
+<li><p>i = 1, 2, 3일 때,<br>d<sub>1</sub> = 16 &gt; j, d<sub>2</sub>=10 &gt; j, d<sub>3</sub>=5 &gt; j<br>if 조건을 만족하지 않음</p>
+</li>
+<li><p>i = 4일 때,<br>d<sub>4</sub> = 1 &lt; j, C[j-d<sub>4</sub>]+1 = C[1-1]+1 = 0+1 = 1 &lt; C[j] = C[1] = ∞<br>if 조건을 만족<br>C[j] = C[j-d<sub>4</sub>] + 1 = C[1] = C[1-1] + 1 = 0 + 1 = 1</p>
+</li>
+</ul>
+</li>
+<li><p>Line 6~9 : j = 2, 3, 4일 때,</p>
+<ul>
+<li>i = 4일 때에만 if 조건을 만족함(j = 1일 때와 동일)<br>C[2] = C[2-1] + 1 = 2, C[3] = 3, C[4] = 4</li>
+</ul>
+<p><img src="/image/algo23-3.png"></p>
+</li>
+<li><p>Line 6~9 : j = 5일 때</p>
+<ul>
+<li><p>i = 1, 2일 때,<br>d<sub>1</sub> = 16 &gt; j, d<sub>2</sub>=10 &gt; j<br>if 조건을 만족하지 않음</p>
+</li>
+<li><p>i = 3일 때,<br>d<sub>3</sub> = 5 = j, C[j-d<sub>3</sub>]+1 = C[5-5]+1 = 0+1 = 1 &lt; C[j] = C[5] = ∞<br>if 조건을 만족<br>C[5] = C[j-d<sub>3</sub>]+1 = C[5-5]+1 = 0+1 = 1</p>
+</li>
+<li><p>i = 4일 때,<br>d<sub>4</sub> = 1 = j, C[j-d<sub>4</sub>]+1 = C[5-1]+1 = 4+1 = 5 &gt; C[j] = C[5] = 1<br>if 조건을 만족하지 않음</p>
+</li>
+</ul>
+</li>
+<li><p>Line 6~9 : j = 6, 7, 8, 9일 때</p>
+<ul>
+<li>i = 3일 경우에만 if 조건을 만족함(j = 5일 때와 동일)<br>C[6] = C[6-5] + 1 = 2, C[7] = 3, C[8] = 4, C[9] = 5</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/algo23-4.png"></p>
+<ul>
+<li><p>Line 6~9 : j = 10일 때</p>
+<ul>
+<li><p>i = 1일 때,<br>d<sub>1</sub> = 16 &gt; j<br>if 조건을 만족하지 않음</p>
+</li>
+<li><p>i = 2일 때,<br>d<sub>2</sub> = 10 = j, C[j-d<sub>2</sub>]+1 = C[10-10]+1 = 0+1 = 1 &lt; C[j] = C[10] = ∞<br>if 조건을 만족<br>C[10] = C[j-d<sub>2</sub>]+1 = C[10-10]+1 = 0+1 = 1</p>
+</li>
+<li><p>i = 3,4 일 때,<br>d<sub>i</sub> &lt; j = 10,<br>C[j-d<sub>3</sub>]+1 = C[10-5]+1 = 2 &gt; 1, C[j-d<sub>4</sub>]+1 = C[10-1]+1 = 6 &gt; 1<br>if 조건을 만족하지 않음</p>
+</li>
+</ul>
+</li>
+<li><p>Line 6~9 : j = 11, 12, 13, 14, 15일 때</p>
+<ul>
+<li>i = 2일 경우에만 if 조건을 만족함(j = 10일 때와 동일)<br>C[11] = 2, C[12] = 3, C[13] = 4, C[14] = 5</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/algo23-5.png"></p>
+<ul>
+<li><p>Line 6~9 : j =15일 때</p>
+<ul>
+<li><p>i = 1일 때,<br>d<sub>1</sub> = 16 &lt; j<br>if 조건을 만족하지 않음</p>
+</li>
+<li><p>i = 2일 때,<br>d<sub>2</sub> = 10 &gt; j, C[j-d<sub>2</sub>]+1 = C[15-10]+1 = 1+1 = 2 &lt; C[j] = C[10] = ∞<br>if 조건을 만족<br>C[15] = C[j-d<sub>2</sub>]+1 = C[15-10]+1 = 2</p>
+</li>
+<li><p>i = 3,4일 때,<br>if 조건을 만족하지 않음</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/algo23-6.png"></p>
+<ul>
+<li><p>Line 6~9 : j = 16일 때</p>
+<ul>
+<li>i = 1일 때,<br>d<sub>1</sub> = 16 = j, C[j-d<sub>1</sub>]+1 = C[16-16]+1 = 0+1 = 1 &lt; C[j] = C[16] = ∞<br>if 조건을 만족<br>C[16] = C[j-d<sub>1</sub>]+1 = C[16-16]+1 = 0+1 = 1</li>
+<li>i = 2, 3, 4일 때,<br>if 조건을 만족하지 않음</li>
+</ul>
+</li>
+<li><p>Line 6~9 : j = 17, 18, 19일 때</p>
+<ul>
+<li>i = 1일 경우에만 if 조건을 만족함(j = 16일 때와 동일)<br>C[17] = 2, C[18] = 3, C[19] = 4</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/algo23-7.png"></p>
+<ul>
+<li><p>Line 6~9 : j = 20일 때</p>
+<ul>
+<li><p>i = 1<br>if 조건을 만족하지 않음</p>
+</li>
+<li><p>i = 2<br>if 조건을 만족<br>C[20] = C[j-d<sub>2</sub>]+1 = C[10]+1 = 2</p>
+</li>
+<li><p>i = 3<br>C[20] = C[j-d<sub>3</sub>]+1 = C[15]+1 = 3 &gt; 2<br>if 조건을 만족하지 않음</p>
+</li>
+<li><p>i = 4일 때<br>C[20] = C[j-d<sub>4</sub>]+1 = C[19]+1 = 5 &gt; 2<br>if 조건을 만족하지 않음</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/algo23-8.png"></p>
+<ul>
+<li>Line 12 C[20] = 2를 return</li>
+</ul>
+<p><a name="3">3. 시간복잡도</a> </p>
+<p>DPCoinChange 알고리즘의 시간복잡도는 O(nk)이다.<br>왜냐하면 거스름돈 j가 1원부터 n원까지 변하며, 각각의 j에 대하여 최악의 경우 모든 동전을 1번씩 고려하기 때문이다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“5장동적계획알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 26, <a href="https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

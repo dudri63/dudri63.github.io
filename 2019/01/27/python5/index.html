@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/27/python5/">
+
+    
+
+    
+        <meta name="description" content="1. 컨테이너2. 리스트
+
+1. 컨테이너
+변수는 컨테이너와 비슷하다.
+ex. name = ‘seo’ 와 같이 값을 대입할 수 있다.위 예에서 볼 수 있듯이 변수는 ‘하나의 값을 담는 그릇’과 같다.
+하나의 그릇에 여러 개의 값을 담을 수는 없을까?-&amp;gt; 컨테이너라는">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Python] 컨테이너, 리스트">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 컨테이너2. 리스트
+
+1. 컨테이너
+변수는 컨테이너와 비슷하다.
+ex. name = ‘seo’ 와 같이 값을 대입할 수 있다.위 예에서 볼 수 있듯이 변수는 ‘하나의 값을 담는 그릇’과 같다.
+하나의 그릇에 여러 개의 값을 담을 수는 없을까?-&amp;gt; 컨테이너라는">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Python] 컨테이너, 리스트 - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Python] 컨테이너, 리스트</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Python/">#Python</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Python/">Python</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 컨테이너</a><br><a href="#2">2. 리스트</a></p>
+<hr>
+<p><a name="1">1. 컨테이너</a></p>
+<p>변수는 컨테이너와 비슷하다.</p>
+<p>ex. name = ‘seo’ 와 같이 값을 대입할 수 있다.<br>위 예에서 볼 수 있듯이 변수는 ‘하나의 값을 담는 그릇’과 같다.</p>
+<p>하나의 그릇에 여러 개의 값을 담을 수는 없을까?<br>-&gt; <strong>컨테이너</strong>라는 것을 만들어서 각각의 값을 담을 수 있다.</p>
+<div align="center"><br><img src="/image/py5-1.png"><br></div>
+
+<p>위 그림은 컨테이너의 개념을 파악하는 데 유용하다.<br>하나의 그릇에 세 개의 값(‘Egoing’, ‘Leezche’, ‘Graphittie’)을 담았다. 또한, 그릇데 담긴 값들은 각각 0, 1, 2라는 번호가 부여된다.<br>또한, 컨테이너를 다시 변수에 담을 수 있다. 그리하여 변수의 이름을 통해 컨테이너에 접근할 수 있다.</p>
+<p>컨테이너란 포괄적인 개념이며, 파이썬에서는 보통 <strong>‘리스트(list)’</strong>로 지칭한다.</p>
+<hr>
+<p><a name="2">2. 리스트</a></p>
+<p><strong>리스트</strong>란 “0개 이상의 값의 원소들의 순서있는 집합”이다. 즉, 일종의 집합이나 컨테이너의 형태로 그 내부에 여러 개의 값을 원소로 가질 수 있으며 다른 언어에서는 배열 혹은 벡터로 불리는 타입과 비슷하다.<br>리스트는 순서있는 집합이므로 각 원소는 리스트 내부에서 고유한 순서를 가지고 있는데, 이 순서를 인덱스라고 한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">print(type(&apos;egoing&apos;))	# &apos;egoing&apos;의 타입(stirng)을 출력</span><br><span class="line">name = &apos;egoing&apos;</span><br><span class="line">print(name) 		# 변수 name에 담긴 것을 출력</span><br><span class="line">print(type([&apos;egoing&apos;, &apos;leezche&apos;, &apos;graphittie&apos;])) # [&apos;egoing&apos;, &apos;leezche&apos;, &apos;graphittie&apos;]의 타입(list)을 출력</span><br><span class="line">names = [&apos;egoing&apos;, &apos;leezche&apos;, &apos;graphittie&apos;] # 변수 name에 list를 담음</span><br><span class="line">print(names) </span><br><span class="line">print(names[2]) # 변수 name의 2번을 출력</span><br><span class="line">egoing = [&apos;programmer&apos;, &apos;seoul&apos;, 25, False] # list 생성 및 변수 name에 담음</span><br><span class="line">egoing[1] = &apos;busan&apos;	# egoing의 1번을 변경</span><br><span class="line">print(egoing) 		# [&apos;programmer&apos;, &apos;busan&apos;, 25, False]</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py5-2.png"><br></div>
+
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">al = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;]	# list al 생성</span><br><span class="line">print(len(al)) 			# al의 전체 요소 개수를 반환</span><br><span class="line">al.append(&apos;E&apos;)			# al list에 &apos;E&apos;를 추가</span><br><span class="line">print(al) 			# [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;]</span><br><span class="line">del(al[0]) 			# al list의 0번을 제거</span><br><span class="line">print(al) 			# [&apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;]</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/py5-3.png"><br></div>
+
+<p>len() : 입력값의 길이 또는 요소의 전체 개수를 반환하는 함수.<br>append() : 리스트에 요소를 추가하는 함수.<br>del() : 리스트의 요소를 삭제하는 함수.<br>ex. del a[1] : a list의 1번을 삭제<br>    del a[1:] : a list의 1번부터 삭제(여러개의 요소를 한꺼번에 삭제)</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>(연재) 파이썬은 처음이라 - 리스트는 처음이라, Wireframe-숩은 아직 20대, 2019. 1 .27, <a href="https://soooprmx.com/archives/8824" rel="external nofollow noopener noreferrer" target="_blank">https://soooprmx.com/archives/8824</a></li>
+<li>“Python &amp; Ruby”, 생활코딩, 2019. 1. 27, <a href="https://opentutorials.org/course/1750/9681" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/1750/9681</a>, <a href="https://opentutorials.org/course/1750/9619" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/1750/9619</a>, <a href="https://opentutorials.org/course/1750/9626" rel="external nofollow noopener noreferrer" target="_blank">https://opentutorials.org/course/1750/9626</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

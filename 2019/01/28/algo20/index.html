@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/28/algo20/">
+
+    
+
+    
+        <meta name="description" content="1. 연속 행렬 곱셉 (Chained Matrix Multiplications)2. 알고리즘3. 시간 복잡도
+
+1. 연속 행렬 곱셉 (Chained Matrix Multiplications)
+연속 행렬 곱셉 (Chained Matrix Multiplications) 문">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 연속 행렬 곱셈 (동적계획)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 연속 행렬 곱셉 (Chained Matrix Multiplications)2. 알고리즘3. 시간 복잡도
+
+1. 연속 행렬 곱셉 (Chained Matrix Multiplications)
+연속 행렬 곱셉 (Chained Matrix Multiplications) 문">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 연속 행렬 곱셈 (동적계획) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 연속 행렬 곱셈 (동적계획)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 연속 행렬 곱셉 (Chained Matrix Multiplications) / 2. 알고리즘 / 3.시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-28
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/동적계획/">#동적계획</a> <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 연속 행렬 곱셉 (Chained Matrix Multiplications)</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 연속 행렬 곱셉 (Chained Matrix Multiplications)</a></p>
+<p><strong>연속 행렬 곱셉 (Chained Matrix Multiplications)</strong> 문제는 연속된 행렬들의 곱셉에 필요한 원소 간의 최소 곱셉 횟수를 찾는 문제이다.</p>
+<div align="center"><br><img src="/image/algo20-1.png"><br></div>
+
+<p>예를 들어, 위와 같은 두 개의 행렬을 곱하는 경우, 10*20 행렬 A와 20*5 행렬 B를 곱하는데 원소간의 곱셈 횟수는 10*20*5 = 1000이다. 그리고 두 행렬을 곱한 결과 행렬 C는 10*5이다.</p>
+<div align="center"><br><img src="/image/algo20-2.png"><br></div>
+
+<p>또 다른 예시로, 세 개의 행렬을 곱하는 경우를 고려한다.<br>행렬의 곱셈에서는 결합법칙이 허용됨을 기억한다. A*B*C = (A*B)*C = A*(B*C)</p>
+<div align="center"><br><img src="/image/algo20-3.png"><br></div>
+
+<p>A*B를 먼저 계산한 후에 그 결과 행렬과 행렬 C를 곱하는 경우, 곱셈 횟수는 다음과 같다.<br>A*B = 10*20*5 = 1000, AB*C = 10*5*15 = 750<br>총 1000 + 750 = 1750회의 원소의 곱셈이 필요하다.</p>
+<div align="center"><br><img src="/image/algo20-4.png"><br></div>
+
+<p>B*C를 먼저 계산한 후에 그 결과 행렬과 행렬 A를 곱하는 경우, 곱셈 횟수는 다음과 같다.<br>B*C = 20*5*15 = 1500, A*BC = 10*20*15 = 3000<br>총 1500 + 3000 = 4500회의 원소의 곱셈이 필요하다.</p>
+<p>동일한 결과를 얻음에도 불구하고 원소 간의 곱셈 횟수가 차이가 난다. 따라서 연속 행렬을 곱하는 데 필요한 원소 간의 곱셈 횟수를 최소화시키기 위한 적절한 곱셈 순서를 찾아야 한다.</p>
+<p>연속 행렬 곱셈 문제는 대표적인 동적 계획 알고리즘 문제이다.<br>단, 이웃하는 행렬끼리 먼저 곱해야 하는 특징 때문에 비교적 간단하게 해결할 수 있다.</p>
+<p>행렬 A, B, C, D, E를 곱하는데 다음과 같은 부분 문제가 만들어진다.</p>
+<div align="center"><br><img src="/image/algo20-5.png"><br></div>
+
+<p><strong>부분 문제들이 겹쳐있다는 것</strong>이 중요하다.</p>
+<div align="center"><br><img src="/image/algo20-6.png"><br></div>
+
+<p>크기가 3인 부분문제가 3인 경우도 서로 이웃하는 부분문제들끼리 겹쳐 있음을 알 수 있다. 마지막 부분문제의 갯수가 1개인 경우는 주어진 문제로서 입력이다.</p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>다음은 연속 행렬 곱셈을 위한 동적 계획 알고리즘이다.<br>단, 원소 간의 최소 곱셈 횟수를 C[i,j]에 저장한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">MatrixChain</span><br><span class="line">입력: 연속된 행렬 A1\*A2\*...\*An,</span><br><span class="line">출력: 입력의 행렬 곱셈에 필요한 원소 간의 최소 곱셈 횟수</span><br><span class="line">for i = 1 to n</span><br><span class="line">  C[i,i] = 0</span><br><span class="line">for L = 1 to n-1 &#123;	//L은 부분문제의 크기를 조절하는 인덱스</span><br><span class="line">  for i = 1 to n-L &#123;</span><br><span class="line">    j = i + L</span><br><span class="line">    C[i,j] = ∞</span><br><span class="line">    for k = i to j-1 &#123;</span><br><span class="line">      temp = C[i,k] + C[k+1,j] + d(i-1)dkdj</span><br><span class="line">      if (temp &lt; C[i,j])</span><br><span class="line">        C[i,j] = temp</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return C[1,n]</span><br></pre></td></tr></table></figure></p>
+<div align="center"><br><img src="/image/algo20-7.png"><br></div>
+
+<p>A1 : 10*20, A2 : 20*5, A3 : 5*15, A4 : 15*30일 때, MatrixChain 알고리즘 수행 과정은 다음과 같다.</p>
+<ul>
+<li>Line 4~5 : C[1,1] = C[2,2] = C[3,3], C[4,4] = 0으로 초기화</li>
+</ul>
+<div align="center"><br><img src="/image/algo20-8.png"><br><br></div>
+
+<ul>
+<li>Line 6 : L이 1부터 n-1 = 4-1 = 3까지 변하고, 각각의 L값에 대해, i가 변화, C[i,j]를 계산</li>
+<li>L = 1일 때, i는 1부터 n-L = 4-1 = 3까지 변한다.<ul>
+<li>i = 1이면, j = i+L = 1+1 = 2, C[1,2] = ∞,<br>temp = C[1,1] + C[2,2] + d<sub>0</sub>d<sub>1</sub>d<sub>2</sub> = 0 + 0 + (10*20*5) = 1000<br>temp = 1000 &lt; C[1,2] = ∞, C[1,2] = 1000</li>
+<li>i = 2이면, j = i+L = 2+1 = 3, C[2,3] = ∞<br>temp = C[2,2] + C[3,3] + d<sub>1</sub>d<sub>2</sub>d<sub>3</sub> = 0 + 0 + (20*5*15) = 1500<br>temp = 1500 &lt; C[2,3] = ∞, C[2,3] = 1500</li>
+<li>i = 3이면, j = i+L = 3+1 = 4, C[3,4] = ∞<br>temp = C[3,3] + C[4,4] + d<sub>2</sub>d<sub>3</sub>d<sub>4</sub> = 0 + 0 + (5*15*30) = 2250<br>temp = 2250 &lt; C[3,4] = ∞, C[3,4] = 2250</li>
+</ul>
+</li>
+</ul>
+<div align="center"><br><img src="/image/algo20-9.png"><br>A1 * A2 = 1000, A2 * A3 = 1500, A3 * A4 = 2250<br><br></div>
+
+<ul>
+<li><p>L = 2일 때, i는 1부터 n-L = 4-2 = 2까지 변한다.</p>
+<ul>
+<li><p>i = 1이면, j = i+L = 1+2 = 3, C[1,3] = ∞</p>
+<ul>
+<li><p>k = 1일 때, temp = C[1,1] + C[2,3] + d<sub>0</sub>d<sub>1</sub>d<sub>3</sub> = 0 + 1500 + (10*20*15) = 4500<br>temp = 4500 &lt; C[1,3] = ∞, C[1,3] = 4500<br><img src="/image/algo20-10.png"><br>A2*A3 = 1500, A1*A2A3 = 3000 + 1500</p>
+</li>
+<li><p>k = 2일 때, temp = C[1,2] + C[3,3] + d<sub>0</sub>d<sub>2</sub>d<sub>3</sub> = 1000 + 0 + (10*5*15) = 1750<br>temp = 1750 &lt; C[1,3] = 4500, C[1,3] 1750<br><img src="/image/algo20-11.png"><br>A1*A2 = 1000, A1A2*A3 = 1000 + 750</p>
+</li>
+</ul>
+</li>
+<li><p>i =2이면, j = i+L = 2+2 = 4, C[2,4] = ∞</p>
+<ul>
+<li><p>k = 2일 때, temp = C[2,2] + C[3,4] + d<sub>1</sub>d<sub>2</sub>d<sub>4</sub> = 0 + 2250 + (20*5*30) = 5250<br>temp = 5250 &lt; C[2,4] = ∞, C[2,4] = 5250<br><img src="/image/algo20-12.png"><br>A3*A4 = 2250, A2*A3A4 = 3000 + 2250</p>
+</li>
+<li><p>k = 3일 때, temp = C[2,3] + C[4,4] + d<sub>1</sub>d<sub>3</sub>d<sub>4</sub> = 1500 + 0 + (20*15*30) = 10500<br>temp = 10500 &gt; C[2,4] = 2250, C[2,4] = 5250<br><img src="/image/algo20-13.png"><br>A2*A3 = 1500, A2A3*A4 = 9000 + 1500</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div align="center"><br><img src="/image/algo20-14.png"><br><br></div>
+
+<ul>
+<li><p>L = 3일 때, i는 1부터 n-L = 4-3 = 1까지 변한다.(i=1일때만 수행)</p>
+<ul>
+<li><p>i = 1이면, j = i+L = 1+3 = 4, C[1,4] = ∞</p>
+<ul>
+<li><p>k = 1일 때, temp = C[1,1] + C[2,4] = d<sub>0</sub>d<sub>1</sub>d<sub>4</sub> = 0 + 5250 + (10*20*30) = 11250<br>temp = 11250 &lt; C[1,4] = ∞, C[1,4] = 11250<br><img src="/image/algo20-15.png"><br>A2*A3*A4 = 5250, A1*A2A3A4 = 6000</p>
+</li>
+<li><p>k = 2일 때, temp = C[1,2] + C[3,4] = d<sub>0</sub>d<sub>2</sub>d<sub>4</sub> = 1000 + 2250 + (10*5*30) = 4750<br>temp = 4750 &lt; C[1,4] = ∞, C[1,4] = 4750<br><img src="/image/algo20-16.png"><br>A1*A2 = 1000, A3*A4 = 2250, (A1A2)*(A3A4) = 1000 + 1500 + 2250 = 4750</p>
+</li>
+<li><p>k = 3일 때, temp = C[1,3] + C[4,4] = d<sub>0</sub>d<sub>3</sub>d<sub>4</sub> = 1750 + 0 + (10*15*30) = 6250<br>temp = 6250 &gt; C[1,4] = 4750, C[1,4] = 4750<br><img src="/image/algo20-17.png"><br>A1*A2 = 1000, A3*A4 = 2250, (A1A2)*(A3A4) = 1750 + 4500 = 6250</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div align="center"><br><img src="/image/algo20-18.png"><br><br></div>
+
+<ul>
+<li>C[1,4]= 4750을 반환</li>
+</ul>
+<hr>
+<p><a name="3">3. 시간복잡도 </a></p>
+<p>3중 for문 -&gt; O(n<sup>3</sup>)</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“5장동적계획알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 26, <a href="https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=5%C0%E5%B5%BF%C0%FB%B0%E8%C8%B9%BE%CB%B0%ED%B8%AE%C1%F2.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

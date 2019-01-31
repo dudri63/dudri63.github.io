@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/25/algo14/">
+
+    
+
+    
+        <meta name="description" content="1. 부분 배낭 문제2. 알고리즘3. 시간 복잡도
+
+1. 부분 배낭 문제
+배낭(Knapsack) 문제는 n개의 물건이 있고, 각 물건은 무게와 가치를 가지고 있을 때, 최대의 가치를 갖도록 한정된 용량의 배낭에 넣을 물건들을 정하는 문제이다.원래의 배낭 문제는 물건을 ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 부분 배낭 문제 (그리디)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 부분 배낭 문제2. 알고리즘3. 시간 복잡도
+
+1. 부분 배낭 문제
+배낭(Knapsack) 문제는 n개의 물건이 있고, 각 물건은 무게와 가치를 가지고 있을 때, 최대의 가치를 갖도록 한정된 용량의 배낭에 넣을 물건들을 정하는 문제이다.원래의 배낭 문제는 물건을 ">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 부분 배낭 문제 (그리디) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 부분 배낭 문제 (그리디)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 부분 배낭 문제 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-25
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/알고리즘/">#알고리즘</a> <a href="/tags/그리디/">#그리디</a> <a href="/tags/Greedy/">#Greedy</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 부분 배낭 문제</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 부분 배낭 문제</a></p>
+<p><strong>배낭(Knapsack) 문제</strong>는 n개의 물건이 있고, 각 물건은 무게와 가치를 가지고 있을 때, 최대의 가치를 갖도록 한정된 용량의 배낭에 넣을 물건들을 정하는 문제이다.<br>원래의 배낭 문제는 물건을 통째로 배낭에 넣어야 하는 것에 반해,<br><strong>부분 배낭(Fractional Knapsack) 문제</strong>는 물건을 부분적으로 담는 것이 허용 된다.</p>
+<p>부분 배낭 문제에서는 물건을 부분적으로 배낭에 담을 수 있으므로, 최적해을 위해서 ‘욕심을 내어’ 단위 무게당 가장 값나가는 물건을 배낭에 넣고, 계속해서 그 다음으로 값나가는 물건을 넣는다. 그런데 만일 그 다음으로 값나가는 물건을 ‘통째로’ 배낭에 넣을 수 없게 되면, 배낭에 넣을 수 있을 만큼만 물건을 부분적으로 배낭에 담도록 한다.</p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>다음은 부분 배낭 문제를 위한 그리디 알고리즘이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">FractionalKnapsack</span><br><span class="line">입력: n개의 물건과 각 물건의 무게와 가치, 배낭의 용량 C</span><br><span class="line">출력: 배낭에 담은 물건 리스트 L과 배낭에 담은 물건의 가치 합 v</span><br><span class="line">각 물건의 단위 무게당 가치를 계산.</span><br><span class="line">물건들을 단위 무게당 가치를 기준으로 내림차순으로 정렬, 정렬된 물건 리스트를 S라고 한다.</span><br><span class="line">L=∅, w=0, v=0 // L: 배낭에 담을 물건 리스트, w: 배낭에 담긴 물건들의 무게의 합, v: 배낭에 담긴 물건들의 가치의 합</span><br><span class="line">S에서 단위 무게당 가치가 가장 큰 물건 x를 가져온다.</span><br><span class="line">while((w + x의 무게)&lt;=C)&#123;</span><br><span class="line">  x를 L에 추가시킨다.</span><br><span class="line">  w = w + x의 무게</span><br><span class="line">  v = v + x의 가치</span><br><span class="line">  x를 S에서 제거한다.</span><br><span class="line">  S에서 단위 무게당 가치가 가장 큰 물건 x를 가져온다.</span><br><span class="line">&#125;</span><br><span class="line">if ((C-w) &gt; 0) &#123; // 배낭에 물건을 부분적으로 더 담을 여유가 있으면</span><br><span class="line">  물건 x를 (C-w)만큼만 L에 추가한다.</span><br><span class="line">  v = v + (C-w)만큼의 x의 가치</span><br><span class="line">&#125;</span><br><span class="line">return L, v</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="/image/algo14-1.png"><br></div>
+
+<p>위와 같은 4개의 금속 분말이 있고, 배낭의 최대 용량(C)이 40g이라고 가정한다.<br>FractionalKnapsack 알고리즘의 수행 과정은 다음과 같다.</p>
+<ul>
+<li>Line 4 : 단위 무게당 가치, 주석 1천원, 백금 6만원, 은 4천원, 금 5만원</li>
+<li>Line 5 : S = {백금,금,은,주석}</li>
+<li>Line 6 : L=∅, w=0, v=0로 각각 초기화한다.</li>
+<li>Line 7 : S에서 단위 무게당 가장 큰 물건인 백금을 x로서 가져온다.</li>
+<li>Line 8 : w + x의 무게 = 10g &lt; C = 40g 으로 while-문 조건을 만족한다.</li>
+<li>Line 9 : 백금 x를 L에 추가, L = {백금}</li>
+<li>Line 10 : w = 0 + 10g = 10g</li>
+<li>Line 11 : v = 0 + 60만원 = 60만원</li>
+<li>Line 12 : S = {금,은,주석}</li>
+<li>Line 13 : S에서 금을 x로서 가져온다.</li>
+<li>Line 8 : w + x의 무게 = 10g + 15g &lt; C = 40g, while-문 조건 만족</li>
+<li>Line 9 : L ={백금, 금}</li>
+<li>Line 10 : w = 10g + 15g = 25g</li>
+<li>Line 11 : v = 60만원 + 75만원 = 135만원</li>
+<li>Line 12 : S = {은,주석}</li>
+<li>Line 13 : S에서 은을 x로서 가져온다.</li>
+<li>Line 8 : w + x의 무게 = 25g + 25g = 50g &gt; C = 40g, while-문 조건 만족X</li>
+<li>Line 15 : C-w = 40g - 25g = 15g &gt; 0, if-문 조건 만족</li>
+<li>Line 16 : 물건 x인 은을 (C-w) = 15g만큼만 L에 추가, L = {백금,금,은}</li>
+<li>Line 17 : v = 135만원 + (C-w)만큼의 x의 가치 = 135만원 + 15X4천원 = 141만원</li>
+<li>Line 19 : L = {백금, 금, 은}, v = 141만원 반환</li>
+</ul>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>Line 4에서 n개의 물건 단위 무게당 가치를 계산하는 데 O(n) 시간이 걸림.<br>Line 5에서 물건의 단위 무게당 가치에 대해 정렬하므로 O(nlogn) 시간이 걸림.<br>Line 8~13의 while-루프의 수행은 n번을 넘지 않으며, 루프 내부의 수행은 O(1) 시간,<br>Line 14~17, O(1) 시간이 걸림.</p>
+<p>따라서 O(n) + O(nlogn) + n*O(1) + O(1) = O(nlogn)</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“4장그리디알고리즘-0”, 영산대학교 교수블로그, 2019. 1. 21, <a href="https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=4%C0%E5%B1%D7%B8%AE%B5%F0%BE%CB%B0%ED%B8%AE%C1%F2-0.pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

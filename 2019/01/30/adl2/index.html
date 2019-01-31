@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/01/30/adl2/">
+
+    
+
+    
+        <meta name="description" content="1. TensorFlow2. TensorFlow 예제3. TensorFlow 구조4. placeholder5. Tesnor, Ranks, Shapes, Types
+
+1. TensorFlow
+텐서플로우(TensorFlow)는 구글에서 만든 오픈 소스 라이브러리이다.텐서플">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[딥러닝/머신러닝] TensorFlow">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. TensorFlow2. TensorFlow 예제3. TensorFlow 구조4. placeholder5. Tesnor, Ranks, Shapes, Types
+
+1. TensorFlow
+텐서플로우(TensorFlow)는 구글에서 만든 오픈 소스 라이브러리이다.텐서플">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[딥러닝/머신러닝] TensorFlow - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[딥러닝/머신러닝] TensorFlow</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-01-30
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Deep-Learning/">#Deep Learning</a> <a href="/tags/딥러닝/">#딥러닝</a> <a href="/tags/Machine-Learning/">#Machine Learning</a> <a href="/tags/머신러닝/">#머신러닝</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. TensorFlow</a><br><a href="#2">2. TensorFlow 예제</a><br><a href="#3">3. TensorFlow 구조</a><br><a href="#4">4. placeholder</a><br><a href="#5">5. Tesnor, Ranks, Shapes, Types</a></p>
+<hr>
+<p><a name="1">1. TensorFlow</a></p>
+<p><strong>텐서플로우(TensorFlow)</strong>는 구글에서 만든 오픈 소스 라이브러리이다.<br>텐서플로우는 데이터 플로우 그래프(Data Flow Graph)를 이용하여 수 계산(Numerical Computation)을 할 수 있다는 특징이 있다.<br>또한, ‘파이썬(Python)’ 언어를 이용하여 텐서플로우를 활용할 수 있다.</p>
+<p>Data Flow Graph란 다음 그림과 같은 것이다.</p>
+<div align="center"><br><img src="/image/ald2-1.png"><br></div><br>‘노드’와 노드간을 연결하는 ‘엣지’로 구성되어 있는 것을 그래프라고 한다.<br>Data Flow Graph에서 노드는 하나의 operation이다.<br>엣지는 데이터(tensor)이다.<br>데이터들은 연속적으로 연산하여 결과를 추출하는 것이 Data Flow Graph의 방식이다.<br><br><div align="center"><br><img src="/image/ald2-2.png"><br></div>
+
+<p>리눅스 환경에서 텐서플로우를 설치한 후, 파이썬에서 텐서플로우 모듈을 import 및 버전 정보를 확인한 결과는 위와 같다.</p>
+<hr>
+<p><a name="2">2. TensorFlow 예제</a></p>
+<div align="center"><br><img src="/image/ald2-3.png"><br></div>
+
+<p>“Hello, TensorFlow!”라는 내용의 constant 노드를 만들고, 변수 hello에 이를 할당한다.<br>(computation 그래프 내에 노드 1개가 만들어진 형태이다.)<br>이 후, session을 만든 뒤 실행(run)시켰다.<br>(computation 그래프를 실행하기 위해서는 session을 만들어야 한다.)</p>
+<p>(b’라는 문자열은 간단하게 byte string이라는 의미이다. 프로그램 동작과는 무관하다)</p>
+<hr>
+<div align="center"><br><img src="/image/ald2-5.png"><br><br><img src="/image/ald2-4.png"><br></div>
+
+<p>a와 b라는 노드가 있고, ‘+’라는 노드로 연결되는 간단한 그래프를 만든 것이다.</p>
+<p>node1은 ‘3’이라는 내용, data type은 float32인 constant 노드이다.<br>node2는 ‘4’라는 내용의 constant 노드이다. node2는 암묵적으로 node1과 마찬가지로 data type이 float32임을 유의한다.<br>node3은 node1, node2를 더하는 add 노드이다.</p>
+<p>이 후, node1, node2, node3를 print() 함수를 이용하여 출력하면, 각각의 노드들은 Tensor이며, 그 내용들을 확인할 수 있다. 결과값을 확인할 수는 없다.</p>
+<p>결과값을 확인하기 위해서 1. session을 만들고, 2. 해당 session에 원하는 노드들을 넣은 뒤 3. run한다.</p>
+<hr>
+<p><a name="3">3. TensorFlow 구조</a></p>
+<div align="center"><br><img src="/image/ald2-6.png"><br></div>
+
+<p>텐서플로우의 구조는 위와 같은데 기존의 프로그래밍과는 조금 다르다.</p>
+<ol>
+<li>먼저 그래프를 빌드한다.</li>
+<li>session을 만든 뒤 run한다.</li>
+<li>결과로 graph내의 값을 업데이트한다.</li>
+</ol>
+<hr>
+<p><a name="4">4. plcaeholder</a></p>
+<p>위에서는 그래프를 만들면서, 각 노드들의 숫자들을 지정하였다.<br>그렇다면, 그래프를 미리 만들어 놓고, 실행시키는 단계에서 값을 던지고 싶다면 어떻게 해야할까?</p>
+<p>constant 노드가 아니라, <strong>placeholder</strong>라는 특별한 노드를 사용한다.</p>
+<div align="center"><br><img src="/image/ald2-7.png"><br><img src="/image/ald2-8.png"><br></div>
+
+<p>a, b, adder_node, 총 3개의 placeholder 노드를 만들었다.<br>이 후, session을 생성한 뒤, feed_dict로 a, b 노드에 값을 할당한 뒤 실행시킨다.<br>1개의 값이 아닌 여러개의 값을 넘겨줄 수도 있다.</p>
+<hr>
+<p><a name="5">5. Tensor, Ranks, Shapes, Types</a></p>
+<p>5.1. Tensor</p>
+<p>TensorFlow 프로그램은 모든 데이터를 <strong>tensor</strong> 데이터 구조를 사용해서 표현한다.<br>TensorFlow의 tensor는 n-차원 배열 또는 리스트라고 생각할 수 있다.<br>하나의 tesnor는 정적 타입, 동적 차원을 가지고 있다.<br>그리고 Computation 그래프의 노드들은 오직 tensor만을 전달할 수 있다.</p>
+<p>5.2. Rank</p>
+<p>TensorFlow 시스템에서 tensor는 <strong>rank</strong>라는 차원 단위로 표현된다.</p>
+<div align="center"><br><img src="/image/ald2-9.png"><br></div><br>위 표는 rank에 따른 tensor의 형식이다.<br><br>5.3. Shape<br><br>TensorFlow 문서는 tensor 차원을 표현할 때, 세 가지 기호를 사용한다.<br>rank, shape, 차원수가 그것들이다.<br>다시 말하면, tensor의 차원을 알기 위해서 rank, shape, 차원수를 살펴볼 수 있다.<br><div align="center"><br><img src="/image/ald2-10.png"><br></div>
+
+<p>5.4. Data Types</p>
+<p>Tensor는 차원 말고도 <strong>데이터 타입</strong>을 갖는다. 아래의 데이터 타입을 tensor에 지정할 수 있다.</p>
+<div align="center"><br><img src="/image/ald2-11.png"><br></div>
+
+
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>랭크, 크기, 타입-텐서플로우 문서 한글 번역본, 텐서플로우, 2019. 1. 30, <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/resources/dims\_types.html" rel="external nofollow noopener noreferrer" target="_blank">https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/resources/dims\_types.html</a></li>
+<li>섹션 0.오리엔테이션, 섹션 1.머신러닝의 개념과 용어/기본적인 Machine Learning의 용어와 개념 설명, 모두를 위한 딥러닝-기본적인 머신러닝와 딥러닝 강좌, 2019. 1. 30, <a href="https://www.inflearn.com/course/%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-%eb%a8%b8%ec%8b%a0%eb%9f%ac%eb%8b%9d-%eb%94%a5%eb%9f%ac%eb%8b%9d-%ea%b0%95%ec%a2%8c/tensorflow%ec%9d%98-%ec%84%a4%ec%b9%98%eb%b0%8f-%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-operations/" rel="external nofollow noopener noreferrer" target="_blank">https://www.inflearn.com/course/%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-%eb%a8%b8%ec%8b%a0%eb%9f%ac%eb%8b%9d-%eb%94%a5%eb%9f%ac%eb%8b%9d-%ea%b0%95%ec%a2%8c/tensorflow%ec%9d%98-%ec%84%a4%ec%b9%98%eb%b0%8f-%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-operations/</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

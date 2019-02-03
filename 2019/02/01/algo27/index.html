@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/01/algo27/">
+
+    
+
+    
+        <meta name="description" content="1. 삽입 정렬2. 알고리즘3. 시간 복잡도
+
+1. 삽입 정렬
+‘삽입 정렬(Insertion Sort)’은 배열을 정렬된 부분(앞부분)과 정렬이 안 된 부분(뒷부분)으로 나누고, 정렬이 안 된 부분의 가장 왼쪽 원소를 정렬된 부분의 적절한 위치에 삽입하여 정렬되도록 하">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 삽입 정렬 (정렬)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 삽입 정렬2. 알고리즘3. 시간 복잡도
+
+1. 삽입 정렬
+‘삽입 정렬(Insertion Sort)’은 배열을 정렬된 부분(앞부분)과 정렬이 안 된 부분(뒷부분)으로 나누고, 정렬이 안 된 부분의 가장 왼쪽 원소를 정렬된 부분의 적절한 위치에 삽입하여 정렬되도록 하">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 삽입 정렬 (정렬) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 삽입 정렬 (정렬)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 삽입 정렬 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-02-01
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/Sort/">#Sort</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 삽입 정렬</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 삽입 정렬</a></p>
+<p><strong>‘삽입 정렬(Insertion Sort)’</strong>은 배열을 정렬된 부분(앞부분)과 정렬이 안 된 부분(뒷부분)으로 나누고, 정렬이 안 된 부분의 가장 왼쪽 원소를 정렬된 부분의 적절한 위치에 삽입하여 정렬되도록 하는 과정을 반복한다.</p>
+<p>정렬이 안 된 부분의 숫자 하나가 정렬된 부분에 ‘삽입’됨으로써, 정렬된 부분의 원소 수가 1개 늘어나고, 정렬이 안 된 부분의 원 소 수는 1개 줄어든다.<br>이를 반복하여 수행, 마지막에는 정렬이 안 된 부분에 원소가 아무것도 남지 않게 된다.</p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>InsertionSort<br>입력: 크기가 n인 배열 A<br>출력: 정렬된 배열 A<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for i = 1 to n-1 &#123;		// A[0]는 정렬이 된 상태로 본다</span><br><span class="line">  CurrentElement = A[i] 	// 정렬이 안된 부분의 가장 왼쪽 원소</span><br><span class="line">  j &lt;- i-1			// 정렬이 된 부분의 가장 오른쪽 원소를 지칭</span><br><span class="line">  while (j &gt;=0) and (A[j] &gt; CurrentElement) &#123; // CurrentElement가 더 작으면</span><br><span class="line">    A[j+1] = A[j] 		// 정렬이 된 부분의 가장 오른쪽 원소를 오른쪽으로 한칸 이동</span><br><span class="line">    j &lt;- j-1			</span><br><span class="line">  &#125;</span><br><span class="line">  A[j+1] &lt;- CurrentElement	// 비어있는 부분으로 CurrentElement 이동</span><br><span class="line">&#125;</span><br><span class="line">return A</span><br></pre></td></tr></table></figure></p>
+<p>다음의 배열에 대해 삽입 정렬이 수행되는 과정을 확인한다.</p>
+<div align="center"><br><img src="/image/algo27-1.png"><br><br></div>
+
+<ul>
+<li><p>i=1, CurrentElement = A[1] = 10, j = i-1 = 0<br><img src="/image/algo27-2.png"><br><img src="/image/algo27-3.png"><br>A[j]= A[0] = 40 &gt; CurrentElement = 10, 한 칸 이동, j &lt;- j-1<br><img src="/image/algo27-4.png"><br>j=-1, while-문 만족하지 않음<br>A[j+1] = A[0]에 CurrentElement 저장</p>
+</li>
+<li><p>i=2, CurrentElement = A[2] = 50, j = i-1 = 1<br><img src="/image/algo27-5.png"><br>A[j] = A[1] = 40 &lt; CurrentElement = 50, while-문 만족하지 않음, 자리 이동 없음</p>
+</li>
+<li><p>i=3, CurrentElement = A[3] = 90, j = i-1 = 2<br><img src="/image/algo27-6.png"><br>A[j] = A[2] = 50 &lt; CurrentElement = 90, while-문 만족하지 않음, 자리 이동 없음</p>
+</li>
+<li><p>i=4, CurrentElement = A[4] = 20, j = i-1 = 3<br><img src="/image/algo27-7.png"><br><img src="/image/algo27-8.png"><br>A[j] = A[3] = 90 &gt; CurrentElement = 20, 한 칸 이동, j &lt;- j-1<br><img src="/image/algo27-9.png"><br>A[j] = A[2] = 50 &gt; CurrentElement = 20, 한 칸 이동, j &lt;- j-1<br><img src="/image/algo27-10.png"><br>A[j] = A[1] = 40 &gt; CurrentElement = 20, 한 칸 이동, j &lt;- j-1<br><img src="/image/algo27-11.png"><br>A[j] = A[0] = 10 &lt; CurrentElement = 20, while-문 만족하지 않음<br>A[j+1] = A[1]에 CurrentElement 저장</p>
+</li>
+<li><p>i=5, CurrentElement = A[5] = 80,<br><img src="/image/algo27-12.png"></p>
+</li>
+<li><p>i=6, CurrentElement = A[6] = 30,<br><img src="/image/algo27-13.png"></p>
+</li>
+<li><p>i=7, CurrentElement = A[7] = 60,<br><img src="/image/algo27-14.png"></p>
+</li>
+</ul>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>line 1 : for-루프가 (n-1)번 수행<br>line 4 : while-루프가 i=1일 때, 최대 1회 수행, i=2일 때, 최대 2회 수행, … i=n-1일 때, 최대 n-1회 수행<br>while-루프 내부의 수행시간은 O(1)</p>
+<p>따라서, n(n-1)/2 * O(1) = O(n<sup>2</sup>)</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“6장정렬알고리즘”, 영산대학교 교수블로그, 2019. 2. 1, <a href="https://prof.ysu.ac.kr/down.asp?file=6%C0%E5%C1%A4%B7%C4%BE%CB%B0%ED%B8%AE%C1%F2(1).pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=6%C0%E5%C1%A4%B7%C4%BE%CB%B0%ED%B8%AE%C1%F2(1).pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

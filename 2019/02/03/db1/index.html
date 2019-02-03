@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/03/db1/">
+
+    
+
+    
+        <meta name="description" content="1. Database System2. Database3. DBMS4. Database Users5. DB Approach
+
+1. Database System
+
+DBS(데이터베이스 시스템) : 자료를 데이터베이스에 저장, 관리하며 필요한 정보를 제공하는 컴퓨터 기반 시스">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[DataBase] DBS, DB, DBMS, 이용자, DB approach">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. Database System2. Database3. DBMS4. Database Users5. DB Approach
+
+1. Database System
+
+DBS(데이터베이스 시스템) : 자료를 데이터베이스에 저장, 관리하며 필요한 정보를 제공하는 컴퓨터 기반 시스">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[DataBase] DBS, DB, DBMS, 이용자, DB approach - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[DataBase] DBS, DB, DBMS, 이용자, DB approach</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. DBS / 2. DB / 3. DBMS / 4. users / 5. DB Approach
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-02-03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/DataBase/">#DataBase</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/DataBase/">DataBase</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. Database System</a><br><a href="#2">2. Database</a><br><a href="#3">3. DBMS</a><br><a href="#4">4. Database Users</a><br><a href="#5">5. DB Approach</a></p>
+<hr>
+<p><a name="1">1. Database System</a></p>
+<ul>
+<li>DBS(데이터베이스 시스템) : 자료를 데이터베이스에 저장, 관리하며 필요한 정보를 제공하는 컴퓨터 기반 시스템이다.</li>
+<li>DBS 구성요소 :<ul>
+<li>Database (DB)</li>
+<li>Database management system (DBMS)</li>
+<li>Database users</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="2">2. Database</a></p>
+<ul>
+<li>데이터베이스<ul>
+<li>상호 관련있는 데이터들의 집합<ul>
+<li>데이터란 의미가 있고, 저장할 수 있는 것이다.</li>
+</ul>
+</li>
+<li>현실 세계의 정보들을 나타낸다.</li>
+<li>특정한 목적을 위하여 설계된다.</li>
+<li>현실 세계의 정보인 sotred data와 stored data를 위한 데이터인 meta data가 저장된다.</li>
+<li>데이터베이스의 예 :<ul>
+<li>University database</li>
+<li>Company database</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="3">3. DBMS</a></p>
+<ul>
+<li>DBMS (Database Management System)<ul>
+<li>데이터베이스를 관리하는 프로그램</li>
+<li>데이터베이스 이용자(user)와 데이터베이스간의 Interface<ul>
+<li>DBMS를 이용하여 이용자는 쉽게 데이터베잇를 생성 및 유지할 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DBMS의 주요 기능<ul>
+<li>정의 : 데이터에 대한 형식, 구조, 제약조건들을 명세<ul>
+<li>이 때, 데이터베이스에 대한 정의 및 설명은 카탈로그나 사전의 형태로 저장된다.(meta data)</li>
+</ul>
+</li>
+<li>구축 : DBMS가 관리하는 기억 장치에 데이터를 저장</li>
+<li>조작 : 특정한 데이터를 검색하기 위한 질의, 데이터 갱신, 보고서 생성 기능 등</li>
+<li>공유 : 여러 사용자와 프로그램이 데이터베이스에 동시에 접근하도록 하는 기능</li>
+<li>보호 : 하드웨어나 소프트웨어의 오동작 또는 권한이 없는 악의적인 접근으로부터 시스템을 보호</li>
+<li>유지보수 : 시간이 지남에 따라 변화하는 요구사항을 반영할 수 있도록 하는 기능</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="4">4. Database Users</a></p>
+<ul>
+<li>End Users : application programmer에 의해 개발된 application program을 통해 database에 접근하는 사람들</li>
+<li>Application Programmers : 애플리케이션 개발자<ul>
+<li>시스템 분석에 관한 지식, host language(ex. JSP, ASP)를 알고 있어야 한다.</li>
+<li>SQL의 DML(Data Manipulation Language)을 알아야 한다.</li>
+</ul>
+</li>
+<li>Database designers<ul>
+<li>database를 설계하기 위한 현실 세계의 요구사항들을 파악한다.</li>
+<li>저장될 데이터, 적절한 구조를 선정</li>
+<li>SQL의 DDL(Data definition Language)을 알아야 한다.</li>
+</ul>
+</li>
+<li>DBA (Database Administrators)<ul>
+<li>데이터베이스 접근 권한을 설정한다.</li>
+<li>데이터베이스 운영, 관리를 책임진다.</li>
+</ul>
+</li>
+</ul>
+<div align="center"><br><img src="/image/db1-1.png"><br></div>
+
+<hr>
+<p><a name="5">5. DB Approach</a></p>
+<ul>
+<li>DB Approach<ul>
+<li>data를 유지하는 저장소는 한 개 있다.(여러 저장소를 사용하지 않는다.)</li>
+<li>저장소는 다양한 유저들에 의해 접근될 수 있다.</li>
+</ul>
+</li>
+<li>DB Approach 특징<ul>
+<li>자기기술성(Self-describing nature of a database system)</li>
+<li>프로그램과 데이터 격리(Insulation between programs and data)</li>
+<li>데이터 추상화(Data abstraction)</li>
+<li>데이터의 다중뷰(multiple view) 지원</li>
+<li>data 공유 &amp; 멀티유저(multi user)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>자기기술성<ul>
+<li>데이터베이스 시스템은 데이터베이스에 포함된 데이터 + 설명(meta)</li>
+<li>파일 시스템과 구별되는 특징</li>
+<li>데이터베이스 카탈로그(meta database)는 stored database와 같은 방식으로 접근할 수 있다.</li>
+<li>DBMS가 데이터의 삽입 및 삭제를 데이터/구조적 종속 없이 가능하게 해준다.</li>
+</ul>
+</li>
+<li>프로그램과 데이터 격리<ul>
+<li>단일한 응용 프로그램 내에서 데이터를 개별적으로 관리하는 방식은 데이터 구조 등이 변경되면 응용 프로그램도 수정되어야 한다.</li>
+<li>하지만 데이터베이스는 저장 구조 등을 수정하는 것이 응용 프로그램에 영향을 미치지 않는다.</li>
+</ul>
+</li>
+<li>데이터 추상화 <ul>
+<li>복잡한 데이터베이스의 구조에 대한 정보를 감추고, 각 사용자에게는 ‘뷰’를 제공한다.</li>
+<li>실제로는 복잡한 구조지만 상부 이용자에게는 간단하게 보이도록 한다.</li>
+</ul>
+</li>
+<li>데이터 다중뷰 지원<ul>
+<li>뷰 : 데이터베이스의 subset</li>
+<li>이용자마다 다른 목적을 커버 가능하다.</li>
+<li>각 이용자에게 필요한 것만 보이게 함으로써 보안성을 높일 수 있다.</li>
+<li>처리 시간이 걸린 다는 단점이 있다.</li>
+</ul>
+</li>
+<li>data 공유 &amp; 멀티유저(multi user)<ul>
+<li>DBMS는 다수 유저의 동시 접근을 허가한다.</li>
+<li>‘동시성 제어’</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>cf. 데이터베이스의 추가적인 특징</p>
+<ul>
+<li>데이터베이스는 동일한 내용의 데이터가 중복되어 있지 않아야 하고, 다양한 접근 방식이 마련되어 있어야 하며, 검색이나 갱신이 효율적으로 이루어질 수 있도록 해야 한다.</li>
+<li>RAM, ROM 같은 주기억장치가 아닌 컴퓨터에서 사용할 수 있는 보조기억장치에 저장된다.</li>
+</ul>
+<p>cf. 파일 시스템</p>
+<p>데이터 독립성, 데이터 중복성, 무결성 보장, 동시 접근 등에 문제가 있음<br>-&gt; DB approach의 장점과 대비</p>
+<hr>
+<ul>
+<li>DB Approach의 장점<ul>
+<li>중복 최소화</li>
+<li>권한 없는 접근 제한</li>
+<li>storage stucture 제공 및 효율적인 검색 프로세싱 가능(Indexes, Buffering, Caching, etc.)</li>
+<li>Backup, Recovery</li>
+<li>다양한 이용자 interface를 제공</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>Elmasri, Navathe,『Fundamentals of Database System』, Pearson, 2011</li>
+<li>데이터베이스, 위키피디아, 2019. 2. 3, <a href="https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EA%B4%80%EB%A6%AC_%EC%8B%9C%EC%8A%A4%ED%85%9C" rel="external nofollow noopener noreferrer" target="_blank">https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EA%B4%80%EB%A6%AC_%EC%8B%9C%EC%8A%A4%ED%85%9C</a></li>
+<li>데이터베이스, 나무위키, 2019. 2. 3, <a href="https://namu.wiki/w/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4#s-2" rel="external nofollow noopener noreferrer" target="_blank">https://namu.wiki/w/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4#s-2</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/03/algo32/">
+
+    
+
+    
+        <meta name="description" content="1. 외부 정렬2. 알고리즘3. 시간 복잡도
+
+1. 외부 정렬
+‘외부 정렬(External Sort)’은 입력 크기가 매우 커서 읽고 쓰는 시간이 오래 걸린느 보조 기억 장치에 입력을 저장할 수 밖에 없는 상태에서 수행되는 정렬을 일컫는다.예를 들어, 컴퓨터의 주기억 ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 외부 정렬 (정렬)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 외부 정렬2. 알고리즘3. 시간 복잡도
+
+1. 외부 정렬
+‘외부 정렬(External Sort)’은 입력 크기가 매우 커서 읽고 쓰는 시간이 오래 걸린느 보조 기억 장치에 입력을 저장할 수 밖에 없는 상태에서 수행되는 정렬을 일컫는다.예를 들어, 컴퓨터의 주기억 ">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 외부 정렬 (정렬) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 외부 정렬 (정렬)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 외부 정렬 / 2. 알고리즘 / 3. 시간 복잡도
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-02-03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/Sort/">#Sort</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 외부 정렬</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a></p>
+<hr>
+<p><a name="1">1. 외부 정렬</a></p>
+<p><strong>‘외부 정렬(External Sort)’</strong>은 입력 크기가 매우 커서 읽고 쓰는 시간이 오래 걸린느 보조 기억 장치에 입력을 저장할 수 밖에 없는 상태에서 수행되는 정렬을 일컫는다.<br>예를 들어, 컴퓨터의 주기억 장치의 용량이 1GB이고, 정렬할 입력의 크기가 100GB이면, 어떤 내부정렬 알고리즘으로도 정렬할 수 없다.</p>
+<p>외부 정렬은 입력을 분할, 주기억 장치에서 수용할 만큼의 데이터에 대해서만 내부정렬을 수행, 그 결과를 보조 기억 장치에 저장한다.<br>예를 들어, 100GB의 데이터를 1GB만큼씩 주기억 장치로 읽어 들이고, 퀵 정렬과 같은 내부정렬 알고리즘을 이용하여 정렬, 이 후, 다른 보조 기억 장치에 저장한다.<br>이것을 반복하면 원래의 입력 100GB가 100개씩 정렬된 블록으로 분할되어 보조 기억 장치에 저장된다.</p>
+<div align="center"><br><img src="/image/algo32-1.png"><br></div>
+
+<p>그 다음으로 정렬된 블록들을 하나의 정렬된 거대한 블록(100GB)으로 만들어야 한다.<br>이를 위해 합병(merge)를 반복 수행한다.<br>즉, 블록들을 부분적으로 주기억 장치에 읽어 들여서, 합병을 수행, 부분적으로 보조 기억 장치에 쓰는 과정을 반복한다.</p>
+<p>다음은 1GB 블록 2개가 2GB 블록 1개로 합병되는 과정이다.</p>
+<div align="center"><br><img src="/image/algo32-2.png"><br><img src="/image/algo32-3.png"><br></div>
+
+<p>2개의 블록을 부분적으로 주기억 장치로 읽어들인다.</p>
+<p>나머지 98개의 블록에 대해서 위 과정을 49회 추가로 반복하면, 2GB 블록 50개가 만들어진다.<br>그 다음에는 2GB 블록 2개씩 짝을 지워 합병시키는 과정을 25회 반복하여, 4GB 블록 25개가 만들어진다.<br>이러한 방식으로 계속 합병을 진행하면, 블록 크기가 2배씩 커지고, 블록의 수는 1/2씩 줄어들어 결국 100GB 블록 1개만 남는다.</p>
+<p>외부정렬 알고리즘은 보조 기억 장치에서의 읽고 쓰기를 최소화하는 것이 중요하다.<br>왜냐하면 보조 기억 장치의 접근시간(access time)이 오래 걸리기 때문이다.</p>
+<hr>
+<p><a name="2">2. 알고리즘</a></p>
+<p>ExternalSort<br>입력: 입력 데이터 저장된 입력 HDD<br>출력: 정렬된 데이터가 저장된 출력 HDD<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">입력 HDD에 저장된 입력을 크기가 M만큼씩 주기억 장치에 읽어 들인 후 내부 정렬 알고리즘으로 정렬하여 별도의 HDD에 저장한다. 다음 단계에서는 별도의 HDD는 입렬 HDD로 사용, 입력HDD는 출력 HDd로 사용된다.</span><br><span class="line">while (입력 HDD에 저장된 블록 수 &gt; 1) &#123;</span><br><span class="line">  입력 HDD에 저장된 블록을 2개씩 선택, 각각의 블록으로부터 데이터를 부분적으로 주기억 장치에 읽어 들여서 합병을 수행한다. 이때 합병된 결과는 출력 HDD에 저장한다. 단, 입력 HDD가 저장된 블록 수가 홀수일 때에는 마지막 블록은 그대로 출력 HDD에 저장한다.</span><br><span class="line">&#125;</span><br><span class="line">return 출력 HDD</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>외부정렬은 전체 데이터를 몇 번 처리하는가를 가지고 시간복잡도를 측정한다.<br>전체 데이터를 읽고 쓰는 것을 <strong>패스(pass)</strong>라고 한다.</p>
+<p>위 알고리즘의 경우, while-루프를 마치면 1 패스가 수행된 것이다.<br>그러므로 while-루프가 수행된 횟수가 알고리즘의 시간복잡도가 된다.</p>
+<p>입력 크기가 N, 메모리 크기가 m이면, line 3이 한번 수행될 때마다 블록 크기가 2M,4M, 2<sup>k</sup>M으로 증가한다. 만일 마지막에 만들어진 블록 1개의 크기가 2<sup>k</sup>M이면, 이 블록은 입력 전체가 합병된 결과를 가지고 있다. 즉, 2<sup>k</sup>M = N이다.<br>따라서 k = log<sub>2</sub>(N/M)이고, k는 while-루프가 수행된 횟수이다.<br>그러므로 외부정렬의 시간복잡도는 O(log(N/M))이다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“6장정렬알고리즘”, 영산대학교 교수블로그, 2019. 2. 1, <a href="https://prof.ysu.ac.kr/down.asp?file=6%C0%E5%C1%A4%B7%C4%BE%CB%B0%ED%B8%AE%C1%F2(1).pptx&amp;kid=" rel="external nofollow noopener noreferrer" target="_blank">https://prof.ysu.ac.kr/down.asp?file=6%C0%E5%C1%A4%B7%C4%BE%CB%B0%ED%B8%AE%C1%F2(1).pptx&amp;kid=</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

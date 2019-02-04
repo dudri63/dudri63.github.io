@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/04/algo33/">
+
+    
+
+    
+        <meta name="description" content="1.
+
+‘NP-완전(Nondeterministic Polynomial-Complete)’ 문제는 다항식 시간(Polynomial time)의 알고리즘이 아직 발견되지 않은 문제이다.
+
+1. 문제 분류
+컴퓨터로 풀 수 있는 모든 문제는 문제를 해결하는 알고리즘의 시간복잡">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] NP-완전 문제">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1.
+
+‘NP-완전(Nondeterministic Polynomial-Complete)’ 문제는 다항식 시간(Polynomial time)의 알고리즘이 아직 발견되지 않은 문제이다.
+
+1. 문제 분류
+컴퓨터로 풀 수 있는 모든 문제는 문제를 해결하는 알고리즘의 시간복잡">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] NP-완전 문제 - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] NP-완전 문제</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-02-04
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/NP-완전/">#NP-완전</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1.</a></p>
+<hr>
+<p><strong>‘NP-완전(Nondeterministic Polynomial-Complete)’</strong> 문제는 <strong>다항식 시간(Polynomial time)</strong>의 알고리즘이 아직 발견되지 않은 문제이다.</p>
+<hr>
+<p><a name="1">1. 문제 분류</a></p>
+<p>컴퓨터로 풀 수 있는 모든 문제는 문제를 해결하는 알고리즘의 시간복잡도에 따라 분류될 수 있다.</p>
+<ul>
+<li>다항식 시간복잡도를 가진 알고리즘으로 해결되는 P(plynomial) 문제 집합</li>
+<li>다항식보다 큰 시간복잡도를 가진 알고리즘으로 해결되는 문제 집합</li>
+</ul>
+<p>대부분의 문제들은 <strong>P 문제 집합</strong>에 속한다<br>왜냐하면 문제들을 위한 알고리즘의 시간복잡도가 O(logn), O(n), O(nlogn), O(n<sup>2</sup>), O(n<sup>3</sup>)등이고, 이러한 시간복잡도는 접근적 표기법에 따르면 O(n<sup>k</sup>)에 포함되기 때문이다.</p>
+<p>다항식보다 큰 시간복잡도를 가진 알고리즘으로 해결되는 문제 집합은 다시 여러가지 문제 집합으로 분류된다.<br>그 중 하나가 <strong>NP-완전 문제 집합</strong>이다.<br>NP-완전 문제의 알고리즘 시간복잡도는 지수 시간(exponential time)이다.<br>(ex. O(2<sup>n</sup>, O(n<sup>n</sup>)<br>NP-완전 문제의 특성은 어느 하나의 NP-완전 문제에 대해서 다항식 시간의 알고리즘을 찾아내면, 즉 다항식 시간에 해를 구할 수 있으면, 모든 다른 NP-완전 문제도 다항식 시간에 해를 구할 수 있다는 것이다.</p>
+<p>P 문제 집합과 NP-완전 문제 집합을 모두 포함하는 문제 집합인 <strong>NP 문제 집합</strong>이 있다.<br>NP 문제는 비결정적 다항식 시간 알고리즘을 가진 문제이다.<br>일반적으로 비결정적 다항식 시간 알고리즘을 NP 알고리즘이라고 하는데, NP 알고리즘의 정의는 다음과 같다.</p>
+<p>NP 알고리즘은<br>첫 번째 단계에서 주어진 입력에 대해서 하나의 해를 ‘추측’하고,<br>두 번째 단계에서 그 해를 다항식 시간에 확인, 그 해가 ‘맞다’라고 답한다.<br>즉 해가 맞는지 아닌지를 다항시간 내에 판별할 수 있다.</p>
+<p>NP 알고리즘은 해를 찾는 알고리즘이 아니라, 해를 다항식 시간에 확인하는 알고리즘이다.</p>
+<p>다음은 NP 문제, NP-완전 문제, P 문제 집합 시아의 관계이다.</p>
+<div align="center"><br><img src="/image/algo33-1.png"><br></div>
+
+<p>P 문제 집합이 NP 문제 집합에 속하는 이유는 P 문제를 해결하는 데 다항식 시간이 걸리므로 이를 NP 알고리즘이 문제의 해를 다항식 시간에 확인하는 것과 대응시킬 수 있기 때문이다. 단, P 문제 집합의 경우는 해를 추측하는 단계가 생략된다.</p>
+<p>&lt;포스팅 작성 중단, 추후 내용 추가 예정&gt;</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

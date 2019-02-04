@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/04/algo36/">
+
+    
+
+    
+        <meta name="description" content="1. 정점 커버 문제2. 알고리즘3. 시간 복잡도4. 근사 비율
+
+1. 정점 커버 문제
+‘정점 커버(Vertex Cover)’ 문제는 주어진 그래프 G=(V,E)에서 각 선분의 양 끝점들 중에서 적어도 하나의 끝점을 포함하는 점들의 집합들 중에서 최소 크기의 집합을 찾">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Seo Young Ki">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="[Algorithm] 정정 커버 문제 (근사)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. 정점 커버 문제2. 알고리즘3. 시간 복잡도4. 근사 비율
+
+1. 정점 커버 문제
+‘정점 커버(Vertex Cover)’ 문제는 주어진 그래프 G=(V,E)에서 각 선분의 양 끝점들 중에서 적어도 하나의 끝점을 포함하는 점들의 집합들 중에서 최소 크기의 집합을 찾">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Seo&#39;s Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>[Algorithm] 정정 커버 문제 (근사) - Seo&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Seo's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/Categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[Algorithm] 정정 커버 문제 (근사)</h1>
+                    
+                    <h2 class="post-subheading">
+                        1. 정점 커버 문제 / 2. 알고리즘 / 3. 시간 복잡도 / 4. 근사비율
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-02-04
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/Approximation/">#Approximation</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Algorithm/">Algorithm</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="#1">1. 정점 커버 문제</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간 복잡도</a><br><a href="#4">4. 근사 비율</a></p>
+<hr>
+<p><a name="1">1. 정점 커버 문제</a></p>
+<p><strong>‘정점 커버(Vertex Cover)’</strong> 문제는 주어진 그래프 G=(V,E)에서 각 선분의 양 끝점들 중에서 적어도 하나의 끝점을 포함하는 점들의 집합들 중에서 최소 크기의 집합을 찾는 문제이다.<br>정점 커버를 살펴보면, 그래프의 모든 선분이 정점 커버에 속한 점에 인접해 있다.<br>즉 정점 커버는 점들의 집합인데, 그래프의 모든 선분들이 집합내 점들 중 어느 하나라도 연결이 되있어야 한다.</p>
+<p>구체적인 예는 다음과 같다.</p>
+<div align="center"><br><img src="/image/algo36-1.png"><br></div>
+
+<p>그래프 G에서 정점 커버는 다음과 같다.<br>{1,2,3}, {1,2}, {1,3}, {2,3}, {1}<br>{2}, {3}은 정점 커버가 아니다. 왜냐하면 선분(1,3)과 선분(1,2)를 각각 커버하지 못하기 때문이다.<br>정점 커버 문제는 최소 크기의 집합을 찾는 것이므로 해는 {1}이다.</p>
+<p>주어진 그래프의 모든 선분을 커버하려면 일단 어떤 점을 선택해야 하는지 고려해야 한다.<br>우선 차수(degree)가 높은 점을 우선 선택하면 많은 수의 선분이 커버될 수 있다.<br>이 전략은 <a href="https://dudri63.github.io/2019/01/25/algo15/">‘집합 커버문제’</a>의 근사 알고리즘에서 사용된 것이다. 이 때의 근사 비율은 logn이다.</p>
+<p>또 다른 방법은 점을 선택하는 대신에 선분을 선택하는 것이다.<br>선분을 선택하면 선택된 선분의 양 끝점에 인접한 선분이 모두 커버된다.<br>이 때 정점 커버는 선택된 각 선분의 양 끝점들로 이루어진 집합이다.</p>
+<p>본 포스팅에서는 후자의 방법을 선택하여 정점 커버 문제를 해결한다.</p>
+<p>정점 커버를 만들어가는 과정에서, 새로운 선분은 자신의 양 끝점들이 이미 선택된 선분의 양 끝점들의 집합에 포함되지 않을 때에만 중복을 피하기 위해 선택된다.</p>
+<div align="center"><br><img src="/image/algo36-2.png"><br></div><br>예를 들어, 위 G 그래프에서 1개의 선분이 임의로 선택되었을 때, 선택된 선분 주변의 6개의 선분(점선으로 표시된 선분)은 정점 커버를 위한 선분으로서 선택되지 않는다. 왜냐하면 이미 선택된 선분(파란색 선분)의 양끝점(파란색 점)들이 점선으로 표시된 선분을 모두 커버하기 때문이다.<br><br>이러한 방식으로 선분을 선택하다가 더 이상 선분을 추가할 수 없을 때 중단한다.<br>이렇게 선택된 선분의 집합을 ‘극대 매칭(Maximal Matching)’이라고 한다.<br>매칭(matching)이란 각 선분의 양 끝점들이 중복되지 않는 선분의 집합이다.<br>극대 매칭은 이미 선택된 서분에 기반을 두고 새로운 선분을 추가하려 해도 더 이상 추가할 수 없는 매칭이다.<br><br><strong>**</strong><br><br><a name="2">2. 알고리즘</a><br><br>다음은 극대 매칭을 이용한 정점 커버를 위한 근사 알고리즘이다.<br><br>Approx_Matching_VC<br>입력: 그래프 G=(V,E)<br>출력: 정점 커버<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">입력 그래프에서 극대 매칭 M을 찾는다.</span><br><span class="line">return 매칭 M의 선부의 양 끝점들의 집합</span><br></pre></td></tr></table></figure><br><br><div align="center"><br><img src="/image/algo36-3.png"><br></div>
+
+<p>위 그림에서는 극대 매칭으로서 선분 a, b, c, d, e, f가 선택되었다.<br>근사해는 선분 a, b, c, d, e, f의 양 끝점들의 집합이다.<br>이 경우 12개의 점이다.<br>오른쪽 그래프는 최적해로서 7개의 점으로 구성되어 있다.</p>
+<hr>
+<p><a name="3">3. 시간 복잡도</a></p>
+<p>Approx_Matching_VC 알고리즘의 시간복잡도는 주어진 그래프에서 극대 매칭을 찾는 과정의 시간복잡도와 같다.<br>극대 매칭을 찾기 위해 하나의 선분 e를 선택한 후 e의 양 끝점들 중 적어도 하나가 이미 선택된 선분의 끝점이라면 e를 그래프에서 제거, 그렇지 않으면 e를 매칭에 추가한다.<br>이 후 e의 양 끝점에 인접한 모든 선분들을 그래프에서 제거해야 한다.<br>따라서 O(n) 시간이 걸린다.<br>입력 그래프의 선분수가 m이면, 각 선분에 대해서 O(n) 시간이 걸리므로, Approx_Matching_VC 알고리즘의 시간복잡도는 O(n)*m = O(nm))이다.</p>
+<hr>
+<p><a name="4">4. 근사 비율</a></p>
+<p>Approx_Matching_VC 알고리즘의 근사 비율을 계산하기 위해 극대 매칭을 ‘간접적인’ 최적해로 사용한다.</p>
+<p>Approx_Matching_VC 알고리즘은 극대 매칭의 각 선분의 양 끝점들의 집합을 정점 커버의 근사해로서 리턴, 근사해의 값은 극대 매칭의 선분 수의 2배이다.<br>(극대 매칭의 선분의 양 끝점들의 수) / (극대 매칭의 선분 수) = 2</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“제 8장 근사 알고리즘”, 창원대학교 정보 시각화 연구실, 2019. 2. 4, <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi8tdO9vaHgAhUFNrwKHWUdBQUQFjADegQIABAC&amp;url=http%3A%2F%2Fivis.kr%2Fimages%2F6%2F6f%2F8%25EC%259E%25A5%25EA%25B7%25BC%25EC%2582%25AC%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598.pdf&amp;usg=AOvVaw1kJL1wlCTDoYjsRLAisv-r" rel="external nofollow noopener noreferrer" target="_blank">https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi8tdO9vaHgAhUFNrwKHWUdBQUQFjADegQIABAC&amp;url=http%3A%2F%2Fivis.kr%2Fimages%2F6%2F6f%2F8%25EC%259E%25A5%25EA%25B7%25BC%25EC%2582%25AC%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598.pdf&amp;usg=AOvVaw1kJL1wlCTDoYjsRLAisv-r</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr>
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'dudri';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

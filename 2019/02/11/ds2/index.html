@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[자료구조] 소프트웨어와 자료구조 | SEO, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Data Structure">
+    
+    <meta name="description" content="1. 소프트웨어 생명주기2. 추상 데이터 타입  1. 소프트웨어 생명주기  소프트웨어 : 프로그램의 개발과 운영 및 유지, 보수에 관련된 모든 정보와 작업을 포함하는 개념이다.정확하고 효율적인 소프트웨어를 개발하기 위해서는 개발할 소프트웨어를 정확히 이해하고, 사용할 자료와 자료간의 연산관계를 분석, 자료구조를 정의, 이에 대한 가장 효율적인 구조를 고안하">
+<meta name="keywords" content="Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[자료구조] 소프트웨어와 자료구조">
+<meta property="og:url" content="http://dudri63.github.io/2019/02/11/ds2/index.html">
+<meta property="og:site_name" content="SEO, IT blog">
+<meta property="og:description" content="1. 소프트웨어 생명주기2. 추상 데이터 타입  1. 소프트웨어 생명주기  소프트웨어 : 프로그램의 개발과 운영 및 유지, 보수에 관련된 모든 정보와 작업을 포함하는 개념이다.정확하고 효율적인 소프트웨어를 개발하기 위해서는 개발할 소프트웨어를 정확히 이해하고, 사용할 자료와 자료간의 연산관계를 분석, 자료구조를 정의, 이에 대한 가장 효율적인 구조를 고안하">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dudri63.github.io/image/ds2-1.png">
+<meta property="og:updated_time" content="2019-02-12T04:35:50.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[자료구조] 소프트웨어와 자료구조">
+<meta name="twitter:description" content="1. 소프트웨어 생명주기2. 추상 데이터 타입  1. 소프트웨어 생명주기  소프트웨어 : 프로그램의 개발과 운영 및 유지, 보수에 관련된 모든 정보와 작업을 포함하는 개념이다.정확하고 효율적인 소프트웨어를 개발하기 위해서는 개발할 소프트웨어를 정확히 이해하고, 사용할 자료와 자료간의 연산관계를 분석, 자료구조를 정의, 이에 대한 가장 효율적인 구조를 고안하">
+<meta name="twitter:image" content="http://dudri63.github.io/image/ds2-1.png">
+    
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/11/ds2/">
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DataBase/">DataBase</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/자료구조/">자료구조</a></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/자료구조/">자료구조</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-ds2" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [자료구조] 소프트웨어와 자료구조
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/11/ds2/" class="article-date">
+            <time datetime="2019-02-11T11:25:50.000Z" itemprop="datePublished">2019-02-11</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Data-Structure/">Data Structure</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="#1">1. 소프트웨어 생명주기</a><br><a href="#2">2. 추상 데이터 타입</a></p>
+<hr>
+<p><a name="1">1. 소프트웨어 생명주기</a></p>
+<ul>
+<li><p>소프트웨어 : 프로그램의 개발과 운영 및 유지, 보수에 관련된 모든 정보와 작업을 포함하는 개념이다.<br>정확하고 효율적인 소프트웨어를 개발하기 위해서는 개발할 소프트웨어를 정확히 이해하고, 사용할 자료와 자료간의 연산관계를 분석, 자료구조를 정의, 이에 대한 가장 효율적인 구조를 고안하여 개발해야 한다.</p>
+</li>
+<li><p>소프트웨어 생명주기 : Software Life Cycle = 소프트웨어 개발주기(Software Development Cycle)<br>소프트웨어를 체계적으로 개발, 관리하기 위해 소프트웨어 개발 과정을 몇 단계로 구분한 것</p>
+</li>
+</ul>
+<div align="center"><br><img src="/image/ds2-1.png"><br><br>필요한 단계로 피드백을 반복 수행, 완성도를 높임<br></div>
+
+<ol>
+<li>요구 분석 단계 : Requirement Analysis</li>
+</ol>
+<ul>
+<li>소프트웨어 개발의 첫단계</li>
+<li>개발할 소프트웨어의 기능과 제약조건, 목표 등을 소프트웨어 사용자와 함께 정의하는 단계</li>
+<li>개발 방법, 필요한 자원, 예산을 예측</li>
+<li>요구 명세서를 작성, 요구 명세서는 소프트웨어 개발 완료 여부를 결정짓는 근거</li>
+</ul>
+<ol start="2">
+<li>시스템 명세 단계 : System Specification</li>
+</ol>
+<ul>
+<li>시스템이 무엇을 수행해야 하는가를 정의.</li>
+<li>시스템 기능 명세서를 작성. 입력 데이터 정의, 입력 데이터로 처리하는 내용, 출력 정의 / 가능한 정확하게 작성해야 한다.</li>
+</ul>
+<ol start="3">
+<li>설계 단계 : Design</li>
+</ol>
+<ul>
+<li>2단계에서 정의한 기능을 실제 수행할 수 있도록 수행 방법을 논리적으로 결정</li>
+<li>시스템 구조 설계 : 시스템을 구성하는 내부 프로그램, 모듈 간의 관계와 구조를 설계</li>
+<li>프로그램 설계 : 프로그램 내의 각 모듈에서의 처리 절차나 알고리즘을 설계</li>
+<li><p>사용자 인터페이스 설계 : 사용자에게 보이는 부분에 대한 설계</p>
+</li>
+<li><p>하향식 설계 방법<br>무엇을 수행할 것인지 정의 -&gt; 어떻게 수행할 것인지 정의 -&gt; 점점 구체적으로 세부 문제 정의<br>최하위 단계로 분할(divide)된 작은 단위의 문제들을 각각 처리, 전체 문제를 해결(conquer)<br>분할 정복(Divide and Conquer)</p>
+<div align="center"><br><img src="/image/ds2-2.png"><br></div></li>
+<li>상향식 설계 방법<br>최하위 단계에 있는 작은 단위를 먼저 결정, 해결, 이를 이용하여 좀더 큰 단위인 상위 단계의 문제를 해결하는 방법<div align="center"><br><img src="/image/ds2-3.png"><br></div></li>
+<li>객체지향 설계 방법<br>작은 단위의 문제에 대해 문제 해결을 위한 데이터와 처리 방법을 묶어서 객체 생성, 객체들을 연결하여 재사용하는 방법을 사용한다.</li>
+</ul>
+<ol start="4">
+<li>구현 단계 : Implementation</li>
+</ol>
+<ul>
+<li><p>구현 단계에서는 설계 단계에서 논리적으로 결정한 문제해결 방법(알고리즘)을 C, C++, JAVA 등의 특정 프로그래밍 언어를 사용하여 실제 프로그램을 작성한다.</p>
+</li>
+<li><p>구조화 프로그래밍(Structured Programming)<br>지정문, 조건문, 반복문만을 사용하여 프로그램 작성<br>순차구조, 선택구조, 반복구조의 세 가지 제어구조로 표현하는 기법<br>구조가 간단, 명확, 정확성 검증이 쉽고, 테스트와 유지 보수가 쉽다</p>
+</li>
+<li><p>모듈러 프로그래밍(Modular Programming)<br>프로그램을 여러 개의 작은 모듈(module)로 나누어서 계층 관계를 갖도록 구성<br>각각의 모듈은 구조화 프로그래밍 기법으로 작성, 하나의 기능만을 수행<br>모듈별로 개발, 테스트, 유지 보수가 가능하고, 재사용이 가능하다</p>
+</li>
+<li><p>효과적인 프로그래밍을 위해 프로그램을 명확하게 작성, 임시변수는 되도록 사용하지 않는다.<br>또한 변수명은 일관, 이해하기 쉬운 이름, 같은 문장 최소화, 주석을 사용한다</p>
+</li>
+</ul>
+<ol start="5">
+<li>테스트 단계 : Test</li>
+</ol>
+<ul>
+<li><p>개발한 시스템이 요구사항을 만족하는지, 실행결과가 예상한 결과와 정확하게 맞는지를 검사, 평가, 오류를 찾아내어 시스템의 완성도를 높인다.</p>
+</li>
+<li><p>단위 테스트(Unit Test)<br>시스템의 최소 구성요소인 모듈들에 대해 개별적으로 시행, 테스트한다.</p>
+</li>
+<li>통합 테스트(Integration Test)<br>단위 테스트를 통과한 모듈을 모아서 전체 시스템을 완성하기 위해 통합적으로 시행하는 테스트.<br>최소의 모듈을 연결, 점진적으로 다른 구성요소를 연결하면서 테스트한다.<ul>
+<li>하향식 테스트</li>
+<li>상향식 테스트</li>
+</ul>
+</li>
+<li>인수 테스트(Acceptance Test)<br>실제 데이터를 사용하여 시스템을 테스트 하는 과정, 실질적으로 사용되기 위해 마지막으로 시행되는 테스트</li>
+</ul>
+<ol start="6">
+<li>유지 보수 단계</li>
+</ol>
+<ul>
+<li>오류 수정, 디자인 수정, 새로운 요구사항에 대한 기능 추가, 환경 변화에 따른 시스템 교정 등의 활동</li>
+<li><p>소프트웨어 생명주기에서 가장 긴 시간을 차지한다.</p>
+</li>
+<li><p>수정형 유지 보수 : 사용중 발견한 오류를 수정</p>
+</li>
+<li>적응형 유지 보수 : 환경적 변화에 적응하도록 재조정</li>
+<li>완전형 유지 보수 : 성능 향상</li>
+<li>예방형 유지 보수</li>
+<li>개발된 소프트웨어의 품질은 다음과 같은 기준에 따라서 평가한다.<ul>
+<li>정확성</li>
+<li>유지 보수성 : 요구사하이 변동되었을 때 변경사항 처리 정도</li>
+<li>무결성 : 보안성</li>
+<li>사용성 : 사용자가 쉽게 사용할 수 있는 정도</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="2">2. 추상 데이터 타입</a></p>
+<div align="center"><br><img src="/image/ds2-4.png"><br></div>
+
+<p><strong>추상화(Abstraction)</strong>란 각종 정보들 중에서 필수적이고 중요한 특징만을 골라서 단순화시키는 작업이다.<br>컴퓨터에서 문제를 해결할 때도 추상화 작업을 적용, 복잡한 문제를 단순화시켜 좀더 쉽게 문제를 해결하는 방법을 찾는다.</p>
+<ul>
+<li>추상화 : ‘무엇(What)인가’를 논리적으로 정의</li>
+<li>구체화 : ‘어떻게(How) 할 것인가’를 실제적으로 표현</li>
+</ul>
+<p><strong>자료 추상화(Data Abstraction)</strong>는 처리할 자료, 연산, 자료형에 대한 추상화 표현이다.</p>
+<ul>
+<li>데이터 : 프로그램의 처리 대상이 되는 모든 것</li>
+<li>연산 : 어떤 일을 처리하는 과정, 연산자에 의해 수행</li>
+<li>데이터 타입 : 처리할 데이터의 집합 + 수행할 수 있는 연산자의 집합<ul>
+<li>시스템 정의 데이터 타입</li>
+<li>사용자 정의 데이터 타입</li>
+</ul>
+</li>
+</ul>
+<p><strong>추상 자료형(ADT, Abstract Data Type)</strong>은 자료와 연산자의 특성을 논리적으로 추상화하여 정의한 자료형이다.</p>
+<div align="center"><br><img src="/image/ds2-5.png"><br></div>
+
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>이지영, 『자바로 배우는 쉬운 자료 구조』. 서울: (주)한빛아카데미, 2013</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dudri63.github.io/2019/02/11/ds2/" data-id="cjs4eb3lv0042pba6tluy8qgl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[자료구조] 소프트웨어와 자료구조",
+        "image": "http://dudri63.github.io/image/ds2-1.png",
+        "keywords": "Data Structure",
+        "genre": "자료구조",
+        "datePublished": "2019-02-11",
+        "dateCreated": "2019-02-11",
+        "dateModified": "2019-02-12",
+        "url": "http://dudri63.github.io/2019/02/11/ds2/",
+        "description": "1. 소프트웨어 생명주기2. 추상 데이터 타입
+
+1. 소프트웨어 생명주기
+
+소프트웨어 : 프로그램의 개발과 운영 및 유지, 보수에 관련된 모든 정보와 작업을 포함하는 개념이다.정확하고 효율적인 소프트웨어를 개발하기 위해서는 개발할 소프트웨어를 정확히 이해하고, 사용할 자료와 자료간의 연산관계를 분석, 자료구조를 정의, 이에 대한 가장 효율적인 구조를 고안하"
+        "wordCount": 578
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/12/java1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Java] 자바의 기초
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/02/10/ds1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[자료구조] 자료구조 개요</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/13/jekyll1/" class="title">jekyll1</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T12:14:12.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/13/java3/" class="title">[Java] 데이터 타입</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T11:35:06.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/12/java2/" class="title">[Java] 자바 식별자</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T14:14:31.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/12/java1/" class="title">[Java] 자바의 기초</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T09:55:38.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/자료구조/">자료구조</a></p>
+                            <p class="item-title"><a href="/2019/02/11/ds2/" class="title">[자료구조] 소프트웨어와 자료구조</a></p>
+                            <p class="item-date"><time datetime="2019-02-11T11:25:50.000Z" itemprop="datePublished">2019-02-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/자료구조/">자료구조</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Approximation/">Approximation</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataBase/">DataBase</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide-and-Conquer</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/">Greedy</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NP-완전/">NP-완전</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Repository/">Repository</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/">Sort</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TSP/">TSP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/해-탐색/">해 탐색</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 15px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 11.25px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.75px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 15px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 15px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.75px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.25px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.25px;">Greedy</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.25px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.5px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/02/11/ds2/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

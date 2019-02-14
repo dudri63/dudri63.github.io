@@ -1,339 +1,600 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--Description-->
+    
+
+    
+    <title>[Algorithm] 계산 복잡도 이론 | SEO, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Algorithm,NP-완전">
+    
+    <meta name="description" content="1. 쉬운 문제, 어려운 문제2. P 문제, NP 문제3. NP 알고리즘4. 문제의 환원5. NP-하드 문제, NP-완전 문제  1. 쉬운 문제, 어려운 문제 컴퓨터를 사용하여 특정한 계산 문제를 풀기 위해서는, 그 문제에 해당되는 알고리즘을 컴퓨터에게 알려주어야 한다.이 때, 컴퓨터공학자들의 주된 관심사는 그 알고리즘이 문제를 얼마나 빨리 해결할 수 있느">
+<meta name="keywords" content="Algorithm,NP-완전">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Algorithm] 계산 복잡도 이론">
+<meta property="og:url" content="http://dudri63.github.io/2019/02/04/algo33/index.html">
+<meta property="og:site_name" content="SEO, IT blog">
+<meta property="og:description" content="1. 쉬운 문제, 어려운 문제2. P 문제, NP 문제3. NP 알고리즘4. 문제의 환원5. NP-하드 문제, NP-완전 문제  1. 쉬운 문제, 어려운 문제 컴퓨터를 사용하여 특정한 계산 문제를 풀기 위해서는, 그 문제에 해당되는 알고리즘을 컴퓨터에게 알려주어야 한다.이 때, 컴퓨터공학자들의 주된 관심사는 그 알고리즘이 문제를 얼마나 빨리 해결할 수 있느">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dudri63.github.io/image/algo33-5.png">
+<meta property="og:updated_time" content="2019-02-10T08:54:55.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Algorithm] 계산 복잡도 이론">
+<meta name="twitter:description" content="1. 쉬운 문제, 어려운 문제2. P 문제, NP 문제3. NP 알고리즘4. 문제의 환원5. NP-하드 문제, NP-완전 문제  1. 쉬운 문제, 어려운 문제 컴퓨터를 사용하여 특정한 계산 문제를 풀기 위해서는, 그 문제에 해당되는 알고리즘을 컴퓨터에게 알려주어야 한다.이 때, 컴퓨터공학자들의 주된 관심사는 그 알고리즘이 문제를 얼마나 빨리 해결할 수 있느">
+<meta name="twitter:image" content="http://dudri63.github.io/image/algo33-5.png">
+    
     <link rel="canonical" href="http://dudri63.github.io/2019/02/04/algo33/">
 
     
 
     
-        <meta name="description" content="1.
 
-‘NP-완전(Nondeterministic Polynomial-Complete)’ 문제는 다항식 시간(Polynomial time)의 알고리즘이 아직 발견되지 않은 문제이다.
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
-1. 문제 분류
-컴퓨터로 풀 수 있는 모든 문제는 문제를 해결하는 알고리즘의 시간복잡">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="Seo Young Ki">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="[Algorithm] NP-완전 문제">
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="1.
-
-‘NP-완전(Nondeterministic Polynomial-Complete)’ 문제는 다항식 시간(Polynomial time)의 알고리즘이 아직 발견되지 않은 문제이다.
-
-1. 문제 분류
-컴퓨터로 풀 수 있는 모든 문제는 문제를 해결하는 알고리즘의 시간복잡">
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Seo&#39;s Blog">
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article">
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
-    
-
-        <meta name="twitter:card" content="summary_large_image">
-
-    
-
-    
-        <meta name="twitter:image" content="http://dudri63.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
-    
-
-    <!-- Title -->
-    
-    <title>[Algorithm] NP-완전 문제 - Seo&#39;s Blog</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Google Analytics -->
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
     
 
-
-    <!-- favicon -->
-    
 
 </head>
-
-
+</html>
 <body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Seo's Blog</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/Tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/Categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/dudri63" rel="external nofollow noopener noreferrer" target="_blank">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>[Algorithm] NP-완전 문제</h1>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
                     
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
-                            2019-02-04
-                        
-                    </span>
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DataBase/">DataBase</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/자료구조/">자료구조</a></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Algorithm/">Algorithm</a>
+    </h1>
+</div>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
+                        <div class="main-body-content">
+                            <article id="post-algo33" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Algorithm] 계산 복잡도 이론
+        </h1>
+    
 
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/04/algo33/" class="article-date">
+            <time datetime="2019-02-04T04:26:34.000Z" itemprop="datePublished">2019-02-04</time>
+        </a>
+    </div>
 
-
-<a href="/tags/Algorithm/">#Algorithm</a> <a href="/tags/NP-완전/">#NP-완전</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/Algorithm/">Algorithm</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a href="#1">1.</a></p>
-<hr>
-<p><strong>‘NP-완전(Nondeterministic Polynomial-Complete)’</strong> 문제는 <strong>다항식 시간(Polynomial time)</strong>의 알고리즘이 아직 발견되지 않은 문제이다.</p>
-<hr>
-<p><a name="1">1. 문제 분류</a></p>
-<p>컴퓨터로 풀 수 있는 모든 문제는 문제를 해결하는 알고리즘의 시간복잡도에 따라 분류될 수 있다.</p>
-<ul>
-<li>다항식 시간복잡도를 가진 알고리즘으로 해결되는 P(plynomial) 문제 집합</li>
-<li>다항식보다 큰 시간복잡도를 가진 알고리즘으로 해결되는 문제 집합</li>
-</ul>
-<p>대부분의 문제들은 <strong>P 문제 집합</strong>에 속한다<br>왜냐하면 문제들을 위한 알고리즘의 시간복잡도가 O(logn), O(n), O(nlogn), O(n<sup>2</sup>), O(n<sup>3</sup>)등이고, 이러한 시간복잡도는 접근적 표기법에 따르면 O(n<sup>k</sup>)에 포함되기 때문이다.</p>
-<p>다항식보다 큰 시간복잡도를 가진 알고리즘으로 해결되는 문제 집합은 다시 여러가지 문제 집합으로 분류된다.<br>그 중 하나가 <strong>NP-완전 문제 집합</strong>이다.<br>NP-완전 문제의 알고리즘 시간복잡도는 지수 시간(exponential time)이다.<br>(ex. O(2<sup>n</sup>, O(n<sup>n</sup>)<br>NP-완전 문제의 특성은 어느 하나의 NP-완전 문제에 대해서 다항식 시간의 알고리즘을 찾아내면, 즉 다항식 시간에 해를 구할 수 있으면, 모든 다른 NP-완전 문제도 다항식 시간에 해를 구할 수 있다는 것이다.</p>
-<p>P 문제 집합과 NP-완전 문제 집합을 모두 포함하는 문제 집합인 <strong>NP 문제 집합</strong>이 있다.<br>NP 문제는 비결정적 다항식 시간 알고리즘을 가진 문제이다.<br>일반적으로 비결정적 다항식 시간 알고리즘을 NP 알고리즘이라고 하는데, NP 알고리즘의 정의는 다음과 같다.</p>
-<p>NP 알고리즘은<br>첫 번째 단계에서 주어진 입력에 대해서 하나의 해를 ‘추측’하고,<br>두 번째 단계에서 그 해를 다항식 시간에 확인, 그 해가 ‘맞다’라고 답한다.<br>즉 해가 맞는지 아닌지를 다항시간 내에 판별할 수 있다.</p>
-<p>NP 알고리즘은 해를 찾는 알고리즘이 아니라, 해를 다항식 시간에 확인하는 알고리즘이다.</p>
-<p>다음은 NP 문제, NP-완전 문제, P 문제 집합 시아의 관계이다.</p>
-<div align="center"><br><img src="/image/algo33-1.png"><br></div>
-
-<p>P 문제 집합이 NP 문제 집합에 속하는 이유는 P 문제를 해결하는 데 다항식 시간이 걸리므로 이를 NP 알고리즘이 문제의 해를 다항식 시간에 확인하는 것과 대응시킬 수 있기 때문이다. 단, P 문제 집합의 경우는 해를 추측하는 단계가 생략된다.</p>
-<p>&lt;포스팅 작성 중단, 추후 내용 추가 예정&gt;</p>
-<hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
-
+		
 
                 
-            </div>
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/NP-완전/">NP-완전</a>
+    </div>
 
-            <!-- Comments -->
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="#1">1. 쉬운 문제, 어려운 문제</a><br><a href="#2">2. P 문제, NP 문제</a><br><a href="#3">3. NP 알고리즘</a><br><a href="#4">4. 문제의 환원</a><br><a href="#5">5. NP-하드 문제, NP-완전 문제</a></p>
+<hr>
+<p><a name="1">1. 쉬운 문제, 어려운 문제</a></p>
+<p>컴퓨터를 사용하여 특정한 계산 문제를 풀기 위해서는, 그 문제에 해당되는 알고리즘을 컴퓨터에게 알려주어야 한다.<br>이 때, 컴퓨터공학자들의 주된 관심사는 그 <strong>알고리즘이 문제를 얼마나 빨리 해결할 수 있느냐</strong>이다.<br>그리하여 알고리즘의 시간복잡도라는 개념이 출현하였고, 시간복잡도에 따라 알고리즘을 분류할 수 있다.</p>
+<ul>
+<li>쉬운(tractable) 문제 : 다항식 시간복잡도를 가진 알고리즘으로 해결 가능</li>
+<li>어려운(intractable) 문제 : 다항식보다 큰 시간복잡도를 가진 알고리즘으로 해결</li>
+</ul>
+<p>만약 어떤 알고리즘이 개발되었다고 하더라도, 그 알고리즘이 다항식 시간에 동작하지 않는다면 어려운 문제라고 간주한다.<br>왜냐하면 다항식 시간에 동작하지 않는다는 것은 너무나도 비효율적인 알고리즘이기 때문이다.<br>예를 들어 O(25<sup>n</sup>)의 시간복잡도를 갖는 알고리즘은 n이 커지면, 사실상 해결하기가 어렵다.<br>그리하여 다항식보다 큰 시간복잡도를 갖는다면, 우주가 온 힘을 모아도 풀기 어렵다.<br>물론, 다행히도 수학,과학적으로 중요한 많은 문제들이 다항식 시간 알고리즘을 갖는다.</p>
+<hr>
+<p><a name="2">2. P문제, NP 문제</a></p>
+<p>답이 yes or no로 반환되는 문제를 <strong>‘결정(decsion) 문제’</strong>라고 한다.<br>예를 들어, 다음과 같은 질문은 결정 문제라고 한다.</p>
+<p>각 도시를 1번씩만 방문하고 시작도시로 돌아오는 경로의 거리가 K보다 짧은 경로가 있는가?</p>
+<p><strong>P 문제</strong>와 <strong>NP 문제</strong>는 모두 위와 같은 결정 문제의 분류에 해당한다.<br>P문제와 NP 문제에 대한 개념은 다음과 같다.</p>
+<ul>
+<li>P 문제 : 결정 문제들 중에서 <strong>쉽게 풀리는 것</strong>들을 모아놓은 집합<br>(Polynomial)</li>
+<li>NP 문제 :  결정 문제들 중에서 <strong>적어도 검산은 쉽게 할 수 있는 것</strong>들을 모아놓은 집합<br>(Non-deterministic Polynomial)</li>
+</ul>
+<p>어떤 결정 문제가 주어졌을 때, 다항식 시간 이내에 그 문제의 답을 yes or no로 계산해낼 수 있는 알고리즘이 존재한다면, 그 문제는 P문제이다.<br>이에 반해, 어떤 결정 문제의 답이 yes일 때, 그 문제의 답이 yes라는 것을 입증하는 <strong>힌트</strong>가 주어지면, 그 힌트를 사용해서 문제의 답이 정말로 yes라는 것을 다항식 시간 이내에 확인할 수 있는 문제가 NP문제이다.</p>
+<p>예를 들어, {-5,6,1,2,-10,-7,13}과 같이 정수로 이루어진 집합과 다음과 같은 결정 문제가 주어진 상황을 가정한다.</p>
+<p>‘이 집합의 부분집합들 중에서 원소의 합이 0이 되는 집합이 존재하는가?’</p>
+<p>위 문제는 아직까지 다항식 시간 알고리즘이 알려져 있지 않다.<br>단순하게 생각해도, 모든 경우의 부분집합을 테스트하지 않는 이상 yes or no로 답하기가 어렵다.<br>그런데, 누군가가 {6,1,-7}이라는 힌트를 제공하면,<br>힌트가 주어진 집합의 부분집합이라는 것을 확인,<br>부분집합의 원소들의 합이 0이라는 것을 확인함으로써,<br>원래 문제의 답을 yes로 답할 수 있게 된다.<br>따라서 위 문제는 NP 문제인 것을 확실시할 수 있다.</p>
+<p>만약 어떤 P 문제가 주어지고, 그 문제의 답이 YES라고 하면, 그 문제의 답에 관한 힌트를 받더라도 그냥 무시, 곧바로 그 문제의 답이 YES라는 것을 쉽게 확인할 수 있을 것이다.<br>따라서 <strong>모든 P문제는 저절로 NP 문제도 된다.</strong><br>즉, P⊂NP이다.</p>
+<div align="center"><br><img src="/image/algo33-5.png"><br></div>
+
+<p>하지만 그 반대인 NP⊂P에 대해서는 참인지 거짓인지 아직 알려지지 않았다.<br>만약 모든 NP 문제가 P 문제인 경우, 즉, 모든 NP 문제가 다항 시간에 풀 수 있는 알고리즘이 존재함을 증명할 경우, P=NP문제라는 결론이 된다.<br>이는 밀레니엄 문제 중 하나로서, 100만 달러가 걸린 문제이지만 아직 풀리지가 않았다.<br>많은 컴퓨터공학자들은 P=NP일리가 없다고 믿고 있지만, 올바른 증명을 아직 찾아내지 못하였다.</p>
+<hr>
+<p><a name="3">3. NP 알고리즘</a></p>
+<p>NP 알고리즘의 정의는 다음과 같다.</p>
+<p>NP 알고리즘은 </p>
+<ul>
+<li>첫 번째 단계에서 주어진 입력에 대해서 하나의 해를 ‘추측’하고, </li>
+<li>두 번째 단계에서 그 해를 다항식 시간에 확인, 그 해가 ‘맞다’라고 답한다.<br>즉 해가 맞는지 아닌지를 다항시간 내에 판별할 수 있다.</li>
+</ul>
+<p>NP 알고리즘은 해를 찾는 알고리즘이 아니라, 해를 다항식 시간에 확인하는 알고리즘이다.</p>
+<p>P 문제가 NP 문제에 속하는 이유는 NP 알고리즘을 이용하여 설명할 수도 있다.<br>일단, P 문제를 해결한 데 다항식 시간이 걸리는 것은 자명하다.<br>그리고 P 문제를 위한 NP 알고리즘은 해를 추측하는 단계(1)를 생략,<br>해를 확인하는 단계 대신에 해를 직접 다항식 시간에 구하고,<br>확인 결과를 ‘맞다’라고 하면 되기 때문이다.</p>
+<p>다음은 NP 알고리즘을 적용하는 예이다.<br>주어진 문제는 다음과 같다.</p>
+<p>각 도시를 한 번씩만 방문하고 시작도시로 돌아오는 경로 중 가장 짧은 경로는 무엇인가?</p>
+<p>위 문제는 일단 결정 문제가 아니기 때문에 결정 문제로 변형하여야 한다.<br>변형한 문제는 다음과 같다.</p>
+<p>각 도시를 한 번씩만 방문하고 시작도시로 돌아오는 경로의 거리가 K보다 짧은 경로가 있는가?</p>
+<p>문제의 답은 그러한 경로가 있으면 ‘yes’, 없으면 ‘no’가 된다.<br>8개 도시(A B C D E F G H)에 대한 여행자 문제의 NP-알고리즘은 다음과 같다.<br>단, A가 시작도시이다.</p>
+<ol>
+<li>하나의 해를 추측한다. A G D H F E B C를 추측했다고 가정한다.</li>
+<li>추측한 해의 값을 계산한다. 해의 값 = (A~G) + (G~D) + … + (B~C)</li>
+<li>해의 값이 K보다 작으면 ‘맞다’라고 대답한다.</li>
+</ol>
+<p>두 번째 단계에서 계산에 소요되는 시간은 선형 시간임을 알 수 있다.<br>8개 도시 간 거리를 합하는 데 걸리는 시간은 8번의 덧셈 연산, 계산된 해의 값과 K를 비교하는 데 1번의 비교 연산이 걸리기 때문이다.</p>
+<hr>
+<p><a name="4">4. 문제의 환원</a></p>
+<p>문제 A를 해결하기 위해서 문제 B를 해결하는 알고리즘을 이용하려는 경우를 가정한다.<br>이를 위해, 문제 A의 입력을 문제 B의 입력 형태로 변환시키는 것은 <strong>문제의 환원(변환)</strong>이라고 한다.<br>변환된 입력으로 문제 B를 해결하는 알고리즘을 수행 가능하고, 또한, 수행 결과로서 나온 해를 문제 A의 해로 변환하여 문제 A를 해결할 수 있다.</p>
+<p>이에 대한 예제는 다음과 같다.<br>문제 A는 부분 집합의 합을 구하는 문제,<br>문제 B는 동일한 크기로 분할하는 문제이다.</p>
+<ul>
+<li>부분 집합의 합 문제: 정수들의 집합 S에 대하여 S의 부분 집합들 중에서 원소의 합이 K가 되는 부분 집합을 찾는 문제</li>
+<li>분할 문제 : 정수들의 집합 S에 대하여 S를 분할, 원소들의 합이 같은 2개의 부분 집합을 찾는 문제<br>예를 들어, S={20, 35, 45, 70, 80}이 주어지면, X={20,35,70}, Y={45,80}이 해이다.</li>
+</ul>
+<p>‘부분 집합의 합 문제’의 입력인 집합 S를 ‘분할 문제’의 입력으로 변환할 때 t를 집합 S에 추가한다.<br>단, t = s-2K<br>(s는 집합 S의 모든 원소의 합) </p>
+<p>‘부분 집합의 합 문제’를 해결하기 위해, 집합 S’= S∪{t}를 입력으로 하는 ‘분할 문제’를 위한 알고리즘을 이용한다.<br>‘분할 문제’의 경우, 알고리즘의 해인 2개의 집합 X, Y는 각 집합에 속한 원소의 합(s-K)이 같다.<br>왜냐하면 집합 S’의 모든 원소의 합은 s+t = s+(s-2K) = 2s-2k이기 때문이다.</p>
+<p>‘분할 문제’의 해인 X와 Y 중에서 t를 가진 집합에서 t를 제거한 집합이 ‘부분 집합의 합 문제’의 해가 된다.<br>왜냐하면 만일 X에 t가 속해 있었다면, X에서 t를 제외한 원소의 합 (s-K)-t = (s-K)-(s-2K) = s-K-s+2K = K가 되기 때문이다.<br>그러므로 ‘부분 집합의 합 문제’의 해는 X-{t}이다.</p>
+<div align="center"><br><img src="/image/algo33-2.png"><br></div>
+
+<p>위 경우의 시간복잡도는 다음의 3단계 시간복잡도의 합이다.</p>
+<ol>
+<li>문제 A의 입력을 문제 B의 입력으로 변환하는 시간</li>
+<li>문제 B를 위한 알고리즘이 수행되는 시간</li>
+<li>문제 B의 해를 문제 A의 해로 변환하는 시간</li>
+</ol>
+<p>위에서 첫 단계, 세 번째 단계는 단순한 입출력 변환, 다항식 시간에 수행된다.<br>따라서 문제 변환의 시간복잡도는 두 번째 시간복잡도에 따라 결정된다.<br>두 번째 단계가 다항식 시간이 걸리면, 문제 A도 다항식 시간에 해결된다.</p>
+<hr>
+<p><a name="5">5. NP-하드 문제, NP-완전 문제</a></p>
+<div align="center"><br><img src="/image/algo33-3.png"><br></div>
+
+<p>문제 A와 문제 B 사이에 이러한 관계가 성립하면, 문제 A가 문제 B로 다항식 시간에 변환(polynomial time reduction) 가능하다고 한다.</p>
+<p>어느 문제 A에 대해서, 만일 모든 NP 문제가 문제 A로 다항식 변환이 가능하다면, 문제 A는 <strong>NP-하드(NP-난해) 문제</strong>이다.</p>
+<p>간단하게, NP-하드 문제는 위 여행자 문제나 부분집합의 합 문제와 같이 모든 경우의 수를 전부 확인해보는 방법 이외에는 정확한 답을 구할 수 있는 뾰족한 수가 없는 문제들을 뜻하기도 한다.</p>
+<div align="center"><br><img src="/image/algo33-4.png"><br></div>
+
+<p><strong>NP-완전 문제</strong>에 대한 정의는 다음과 같다.</p>
+<p>문제 A가 NP-완전 문제가 되려면,</p>
+<ol>
+<li>문제 A는 NP문제이고, 동시에</li>
+<li>문제 A는 NP-하드 문제이다.</li>
+</ol>
+<p>만약 NP-완전 문제가 P문제라면, ‘모든 NP 문제가 P 문제’라는 것이 증명된다.<br>만약 이것이 증면되면 그 동안의 알고리즘에 대한 연구가 완전히 바뀌게 된다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>‘P-NP 문제’, 나무위키, 2019. 2. 10, <a href="https://namu.wiki/w/P-NP%20%EB%AC%B8%EC%A0%9C" rel="external nofollow noopener noreferrer" target="_blank">https://namu.wiki/w/P-NP%20%EB%AC%B8%EC%A0%9C</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
             
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-    <hr>
-    <h3>Comments:</h3>
+
+
+
+    <a data-url="http://dudri63.github.io/2019/02/04/algo33/" data-id="cjs4eb3l7002bpba6tl1n0e2r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[Algorithm] 계산 복잡도 이론",
+        "image": "http://dudri63.github.io/image/algo33-5.png",
+        "keywords": "Algorithm NP-완전",
+        "genre": "Algorithm",
+        "datePublished": "2019-02-04",
+        "dateCreated": "2019-02-04",
+        "dateModified": "2019-02-10",
+        "url": "http://dudri63.github.io/2019/02/04/algo33/",
+        "description": "1. 쉬운 문제, 어려운 문제2. P 문제, NP 문제3. NP 알고리즘4. 문제의 환원5. NP-하드 문제, NP-완전 문제
+
+1. 쉬운 문제, 어려운 문제
+컴퓨터를 사용하여 특정한 계산 문제를 풀기 위해서는, 그 문제에 해당되는 알고리즘을 컴퓨터에게 알려주어야 한다.이 때, 컴퓨터공학자들의 주된 관심사는 그 알고리즘이 문제를 얼마나 빨리 해결할 수 있느"
+        "wordCount": 1021
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
+    
+    </section>
 
 
-                </div>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
             
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/04/algo34/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Algorithm] 근사 알고리즘
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/02/03/db2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[DataBase] 데이터 모델, DBMS 구조</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/13/jekyll1/" class="title">jekyll1</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T12:14:12.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/13/java3/" class="title">[Java] 데이터 타입</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T11:35:06.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/12/java2/" class="title">[Java] 자바 식별자</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T14:14:31.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/12/java1/" class="title">[Java] 자바의 기초</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T09:55:38.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/자료구조/">자료구조</a></p>
+                            <p class="item-title"><a href="/2019/02/11/ds2/" class="title">[자료구조] 소프트웨어와 자료구조</a></p>
+                            <p class="item-date"><time datetime="2019-02-11T11:25:50.000Z" itemprop="datePublished">2019-02-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
         </div>
     </div>
-</article>
 
-    <!-- Footer -->
-    <hr>
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/자료구조/">자료구조</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
 
-<!-- Footer -->
-<footer>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Approximation/">Approximation</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataBase/">DataBase</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide-and-Conquer</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/">Greedy</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NP-완전/">NP-완전</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Repository/">Repository</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/">Sort</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TSP/">TSP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/해-탐색/">해 탐색</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 15px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 11.25px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.75px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 15px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 15px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.75px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.25px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.25px;">Greedy</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.25px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.5px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
 
-                    
 
-                    
-                        <li>
-                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank" rel="external nofollow noopener noreferrer">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
-
-                    
-
-                    
-
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2019 Seo Young Ki<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/" rel="external nofollow noopener noreferrer">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank" rel="external nofollow noopener noreferrer">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener noreferrer">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank" rel="external nofollow noopener noreferrer">Jonathan Klughertz</a></p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
+        
     
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
-
-<script type="text/javascript">
+    <script>
     var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/02/04/algo33/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
 
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
 </body>
 
-</html>

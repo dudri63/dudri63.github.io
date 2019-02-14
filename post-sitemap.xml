@@ -8,8 +8,112 @@
     </url>
 
     <url>
+        <loc>http://dudri63.github.io/2019/02/13/java3/</loc>
+        <lastmod>2019-02-14T10:33:00.670Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/13/jekyll1/</loc>
+        <lastmod>2019-02-13T14:11:35.461Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/12/java2/</loc>
+        <lastmod>2019-02-12T14:25:47.453Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/12/java1/</loc>
+        <lastmod>2019-02-12T14:12:02.881Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/11/ds2/</loc>
+        <lastmod>2019-02-12T04:35:50.552Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/10/ds1/</loc>
+        <lastmod>2019-02-11T11:25:44.981Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/04/algo33/</loc>
+        <lastmod>2019-02-10T08:54:55.452Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/09/algo40/</loc>
+        <lastmod>2019-02-10T08:53:34.152Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/08/db5/</loc>
+        <lastmod>2019-02-08T14:02:25.255Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://dudri63.github.io/2019/02/04/db4/</loc>
-        <lastmod>2019-02-04T09:14:51.187Z</lastmod>
+        <lastmod>2019-02-08T12:45:15.269Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/08/algo39/</loc>
+        <lastmod>2019-02-08T08:01:28.119Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/08/algo38/</loc>
+        <lastmod>2019-02-08T03:11:40.664Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/08/algo37/</loc>
+        <lastmod>2019-02-08T03:10:45.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/04/algo36/</loc>
+        <lastmod>2019-02-08T01:22:45.715Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +122,6 @@
     <url>
         <loc>http://dudri63.github.io/2019/02/04/db3/</loc>
         <lastmod>2019-02-04T08:37:39.562Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/02/04/algo36/</loc>
-        <lastmod>2019-02-04T07:52:05.988Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,14 +138,6 @@
     <url>
         <loc>http://dudri63.github.io/2019/02/04/algo34/</loc>
         <lastmod>2019-02-04T05:52:28.126Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/02/04/algo33/</loc>
-        <lastmod>2019-02-04T05:42:00.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

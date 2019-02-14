@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Algorithm] 클러스터링 문제 (근사) | SEO, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Algorithm,Approximation">
+    
+    <meta name="description" content="1. 클러스터링 문제2. 알고리즘3. 시간복잡도4. 근사 비율  1. 클러스터링 문제 n개의 점이 2차원 평면에 주어질 때, 점들 간의 거리를 고려하여 k개의 그룹으로 나눈다.‘클러스터링(Clustering)’ 문제는 입력으로 주어진 n개의 점을 k개의 그룹으로 나누고, 각 그룹의 중심이 되는 k개의 점을 선택하는 문제이다.단, 가장 큰 반경을 가진 그룹의">
+<meta name="keywords" content="Algorithm,Approximation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Algorithm] 클러스터링 문제 (근사)">
+<meta property="og:url" content="http://dudri63.github.io/2019/02/08/algo39/index.html">
+<meta property="og:site_name" content="SEO, IT blog">
+<meta property="og:description" content="1. 클러스터링 문제2. 알고리즘3. 시간복잡도4. 근사 비율  1. 클러스터링 문제 n개의 점이 2차원 평면에 주어질 때, 점들 간의 거리를 고려하여 k개의 그룹으로 나눈다.‘클러스터링(Clustering)’ 문제는 입력으로 주어진 n개의 점을 k개의 그룹으로 나누고, 각 그룹의 중심이 되는 k개의 점을 선택하는 문제이다.단, 가장 큰 반경을 가진 그룹의">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dudri63.github.io/image/algo39-1.png">
+<meta property="og:updated_time" content="2019-02-08T08:01:28.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Algorithm] 클러스터링 문제 (근사)">
+<meta name="twitter:description" content="1. 클러스터링 문제2. 알고리즘3. 시간복잡도4. 근사 비율  1. 클러스터링 문제 n개의 점이 2차원 평면에 주어질 때, 점들 간의 거리를 고려하여 k개의 그룹으로 나눈다.‘클러스터링(Clustering)’ 문제는 입력으로 주어진 n개의 점을 k개의 그룹으로 나누고, 각 그룹의 중심이 되는 k개의 점을 선택하는 문제이다.단, 가장 큰 반경을 가진 그룹의">
+<meta name="twitter:image" content="http://dudri63.github.io/image/algo39-1.png">
+    
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/08/algo39/">
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DataBase/">DataBase</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/자료구조/">자료구조</a></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Algorithm/">Algorithm</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-algo39" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Algorithm] 클러스터링 문제 (근사)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/08/algo39/" class="article-date">
+            <time datetime="2019-02-08T03:12:17.000Z" itemprop="datePublished">2019-02-08</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/Approximation/">Approximation</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="#1">1. 클러스터링 문제</a><br><a href="#2">2. 알고리즘</a><br><a href="#3">3. 시간복잡도</a><br><a href="#4">4. 근사 비율</a></p>
+<hr>
+<p><a name="1">1. 클러스터링 문제</a></p>
+<p>n개의 점이 2차원 평면에 주어질 때, 점들 간의 거리를 고려하여 k개의 그룹으로 나눈다.<br><strong>‘클러스터링(Clustering)’ 문제</strong>는 입력으로 주어진 n개의 점을 k개의 그룹으로 나누고, 각 그룹의 중심이 되는 k개의 점을 선택하는 문제이다.<br>단, 가장 큰 반경을 가진 그룹의 직경이 최소가 되도록 k개의 점이 선택되어야 한다.</p>
+<p>n개의 점들 중에서 k개의 선택을 선택할 때, 하나씩 선택한다.</p>
+<p>다음은 k개의 선택을 하는 예제이다.</p>
+<div align="center"><br><img src="/image/algo39-1.png"><br></div><br>첫 번째 센터가 랜덤하게 정해졌다고 가정한다.<br><br><div align="center"><br><img src="/image/algo39-2.png"><br></div><br>위 그림에서 두 번째 센터는 어떤 것이 더 적합한가?<br>첫 번째 센터에서 가장 가까운 점, 가장 먼 점이 고려 대상이다.<br><br>2개의 센터가 서로 가까이 있는 것보다 멀리 떨어져 있는 것이 좋다.<br><br><div align="center"><br><img src="/image/algo39-3.png"><br></div><br>세 번째 센터는 첫 번째와 두 번째 센터에서 가장 멀리 떨어진 점을 선택한다.<br><br><strong>**</strong><br><br><a name="2">2. 알고리즘</a><br><br>다음은 위 그림과 같이 센터를 정하는 방법에 기반을 둔 근사 알고리즘이다.<br><br>Approx_k_Clusters<br>입력: 2차 평면상의 n개의 점 x<sub>i</sub>, i=0,1,…,n-1, 그룹의 수  k&gt;1<br>출력: k개의 클러스터 및 각 클러스터의 센터<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">C[1]=r, 단, xr은 n개의 점 중에서 랜덤하게 선택된 점이다.</span><br><span class="line">for j = 2 to k &#123;</span><br><span class="line">  for i = 0 to n-1</span><br><span class="line">    if (xi≠센터)</span><br><span class="line">      xi와 각 센터까지의 거리를 계산, xi와 가장 가까운 센터까지의 거리를 D[i]에 저장</span><br><span class="line">  &#125;</span><br><span class="line">    C[j]=i, 단, i는 배열 D의 가장 큰 원소의 인덱스, xi는 센터가 아니다.</span><br><span class="line">&#125;</span><br><span class="line">센터가 아닌 각 점 xi로부터 앞서 찾은 k개의 센터까지 거리를 각각 계산, 그 중에 가장 짧은 거리의 센터를 찾는다. 이 때 점 xi는 가장 가까운 센터의 클러스터에 속하게 된다</span><br><span class="line">return 배열 C와 각 클러스터에 속한 점들의 리스트</span><br></pre></td></tr></table></figure><br><br>(클러스터는 일종의 그룹이라고 생각하는 편이 좋을 거 같다.)<br><br>다음 2차원 평면에 놓인 점들에 대하여 위 알고리즘을 적용한다.<br><br><div align="center"><br><img src="/image/algo39-4.png"><br></div>
+
+<p>위 그림에서 4개의 센터, 4개의 그룹으로 나눈다.</p>
+<div align="center"><br><img src="/image/algo39-5.png"><br></div>
+
+<p>line 1 : 임의의 점 하나를 첫 번째 센터 C1으로 정함<br>line 2 : j=2, 2번째 센터를 찾는다.<br>line 3~5 : C1을 제외한, 각 점 x<sub>i</sub>에서 C1 까지의 거리 D[i]를 계산</p>
+<div align="center"><br><img src="/image/algo39-6.png"><br></div>
+
+<p>line 6 : C1으로부터 거리가 가장 먼 점을 다음 센터 C2로 정한다.</p>
+<p>line 2 : j=3, 3번째 센터를 찾는다.</p>
+<div align="center"><br><img src="/image/algo39-7.png"><br></div>
+
+<p>line 3~5 : C1, C2를 제외한, 각 점 x<sub>i</sub>에서 C1, C2 까지의 거리를 계산, 그 중 작은 값을 D[i]에 저장</p>
+<p>D[1] = min{18,33} = 18<br>D[2] = min{19,25} = 19<br>D[3] = min{20,30} = 20<br>D[4] = min{22,17} = 17<br>…<br>와 같이 배열 D에 값이 저장된다.</p>
+<div align="center"><br><img src="/image/algo39-8.png"><br></div>
+
+<p>line 6 : 배열 D에서 가장 큰 값을 가진 원소의 인덱스가 C3이 된다.<br>즉, D[3]의 값이 가장 큼, C[3] = x<sub>3</sub></p>
+<p>line 2 : j=4, 4번째 센터를 찾는다.<br>line 3~5 : C1, C2, C3를 제외한, 각 점 x<sub>i</sub>에서 C1, C2, C3까지의 거리를 계산, 그 중 작은 값을 D[i]에 저장</p>
+<div align="center"><br><img src="/image/algo39-9.png"><br></div>
+
+<p>line 6 : 배열 D에서 가장 큰 값을 가진 원소의 인덱스가 C4가 된다.</p>
+<div align="center"><br><img src="/image/algo39-10.png"><br></div>
+
+<p>line 7 : 센터가 아닌 각 점 x<sub>i</sub>로부터 위에서 찾은 4개의 센터까지의 거리를 각각 계산, 그 중 가장 짧은 거리의 센터를 찾음<br>각 점 x<sub>i</sub>는 가장 가까운 센터의 그룹에 속하게 된다.</p>
+<p>line 8 : 4개의 센터와 각 점이 속한 그룹의 센터를 리턴</p>
+<hr>
+<p><a name="3">3. 시간복잡도</a></p>
+<p>line 1 : 임의의 점 선택, O(1) 시간<br>line 3~5 : 각 점에서 각 센터까지의 거리를 계산, O(kn)<br>line 6 : 그 중에서 최댓값을 찾음 O(n)<br>그런데 line 2의 for-루프가 (k-1)회 반복, O(1)+(k-1)*(O(kn)+O(n))이다.<br>line 7 : 각 점으로부터 k개의 센터까지의 거리를 각각 계산, 최솟값을 찾음. O(kn) 시간 소요.<br>따라서 O(1)+(k-1)*(O(kn)+O(n))+O(kn)=O(k<sup>2</sup>n)이다.</p>
+<hr>
+<p><a name="4">4. 근사 비율</a></p>
+<p>최적해가 만든 클러스터 중 가장 큰 직경을 OPT라고 한다.<br>OPT의 하한을 간접적으로 찾기 위해서, Approx_K_Clusters 알고리즘이 k개의 센터를 모두 찾은 뒤 (k+1)번째 센터를 찾는 상황을 가정한다.</p>
+<div align="center"><br><img src="/image/algo39-11.png"><br></div>
+
+<p>C5에서 가장 가까운 센터인 C3까지의 거리를 d라고 한다.<br>위 5개의 센터 점을 4개의 클러스터로 분할해야 한다.<br>따라서 4개의 센터 중에서 2개는 하나의 클러스터에 속해야만 한다.<br>위 그림에서는 C3, C5가 하나의 클러스터에 속한다.<br>그러므로 최적해의 가장 큰 그룹의 직경인 OPT는 d보다 작을 수 없다.</p>
+<p>Approx_K_Clusters 알고리즘이 계산한 근사해의 가장 큰 그룹의 직경을 OPT’라고 한다.<br>센터가 아닌 어떤 점 중에서 센터와의 거리가 d보다 큰 경우는 없다.<br>따라서 각 클러스터의 중심으로 반경 d 이내에 클러스터에 속하는 모든 점들이 위치한다.<br>OPT’&lt;=2d</p>
+<p>OPT &gt; d &gt;= OPT’/2<br>2OPT &gt; OPT’</p>
+<p>따라서 Apporx_k_Clusters의 알고리즘의 근사비율은 2를 넘지 않는다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>양성봉, 『알기 쉬운 알고리즘』. 파주: (주)생능출판사, 2013</li>
+<li>“제 8장 근사 알고리즘”, 창원대학교 정보 시각화 연구실, 2019. 2. 4, <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi8tdO9vaHgAhUFNrwKHWUdBQUQFjADegQIABAC&amp;url=http%3A%2F%2Fivis.kr%2Fimages%2F6%2F6f%2F8%25EC%259E%25A5%25EA%25B7%25BC%25EC%2582%25AC%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598.pdf&amp;usg=AOvVaw1kJL1wlCTDoYjsRLAisv-r" rel="external nofollow noopener noreferrer" target="_blank">https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi8tdO9vaHgAhUFNrwKHWUdBQUQFjADegQIABAC&amp;url=http%3A%2F%2Fivis.kr%2Fimages%2F6%2F6f%2F8%25EC%259E%25A5%25EA%25B7%25BC%25EC%2582%25AC%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598.pdf&amp;usg=AOvVaw1kJL1wlCTDoYjsRLAisv-r</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dudri63.github.io/2019/02/08/algo39/" data-id="cjs4eb3lg002tpba6jjpbunqz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[Algorithm] 클러스터링 문제 (근사)",
+        "image": "http://dudri63.github.io/image/algo39-1.png",
+        "keywords": "Algorithm Approximation",
+        "genre": "Algorithm",
+        "datePublished": "2019-02-08",
+        "dateCreated": "2019-02-08",
+        "dateModified": "2019-02-08",
+        "url": "http://dudri63.github.io/2019/02/08/algo39/",
+        "description": "1. 클러스터링 문제2. 알고리즘3. 시간복잡도4. 근사 비율
+
+1. 클러스터링 문제
+n개의 점이 2차원 평면에 주어질 때, 점들 간의 거리를 고려하여 k개의 그룹으로 나눈다.‘클러스터링(Clustering)’ 문제는 입력으로 주어진 n개의 점을 k개의 그룹으로 나누고, 각 그룹의 중심이 되는 k개의 점을 선택하는 문제이다.단, 가장 큰 반경을 가진 그룹의"
+        "wordCount": 662
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/08/db5/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [DataBase] Relational Data model
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/02/08/algo38/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Algorithm] 작업 스케줄링 문제 (근사)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/13/jekyll1/" class="title">jekyll1</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T12:14:12.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/13/java3/" class="title">[Java] 데이터 타입</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T11:35:06.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/12/java2/" class="title">[Java] 자바 식별자</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T14:14:31.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/12/java1/" class="title">[Java] 자바의 기초</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T09:55:38.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/자료구조/">자료구조</a></p>
+                            <p class="item-title"><a href="/2019/02/11/ds2/" class="title">[자료구조] 소프트웨어와 자료구조</a></p>
+                            <p class="item-date"><time datetime="2019-02-11T11:25:50.000Z" itemprop="datePublished">2019-02-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/딥러닝-머신러닝/">딥러닝/머신러닝</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/자료구조/">자료구조</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Approximation/">Approximation</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataBase/">DataBase</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/">Divide-and-Conquer</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/">Greedy</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NP-완전/">NP-완전</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Repository/">Repository</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/">Sort</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TSP/">TSP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/해-탐색/">해 탐색</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 15px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 11.25px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.75px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 15px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 15px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.75px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.25px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.25px;">Greedy</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.25px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.5px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/02/08/algo39/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

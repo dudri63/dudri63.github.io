@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Java] 객체 지향 프로그래밍 | 서개발, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Java">
+    
+    <meta name="description" content="1. 객체 지향 프로그래밍2. 객체 지향 언어 : 자바2.1 자바의 캡슐화 구현2.2 자바의 상속 구현  1. 객체 지향 프로그래밍  객체 지향 프로그래밍 : 수행할 작업과 필요한 데이터들을 묶어서 독립적인 객체를 만들고, 이런 객체들을 인터페이스로 연결하여 전체 프로그램을 구성하는 방식  프로그램이 대형화되면서 발생하는 비용 증가, 생산성 저하의 문제를">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Java] 객체 지향 프로그래밍">
+<meta property="og:url" content="http://dudri63.github.io/2019/02/17/java7/index.html">
+<meta property="og:site_name" content="서개발, IT blog">
+<meta property="og:description" content="1. 객체 지향 프로그래밍2. 객체 지향 언어 : 자바2.1 자바의 캡슐화 구현2.2 자바의 상속 구현  1. 객체 지향 프로그래밍  객체 지향 프로그래밍 : 수행할 작업과 필요한 데이터들을 묶어서 독립적인 객체를 만들고, 이런 객체들을 인터페이스로 연결하여 전체 프로그램을 구성하는 방식  프로그램이 대형화되면서 발생하는 비용 증가, 생산성 저하의 문제를">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dudri63.github.io/image/java7-1.png">
+<meta property="og:updated_time" content="2019-02-17T09:51:27.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Java] 객체 지향 프로그래밍">
+<meta name="twitter:description" content="1. 객체 지향 프로그래밍2. 객체 지향 언어 : 자바2.1 자바의 캡슐화 구현2.2 자바의 상속 구현  1. 객체 지향 프로그래밍  객체 지향 프로그래밍 : 수행할 작업과 필요한 데이터들을 묶어서 독립적인 객체를 만들고, 이런 객체들을 인터페이스로 연결하여 전체 프로그램을 구성하는 방식  프로그램이 대형화되면서 발생하는 비용 증가, 생산성 저하의 문제를">
+<meta name="twitter:image" content="http://dudri63.github.io/image/java7-1.png">
+    
+    <link rel="canonical" href="http://dudri63.github.io/2019/02/17/java7/">
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-134515006-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Language/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-java7" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Java] 객체 지향 프로그래밍
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/17/java7/" class="article-date">
+            <time datetime="2019-02-17T07:55:13.000Z" itemprop="datePublished">2019-02-17</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="#1">1. 객체 지향 프로그래밍</a><br><a href="#2">2. 객체 지향 언어 : 자바</a><br><a href="#2.1">2.1 자바의 캡슐화 구현</a><br><a href="#2.2">2.2 자바의 상속 구현</a></p>
+<hr>
+<p><a name="1">1. 객체 지향 프로그래밍</a></p>
+<ul>
+<li><p>객체 지향 프로그래밍 : 수행할 작업과 필요한 데이터들을 묶어서 독립적인 객체를 만들고, 이런 객체들을 인터페이스로 연결하여 전체 프로그램을 구성하는 방식</p>
+<ul>
+<li>프로그램이 대형화되면서 발생하는 비용 증가, 생산성 저하의 문제를 해결하기 위한 방법</li>
+<li>확장과 재사용이 편리하다.</li>
+</ul>
+</li>
+<li><p>객체 : 객체 지향 프로그래밍을 구성하는 단위</p>
+<ul>
+<li>작업할 메소드와 데이터를 가지고 있는 독립적인 실체</li>
+<li>정해진 인터페이스를 통해서만 외부여 연결된다.</li>
+<li>특징<ul>
+<li>캡슐화 : encapsulation, 객체 내부의 메소드와 데이터를 외부에서 사용할 수 없도록 감싸는 것. 객체를 독립적인 실체로 만드는 것이다. 캡슐화된 객체는 지정한 인터페이스를 통해서만 외부와 연결된다.(데이터 은닉)</li>
+<li>재사용성 : 캡슐화된 객체는 인터페이스만 맞춰주면 다른 프로그램에서도 사용할 수 있다.</li>
+<li>상속 : inheritance, 새로 작성할 객체가 이미 작성해 놓은 객체와 유사한 특성을 갖고 있다면, 기존 객체를 물려받고 추가되는 부분의 코드만 작성하여 새로운 개체를 만들 수 있다.</li>
+<li>다형성 : polymorphism, 같은 이름의 메소드가 상황에 따라 다른 연산을 수행한다. 여러 메소드를 같은 이름으로 정의하면 같은 이름으로 호출되어도 상황에 따라 메소드가 구분되서 수행한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="2">2. 객체 지향 언어 : 자바</a></p>
+<p>객체 지향의 개념을 프로그램으로 실현하기 위한 여러 가지 프로그래밍 언어가 존재한다.</p>
+<ul>
+<li>C++ : C 언어에 객체 지향 개념을 추가하여 확장한 언어</li>
+<li>Java : 객제 지향 프로그래밍을 고려하여 개발된 언어</li>
+</ul>
+<p><a name="2.1">2.1 자바의 캡슐화 구현</a></p>
+<ul>
+<li><p>클래스 : 자바 프로그램은 캡슐화된 클래스들을 조합하여 구성한다.</p>
+<ul>
+<li>class 키워드를 사용하여 각각의 클래스를 만든다.</li>
+<li>객체를 생성하기 위한 기본 틀</li>
+<li>자바의 클래스는 독립성을 가지기 때문에 정해진 인터페이스를 사용하지 않으면 외부에서 클래스의 내부를 보거나 수정할 수 없다.</li>
+</ul>
+</li>
+<li><p>접근 제어자 : 클래스 내부의 멤버들을 캡슐화하기 위함</p>
+<ul>
+<li>public : 지정한 멤버는 외부에서도 접근이 가능, 클래스에 대한 인터페이스 역할</li>
+<li>private : 같은 클래스의 멤버 메소드만 접근 가능, 클래스 안에서만 사용 가능, 데이터 은닉</li>
+<li>protected : 외부에서 접근할 수 없음, 단, 상속받는 자식 클래스에서는 사용할 수 있음</li>
+</ul>
+</li>
+<li><p>접근 제어자가 없는 경우</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class AccessControl1&#123;</span><br><span class="line">	int num1, num2, sum;</span><br><span class="line">	double ave;</span><br><span class="line">	AccessControl1 (int a, int b)&#123;</span><br><span class="line">		this.num1 = a;</span><br><span class="line">		this.num2 = b;</span><br><span class="line">	&#125;</span><br><span class="line">	int getSum() &#123;</span><br><span class="line">		sum = num1 + num2;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line">	double getAve() &#123;</span><br><span class="line">		ave = sum/2.0;</span><br><span class="line">		return ave;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Ex_AccessControl1&#123;</span><br><span class="line">	public static void main(String args[]) &#123;</span><br><span class="line">		AccessControl1 test = new AccessControl1(10,20);</span><br><span class="line">		System.out.println(&quot;sum = &quot; + test.getSum());</span><br><span class="line">		System.out.println(&quot;average = &quot; + test.getAve());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/image/java7-1.png"></p>
+<p>AccessControl1 클래스에는 private 접근 제어자가 없으므로 은닉된 멤버가 없다.<br>Ex_AccessControl1 클래스의 main() 메소드가 AccessControl1 클래스의 모든 멤버들을 접근하여 사용할 수 있다.<br>그리하여 위 결과에서 알 수 있듯이 모두 정상적으로 실행된다.<br>그러나 AccessContorl1 클래스는 캡슐화디어 있지 않으므로 좋은 클래스라고 할 수는 없다.</p>
+<ul>
+<li>접근 제어자가 있는 경우<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class AccessControl2&#123;</span><br><span class="line">	private int num1, num2, sum;</span><br><span class="line">	private double ave;</span><br><span class="line">	AccessControl2 (int a, int b)&#123;</span><br><span class="line">		this.num1 = a;</span><br><span class="line">		this.num2 = b;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getSum() &#123;</span><br><span class="line">		sum = num1 + num2;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line">	public double getAve() &#123;</span><br><span class="line">		ave = sum/2.0;</span><br><span class="line">		return ave;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Ex_AccessControl2&#123;</span><br><span class="line">	public static void main(String args[]) &#123;</span><br><span class="line">		AccessControl2 test = new AccessControl2(10,20);</span><br><span class="line">		System.out.println(&quot;sum = &quot; + test.getSum());</span><br><span class="line">		System.out.println(&quot;average = &quot; + test.getAve());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/image/java7-2.png"></p>
+<p> AccessControl2 클래스의 num1, num2, sum, ave 멤버는 private 접근 제어자를 사용하여 외부에서 사용할 수 없도록 은닉하였다.<br> getSum() 메소드, getAve1() 메소드는 public 접근 제어자를 사용, 은닉되어 있는 데이터를 사용할 수 있는 인터페이스롤 만들었다.<br>따라서, Ex_AccessControl2 클래스의 main() 메소드가 AccessControl2 클래스의 num1, num2, sum, ave 멤버에 직접 접근할 수는 없지만, 인터페이스로 열어놓은 getSum(), getAve() 메소드를 통하여 접근할 수 있으므로 정상 작동한다.</p>
+<ul>
+<li>private 접근 제어자만 사용한 경우</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class AccessControl3&#123;</span><br><span class="line">	private int num1, num2, sum;</span><br><span class="line">	private double ave;</span><br><span class="line">	AccessControl3 (int a, int b)&#123;</span><br><span class="line">		this.num1 = a;</span><br><span class="line">		this.num2 = b;</span><br><span class="line">	&#125;</span><br><span class="line">	private int getSum() &#123;</span><br><span class="line">		sum = num1 + num2;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line">	private double getAve() &#123;</span><br><span class="line">		ave = sum/2.0;</span><br><span class="line">		return ave;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Ex_AccessControl2&#123;</span><br><span class="line">	public static void main(String args[]) &#123;</span><br><span class="line">		AccessControl3 test = new AccessControl3(10,20);</span><br><span class="line">		System.out.println(&quot;sum = &quot; + test.getSum());</span><br><span class="line">		System.out.println(&quot;average = &quot; + test.getAve());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/image/java7-3.png"></p>
+<hr>
+<p><a name="2.2">2.2 자바의 상속 구현</a></p>
+<p>부모 클래스<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class StudentInfo&#123;</span><br><span class="line">	protected String dept, stdNo, name;</span><br><span class="line">	StudentInfo(String dept, String stdNo, String name)&#123;</span><br><span class="line">		this.dept = dept;</span><br><span class="line">		this.stdNo = stdNo;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void getStdInfo() &#123;</span><br><span class="line">		System.out.println(&quot;&lt;학생 정보 출력&gt;&quot;);</span><br><span class="line">		System.out.println(&quot;학과 : &quot; + dept);</span><br><span class="line">		System.out.println(&quot;학번 : &quot; + stdNo);</span><br><span class="line">		System.out.println(&quot;이름 : &quot; + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>자식 클래스<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class StudentScore extends StudentInfo&#123;</span><br><span class="line">	private int kor, eng, math, sum;</span><br><span class="line">	private double ave;</span><br><span class="line">	StudentScore(String dept, String stdNo, String name, int kor, int eng, int math)&#123;</span><br><span class="line">		super(dept, stdNo, name);</span><br><span class="line">		this.kor = kor;</span><br><span class="line">		this.eng = eng;</span><br><span class="line">		this.math = math;</span><br><span class="line">		this.sum = 0;</span><br><span class="line">		this.ave = 0.0;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getSum() &#123;</span><br><span class="line">		sum = kor + eng + math;</span><br><span class="line">		return sum;</span><br><span class="line">	&#125;</span><br><span class="line">	public double getAve() &#123;</span><br><span class="line">		ave = sum/3.0;</span><br><span class="line">		return ave;</span><br><span class="line">	&#125;</span><br><span class="line">	public void getStdInfo() &#123;</span><br><span class="line">		super.getStdInfo();</span><br><span class="line">	&#125;</span><br><span class="line">	public void getStdScore() &#123;</span><br><span class="line">		System.out.println(&quot;&lt;학생 점수 출력&gt;&quot;);</span><br><span class="line">		System.out.println(&quot;국어 : &quot; + kor);</span><br><span class="line">		System.out.println(&quot;영어 : &quot; + eng);</span><br><span class="line">		System.out.println(&quot;수학 : &quot; + math);</span><br><span class="line">		System.out.println(&quot;총점 : &quot; + getSum());</span><br><span class="line">		System.out.println(&quot;평균 : &quot; + getAve());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>extends : 부모 클래스가 누구인지를 명시한다.</li>
+<li>super() : super는 부모 클래스를 의미하는 키워드이다. 자식 클래스의 생성자는 부모의 데이터 멤버까지 초기화하여야 한다. super()는 부모 클래스의 생성자를 호출한다.</li>
+<li>super.method() : 부모 클래스의 메소드를 호출한다.</li>
+</ul>
+<p>main 메소드가 포함된 클래스<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Ex_Student&#123;</span><br><span class="line">	public static void main(String args[]) &#123;</span><br><span class="line">		StudentScore a = new StudentScore(&quot;정보통신공학과&quot;, &quot;12122927&quot;, &quot;서영기&quot;, &quot;100&quot;, &quot;95&quot;, &quot;90&quot;);</span><br><span class="line"></span><br><span class="line">		a.getStdInfo();</span><br><span class="line">		a.getStdScore();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/image/java7-4.png"></p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>이지영, 『자바로 배우는 쉬운 자료 구조』. 서울: (주)한빛아카데미, 2013</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dudri63.github.io/2019/02/17/java7/" data-id="cjsccmdso006duza68c6o5bgp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[Java] 객체 지향 프로그래밍",
+        "image": "http://dudri63.github.io/image/java7-1.png",
+        "keywords": "Java",
+        "genre": "Language Java",
+        "datePublished": "2019-02-17",
+        "dateCreated": "2019-02-17",
+        "dateModified": "2019-02-17",
+        "url": "http://dudri63.github.io/2019/02/17/java7/",
+        "description": "1. 객체 지향 프로그래밍2. 객체 지향 언어 : 자바2.1 자바의 캡슐화 구현2.2 자바의 상속 구현
+
+1. 객체 지향 프로그래밍
+
+객체 지향 프로그래밍 : 수행할 작업과 필요한 데이터들을 묶어서 독립적인 객체를 만들고, 이런 객체들을 인터페이스로 연결하여 전체 프로그램을 구성하는 방식
+
+프로그램이 대형화되면서 발생하는 비용 증가, 생산성 저하의 문제를 "
+        "wordCount": 951
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/17/java8/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Java] JVM, JRE, JDK의 차이
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/02/16/java6/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Java] try문</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/20/java9/" class="title">[Java] 생성자</a></p>
+                            <p class="item-date"><time datetime="2019-02-19T19:38:27.000Z" itemprop="datePublished">2019-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
+                            <p class="item-title"><a href="/2019/02/19/ds3/" class="title">[자료구조] 선형 리스트(순차 자료구조)</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T15:36:01.000Z" itemprop="datePublished">2019-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/18/aws2/" class="title">aws2</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T14:02:06.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/AWS/">AWS</a></p>
+                            <p class="item-title"><a href="/2019/02/18/web1/" class="title">[AWS] 아마존 웹서비스, 클라우드</a></p>
+                            <p class="item-date"><time datetime="2019-02-17T16:53:04.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/02/17/java8/" class="title">[Java] JVM, JRE, JDK의 차이</a></p>
+                            <p class="item-date"><time datetime="2019-02-17T10:01:28.000Z" itemprop="datePublished">2019-02-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 12.22px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 15.56px;">Greedy</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 15.56px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/02/17/java7/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

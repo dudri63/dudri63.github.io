@@ -8,8 +8,80 @@
     </url>
 
     <url>
+        <loc>http://dudri63.github.io/2019/03/05/ds7/</loc>
+        <lastmod>2019-03-05T00:49:47.303Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/03/04/ds6/</loc>
+        <lastmod>2019-03-04T08:48:54.198Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://dudri63.github.io/2019/02/19/ds3/</loc>
-        <lastmod>2019-02-19T21:41:33.146Z</lastmod>
+        <lastmod>2019-03-04T06:27:22.152Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/28/ds5/</loc>
+        <lastmod>2019-03-04T06:24:03.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/28/java11/</loc>
+        <lastmod>2019-02-28T08:39:12.087Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/21/ds4/</loc>
+        <lastmod>2019-02-28T08:16:57.571Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/27/java10/</loc>
+        <lastmod>2019-02-27T11:13:23.197Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/10/ds1/</loc>
+        <lastmod>2019-02-21T12:58:46.507Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/21/aws3/</loc>
+        <lastmod>2019-02-21T12:39:26.783Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/18/aws2/</loc>
+        <lastmod>2019-02-21T10:55:31.647Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +90,6 @@
     <url>
         <loc>http://dudri63.github.io/2019/02/20/java9/</loc>
         <lastmod>2019-02-19T20:14:33.384Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/02/18/aws2/</loc>
-        <lastmod>2019-02-18T14:02:06.373Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -282,14 +346,6 @@
     <url>
         <loc>http://dudri63.github.io/2019/02/11/ds2/</loc>
         <lastmod>2019-02-16T07:45:44.368Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/02/10/ds1/</loc>
-        <lastmod>2019-02-16T07:45:34.539Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

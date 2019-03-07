@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="DataBase">
     
-    <meta name="description" content="1.  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation)들의 집합으로 표현 My sql, Msl sql : R DBMS, 관계형 데이터 모델을 생성하는 DBMS DBMS 종류에 따라서 ‘">
+    <meta name="description" content="1. Relational Data model2. r db 용어3. Key attribute4. Integrity  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation) 들의 집합으로 표현 M">
 <meta name="keywords" content="DataBase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[DataBase] Relational Data model">
 <meta property="og:url" content="http://dudri63.github.io/2019/02/08/db5/index.html">
 <meta property="og:site_name" content="서개발, IT blog">
-<meta property="og:description" content="1.  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation)들의 집합으로 표현 My sql, Msl sql : R DBMS, 관계형 데이터 모델을 생성하는 DBMS DBMS 종류에 따라서 ‘">
+<meta property="og:description" content="1. Relational Data model2. r db 용어3. Key attribute4. Integrity  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation) 들의 집합으로 표현 M">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://dudri63.github.io/image/db5-1.png">
-<meta property="og:updated_time" content="2019-02-16T07:44:53.813Z">
+<meta property="og:updated_time" content="2019-03-07T14:06:45.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[DataBase] Relational Data model">
-<meta name="twitter:description" content="1.  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation)들의 집합으로 표현 My sql, Msl sql : R DBMS, 관계형 데이터 모델을 생성하는 DBMS DBMS 종류에 따라서 ‘">
+<meta name="twitter:description" content="1. Relational Data model2. r db 용어3. Key attribute4. Integrity  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation) 들의 집합으로 표현 M">
 <meta name="twitter:image" content="http://dudri63.github.io/image/db5-1.png">
     
     <link rel="canonical" href="http://dudri63.github.io/2019/02/08/db5/">
@@ -188,41 +188,72 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="#1">1.</a></p>
+            <p><a href="#1">1. Relational Data model</a><br><a href="#2">2. r db 용어</a><br><a href="#3">3. Key attribute</a><br><a href="#4">4. Integrity</a></p>
 <hr>
 <p><a name="1">1. Relational Data model</a></p>
 <ul>
 <li>Relational data model : 관계형 데이터 모델<ul>
 <li>representational(logical) model 중 가장 대중적인 모델</li>
-<li>데이터를 <strong>관계(Relation)</strong>들의 집합으로 표현</li>
+<li>데이터를 <strong>관계(Relation)</strong> 들의 집합으로 표현</li>
 <li>My sql, Msl sql : R DBMS, 관계형 데이터 모델을 생성하는 DBMS<ul>
 <li>DBMS 종류에 따라서 ‘표현 데이터 모델’이 달라짐. ex. 관계형, 계층형, 망형</li>
 </ul>
 </li>
-<li>ex. 학생 relation<br><img src="/image/db5-1.png"></li>
+<li>ex. 학생 relation</li>
 </ul>
 </li>
 </ul>
+<p><img src="/image/db5-1.png"></p>
 <hr>
-<p><a name="2"></a></p>
-<p><a name="2">2. key attribute</a></p>
-<p>Key는 entity type 내에 서로 다른 entity들을 구별할 수 있는 유일한 기준이 되는 attribute.</p>
+<p><a name="2">2. r db 용어</a></p>
+<ul>
+<li>릴레이션(relation)<ul>
+<li>관계형 데이터베이스에서 정보를 구분하여 저장하는 기본 단위</li>
+<li>예를 들어, 학생에 관한 정보를 저장하기 위해서는 STUDENT 릴레이션이 필요</li>
+<li>동일한 데이터베이스에 내에서는 같은 이름을 가진 릴레이션이 존재할 수 없다.</li>
+</ul>
+</li>
+<li>속성(attribute)<ul>
+<li>표현할 개체의 구체적인 정보 항목에 해당하는 것이 속성이다.</li>
+<li>현실 세계의 개체가 가진 특징 중 의미있는 것들을 선정, 릴레이션에 포함시킨다.</li>
+<li>동일한 릴레이션 내에서는 같은 이름의 속성이 존재할 수 없다.</li>
+</ul>
+</li>
+<li>튜플(tuple)<ul>
+<li>릴레이션은 현실세계의 어떤 개체를 표현, 튜플은 그 개체에 속한 구성원들 각각의 정보를 표현</li>
+<li>예를 들어, ‘학생’ 릴레이션에 ‘서영기’, ‘황희재’, ‘조경호’ 등이 튜플로서 존재</li>
+</ul>
+</li>
+<li>도메인(domain)<ul>
+<li>릴레이션에 포함된 각각의 속성들이 가질 수 있는 값들의 집합</li>
+<li>릴레이션에 저장되는 데이터 값들이 본래 의도했던 값들만을 저장, 관리하도록 하기 위해 필요한 개념</li>
+<li>예를 들어, ‘성별’이라는 속성이 있다면, 그 속성의 값을 {남,여}만이 가능하다. 데이터베이스 설계자는 성별의 도메인으로 ‘SEX’를 정의하고, 그 값으로 {남,여}를 지정한 뒤, ‘성별’이라는 속성은 ‘SEX’ 도메인에 있는 값만을 가질 수 있다고 지정해 높으면 된다. 그러면 사용자들이 실수로 남, 여 이외의 값을 입력하는 것을 DBMS가 막을 수 있다.</li>
+<li>하나의 도메인을 여러 속성에서 공유할 수 있다.</li>
+<li>현실적으로 모든 속성에 대해 부합하는 완벽한 도메인들을 미리 선언할 수는 없다. 기본적으로 데이터 타입과 길이를 미리 지정하여 그에 맞는 값들만 들어오도록 하여 속성 값들을 관리한다.</li>
+</ul>
+</li>
+</ul>
+<p>위 용어들은 파일 시스템 용어와도 다르고, 오늘날 여러 용어가 혼용되어 살고 잇다. 다음은 유사 개념인 용어들을 정리해 놓은 것이다.</p>
+<p><img src="/image/db5-2.png"></p>
+<hr>
+<p><a name="3">3. key attribute</a></p>
+<p>Key는 relation 내에 서로 다른 tuple들을 구별할 수 있는 유일한 기준이 되는 attribute.</p>
 <ol>
 <li><p>후보키(Candidate Key)</p>
 <ul>
-<li>Entity type을 구성하는 속성들 중에서 Entity를 유일하게 식별할 수 있는 속성들의 부분집합</li>
-<li>모든 Entity type은 반드시 하나 이상의 후보키를 가져야 한다.</li>
-<li>Entity type에 있는 모든 Entity에 대해서 유일성과 최소성을 만족시켜야 한다.</li>
-<li>ex. &lt;학생&gt; entity type에서 ‘학번’이나 ‘주민등록 번호’ attribute는 서로 다른 entity들을 유일하게 &gt;구별할 수 있다. 그러므로 후보키가 되어 기본키로도 사용할 수 있다.</li>
+<li>테이블을 구성하는 속성들 중에서 tuple을 유일하게 식별할 수 있는 속성들의 부분집합</li>
+<li>모든 테이블은 반드시 하나 이상의 후보키를 가져야 한다.</li>
+<li>테이블에 있는 모든 튜플에 대해서 유일성과 최소성을 만족시켜야 한다.</li>
+<li>ex. &lt;학생&gt; 테이블에서 ‘학번’이나 ‘주민등록 번호’ attribute는 서로 다른 tuple들을 유일하게 &gt;구별할 수 있다. 그러므로 후보키가 되어 기본키로도 사용할 수 있다.</li>
 </ul>
 </li>
 <li><p>기본키(Primary Key)</p>
 <ul>
 <li>후보키들 중에서 선태한 주키(Main Key)</li>
-<li>한 Entity type에서 특정 entity를 유일하게 구별할 수 있는 속성</li>
+<li>한 테이블에서 특정 튜플을 유일하게 구별할 수 있는 속성</li>
 <li>Null 값을 가질 수 없다.</li>
 <li>기본키로 정의된 속성에는 동일한 값이 중복되어 저장할 수 없다.</li>
-<li>ex. &lt;학생&gt; entity type에는 ‘학번’이나 ‘주민등록 번호’가 기본키가 될 수 있다.</li>
+<li>ex. &lt;학생&gt; 테이블에는 ‘학번’이나 ‘주민등록 번호’가 기본키가 될 수 있다.</li>
 </ul>
 </li>
 <li><p>대체키(Alternate Key)</p>
@@ -233,14 +264,45 @@ ga('send', 'pageview');
 </li>
 <li><p>슈퍼키(Super Key)</p>
 <ul>
-<li>슈퍼키는 한 entity type 내에 있는 속성들의 집합으로 구성된 키, 모든 entity들은 슈퍼키로 구성된 속<br>성의 집합과 동일한 값을 지니지 않는다.</li>
-<li>모든 entity들에 대하여 유일성은 만족, 그러나 최소성을 만족시키지 못함.</li>
-<li>ex. &lt;학생&gt; entity type에서는 ‘학번’, ‘주민등록 번호’, ‘학번’+’주민등록 번호’, ‘학번’+’주민등록 번<br>호’+’성명’ 등으로 슈퍼키를 구성할 수 있다. 이 때, ‘학번’+’주민등록 번호’, ‘학번’+’주민등록 번호’+’성&gt;명’ 등이 최소성을 만족하지 못하는 경우이다.</li>
+<li>슈퍼키는 한 테이블 내에 있는 속성들의 집합으로 구성된 키, 모든 튜플들은 슈퍼키로 구성된 속<br>성의 집합과 동일한 값을 지니지 않는다.</li>
+<li>모든 튜플들에 대하여 유일성은 만족, 그러나 최소성을 만족시키지 못함.</li>
+<li>ex. &lt;학생&gt; 테이블에서는 ‘학번’, ‘주민등록 번호’, ‘학번’+’주민등록 번호’, ‘학번’+’주민등록 번호’+’성명’ 등으로 슈퍼키를 구성할 수 있다. 이 때, ‘학번’+’주민등록 번호’, ‘학번’+’주민등록 번호’+’성명’ 등이 최소성을 만족하지 못하는 경우이다.</li>
+</ul>
+</li>
+<li><p>외래키(Foreign Key)</p>
+<ul>
+<li>후보키는 하나의 테이블 내에서 튜플이 중복되지 않음을 보증하는 수단이다. 이와 달리 테이블 간의 데이터 일치와 무결성을 보증해주는 수단이 외래키이다.</li>
+<li>테이블 A가 테이블 B의 기본키에 해당하는 컬럼을 가지고 있을 때 테이블 A가 테이블 B를 참조한다고 한다. 그리고 테이블 A에 있는 테이블 B의 기본키 컬럼을 외래키라고 부른다.</li>
+<li>외래키는 참조하는 테이블과 참조되는 테이블의 연결고리 역할을 한다.</li>
 </ul>
 </li>
 </ol>
+<p><img src="/image/db5-3.png"></p>
+<p>위 경우, 사원 테이블에서 사원이 속한 부서의 이름을 알 수 없다.<br>부서의 이름을 알려면 부서번호(Dno)를 가지고 부서 테이블에 가서 부서번호에 해당하는 부서명을 찾아야 한다.<br>즉, 사원 테이블은 부서에 테이블에서 정보를 찾을 수 있는 키를 가지고 있다.<br>사원 테이블은 부서 테이블을 참조한다고 할 수 있다.<br>이 때, Dno는 FK(Foreign Key)이다.</p>
 <hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
+<p><a name="4">4. Integrity</a></p>
+<p>데이터의 무결성은 데이터의 정확성, 일관성, 유효성이 유지되는 것을 일컫는다.<br>데이터의 무결성을 유지하는 것이 DBMS의 중요한 기능이며, 주로 데이터에 적용되는 연산에 제한을 두어 데이터의 무결성을 유지한다.</p>
+<ol>
+<li>개체 무결성 (Entity integrity)<br>모든 테이블이 기본 키로 선택된 칼럼을 가져야 한다. 기본 키로 선택된 속성은 고유한 값을 가져야 하며, NULL 값을 허용하지 않는다.</li>
+<li><p>참조 무결성 (Referential integrity)<br>참조 관계에 있는 두 테이블의 데이터가 항상 일관된 값을 갖도록 유지하는 것을 말한다.</p>
+<p><img src="/image/db5-4.png"></p>
+</li>
+</ol>
+<p>위 경우는 참조 무결성이 깨지는 경우이다. department 테이블에서 id 값이 310인 튜플이 삭제되면, student 테이블의 3번째 레코드는 더 이상 존재하지 않는 데이터를 참조하게 된다.<br>다음은 참조 무결성을 지키기 위한 개념이다.</p>
+<ul>
+<li>RESTRICTED : 튜플을 변경 또는 삭제할 때, 해당 튜플을 참조하는 개체가 있다면, 변경 또는 삭제 연산을 취소한다.</li>
+<li>CASCADE : 튜플을 변경 또는 삭제하면, 해당 튜플을 참조하고 있는 개체도 변경 또는 삭제된다.</li>
+<li>SET NULL : 튜플을 변경 또는 삭제하면, 해당 튜플을 참조하고 있는 개체의 값을 NULL로 설정한다.</li>
+</ul>
+<ol start="3">
+<li>도메인 무결성 (Domain integrity)<br>테이블에 존재하는 칼럼의 무결성을 보장하기 위한 것으로서, 타입, NULL값의 허용 등에 대한 사항을 정의한 뒤, 올바른 데이터가 입력되었는지를 확인하는 것이다.</li>
+</ol>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>Elmasri, Navathe,『Fundamentals of Database System』, Pearson, 2011</li>
+<li>오세종, 『데이터베이스 설계 및 구축』, 생능출판사, 2013</li>
+<li>“[관계형 데이터베이스]”, Untitled, 2019. 3. 7, <a href="https://untitledtblog.tistory.com/123" rel="external nofollow noopener noreferrer" target="_blank">https://untitledtblog.tistory.com/123</a></li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -248,7 +310,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://dudri63.github.io/2019/02/08/db5/" data-id="cjsv2isst0040pca6n2wep6eb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://dudri63.github.io/2019/02/08/db5/" data-id="cjsyph57s0040yta6s2488dsi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -324,18 +386,17 @@ ga('send', 'pageview');
         "genre": "Basic CS DataBase",
         "datePublished": "2019-02-08",
         "dateCreated": "2019-02-08",
-        "dateModified": "2019-02-16",
+        "dateModified": "2019-03-07",
         "url": "http://dudri63.github.io/2019/02/08/db5/",
-        "description": "1.
+        "description": "1. Relational Data model2. r db 용어3. Key attribute4. Integrity
 
 1. Relational Data model
 
 Relational data model : 관계형 데이터 모델
 representational(logical) model 중 가장 대중적인 모델
-데이터를 관계(Relation)들의 집합으로 표현
-My sql, Msl sql : R DBMS, 관계형 데이터 모델을 생성하는 DBMS
-DBMS 종류에 따라서 ‘"
-        "wordCount": 215
+데이터를 관계(Relation) 들의 집합으로 표현
+M"
+        "wordCount": 683
     }
 </script>
 
@@ -410,8 +471,8 @@ DBMS 종류에 따라서 ‘"
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">ds7</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
+                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">[자료구조] Stack (응용 자료구조)</a></p>
                             <p class="item-date"><time datetime="2019-03-05T00:49:47.000Z" itemprop="datePublished">2019-03-05</time></p>
                         </div>
                     </li>
@@ -461,7 +522,7 @@ DBMS 종류에 따라서 ‘"
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -481,7 +542,7 @@ DBMS 종류에 따라서 ‘"
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 12.5px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 15px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.75px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 15px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 15px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.75px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.25px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.25px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.25px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.5px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
         </div>
     </div>
 

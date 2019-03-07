@@ -21,7 +21,7 @@
 <meta property="og:description" content="1. Database System2. Database3. DBMS4. Database Users5. DB Approach  1. Database System  DBS(데이터베이스 시스템) : 자료를 데이터베이스에 저장, 관리하며 필요한 정보를 제공하는 컴퓨터 기반 시스템이다. DBS 구성요소 : Database (DB) Database management">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://dudri63.github.io/image/db1-1.png">
-<meta property="og:updated_time" content="2019-02-16T07:44:25.374Z">
+<meta property="og:updated_time" content="2019-03-06T12:59:21.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[DataBase] DBS, DB, DBMS, 이용자, DB approach">
 <meta name="twitter:description" content="1. Database System2. Database3. DBMS4. Database Users5. DB Approach  1. Database System  DBS(데이터베이스 시스템) : 자료를 데이터베이스에 저장, 관리하며 필요한 정보를 제공하는 컴퓨터 기반 시스템이다. DBS 구성요소 : Database (DB) Database management">
@@ -200,6 +200,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
+<p><img src="/image/db1-1.png"></p>
 <hr>
 <p><a name="2">2. Database</a></p>
 <ul>
@@ -225,7 +226,7 @@ ga('send', 'pageview');
 <li>DBMS (Database Management System)<ul>
 <li>데이터베이스를 관리하는 프로그램</li>
 <li>데이터베이스 이용자(user)와 데이터베이스간의 Interface<ul>
-<li>DBMS를 이용하여 이용자는 쉽게 데이터베잇를 생성 및 유지할 수 있다.</li>
+<li>DBMS를 이용하여 이용자는 쉽게 데이터베이스를 생성 및 유지할 수 있다.</li>
 </ul>
 </li>
 </ul>
@@ -264,11 +265,34 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<div align="center"><br><img src="/image/db1-1.png"><br></div>
-
 <hr>
 <p><a name="5">5. DB Approach</a></p>
 <ul>
+<li>파일 시스템 : 파일에 기초하여 자료나 정보를 처리하는 시스템<ul>
+<li>개별 응용 프로그램이 직접 파일에 접근, 기록, 갱신, 삭제한다.</li>
+<li>파일에 있는 데이터의 올바른 관리여부는 전적으로 응용프로그램에 달림.</li>
+<li>데이터 종속성<ul>
+<li>ex. 만약 파일에 있는 데이터 필드 중 하나의 길이가 변경됨. 그렇다면, 해당 파일을 읽어서 처리하는 모든 응용프로그램을 변경해야 하는 문제가 생긴다. 즉, 프로그램이 데이터에 종속되어 있다.</li>
+</ul>
+</li>
+<li>데이터 무결성 침해<ul>
+<li>‘데이터 무결성’이란, 저장된 데이터의 내용이 본래 의도했던 데이터의 형식, 범위를 준수해야 함을 의미한다.</li>
+<li>ex. ‘나이’ 데이터필드는 양수여야 한다.</li>
+<li>파일 시스템은 이러한 데이터 무결성을 지켜야할 책임이 프로그래머에게 있다. 만약 응용 프로그램이 올바르지 않는 데이터가 저장되는 것을 허용하게 된다면, 저장된 데이터에 근거해서 어떤 판단을 내려야 하는 경우 문제가 발생하게 된다.</li>
+</ul>
+</li>
+<li>데이터 중복성</li>
+<li>데이터 불일치<ul>
+<li>중복 저장된 데이터들이 서로 일치하지 않는 경우</li>
+</ul>
+</li>
+<li>데이터 표준화의 어려움</li>
+<li>데이터 보안성의 결어<ul>
+<li>데이터가 저장되어 있는 파일은 text를 비롯한 잘 알려진 형식으로 저장되기 때문에 응용 프로그램이 없어도 쉽게 파일을 열어 볼 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>DB Approach<ul>
 <li>data를 유지하는 저장소는 한 개 있다.(여러 저장소를 사용하지 않는다.)</li>
 <li>저장소는 다양한 유저들에 의해 접근될 수 있다.</li>
@@ -297,7 +321,7 @@ ga('send', 'pageview');
 <li>하지만 데이터베이스는 저장 구조 등을 수정하는 것이 응용 프로그램에 영향을 미치지 않는다.</li>
 </ul>
 </li>
-<li>데이터 추상화 <ul>
+<li>데이터 추상화<ul>
 <li>복잡한 데이터베이스의 구조에 대한 정보를 감추고, 각 사용자에게는 ‘뷰’를 제공한다.</li>
 <li>실제로는 복잡한 구조지만 상부 이용자에게는 간단하게 보이도록 한다.</li>
 </ul>
@@ -322,7 +346,6 @@ ga('send', 'pageview');
 <li>RAM, ROM 같은 주기억장치가 아닌 컴퓨터에서 사용할 수 있는 보조기억장치에 저장된다.</li>
 </ul>
 <p>cf. 파일 시스템</p>
-<p>데이터 독립성, 데이터 중복성, 무결성 보장, 동시 접근 등에 문제가 있음<br>-&gt; DB approach의 장점과 대비</p>
 <hr>
 <ul>
 <li>DB Approach의 장점<ul>
@@ -347,7 +370,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://dudri63.github.io/2019/02/03/db1/" data-id="cjsv2isso003npca69c1tca7k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://dudri63.github.io/2019/02/03/db1/" data-id="cjsyph57u0044yta6f5v6m9pc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -423,7 +446,7 @@ ga('send', 'pageview');
         "genre": "Basic CS DataBase",
         "datePublished": "2019-02-03",
         "dateCreated": "2019-02-03",
-        "dateModified": "2019-02-16",
+        "dateModified": "2019-03-06",
         "url": "http://dudri63.github.io/2019/02/03/db1/",
         "description": "1. Database System2. Database3. DBMS4. Database Users5. DB Approach
 
@@ -433,7 +456,7 @@ DBS(데이터베이스 시스템) : 자료를 데이터베이스에 저장, 관�
 DBS 구성요소 :
 Database (DB)
 Database management "
-        "wordCount": 465
+        "wordCount": 576
     }
 </script>
 
@@ -508,8 +531,8 @@ Database management "
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">ds7</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
+                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">[자료구조] Stack (응용 자료구조)</a></p>
                             <p class="item-date"><time datetime="2019-03-05T00:49:47.000Z" itemprop="datePublished">2019-03-05</time></p>
                         </div>
                     </li>
@@ -559,7 +582,7 @@ Database management "
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -579,7 +602,7 @@ Database management "
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 12.5px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 15px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.75px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 15px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 15px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.75px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.25px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.25px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.25px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.5px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
         </div>
     </div>
 

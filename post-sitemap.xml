@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>http://dudri63.github.io/2019/02/08/db5/</loc>
+        <lastmod>2019-03-07T14:06:45.999Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://dudri63.github.io/2019/03/05/ds7/</loc>
-        <lastmod>2019-03-05T00:49:47.303Z</lastmod>
+        <lastmod>2019-03-07T12:25:37.136Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dudri63.github.io/2019/02/03/db1/</loc>
+        <lastmod>2019-03-06T12:59:21.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -352,14 +368,6 @@
     </url>
 
     <url>
-        <loc>http://dudri63.github.io/2019/02/08/db5/</loc>
-        <lastmod>2019-02-16T07:44:53.813Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://dudri63.github.io/2019/02/04/db4/</loc>
         <lastmod>2019-02-16T07:44:47.235Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -378,14 +386,6 @@
     <url>
         <loc>http://dudri63.github.io/2019/02/03/db2/</loc>
         <lastmod>2019-02-16T07:44:35.262Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://dudri63.github.io/2019/02/03/db1/</loc>
-        <lastmod>2019-02-16T07:44:25.374Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

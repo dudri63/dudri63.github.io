@@ -6,23 +6,26 @@
     
 
     
-    <title>ds7 | 서개발, IT blog</title>
+    <title>[자료구조] Stack (응용 자료구조) | 서개발, IT blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="">
+        <meta name="keywords" content="Data Structure">
     
-    <meta name="description" content="1.  1.  Reference*">
+    <meta name="description" content="1. 스택  1. 스택 자료를 구좌하는 가장 기본적인 방법은 자료를 순서대로 나열하여 리스트 를 구성하는 것이다.  Array List (순차 자료구조), https://dudri63.github.io/2019/02/19/ds3/ Singly Linked List (연결 자료구조), https://dudri63.github.io/2019/02/21/ds4/">
+<meta name="keywords" content="Data Structure">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ds7">
+<meta property="og:title" content="[자료구조] Stack (응용 자료구조)">
 <meta property="og:url" content="http://dudri63.github.io/2019/03/05/ds7/index.html">
 <meta property="og:site_name" content="서개발, IT blog">
-<meta property="og:description" content="1.  1.  Reference*">
+<meta property="og:description" content="1. 스택  1. 스택 자료를 구좌하는 가장 기본적인 방법은 자료를 순서대로 나열하여 리스트 를 구성하는 것이다.  Array List (순차 자료구조), https://dudri63.github.io/2019/02/19/ds3/ Singly Linked List (연결 자료구조), https://dudri63.github.io/2019/02/21/ds4/">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-05T00:49:47.303Z">
+<meta property="og:image" content="http://dudri63.github.io/image/ds6-1.png">
+<meta property="og:updated_time" content="2019-03-07T12:25:37.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ds7">
-<meta name="twitter:description" content="1.  1.  Reference*">
+<meta name="twitter:title" content="[자료구조] Stack (응용 자료구조)">
+<meta name="twitter:description" content="1. 스택  1. 스택 자료를 구좌하는 가장 기본적인 방법은 자료를 순서대로 나열하여 리스트 를 구성하는 것이다.  Array List (순차 자료구조), https://dudri63.github.io/2019/02/19/ds3/ Singly Linked List (연결 자료구조), https://dudri63.github.io/2019/02/21/ds4/">
+<meta name="twitter:image" content="http://dudri63.github.io/image/ds6-1.png">
     
     <link rel="canonical" href="http://dudri63.github.io/2019/03/05/ds7/">
 
@@ -146,7 +149,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a>
     </h1>
 </div>
 
@@ -158,7 +161,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        ds7
+        [자료구조] Stack (응용 자료구조)
         </h1>
     
 
@@ -176,15 +179,59 @@ ga('send', 'pageview');
 		
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Data-Structure/">Data Structure</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="#1">1.</a></p>
+            <p><a href="#1">1. 스택</a></p>
 <hr>
-<p><a name="1">1.</a></p>
+<p><a name="1">1. 스택</a></p>
+<p>자료를 구좌하는 가장 기본적인 방법은 자료를 순서대로 나열하여 <strong>리스트</strong> 를 구성하는 것이다.</p>
+<ul>
+<li>Array List (순차 자료구조), <a href="https://dudri63.github.io/2019/02/19/ds3/">https://dudri63.github.io/2019/02/19/ds3/</a></li>
+<li>Singly Linked List (연결 자료구조), <a href="https://dudri63.github.io/2019/02/21/ds4/">https://dudri63.github.io/2019/02/21/ds4/</a></li>
+<li>Doubly Linked List (연결 자료구조), <a href="https://dudri63.github.io/2019/02/28/ds5/">https://dudri63.github.io/2019/02/28/ds5/</a></li>
+</ul>
+<p>몇 가지 규칙을 추가, 리스트를 응용한 자료구조를 만들 수 있다.</p>
+<p><strong>스택</strong> 은 같은 구조와 크기의 자료를 top이라고 정한 한 곳으로만 쌓을 수 있고, top으로만 접근하도록 제한하여 만든 자료구조이다.<br>삽입되는 새 자료는 top이 가리키고 있는 자료의 위에 쌓여 마지막 자료가 되고, top은 이 새로운 자료를 가리키게 된다.<br>삭제할 때도 top을 통해서만 가능하기 때문에 top이 가리키고 있는 스택의 마지막 자료만을 삭제할 수 있다.<br>다음은 스택의 구조를 논리적으로 표현한 것이다.</p>
+<p><img src="/image/ds6-1.png"></p>
+<p>따라서 스택은 후입선출(LIFO, Last-In-First_Out)의 구조를 갖는다.</p>
+<p>스택에서 top을 통한 삽입 연산을 push,<br>top을 통한 삭제 연산을 pop이라고 한다.</p>
 <hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
+<p><a name="2">2. 스택의 추상 자료형</a></p>
+<p>다음은 스택에서 가능한 자료형과 연산작업을 추상화한 것이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ADT Stack</span><br><span class="line">데이터 : 0개 이상의 원소를 가진 유한 순서 리스트</span><br><span class="line">연산 :</span><br><span class="line">  S ∈ Stack; item ∈ Element;</span><br><span class="line">  createStack() ::= create an empty Stack   // 공백 스택을 생성</span><br><span class="line">  isEmpty(S) ::= if (S is empty) then return true</span><br><span class="line">                 else return false;</span><br><span class="line">  push(S, item) ::= insert item onto the top of S;</span><br><span class="line">  pop(S) ::= if (isEmpty(S)) then return error</span><br><span class="line">             else &#123;delete and return the top item of S&#125;;  // 스택 S의 top에 있는 item을 삭제 및 반환</span><br><span class="line">  delete(S) ::= if (isEmpty(S)) then return error</span><br><span class="line">                else delete the top item;                 // 스택 S의 top에 있는 item을 삭제</span><br><span class="line">  peek(S) ::= if (isEmpty(S)) then return error</span><br><span class="line">              else return (the top item of the S);        // 스택 S의 top에 있는 item을 반환</span><br><span class="line">End Stack</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a name="3">3. 스택의 push, pop 알고리즘</a></p>
+<p>다음은 스택의 push 알고리즘이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">push(S, x)</span><br><span class="line">  top &lt;- top + 1;</span><br><span class="line">  if (top &gt; stack_SIZE) then overflow;</span><br><span class="line">  else</span><br><span class="line">    S(top) &lt;- x;</span><br><span class="line">end push</span><br></pre></td></tr></table></figure>
+<p>다음은 스택의 pop 알고리즘이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pop(S)</span><br><span class="line">  if (top = 0) then error;</span><br><span class="line">  else &#123;</span><br><span class="line">    return S(top);</span><br><span class="line">    top &lt;- top-1;</span><br><span class="line">  &#125;</span><br><span class="line">end pop()</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a name="4">4. 스택의 구현</a></p>
+<p><a name="4.1">4.1 순차 자료구조 방식의 스택 구현</a></p>
+<ul>
+<li>Stack.java <a href="https://github.com/dudri63/dataStructure/blob/master/ArrayStack/Stack.java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/dudri63/dataStructure/blob/master/ArrayStack/Stack.java</a></li>
+<li>ArrayStack.java<br><a href="https://github.com/dudri63/dataStructure/blob/master/ArrayStack/ArrayStack.java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/dudri63/dataStructure/blob/master/ArrayStack/ArrayStack.java</a></li>
+<li><p>Ex_ArrayStack.java <a href="https://github.com/dudri63/dataStructure/blob/master/ArrayStack/Ex_ArrayStack.java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/dudri63/dataStructure/blob/master/ArrayStack/Ex_ArrayStack.java</a></p>
+</li>
+<li><p>구현 예시</p>
+</li>
+</ul>
+<p><img src="/image/ds6-2.png"></p>
+<hr>
+<p><a name="4.2">4.2 연결 자료구조 방식의 스택 구현</a></p>
+<p>순차 자료구조를 이용한 스택은 배열을 사용하여 구현하기 용이하다.<br>그러나 물리적으로 크기가 고정, 스택의 크기 변경이 어렵다.<br>또한, 메모리 낭비 가능성이 높다.</p>
+<p>연결 자료구조를 이용한 스택은 위와 같은 문제점들을 상당 부분 개선시킨다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>이지영, 『자바로 배우는 쉬운 자료 구조』. 서울: (주)한빛아카데미, 2013</li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -192,7 +239,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://dudri63.github.io/2019/03/05/ds7/" data-id="cjsv2ist1004spca6x71tod5o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://dudri63.github.io/2019/03/05/ds7/" data-id="cjsyph5890050yta6bzwfftw2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -262,21 +309,22 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Seo Young Ki"
         },
-        "headline": "ds7",
-        "image": "http://dudri63.github.io",
-        "keywords": "",
-        "genre": "",
+        "headline": "[자료구조] Stack (응용 자료구조)",
+        "image": "http://dudri63.github.io/image/ds6-1.png",
+        "keywords": "Data Structure",
+        "genre": "Basic CS Data Structure",
         "datePublished": "2019-03-05",
         "dateCreated": "2019-03-05",
-        "dateModified": "2019-03-05",
+        "dateModified": "2019-03-07",
         "url": "http://dudri63.github.io/2019/03/05/ds7/",
-        "description": "1.
+        "description": "1. 스택
 
-1.
+1. 스택
+자료를 구좌하는 가장 기본적인 방법은 자료를 순서대로 나열하여 리스트 를 구성하는 것이다.
 
-Reference*
-"
-        "wordCount": 7
+Array List (순차 자료구조), https://dudri63.github.io/2019/02/19/ds3/
+Singly Linked List (연결 자료구조), https://dudri63.github.io/2019/02/21/ds4/"
+        "wordCount": 527
     }
 </script>
 
@@ -341,8 +389,8 @@ Reference*
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">ds7</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
+                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">[자료구조] Stack (응용 자료구조)</a></p>
                             <p class="item-date"><time datetime="2019-03-05T00:49:47.000Z" itemprop="datePublished">2019-03-05</time></p>
                         </div>
                     </li>
@@ -392,7 +440,7 @@ Reference*
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -412,7 +460,7 @@ Reference*
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 12.5px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 15px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.75px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.25px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 15px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 15px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.75px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.25px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.25px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.25px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.25px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.5px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.5px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
         </div>
     </div>
 

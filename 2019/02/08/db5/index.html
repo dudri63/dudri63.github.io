@@ -6,7 +6,7 @@
     
 
     
-    <title>[DataBase] Relational Data model | 서개발, IT blog</title>
+    <title>[DataBase] Relational Data model (representational model) | 서개발, IT blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -15,15 +15,15 @@
     <meta name="description" content="1. Relational Data model2. r db 용어3. Key attribute4. Integrity  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation) 들의 집합으로 표현 M">
 <meta name="keywords" content="DataBase">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[DataBase] Relational Data model">
+<meta property="og:title" content="[DataBase] Relational Data model (representational model)">
 <meta property="og:url" content="http://dudri63.github.io/2019/02/08/db5/index.html">
 <meta property="og:site_name" content="서개발, IT blog">
 <meta property="og:description" content="1. Relational Data model2. r db 용어3. Key attribute4. Integrity  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation) 들의 집합으로 표현 M">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://dudri63.github.io/image/db5-1.png">
-<meta property="og:updated_time" content="2019-03-07T14:06:45.999Z">
+<meta property="og:updated_time" content="2019-03-09T08:07:06.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[DataBase] Relational Data model">
+<meta name="twitter:title" content="[DataBase] Relational Data model (representational model)">
 <meta name="twitter:description" content="1. Relational Data model2. r db 용어3. Key attribute4. Integrity  1. Relational Data model  Relational data model : 관계형 데이터 모델 representational(logical) model 중 가장 대중적인 모델 데이터를 관계(Relation) 들의 집합으로 표현 M">
 <meta name="twitter:image" content="http://dudri63.github.io/image/db5-1.png">
     
@@ -90,7 +90,7 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
                                     
                                 <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/about/index.md">About</a>
@@ -161,7 +161,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        [DataBase] Relational Data model
+        [DataBase] Relational Data model (representational model)
         </h1>
     
 
@@ -298,6 +298,11 @@ ga('send', 'pageview');
 <li>도메인 무결성 (Domain integrity)<br>테이블에 존재하는 칼럼의 무결성을 보장하기 위한 것으로서, 타입, NULL값의 허용 등에 대한 사항을 정의한 뒤, 올바른 데이터가 입력되었는지를 확인하는 것이다.</li>
 </ol>
 <hr>
+<p><a name="5">5. View</a></p>
+<p><strong>뷰(View)</strong> 는 하나 이상의 테이블에 대하여 특정 사용자나 조직의 관점에서 데이터를 바라볼 수 있도록 해주는 수단이다. 가상 테이블이라고도 부른다.</p>
+<p>예를 들어, 각각의 부서에서 각 부서에 속해있는 사원 정보가 필요한 경우를 고려한다.<br>이 때, 존재하는 사원 테이블을 모든 부서에 일괄적으로 주어진다면, 각 부서에서는 불필요가 정보가 포함되어 있어서 불편하다. 또한, 다른 부서에서는 보여서는 안될 정보가 함께 제공되는 문제가 발생할 수도 있다.<br>이를 위해 데이터베이스 관리자는 사원 테이블을 제공하는 대신에, 각 부서의 필요에 맞는 뷰를 생성하여 제공할 수 있다.</p>
+<p>사용자 입장에서 보면 뷰와 일반 테이블은 거의 구분이 되지 않는다.<br>일반 테이블과 마찬가지로 뷰에 대해서도 질의가 가능하기 때문이다.<br>일반 테이블과 뷰의 중요한 차이점은 일반 테이블이 실제로 물리적인 데이터를 갖고 있는 반면에 뷰는 물리적인 데이터를 갖지 않고, 뷰가 정의된 일반 테이블로부터 데이터를 가져와 보여준다는 것이다.<br>따라서 뷰는 일반 테이블이 있어야 정의가 가능하다.</p>
+<hr>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li>Elmasri, Navathe,『Fundamentals of Database System』, Pearson, 2011</li>
 <li>오세종, 『데이터베이스 설계 및 구축』, 생능출판사, 2013</li>
@@ -310,7 +315,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://dudri63.github.io/2019/02/08/db5/" data-id="cjsyph57s0040yta6s2488dsi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://dudri63.github.io/2019/02/08/db5/" data-id="cjt2s47bb004kpva629z9njsd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -380,13 +385,13 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Seo Young Ki"
         },
-        "headline": "[DataBase] Relational Data model",
+        "headline": "[DataBase] Relational Data model (representational model)",
         "image": "http://dudri63.github.io/image/db5-1.png",
         "keywords": "DataBase",
         "genre": "Basic CS DataBase",
         "datePublished": "2019-02-08",
         "dateCreated": "2019-02-08",
-        "dateModified": "2019-03-07",
+        "dateModified": "2019-03-09",
         "url": "http://dudri63.github.io/2019/02/08/db5/",
         "description": "1. Relational Data model2. r db 용어3. Key attribute4. Integrity
 
@@ -396,7 +401,7 @@ Relational data model : 관계형 데이터 모델
 representational(logical) model 중 가장 대중적인 모델
 데이터를 관계(Relation) 들의 집합으로 표현
 M"
-        "wordCount": 683
+        "wordCount": 804
     }
 </script>
 
@@ -471,45 +476,45 @@ M"
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/03/10/android4/" class="title">android4</a></p>
+                            <p class="item-date"><time datetime="2019-03-10T10:31:28.000Z" itemprop="datePublished">2019-03-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/10/android3/" class="title">[Android] Layout</a></p>
+                            <p class="item-date"><time datetime="2019-03-10T08:00:59.000Z" itemprop="datePublished">2019-03-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/09/android2/" class="title">[Android] Activity</a></p>
+                            <p class="item-date"><time datetime="2019-03-09T12:50:28.000Z" itemprop="datePublished">2019-03-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/09/android1/" class="title">[Android] 안드로이드 스튜디오</a></p>
+                            <p class="item-date"><time datetime="2019-03-09T11:22:12.000Z" itemprop="datePublished">2019-03-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
                             <p class="item-title"><a href="/2019/03/05/ds7/" class="title">[자료구조] Stack (응용 자료구조)</a></p>
                             <p class="item-date"><time datetime="2019-03-05T00:49:47.000Z" itemprop="datePublished">2019-03-05</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
-                            <p class="item-title"><a href="/2019/03/04/ds6/" class="title">[자료구조] Polynomial (연결 자료구조)</a></p>
-                            <p class="item-date"><time datetime="2019-03-04T06:26:03.000Z" itemprop="datePublished">2019-03-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2019/02/28/java11/" class="title">[Java] ==, equals의 차이</a></p>
-                            <p class="item-date"><time datetime="2019-02-28T08:19:20.000Z" itemprop="datePublished">2019-02-28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
-                            <p class="item-title"><a href="/2019/02/28/ds5/" class="title">[자료구조] Doubly Linked List (연결 자료구조)</a></p>
-                            <p class="item-date"><time datetime="2019-02-28T08:16:04.000Z" itemprop="datePublished">2019-02-28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
-                            <p class="item-title"><a href="/2019/02/27/java10/" class="title">[Java] 콘솔 입출력</a></p>
-                            <p class="item-date"><time datetime="2019-02-27T07:19:58.000Z" itemprop="datePublished">2019-02-27</time></p>
                         </div>
                     </li>
                 
@@ -522,7 +527,7 @@ M"
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -532,7 +537,7 @@ M"
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
         </div>
     </div>
 
@@ -542,7 +547,7 @@ M"
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 12.22px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
         </div>
     </div>
 

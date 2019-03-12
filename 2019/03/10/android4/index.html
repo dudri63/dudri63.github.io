@@ -6,23 +6,24 @@
     
 
     
-    <title>android4 | 서개발, IT blog</title>
+    <title>[Android] Intent | 서개발, IT blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="">
+        <meta name="keywords" content="Android">
     
-    <meta name="description" content="1.  1.  Reference*">
+    <meta name="description" content="1. Intent2. 명시적 인텐트3. putExtra()4. getIntent(), getExtra()5. 암시적 인텐트  1. Intent Intent의 정의, explicit intent, implicit intent에 대한 설명은 아래 포스트를 참고한다.  https://dudri63.github.io/2019/03/09/android2/#3  위">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="android4">
+<meta property="og:title" content="[Android] Intent">
 <meta property="og:url" content="http://dudri63.github.io/2019/03/10/android4/index.html">
 <meta property="og:site_name" content="서개발, IT blog">
-<meta property="og:description" content="1.  1.  Reference*">
+<meta property="og:description" content="1. Intent2. 명시적 인텐트3. putExtra()4. getIntent(), getExtra()5. 암시적 인텐트  1. Intent Intent의 정의, explicit intent, implicit intent에 대한 설명은 아래 포스트를 참고한다.  https://dudri63.github.io/2019/03/09/android2/#3  위">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-10T10:31:28.240Z">
+<meta property="og:updated_time" content="2019-03-11T11:09:45.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="android4">
-<meta name="twitter:description" content="1.  1.  Reference*">
+<meta name="twitter:title" content="[Android] Intent">
+<meta name="twitter:description" content="1. Intent2. 명시적 인텐트3. putExtra()4. getIntent(), getExtra()5. 암시적 인텐트  1. Intent Intent의 정의, explicit intent, implicit intent에 대한 설명은 아래 포스트를 참고한다.  https://dudri63.github.io/2019/03/09/android2/#3  위">
     
     <link rel="canonical" href="http://dudri63.github.io/2019/03/10/android4/">
 
@@ -146,7 +147,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/etc/Android/">Android</a>
     </h1>
 </div>
 
@@ -158,7 +159,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        android4
+        [Android] Intent
         </h1>
     
 
@@ -176,15 +177,61 @@ ga('send', 'pageview');
 		
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="#1">1.</a></p>
+            <p><a href="#1">1. Intent</a><br><a href="#2">2. 명시적 인텐트</a><br><a href="#3">3. putExtra()</a><br><a href="#4">4. getIntent(), getExtra()</a><br><a href="#5">5. 암시적 인텐트</a></p>
 <hr>
-<p><a name="1">1.</a></p>
+<p><a name="1">1. Intent</a></p>
+<p>Intent의 정의, explicit intent, implicit intent에 대한 설명은 아래 포스트를 참고한다.</p>
+<ul>
+<li><a href="https://dudri63.github.io/2019/03/09/android2/#3">https://dudri63.github.io/2019/03/09/android2/#3</a></li>
+</ul>
+<p>위 포스트의 내용을 요약하면 다음과 같다.</p>
+<ul>
+<li>Intent : 어플리케이션 구성요소(컴포넌트) 간 작업 수행을 위한 정보 전달 역할을 수행</li>
+<li>ex. Activity간의 화면전환 (한 엑티비티에서 뷰들에게 액션을 취해 다른 엑티비티로 전환)</li>
+<li>컴포넌트 A가 컴포넌트 B를 호출할 때 필요한 정보를 담고 있다.</li>
+<li>컴포넌트 B의 이름을 <strong>명시적</strong>으로 표기, 혹은 속성들을 <strong>암시적으로</strong> 표기한다.</li>
+</ul>
+<p>cf.<br>인텐트에 포함되어 전달되는 데이터를 <strong>엑스트라(extra)</strong> 라고 한다.</p>
 <hr>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
+<p><a name="2">2. 명시적 인텐트</a></p>
+<p>다음은 Intent 객체를 선언 및 할당하는 코드이다.</p>
+<p><code>Intent 객체명 = new Intent(A, B)</code></p>
+<p>파라미터에는 현재 엑티비티와 전환할 엑티비티를 나타낸다.</p>
+<p>사용 예시는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Intet i = new Intent(this, SubActivity.class)</span><br></pre></td></tr></table></figure>
+<p>이 후, 다음과 같은 코드를 작성하면 전환될 엑티비티로 넘어간다.</p>
+<p><code>startActivity(intent)</code></p>
+<p>만약, 현재 엑티비티를 종료하고 싶다면 다음과 같은 코드를 startActivity() 다음에 작성한다.</p>
+<p><code>finish()</code></p>
+<hr>
+<p><a name="3">3. putExtra() </a></p>
+<p>View EditText에 입력된 문자열을 넘겨줄 때 Intent 클래스의 putExtra 멤버 메소드를 사용한다.<br>다음은 PutExtra를 사용하여 문자열을 넘기는 예시이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent(this, subActivity.class);	// Intent 생성</span><br><span class="line">EditText editText = findViewById(R.id.editText1);	// editText1을 id로 하는view를 찾은 후 editText 객체가 그것의 주소를 참조함</span><br><span class="line">String message = editText.getText().toString() 		// getText : 입력한 글자를 얻어옴, toString : 글자를 String 형태로 변경</span><br><span class="line">intent.putExtra(&quot;text&quot;, message); 			// 넘겨줄 데이터의 이름을 &quot;text&quot;로 설정, 넘겨주는 데이터는 message</span><br><span class="line">startActivity(intent);					// Activity 전환</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a name="4">4. getIntent(), getExtra() </a></p>
+<p>PutExtra()가 데이터를 전송하는 것이라면,<br>getIntent()는 데이터를 받아오는 것이다.<br>getIntent()는 자신을 호출한 엑티비티로부터 인텐트값을 받아온다.<br>그리고 getExtra()는 해당 인텐트에서 put한 데이터를 받아온다.<br>다음은 getIntent(), getExtra()를 사용하여 데이터를 받아오는 예시이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = getIntent(); 		// 자신을 호출한 Activity로부터 intent값을 받아옴</span><br><span class="line">String message = intent.getStringExtra(MainActivity, &quot;text&quot;)	// mainActivity로부터 &quot;text&quot;라는 이름의 데이터를 string형태로 받아온다.</span><br><span class="line">TextView textView = findViewByID(R.id.textView); 	// textView라는 ID를 가진 view를 찾은 후, textView 객체가 그것의 주소를 참조한다.</span><br><span class="line">textView.setText(message); 		// textView 객체의 setText() 메소드를 이용하여 message 데이터가 가리키는 데이터로 text를 설정한다.</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a name="5">5. 암시적 인텐트</a></p>
+<p>암시적 인텐트는 명시적 인텐트와 달리 전환할 Activity를 Intent 객체 생성시에 명확하게 정의하지 않는다.<br>대신에 원하는 기능을 입력하면, 해당 기능을 수행할 수 있는 Activity를 결정한다.</p>
+<p>다음은 메세지를 다른 어플리케이션에 “공유”하는 암시적 인텐트 예시이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void shareMessageWithIntent(View view) &#123;</span><br><span class="line">  Intent sendIntent = new Intent();		// 객체 생성시 인자를 입력하지 않고 호출한다.</span><br><span class="line">  sendIntent.setAction(Intent.ACTION_SEND);	// Intent 클래스의 setAction() 메소드 호출</span><br><span class="line">  EditText editText = findViewById(R.id.editText);	// editText라는 View를 찾은 뒤, editText 객체가 참조하도록 한다.</span><br><span class="line">  String textMessage = editText.getText().toString();	// editText가 참조하는 값의 데이터를 String 형태로 읽어들인 뒤, textMessage가 해당 주소를 참조한다.</span><br><span class="line">  sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);	// textMessage 데이터를 put한다.</span><br><span class="line">  sendIntent.setType(&quot;text/plain&quot;);</span><br><span class="line">  if (sendIntent.resolveActivity(getPackageManager()) != null) &#123;</span><br><span class="line">     startActivity(sendIntent);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>암시적 인텐트는 “공유”하기 기능 이외에도 다른 기능을 수행할 수 있다.<br>다른 기능들은 다음 링크를 참조한다.</p>
+<p><a href="https://gogorchg.tistory.com/entry/Android%ED%8E%8C%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-Intent-%EC%82%AC%EC%9A%A9%EB%B2%95" rel="external nofollow noopener noreferrer" target="_blank">https://gogorchg.tistory.com/entry/Android%ED%8E%8C%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-Intent-%EC%82%AC%EC%9A%A9%EB%B2%95</a></p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“빠르게 배우는 안드로이드 — Intent -3 엑티비티간의 데이터 전송(기본데이터형) -1 + Log”, Medium(@Hyeong Do Yun), 2019. 3. 11, <a href="https://medium.com/@henen/%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-intent-3-%EC%97%91%ED%8B%B0%EB%B9%84%ED%8B%B0%EA%B0%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%86%A1-log-2561fc07e809" rel="external nofollow noopener noreferrer" target="_blank">https://medium.com/@henen/%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-intent-3-%EC%97%91%ED%8B%B0%EB%B9%84%ED%8B%B0%EA%B0%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%86%A1-log-2561fc07e809</a></li>
+<li>“[Android][펌]안드로이드 Intent 사용법”, 항상 초심으로, 2019. 3. 11, <a href="https://gogorchg.tistory.com/entry/Android%ED%8E%8C%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-Intent-%EC%82%AC%EC%9A%A9%EB%B2%95" rel="external nofollow noopener noreferrer" target="_blank">https://gogorchg.tistory.com/entry/Android%ED%8E%8C%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-Intent-%EC%82%AC%EC%9A%A9%EB%B2%95</a></li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -192,7 +239,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://dudri63.github.io/2019/03/10/android4/" data-id="cjt2s47ax003spva6gy096ozi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://dudri63.github.io/2019/03/10/android4/" data-id="cjt68sm690040oza6nb5915bx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -262,21 +309,23 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Seo Young Ki"
         },
-        "headline": "android4",
+        "headline": "[Android] Intent",
         "image": "http://dudri63.github.io",
-        "keywords": "",
-        "genre": "",
+        "keywords": "Android",
+        "genre": "etc. Android",
         "datePublished": "2019-03-10",
         "dateCreated": "2019-03-10",
-        "dateModified": "2019-03-10",
+        "dateModified": "2019-03-11",
         "url": "http://dudri63.github.io/2019/03/10/android4/",
-        "description": "1.
+        "description": "1. Intent2. 명시적 인텐트3. putExtra()4. getIntent(), getExtra()5. 암시적 인텐트
 
-1.
+1. Intent
+Intent의 정의, explicit intent, implicit intent에 대한 설명은 아래 포스트를 참고한다.
 
-Reference*
-"
-        "wordCount": 7
+https://dudri63.github.io/2019/03/09/android2/#3
+
+위 "
+        "wordCount": 483
     }
 </script>
 
@@ -316,6 +365,16 @@ Reference*
         
 <nav id="article-nav">
     
+        <a href="/2019/03/11/android5/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Android] startActivityForResult, onActivityResult
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2019/03/10/android3/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -341,8 +400,17 @@ Reference*
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/03/10/android4/" class="title">android4</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/11/android5/" class="title">[Android] startActivityForResult, onActivityResult</a></p>
+                            <p class="item-date"><time datetime="2019-03-11T08:22:22.000Z" itemprop="datePublished">2019-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/10/android4/" class="title">[Android] Intent</a></p>
                             <p class="item-date"><time datetime="2019-03-10T10:31:28.000Z" itemprop="datePublished">2019-03-10</time></p>
                         </div>
                     </li>
@@ -374,15 +442,6 @@ Reference*
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Basic-CS/">Basic CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></p>
-                            <p class="item-title"><a href="/2019/03/05/ds7/" class="title">[자료구조] Stack (응용 자료구조)</a></p>
-                            <p class="item-date"><time datetime="2019-03-05T00:49:47.000Z" itemprop="datePublished">2019-03-05</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -392,7 +451,7 @@ Reference*
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -402,7 +461,7 @@ Reference*
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
         </div>
     </div>
 
@@ -412,7 +471,7 @@ Reference*
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 12.22px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
         </div>
     </div>
 

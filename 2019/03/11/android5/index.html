@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Android] startActivityForResult, onActivityResult | 서개발, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android">
+    
+    <meta name="description" content="1. startActivityForResult2. VoteActivity3. onActivityResult  1. startActivityForResult 이전 포스팅에서는 엑티비티를 단순하게 전환하는 것을 보였다.그러나 후속 엑티비티에서 작업한 결과물을 호출한 엑티비티에서 사용하고 싶은 경우가 있을 수도 있다. 예를 들어, 카카오톡 어플에서 카메라 앱을">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] startActivityForResult, onActivityResult">
+<meta property="og:url" content="http://dudri63.github.io/2019/03/11/android5/index.html">
+<meta property="og:site_name" content="서개발, IT blog">
+<meta property="og:description" content="1. startActivityForResult2. VoteActivity3. onActivityResult  1. startActivityForResult 이전 포스팅에서는 엑티비티를 단순하게 전환하는 것을 보였다.그러나 후속 엑티비티에서 작업한 결과물을 호출한 엑티비티에서 사용하고 싶은 경우가 있을 수도 있다. 예를 들어, 카카오톡 어플에서 카메라 앱을">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dudri63.github.io/image/ad5-1.png">
+<meta property="og:updated_time" content="2019-03-11T12:44:38.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Android] startActivityForResult, onActivityResult">
+<meta name="twitter:description" content="1. startActivityForResult2. VoteActivity3. onActivityResult  1. startActivityForResult 이전 포스팅에서는 엑티비티를 단순하게 전환하는 것을 보였다.그러나 후속 엑티비티에서 작업한 결과물을 호출한 엑티비티에서 사용하고 싶은 경우가 있을 수도 있다. 예를 들어, 카카오톡 어플에서 카메라 앱을">
+<meta name="twitter:image" content="http://dudri63.github.io/image/ad5-1.png">
+    
+    <link rel="canonical" href="http://dudri63.github.io/2019/03/11/android5/">
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-134515006-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/etc/Android/">Android</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-android5" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Android] startActivityForResult, onActivityResult
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/11/android5/" class="article-date">
+            <time datetime="2019-03-11T08:22:22.000Z" itemprop="datePublished">2019-03-11</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="#1">1. startActivityForResult</a><br><a href="#2">2. VoteActivity</a><br><a href="#3">3. onActivityResult</a></p>
+<hr>
+<p><a name="1">1. startActivityForResult</a></p>
+<p>이전 포스팅에서는 엑티비티를 단순하게 전환하는 것을 보였다.<br>그러나 후속 엑티비티에서 작업한 결과물을 호출한 엑티비티에서 사용하고 싶은 경우가 있을 수도 있다.</p>
+<p>예를 들어, 카카오톡 어플에서 카메라 앱을 호출하고, 그 결과를 다시 카카오톡 어플로 가져오는 경우가 그것이다.</p>
+<p><img src="/image/ad5-1.png"></p>
+<p>이러한 경우 <strong>startActivityForResult 메소드</strong>를 사용한다.</p>
+<p>예를 들어, MainActivity에서 VOTE 버튼을 누르면, VoteActivity로 이동, VoteActivity에서 Yes, 혹은 No를 입력하면 그 결과를 MainActivity에서 보여주는 애플리케이션 작성을 가정한다.<br>또한, VOTE 버튼을 누르면(OnClick), startView() 메소드가 호출된다.</p>
+<p>다음은 startVeiw() 메소드이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void startVote(View view) &#123;</span><br><span class="line">  Intent intent = new Intent(this, VoteActivity.class);</span><br><span class="line">  startActivityForResult(intent, REQUEST_VOTE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>주의할 점은 startActivity() 메소드 대신 결과 값을 리턴 받기를 원하기 때문에 startActivityForResult() 메소드를 사용한다는 점이다.<br>startActivityForResult() 메소드는 전달한 인텐트와 requestCode(위 코드에서는, REQUEST_VOTE = 1)를 매개변수로 한다.<br>requestCode를 함께 넘겨주는 이유는 onActivityResult 메소드에서 요청한 코드를 구분하기 위함이다.</p>
+<hr>
+<p><a name="2">2. VoteActivity</a></p>
+<p>다음은 위에서 가정한 VoteActivity 코드 예시이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class VoteActivity extends AppCompatActivity &#123;</span><br><span class="line">    public static final String EXTRA_RESULT = &quot;com.example.myfirstapp.vote.RESULT&quot;;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_vote);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void sendYes(View view) &#123;</span><br><span class="line">        Intent intent = new Intent();</span><br><span class="line">        intent.putExtra( EXTRA_RESULT , &quot;YES&quot;);		// &quot;YES&quot;라는 데이터를 EXTRA_RESULT라는 이름으로 put</span><br><span class="line">        setResult( RESULT_OK , intent);			// setResult : 현재 엑티비티를 startActivityForResult로 호출한 엑티비티에게 결과 값을 전달함</span><br><span class="line">        finish();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 코드를 보면, 새로운 Intent를 생성, 해당 Intent에 데이터를 put한 뒤, setResult한다.<br>setResult 메소드는 현재 엑티비티를 startActivityForresult로 호출한 엑티비티에게 결과 값을 전달하는 역할을 한다.<br>구체적으로, 생성한 intent를 RESULT_OK라는 이름으로 저장한다.<br>이 후, finish()를 이용하여 현재 엑티비티를 종료한다.</p>
+<p><a name="3">3. onActivityResult</a></p>
+<p>onActivityResult 메소드는 전환된 엑티비티(현재 가정에서는, VoteActivity)에서 결과값이 넘어오면 호출된다.<br>onActivityResult 메소드의 매개변수중 하나인 requestActivity는 위에서 얘기한 것과 같은 기능을 수행한다.<br>구체적으로, VoteActivity를 호출하는 엑티비티가 여러개 있을 경우 구분하기 위해 사용한다.</p>
+<p>다음은 MainActivity에서 작성한 onActivityResult 예시이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private int REQUEST_VOTE = 1;</span><br><span class="line"></span><br><span class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</span><br><span class="line">  super.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">    if (requestCode == REQUEST_VOTE) &#123;		// requestCode가 REQUEST_VOTE와 일치하면,</span><br><span class="line">      if (resultCode == RESULT_OK) &#123;		// resultCode가 RESULT_OK와 일치하면</span><br><span class="line">          String result = data.getStringExtra(VoteActivity.EXTRA_RESULT);	// EXTRA_RESULT라는 이름을 가진 데이터에서 String 형식의 data를 get한다.</span><br><span class="line">          TextView textView = findViewById(R.id.textView2);		</span><br><span class="line">          textView.setText(result);				// textVeiw2라는 이름의 View의 text를 result가 가리키는 데이터로 설정한다.</span><br><span class="line">      &#125; else &#123; // RESULT_CANCEL</span><br><span class="line">                Toast.makeText(MainActivity.this, &quot;Failed&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“[안드로이드] startActivityForResult ,onActivityResult 사용법”, 키위남, 2019. 3. 11, <a href="https://liveonthekeyboard.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-startActivityForResult-onActivityResult-%EC%82%AC%EC%9A%A9%EB%B2%95" rel="external nofollow noopener noreferrer" target="_blank">https://liveonthekeyboard.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-startActivityForResult-onActivityResult-%EC%82%AC%EC%9A%A9%EB%B2%95</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dudri63.github.io/2019/03/11/android5/" data-id="cjt68sm67003soza6olh2g3u8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[Android] startActivityForResult, onActivityResult",
+        "image": "http://dudri63.github.io/image/ad5-1.png",
+        "keywords": "Android",
+        "genre": "etc. Android",
+        "datePublished": "2019-03-11",
+        "dateCreated": "2019-03-11",
+        "dateModified": "2019-03-11",
+        "url": "http://dudri63.github.io/2019/03/11/android5/",
+        "description": "1. startActivityForResult2. VoteActivity3. onActivityResult
+
+1. startActivityForResult
+이전 포스팅에서는 엑티비티를 단순하게 전환하는 것을 보였다.그러나 후속 엑티비티에서 작업한 결과물을 호출한 엑티비티에서 사용하고 싶은 경우가 있을 수도 있다.
+예를 들어, 카카오톡 어플에서 카메라 앱을 "
+        "wordCount": 534
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/10/android4/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Android] Intent</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/11/android5/" class="title">[Android] startActivityForResult, onActivityResult</a></p>
+                            <p class="item-date"><time datetime="2019-03-11T08:22:22.000Z" itemprop="datePublished">2019-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/10/android4/" class="title">[Android] Intent</a></p>
+                            <p class="item-date"><time datetime="2019-03-10T10:31:28.000Z" itemprop="datePublished">2019-03-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/10/android3/" class="title">[Android] Layout</a></p>
+                            <p class="item-date"><time datetime="2019-03-10T08:00:59.000Z" itemprop="datePublished">2019-03-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/09/android2/" class="title">[Android] Activity</a></p>
+                            <p class="item-date"><time datetime="2019-03-09T12:50:28.000Z" itemprop="datePublished">2019-03-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/09/android1/" class="title">[Android] 안드로이드 스튜디오</a></p>
+                            <p class="item-date"><time datetime="2019-03-09T11:22:12.000Z" itemprop="datePublished">2019-03-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/03/11/android5/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

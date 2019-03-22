@@ -81,7 +81,7 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Etc/">Etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Etc/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
                                     
                                 <li class="main-nav-list-item">
                                     <a class="main-nav-list-link" href="/about/index.md">About</a>
@@ -166,6 +166,273 @@ ga('send', 'pageview');
         
         <div class="article-meta">
             <div class="category">
+            <a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Git/">Git</a>
+            </div>
+            <div class="date"><time datetime="2019-01-19T15:31:03.000Z" itemprop="datePublished">2019-01-20</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/20/git3/">[Git] Setting, Commit, Log</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. Setting2. $ git commit3. $ git log
+
+1. Setting
+Git을 처음 쓰는 거라면, 앞으로 만들 버전이 내가 만들었음을 알리기 위하여 name, email을 setting한다.123$ git config --global user.name &quot;이름&quot;$ git config --global user.email &
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Git/">Git</a>
+            </div>
+            <div class="date"><time datetime="2019-01-19T13:45:44.000Z" itemprop="datePublished">2019-01-19</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/19/git2/">[Git] Init, Status, Add</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. $ git init2. $ git status, $ git add
+
+1. $ git init
+1$git init	//현재 디렉토리를 Git의 저장소로 등록
+위와 같은 명령어를 실행하면, 현재 디렉토리를 Git으로 관리할 수 있다.
+이 후, ls -al로 확인하면, .git 디렉토리가 현재 디렉토리 내부에 새롭게 생성된 것을 알 수 있다. 버전 관리를 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Git/">Git</a>
+            </div>
+            <div class="date"><time datetime="2019-01-19T09:32:02.000Z" itemprop="datePublished">2019-01-19</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/19/git1/">[Git] Git의 기본</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 파일 복구 2. Git이란 
+
+1. 파일 복구 
+파일을 편집 전 상태로 돌리기 위한 방법 중 가장 간단한 것은 기존 파일을 미리 복사해두는 것이다. 이 경우에는 특별하게 파일명을 구분할 수 있게 해주어야 한다는 번거로움이 있다. 또한, 여러 명이 공유한 파일을 동시에 편집할 경우 다른 사람이 변경하고 있는 내용을 지워버릴 수 있다.
+
+2. Git이란 
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
+            </div>
+            <div class="date"><time datetime="2019-01-19T09:31:18.000Z" itemprop="datePublished">2019-01-19</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/19/algo8/">[Algorithm] 최근접 점의 쌍 찾기 (분할정복)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 최근접 점의 쌍 찾기2. 최근접 점의 쌍을 찾는 알고리즘3. 시간복잡도4. 응용
+
+1. 최근접 점의 쌍 찾기
+‘최근접 점의 쌍(Closest Pair)’을 찾는 문제는 2차원 평면상의 n개의 점이 입력으로 주어질 때, 거리가 가장 가까운 한 쌍의 점을 찾는 문제이다.
+
+
+최근접 점의 쌍을 찾는 가장 간단한 방법은 모든 점에 대하여 각각의 두 점 사이의
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
+            </div>
+            <div class="date"><time datetime="2019-01-18T12:05:24.000Z" itemprop="datePublished">2019-01-18</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/18/algo7/">[Algorithm] 선택 문제 (분할정복)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 선택문제란2. 선택문제 알고리즘3. 시간 복잡도4. 응용
+
+1. 선택문제란
+‘선택(selection) 문제’는 n개의 숫자들 중에서 k번째로 작은 숫자를 찾는 문제이다.선택문제는 Quick-Select 알고리즘이라고도 한다.간단한 방법은 최소 숫자들을 오름차순으로 정렬한 후, k번째 숫자를 찾는 것이다.그러나 이러한 알고리즘은 O(nlogn)의 수행 
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
+            </div>
+            <div class="date"><time datetime="2019-01-17T10:07:32.000Z" itemprop="datePublished">2019-01-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/17/algo6/">[Algorithm] 퀵 정렬 (분할정복)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 퀵 정렬이란2. 퀵 정렬 알고리즘3. 시간 복잡도4. 응용
+
+1. 퀵 정렬이란
+‘퀵 정렬(Quick Sort)’은 분할 정복 알고리즘으로 분류되나, 사실 알고리즘이 수행되는 과정을 살펴보면 정복 후 분할하는 알고리즘이다. 퀵 정렬 알고리즘은 문제를 2개의 부분문제로 분할하는데, 각 부분문제의 크기가 일정하지 않은 형태의 분할 정복 알고리즘이다.
+퀵 정
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
+            </div>
+            <div class="date"><time datetime="2019-01-17T07:41:43.000Z" itemprop="datePublished">2019-01-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/17/algo5/">[Algorithm] 합병 정렬 (분할정복)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 합병 정렬이란?2. 합병 정렬 알고리즘3. 시간 복잡도4. 응용
+
+1. 합병 정렬이란?
+‘합병 정렬(Merge Sort)’은 입력이 2개의 부분문제로 분할, 부분 문제의 크기가 1/2로 감소하는 분할 정복 알고리즘이다.
+
+
+합병 과정이 문제를 정복한다는 것이 중요하다.합병(merge)이란 2개의 각각 정렬된 숫자들을 1개의 정렬된 숫자들로 합치는 것이
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
+            </div>
+            <div class="date"><time datetime="2019-01-16T12:37:50.000Z" itemprop="datePublished">2019-01-16</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/01/16/algo4/">[Algorithm] 분할 정복 알고리즘</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 분할 정복 알고리즘이란?2. 분할 정복 알고리즘의 분류
+
+1. 분할 정복 알고리즘이란?
+‘분할 정복(Divide-and-Conquer) 알고리즘’이란 주어진 문제의 입력을 분할하여 문제를 해결(정복)하는 방식의 알고리즘이다.분할된 입력에 대하여 동일한 알고리즘을 적용 및 계산하고 결과들을 취합하여 원래 문제의 결과를 얻는다.분할된 입력에 대한 문제를 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <div class="article-meta">
+            <div class="category">
             <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
             </div>
             <div class="date"><time datetime="2019-01-16T09:41:23.000Z" itemprop="datePublished">2019-01-16</time></div>
@@ -225,48 +492,13 @@ ga('send', 'pageview');
         </div>
     
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/Base/">Base</a>
-            </div>
-            <div class="date"><time datetime="2019-01-15T12:02:20.000Z" itemprop="datePublished">2019-01-15</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/15/algo1/">[Algorithm] 알고리즘의 첫걸음</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            1. 최대 숫자 찾기2. 임의의 숫자 찾기3. 동전 거스름돈4. 한붓 그리기5. 미로 찾기6. 가짜 동전 찾기7. 독이 든 술단지
-
-알고리즘이란 문제를 해결하기 위한 단계적인 절차이다.주어진 문제에 대하여 여러 종류의 알고리즘이 있을 수 있지만, 보다 더 효율적인 알고리즘을 고안하는 것이 중요하다.
-1. 최대 숫자 찾기
-임의의 숫자가 적혀진 카드 10장이 
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
 
     </div></section>
 
 
     <nav id="page-nav">
-        <span class="pages">Page 10 of 10</span>
-        <a class="extend prev" rel="prev" href="/page/9/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+        <span class="pages">Page 10 of 11</span>
+        <a class="extend prev" rel="prev" href="/page/9/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/">&raquo;</a>
     </nav>
 
 
@@ -305,8 +537,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2019/03/11/android5/" class="title">[Android] startActivityForResult, onActivityResult</a></p>
-                            <p class="item-date"><time datetime="2019-03-11T08:22:22.000Z" itemprop="datePublished">2019-03-11</time></p>
+                            <p class="item-title"><a href="/2019/03/21/android12/" class="title">[Android] LOCATIONS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T10:43:15.000Z" itemprop="datePublished">2019-03-21</time></p>
                         </div>
                     </li>
                 
@@ -314,8 +546,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2019/03/10/android4/" class="title">[Android] Intent</a></p>
-                            <p class="item-date"><time datetime="2019-03-10T10:31:28.000Z" itemprop="datePublished">2019-03-10</time></p>
+                            <p class="item-title"><a href="/2019/03/21/android11/" class="title">[Android] SENSORS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T09:32:41.000Z" itemprop="datePublished">2019-03-21</time></p>
                         </div>
                     </li>
                 
@@ -323,8 +555,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2019/03/10/android3/" class="title">[Android] Layout</a></p>
-                            <p class="item-date"><time datetime="2019-03-10T08:00:59.000Z" itemprop="datePublished">2019-03-10</time></p>
+                            <p class="item-title"><a href="/2019/03/21/android10/" class="title">[Android] PERMISSIONS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T07:48:18.000Z" itemprop="datePublished">2019-03-21</time></p>
                         </div>
                     </li>
                 
@@ -332,17 +564,17 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2019/03/09/android2/" class="title">[Android] Activity</a></p>
-                            <p class="item-date"><time datetime="2019-03-09T12:50:28.000Z" itemprop="datePublished">2019-03-09</time></p>
+                            <p class="item-title"><a href="/2019/03/19/android9/" class="title">[Android] ListView</a></p>
+                            <p class="item-date"><time datetime="2019-03-19T07:56:09.000Z" itemprop="datePublished">2019-03-19</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
-                            <p class="item-title"><a href="/2019/03/09/android1/" class="title">[Android] 안드로이드 스튜디오</a></p>
-                            <p class="item-date"><time datetime="2019-03-09T11:22:12.000Z" itemprop="datePublished">2019-03-09</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/03/18/java12/" class="title">[Java] instanceof 연산자</a></p>
+                            <p class="item-date"><time datetime="2019-03-18T13:24:38.000Z" itemprop="datePublished">2019-03-18</time></p>
                         </div>
                     </li>
                 
@@ -355,7 +587,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Etc/">Etc.</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Etc/Android/">Android</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -365,7 +597,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
         </div>
     </div>
 
@@ -375,7 +607,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 18.89px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 18.89px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
         </div>
     </div>
 

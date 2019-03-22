@@ -8,8 +8,189 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 11 Mar 2019 12:44:38 GMT</pubDate>
+    <pubDate>Fri, 22 Mar 2019 08:04:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Android] LOCATIONS</title>
+      <link>http://dudri63.github.io/2019/03/21/android12/</link>
+      <guid>http://dudri63.github.io/2019/03/21/android12/</guid>
+      <pubDate>Thu, 21 Mar 2019 10:43:15 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;Location&lt;ul&gt;
+&lt;li&gt;Google Play 서비스의 location API를 사용하면 어플리케이션에서 사용자 디바이스의 최근 위치를 요청 가능&lt;/li&gt;
+&lt;li&gt;안드로이드에서는 두 가지 위치 permission을 제공, ACCE
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<ul><li>Location<ul><li>Google Play 서비스의 location API를 사용하면 어플리케이션에서 사용자 디바이스의 최근 위치를 요청 가능</li><li>안드로이드에서는 두 가지 위치 permission을 제공, ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION</li><li>선택한 permission에 따라서 API에 의해 받을 수 있는 위치 정확도가 결정됨</li></ul></li><li>Location Services Client<ul><li>FusedLocationProviderClient 객체를 생성</li><li>onCreate() 함수에서 LocationServices 클래스의 getFusedLocationProviderClient 멤버 메소드를 호출한 뒤 그 주소값을 생성한 FusedLocationProviderClient타입의 객체에 저장 -&gt; location client 생성</li><li></li></ul></li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/21/android12/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Android] SENSORS</title>
+      <link>http://dudri63.github.io/2019/03/21/android11/</link>
+      <guid>http://dudri63.github.io/2019/03/21/android11/</guid>
+      <pubDate>Thu, 21 Mar 2019 09:32:41 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;Sensors&lt;ul&gt;
+&lt;li&gt;대부분의 안드로이드 장비는 모션, 방향 및 다양한 환경 상태를 측정하는 센서가 장착되어 있음&lt;/li&gt;
+&lt;li&gt;센서들은 정밀하고 정확한 raw 데이터를 제공&lt;/li&gt;
+&lt;li&gt;안드로이드 센서 플랫폼은 다음과 같
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<ul><li>Sensors<ul><li>대부분의 안드로이드 장비는 모션, 방향 및 다양한 환경 상태를 측정하는 센서가 장착되어 있음</li><li>센서들은 정밀하고 정확한 raw 데이터를 제공</li><li>안드로이드 센서 플랫폼은 다음과 같이 분류할 수 있다.</li><li>Motion sensors</li><li>Environmental sensors</li><li>Position sensors</li></ul></li><li>Sensor Framework : 센서에 접근, 센서데이터를 수집<ul><li>센서 관련 작업을 수행하기 위한 클래스와 인터페이스를 제공</li><li>센서 프레임워크를 사용하면 다음과 같은 작업이 가능하다.</li><li>디바이스에서 사용가능한 센서들을 확인</li><li>최대 측정 범위, 제조사, 해상도 등 센서 능력에 대한 정보를 확인</li><li>수집하고자 하는 센서 데이터의 최소 수집 주기 설정 및 센서 데이터 수집</li><li>센서 변화를 추적하는 센서 이벤트 리스너를 등록하고 해제</li><li>SensorManager</li><li>센서 서비스 인스턴스를 만드는데 사용</li><li>센서 접근, 센서 목록 조회, 센서 이벤트 리스너 등록/해제 등을 위한 다양한 함수를 제공</li><li>Sensor</li><li>특정 센서의 인스턴스를 생성하기 위해 사용</li><li>센서 성능 등의 정보를 확인하기 위한 함수 제공</li><li>SensorEvent</li><li>센서 이벤트와 관련된 정보를 제공하기 위해서 시스템에서 SensorEvent 클래스를 사용</li><li>SensorEventListener</li><li>센서값 및 센서 정확도 변화에 대한 이벤트를 처리하는 두 개의 콜백을 만드는데 사용</li></ul></li><li>일반적인 어플리케이션에서 센서 관련 API를 사용하기 위해서 두 가지 단계를 거친다.<ul><li>센서와 센서의 성능에 관한 정보를 확인</li><li>센서 서비스에 대한 reference 획득 : 디바이스에 장착된 센서들을 확인</li><li>getSystemService() 함수를 호출, SensorManager 인스턴스를 생성</li><li>센서 이벤트 모니터링 : 센서를 모니터링, 센서 데이터를 수집</li><li>SensorEventListener 인터페이스를 이용</li><li>두 개의 콜백함수를 구현, onAccuracyChanged(), onSensorChanged()</li><li>안드로이드 시스템에서는 아래 상황에서 위 함수들이 호출됨<ul><li>센서의 정확도가 변하는 경우 : onAccuracyChanged()</li><li>센서가 새로운 값을 측정한 경우 : onSensorChanged()</li></ul></li></ul></li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/21/android11/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Android] PERMISSIONS</title>
+      <link>http://dudri63.github.io/2019/03/21/android10/</link>
+      <guid>http://dudri63.github.io/2019/03/21/android10/</guid>
+      <pubDate>Thu, 21 Mar 2019 07:48:18 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Permission&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;안드로이드 사용자의 개인정보를 보호하는 목적을 가짐&lt;/li&gt;
+&lt;li&gt;안드로이드 어플리케이션은 민감한 사용자 정보(eg.연착처)나 시스템의 특정 기능(eg.카메라)에 접근할 경우 permi
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<ul><li><p>Permission</p><ul><li>안드로이드 사용자의 개인정보를 보호하는 목적을 가짐</li><li>안드로이드 어플리케이션은 민감한 사용자 정보(eg.연착처)나 시스템의 특정 기능(eg.카메라)에 접근할 경우 permission을 요청해야 함</li><li>permission의 종류에 따라서 시스템에 해당 permission을 자동으로 허가해주거나 사용자에게 허가를 요청함</li></ul></li><li><p>Permission approval</p><ul><li>manifest 파일에 <code>&lt;uses-permission&gt;</code> 태그를 이용, 사용하고자 하는 permission을 명시</li><li>다음은 어플리케이션에서 SMS를 보내는 권한을 명시하는 방법이다.<br><img src="/image/ad10-1.png"></li><li>normal permission : 사용자의 개인정보나 디바이스에 큰 위협을 미치지 않음, 시스템은 해당 permission을 자동으로 승인</li><li>dangerous permission : 사용자의 개인정보나 디바이스에 큰 위협 가능, 시스템은 해당 permission을 사용자에게 승인 받음</li></ul></li><li><p>Dangerous Permission</p><ul><li>사용자의 동의를 필요로 함</li><li>동의를 받는 방법 : 다운로드 받을 때 or 앱을 실행할 때 (디바이스 버전, sdk버전에 따라 다름)</li><li>디바이스의 안드로이드 버전이 6.0 이상, targetSdkVersion이 23 이상인 경우, 인스톨 시점에서 사용자에게 permission에 대한 정보를 제공하지 않고, 실행 중에 사용자에게 요청을 한다.(Runtime 요청)</li><li>안드로이드 버전 5.1.1 이하이거나 targetSdkVersion이 22이하일 경우, 시스템 설치 시점에 어플리케이션에서 요청하는 dagerous permission에 대한 권한을 요청(install-time 요청)</li></ul></li><li><p>어플리케이션 Permission 요청</p><ul><li>모든 안드로이드 어플리케이션은 sandbox 안에서 동작</li><li>사용자 resource or sandbox 밖에 있는 정보를 요청할 경우, 적절한 permission을 얻어야 함</li><li>manifest에 permission들을 추가</li></ul></li><li><p>Permission 확인</p><ul><li>어플리케이션에서 dagnerous permission이 필요한 경우, 해당 permission이 필요한 작업을 수행할 때 마다 permission을 확인해야 함</li><li>ContextCompact.checkSelfPermission() 함수를 사용</li><li>다음은 activity가 켈린더에 쓰기 권한이 있는지 확인하는 코드<br><img src="/image/ad10-2.png"></li><li>어플리케이션이 permission이 있다면, PERMISSION_GRANTED가 반환, 다음 과정 수행 가능</li><li>어플리케이션이 permission이 없다면, PERMISSION_DENIED가 반환, 사용자에게 permission을 요청해야 한다.</li></ul></li><li><p>Permission 요청</p><ul><li>특정 상황에서 어플리케이션에서 특정 permission을 요구한 이유를 설명하여 사용자의 이해를 도울 수 있다.</li><li>특히, 사용자가 이전에 permission을 거부한 적이 있다면, permission이 필요한 이유를 설명하는 것이 도움이 된다.</li><li>shouldShowRequestPermissionRationale() 함수를 이용, 사용자가 이전에 permission을 거부한 경우가 있는지 확인할 수 있다.</li><li>어플리케이션에서 permission이 없는 경우, requestPermissions() 함수를 호출, 사용자에게 permission을 요청</li><li>Permission을 요청할 때 임의의 request code를 requestPermissions() 함수에 전달해야 한다.</li><li>requestPermissions()은 비동기로 수행, 사용자가 응답을 완료한 후에 activity의 callback 함수로 request code와 함께 결과를 보낸다.</li></ul></li><li><p>Permission 요청 결과 처리</p><ul><li>사용자가 permission 요청에 응답한 경우, 시스템은 어플리케이션의 onRequestPermissionsResult() 함수에 결과를 전달</li><li>시스템에서 onRequestPermissionResult()를 호출할 때, 어플리케이션에서 requestPermissions() 함수를 호출할 때 사용했던 request code를 넘겨</li></ul></li></ul><p><strong>**</strong>t</p><p>cf. SandBox</p><p>외부 접근 및 영향을 차단, 제한된 영역 내에서만 프로그램을 동작시키는 보안 모델 </p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p><p>줌</p>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/21/android10/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Android] ListView</title>
+      <link>http://dudri63.github.io/2019/03/19/android9/</link>
+      <guid>http://dudri63.github.io/2019/03/19/android9/</guid>
+      <pubDate>Tue, 19 Mar 2019 07:56:09 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1.&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. ListView&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ListView : 사용자가 정의한 데이터 목록을 아이템 단위로 구성, 화면에 출력하는 ViewGroup&lt;ul&gt;
+&lt;
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1.</a></p><hr><p><a name="1">1. ListView</a></p><ul><li>ListView : 사용자가 정의한 데이터 목록을 아이템 단위로 구성, 화면에 출력하는 ViewGroup<ul><li>세로 방향으로 나열</li><li>표시될 내용이 ListView의 크기를 넘어서게 되면 스크롤 기능을 사용할 수 있다.</li></ul></li><li>Adapter<ul><li>ListView에 데이터를 추가, 화면에 표시하기 위해서 Adapter 필요</li><li>사용자가 정의한 데이터를 ListView에 출력하기 위해 사용하는 객체</li><li>사용자 데이터와 화면 출력 View로 이루어진 두 개의 부분을 이어주는 객체</li></ul></li></ul><p><img src="=" image="" ad9-1.png""=""></p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/19/android9/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Java] instanceof 연산자</title>
+      <link>http://dudri63.github.io/2019/03/18/java12/</link>
+      <guid>http://dudri63.github.io/2019/03/18/java12/</guid>
+      <pubDate>Mon, 18 Mar 2019 13:24:38 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;instanceof : 객체 타입을 확인하는데 사용&lt;ul&gt;
+&lt;li&gt;이항연산자&lt;/li&gt;
+&lt;li&gt;형변환이 가능하면 true, 불가능하면 false로 리턴&lt;/li&gt;
+&lt;li&gt;조건문의 순서는 가장 최하위 클래스부터 작성&lt;/li&gt;
+&lt;li&gt;최상위 
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<ul><li>instanceof : 객체 타입을 확인하는데 사용<ul><li>이항연산자</li><li>형변환이 가능하면 true, 불가능하면 false로 리턴</li><li>조건문의 순서는 가장 최하위 클래스부터 작성</li><li>최상위 클래스를 맨 위에 적으면, 첫 번째 조건문에서 true를 만족, 첫번째 조건만을 수행하기 때문</li></ul></li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘Java instanceof란’, 신입 개발자, 2019. 3. 18, <a href="https://zzdd1558.tistory.com/" rel="external nofollow noopener noreferrer" target="_blank">https://zzdd1558.tistory.com/</a></li><li>‘JAVA 정리 - instanceof 연산자’, 감성프로그래밍, 2019. 3. 19, <a href="https://programmingsummaries.tistory.com/52" rel="external nofollow noopener noreferrer" target="_blank">https://programmingsummaries.tistory.com/52</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/18/java12/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Android] FRAGMENT</title>
+      <link>http://dudri63.github.io/2019/03/18/android8/</link>
+      <guid>http://dudri63.github.io/2019/03/18/android8/</guid>
+      <pubDate>Mon, 18 Mar 2019 11:59:29 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. Fragment&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Fragment 기본 사용법&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. Fragment&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Activity&lt;ul&gt;
+&lt;li
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. Fragment</a><br><a href="#2">2. Fragment 기본 사용법</a></p><hr><p><a name="1">1. Fragment</a></p><ul><li>Activity<ul><li>화면에 출력되는 UI 구성의 가장 기본이 되는 요소</li><li>TextView, Button 등의 위젯을 화면에 표시하기 위해서는 최소한 하나의 Activity를 가져야 한다.</li><li>일반적으로 화면을 가득 채우지만, 화면의 일부에만 표시되도록 만들어 다른 Activity위에 띄울 수도 있다.</li></ul></li><li>Fragment<ul><li>Activity 내에 생성되는, UI 구성을 여러 개의 모듈 단위로 작성할 수 있도록 해주는 기능</li><li>한번 작성된 Fragment는 여러 Activity에서 재사용이 가능, UI 구성에 소요되는 작업량을 많은 부분 감소시킬 수 있음</li><li>자체 수명 주기를 가지고, 자체 입력 이벤트를 받으며, 엑티비티 실행 중에 추가 및 제거가 가능한 액티비티의 모듈식 섹션(= 다른 액티비티에 재사용할 수 있는 ‘하위 액티비티’와 같은 개념)</li><li>activity와 다르게 몇가지 추가적인 lifecycle을 가지고 있음</li><li>onAttach() : fragment가 activity에 연결될 때 호출</li><li>onCreateView() : fragment의 view를 생성할 때 호출</li><li>onActivityCreated() : Activity의 onCreate()가 완료될 경우 호출</li><li>onDestroyView() : fragment의 view가 제거될 때 호출</li><li>onDetach() : fragment가 activity로부터 제거될 때 호출</li></ul></li></ul><p><img src="=" image="" ad8-1.png""=""></p><p>위 그림은 프래그먼트로 정의한 두 가지 UI 모듈이 태블릿 디자인에서는 하나의 액티비티로 조합될 수 있는 반면, 핸드셋 디자인에서는 분리될 수 있다는 것을 보여준다.</p><hr><p><a name="2">2. Fragment 기본 사용법</a></p><p>Fragment에 대한 기본 사용법은 아래 링크를 참조한다.</p><ul><li><p><a href="https://recipes4dev.tistory.com/58" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/58</a></p></li><li><p>Fragment는 재사용 가능한 Modular UI이지만, 각각의 Fragment 인스턴스는 부모 activity와 연결되어야 한다.</p></li><li>Activity의 layout XML 파일에 fragment를 정의, activity와 연결</li><li>사용자 이벤트에 기반해 하나의 fragment에서 다른 fragment와 통신할 필요가 있는데, 모든 fragment끼리의 통신은 <strong>부모 activity를 통해서</strong> 하여야 한다.</li><li>fragment가 activity와 통신하기 위해서는 fragment 클래스에 인터페이스를 정의하여야 하며, activity에서 인터페이스를 구현하여야 한다.</li><li>cf. 인터페이스 : <a href="https://dudri63.github.io/2019/02/13/java3/#3.3">https://dudri63.github.io/2019/02/13/java3/#3.3</a></li><li>fragment는 onAttach() lifecycle에서 인터페이스를 저장, activity와 통신하기 위해서 저장한 인터페이스를 호출</li><li>onAttach() : fragment가 activity에 연결될 때 호출됨(activity 객체가 전달됨)</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘안드로이드 프래그먼트 기본 사용법’, 개발자를 위한 레시피, 2019. 3. 18, <a href="https://recipes4dev.tistory.com/58" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/58</a> </li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/18/android8/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Android] WIDGET</title>
+      <link>http://dudri63.github.io/2019/03/18/android7/</link>
+      <guid>http://dudri63.github.io/2019/03/18/android7/</guid>
+      <pubDate>Mon, 18 Mar 2019 09:20:02 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. Input Control&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#1.1&quot;&gt;1.1 Buttons&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#1.2&quot;&gt;1.2 Checkboxes&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#1.3&quot;&gt;1.3 Radio butt
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. Input Control</a><br><a href="#1.1">1.1 Buttons</a><br><a href="#1.2">1.2 Checkboxes</a><br><a href="#1.3">1.3 Radio buttons</a><br><a href="#1.4">1.4 Toggle buttons</a><br><a href="#1.5">1.5 Spinners</a><br><a href="#1.6">1.6 Pickers</a><br><a href="#1.7">1.7 ListView</a><br><a href="#2">2. Input Events</a></p><hr><p><a name="1">1. Input Control</a></p><p>입력 컨트롤은 어플리케이션 인터페이스 중 사용작용을 할 수 있는 UI이다.<br>버튼, 텍스트 버튼, 체크박스, 토글 버튼 등이 있다.</p><p><a name="1.1">1.1 Buttons</a></p><ul><li>텍스트 또는 아이콘으로 구성</li><li>사용자가 터치할 때 이벤트를 발생해서 어플리케이션과 상호작용</li></ul><p><img src="/image/ad7-1.png"></p><ul><li><code>android:onClick=&quot;&quot;</code> : 버튼에 클릭 이벤트 헨들러를 정의</li><li>클릭 이벤트 핸들러는 프로그램에서 선언할 수도 있다.</li></ul><hr><p><a name="1.2">1.2 Checkboxes</a></p><ul><li>사용자가 목록에서 한 개 이상의 선택을 할 수 있도록 한다.</li><li>일반적으로 체크박스 옵션을 수직 리스트로 표시한다.</li></ul><p><img src="/image/ad7-2.png"></p><hr><p><a name="1.3">1.3 Radio buttons</a></p><ul><li>사용자가 리스트에서 한 개를 선택할 수 있음</li><li>라디오버튼들은 상호 배타적이기 때문에, RadioGroup을 이용해 하나의 그룹으로 만듬</li><li>하나의 그룹으로 만듦으로써 시스템이 한 번에 하나의 라디오 버튼만 선택되도록 함</li></ul><p><img src="/image/ad7-3.png"></p><hr><p><a name="1.4">1.4 Toggle Buttons</a></p><ul><li>사용자가 두 가지 상태 중 한 가지를 선택하도록 한다.</li></ul><p><img src="/image/ad7-4.png"></p><hr><p><a name="1.5">1.5 Spinners</a></p><ul><li>목록에서 하나의 값을 선택하는 기능 제공</li><li>기본적으로 현재 표시된 값을 표시함</li></ul><p><img src="/image/ad7-5.png"></p><hr><p><a name="1.6">1.6 Pickers</a></p><ul><li>사용자가 시간이나 날짜를 선택할 수 있는 컨트롤을 제공</li><li>시간 또는 날짜의 각 파트를 선택하는 컨트롤 제공</li><li>사용자가 유효한 시간/날짜를 선택할 수 있음</li></ul><hr><p><a name="1.7">1.7 ListView</a></p><ul><li>수직으로 스크롤 가능한 view들을 표시</li><li>리스트를 표시하는 유연하고 고성능의 방법은 RecyclerView를 사용하는 것</li></ul><hr><p><a name="2">2. Input Events</a></p><ul><li>어플리케이션에서 사용자의 상호작용 이벤트를 얻는 여러가지 방법이 존재한다.</li><li>Event Listeners<ul><li>하나의 콜백 함수를 가지는 View 클래스 내의 interface</li><li>이벤트가 발생할 경우, 안드로이드 프레임워크에 의해서 이 함수들이 호출됨</li></ul></li></ul><p><img src="/image/ad7-6.png"></p><ul><li><p>Event Handlers</p><ul><li>기본 이벤트 핸들러로 사용될 콜백 함수를 정의할 수 있음</li><li>onKeyDown(int, KeyEvent) : 새로운 key 이벤트가 발생할 경우 호출</li><li>onKeyUp(int, KeyEvent) : key up 이벤트가 발생할 경우 호출</li><li>onTouchEvent(MotionEvent) : 터치 스크린 이벤트가 발생할 경우 호출</li><li>onFocusChanged(boolean, int, Rect) : view가 focus를 잃거나 얻을 경우 호출</li></ul></li><li><p>Dialogs</p><ul><li>사용자에게 결정이나 추가 정보를 획득하는 작은 창</li><li>일반적으로 사용자에게 다음 작업에 대한 확인을 위해 사용</li><li>DialogFragment를 확장, custom 레이아웃을 생성할 수 있음</li></ul></li></ul><hr><p>cf. 콜백 함수(Callback Function)</p><ol><li>다른 함수의 인자로써 이용되는 함수</li><li>어떤 이벤트에 의해 호출되어지는 함수</li></ol><ul><li><a href="https://satisfactoryplace.tistory.com/18" rel="external nofollow noopener noreferrer" target="_blank">https://satisfactoryplace.tistory.com/18</a></li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/18/android7/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Android] UI</title>
+      <link>http://dudri63.github.io/2019/03/14/android6/</link>
+      <guid>http://dudri63.github.io/2019/03/14/android6/</guid>
+      <pubDate>Thu, 14 Mar 2019 08:11:52 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. MANIFEST&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. UI&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. LAYOUT&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. MANIFEST&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;모든 어플
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. MANIFEST</a><br><a href="#2">2. UI</a><br><a href="#3">3. LAYOUT</a></p><hr><p><a name="1">1. MANIFEST</a></p><p>모든 어플리케이션은 최상위 디렉토리에 AndroidManifest.xml이라는 이름의 파일이 있다.</p><ul><li>Manifest 파일 : 시스템에 알려줘야 하는 어플리케이션에 대한 필수 정보를 담고 있음<ul><li>Java 패키지, activity, service, broadcast recevier, component에 대한 정의</li><li>다른 어플리케이션 또는 접근 제한이 있는 API에 접근하기 위한 권한에 대한 정의</li><li>어플리케이션이 요구하는 API의 최소레벨에 대한 정의</li><li>어플리케이션에서 사용하는 라이브러리 파일에 대한 정의</li></ul></li></ul><p><img src="/image/ad6-1.png"></p><ul><li><p><code>&lt;application\&gt;</code> : 어플리케이션을 정의</p><ul><li>어플리케이션의 component에 대한 정의</li><li>모든 component에 공통적으로 적용되는 속성을 정의</li></ul></li><li><p><code>&lt;activity&gt;</code> : activity(어플리케이션의 사용자 상호작용을 담당) 정의</p><ul><li>모든 activity는 <activity> 필드에 정의되어야 한다.</activity></li><li>그렇지 않을 경우, 실행할 수 없음</li></ul></li><li><p><code>&lt;intent-filter&gt;</code></p><ul><li>Activity, service, broadcast recevie가 반응할 수 있는 intent 종류를 정의</li><li>이 필드에 정의된 intent 타입만을 component에서 받을 수 있다.</li><li><code>&lt;action&gt;</code>, <code>&lt;category&gt;</code>, <code>&lt;data&gt;</code>를 사용해서 정의한다.</li></ul></li><li><p><code>&lt;uses-permission&gt;</code></p><ul><li>어플리케이션이 시스템으로부터 받아야하는 권한에 대한 정의</li><li>퍼미션은 어플리케이션이 실행되는 동안 사용자에 의해 허가됨</li></ul></li></ul><hr><p><a name="2">2. UI</a></p><ul><li>안드로이드 어플리케이션의 모든 UI element들은 View와 ViewGroup을 사용하여 구성</li><li>View : 사용자와 상호작용하는 화면에 어떤 것을 그리는 객체</li><li>ViewGroup : 인터페이스의 레이아웃을 정의하기 위해 View 또는 ViewGroup 객체들을 담는 객체</li></ul><p><img src="/image/ad6-2.png"></p><ul><li>XML : 레이아웃을 정의하기 위해 사용<ul><li>HTML과 비슷하게 사람이 읽을 수 있는 layout 구조를 제공</li><li>ex. <code>&lt;TextView&gt;</code>는 UI에 TextView 위젯을 생성, <code>&lt;LinearLayout&gt;</code>은 LinearLayout view group을 생성</li><li>ex. 다음은 간단한 텍스트 View와 Button을 가지고 있는 layout에 대한 xml 코드이다.</li></ul></li></ul><p><img src="/image/ad6-3.png"></p><hr><p><a name="3">3. Layout</a></p><p>Layout에 대한 설명은 이전 포스트를 참고한다.</p><ul><li><a href="https://dudri63.github.io/2019/03/10/android3/">https://dudri63.github.io/2019/03/10/android3/</a></li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/14/android6/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[Android] startActivityForResult, onActivityResult</title>
@@ -60,15 +241,12 @@
       
         
         
-          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1.&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. Layout 클래스&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Layout 클래스는 View 위젯들을 화면에 배치할 때, 위젯의 위치를 정렬 혹은 그룹화하는 역할을 수행한다.&lt;br&gt;La
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. LAYOUT&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. LAYOUT 종류&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2.1&quot;&gt;2.1 Linear Layout&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2.2&quot;&gt;2.2 Relative Layout
         
       
       </description>
       
-      <content:encoded><![CDATA[<p><a href="#1">1.</a></p><hr><p><a name="1">1. Layout 클래스</a></p><p>Layout 클래스는 View 위젯들을 화면에 배치할 때, 위젯의 위치를 정렬 혹은 그룹화하는 역할을 수행한다.<br>Layout 클래스는 View 위젯들을 그룹화하여 배치하기 위한 것이므로, ViewGroup이라고 할 수 있다.</p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>“안드로이드 레이아웃”, 개발자를 위한 레시피, 2019. 3. 10, <a href="https://recipes4dev.tistory.com/66?category=658689" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/66?category=658689</a></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="#1">1. LAYOUT</a><br><a href="#2">2. LAYOUT 종류</a><br><a href="#2.1">2.1 Linear Layout</a><br><a href="#2.2">2.2 Relative Layout</a><br><a href="#2.3">2.3 Constraint Layout</a></p><hr><p><a name="1">1. LAYOUT</a></p><p>Layout : activity or app 위젯을 위한 UI의 시각적 구조를 정의</p><ul><li>XML 파일에 UI element를 정의</li><li><p>Runtime에 layout element들을 초기화</p></li><li><p>Attributes</p><ul><li>모든 View와 ViewGroup 객체는 고유의 XML attribute를 가진다.</li><li>일부 attributes들은 View 객체별로 다르지만, 상속을 받은 View 객체는 부모의 attributes 역시 갖는다.</li><li>ID</li><li>모든 View 객체는 View를 고유하게 식별할 수 있는 상수 ID를 가진다.</li><li>어플리케이션이 컴파일될 때, 아이디는 상수로 변환, layout XML에서는 문자열 형태이다.</li><li>모든 View 객체는 attribute가 정의되어 있다.</li><li>XML 태그 내에 ID 문법은 다음과 같다.<br>ex. <code>&lt;Button android:id=&quot;@id/my_button&quot;  ...  /&gt;</code></li></ul></li><li><p>Layout Parameters</p><ul><li>layout_something : XML layout attribute, ViewGroup에 대한 View의 위치에 대해 정의</li><li>모든 view group들은 width, height를 가진다.</li><li>wrap_content : view의 크기를 content의 크기로 설정</li><li>match_parent : view의 크기를 부모 view의 크기로 설정 </li></ul></li><li><p>Common Layouts</p><ul><li>ViewGroup의 하위 클래스들은 내부의 view들을 표시하는 고유의 방식을 제공</li><li>안드로이드 플랫폼에서 제공하는 layout 종류 중 가장 많이 이용되는 것들은 다음과 같다.</li></ul></li></ul><p><img src="/image/ad3-1.png"> </p><ul><li>Building Layouts with an Adapter<ul><li>Layout의 content가 가변적일 경우, 실행 중에 AdapterView를 사용해서 view들을 생성할 수 있음</li><li>AdapterView의 하위 클래스들은 layout에 데이터를 결합하기 위해 Adapter를 사용</li><li>Adapter는 데이터 소스와 AdapterView 사이에서 중간자 역할을 수행</li><li>다음은 Adapter를 사용하는 일반적인 layout들이다.</li></ul></li></ul><p><img src="/image/ad3-2.png"></p><hr><p><a name="2">2. LAYOUT 종류</a></p><p><a name="2.1">2.1 Linear Layout</a></p><ul><li>LinearLayout : 모든 자식 view들을 수평 또는 수직 방향으로 나열하는 view group</li><li>android:orientation=”” : layout 방향을 설정</li><li>android:layout_weight=”” : 화면에서 얼마만큼 차지하는 지를 정의, 높은 weight 값을 가진 view가 부모 view에서 남은 공간을 많이 차지한다.</li></ul><p><img src="/image/ad3-3.png"> </p><hr><p><a name="2.2">2.2 Relative Layout</a></p><ul><li>RelativeLayout : 자식 뷰들이 상대적 위치를 가지는 view group</li><li>각 view의 위치는 이웃 elements or 부모 relativeLayout 영역에 상대적으로 정의</li><li>중첩된 LinearLayout은 하나의 RelatvieLayout으로 변환할 수 있다.</li><li>다음은 RelativeLayout 내에 view에 적용할 수 있는 속성들이다.<ul><li>android:layout_alignParentTop=”” : if “true”, view의 윗쪽 면을 부모 view의 윗쪽 면에 위치</li><li>android:layout_centerVertical=”” : if “true”, view를 부모 view의 수직방향으로 중심이 위치</li><li>android:layout_below=”” : view의 윗쪽 면을 주어진 리소스 ID를 가진 view의 아래 위치</li><li>android:layout_toRightOf=”” : view의 왼쪽 면을 주어진 리소스 ID를 가진 view의 오른쪽에 위치</li><li>ex.</li></ul></li></ul><p><img src="/image/ad3-4.png"><br><img src="/image/ad3-5.png"> </p><p><img src="/image/ad3-6.png"> </p><hr><p><a name="2.3">2.3 Constraint Layout</a></p><ul><li>ConstraintLayout : 단일 view 계층을 가지고 복잡하고 큰 layout 구성을 가능하게 한다.</li><li>RelativeLayout과 비슷, 더 유연한 기능을 제공, 더 사용하기 쉽다.</li><li>view의 위치를 정의하기 위해서는 view에 대해서 적어도 하나 이상의 수직/수평 constraint를 추가해야 한다.</li><li>Convert a layout : 기존의 layout을 ConstraintLayout으로 변경할 수 있다.</li><li>create a new ConstraintLayout : Root Tage에 “android.support.constraint.ConstraintLayout”을 입력</li><li>constraint를 만들 때의 주의사항은 다음과 같다.<ul><li>모든 view는 적어도 두 개의 constraint를 가져야 한다 : 하나의 수직/수평 constraint</li><li>같은 면끼리 연결시켜야 한다. ex. 옆면은 옆면끼리</li><li>한 anchor에는 여러 개의 constraint handle이 올 수 있다.</li><li>각 constraint handle은 하나의 constraint를 만든다.(하나씩만 연결할 수 있다.)</li></ul></li><li>Alignment</li></ul><p><img src="/image/ad3-7.png"></p><ul><li>Baseline alignment</li></ul><p><img src="/image/ad3-8.png"></p><ul><li>Constraint to a guidline : 수직/수평 가이드 라인을 추가할 수 있고 가이드 라인은 어플리케이션 사용자에게 보이지 않음 </li><li>Adjust the view size</li></ul><p><img src="/image/ad3-9.png"><br>Fixed : 에디터에서 view를 조절하거나 아래의 텍스트 상자에 값을 입력</p><p><img src="/image/ad3-10.png"><br>Wrap Content : contents가 필요한 만큼 view 크기를 확장함</p><p><img src="/image/ad3-11.png"><br>Match Constraints : 각 사이드의 constraint를 만족하는 가장 큰 크기로 확장</p><ul><li>Infer Constraints : 모든 view들에 가장 최적의 constraint를 찾음</li></ul><p><img src="/image/ad3-12.png"></p><ul><li>Autoconnect : view를 추가할 때마다 자동적으로 두 개 또는 그 이상의 constraint를 자동으로 생성하짐나, 부모 view와의 constraint만을 생성</li></ul><p><img src="/image/ad3-13.png"></p><ul><li>Relative positioning : 주어진 위젯을 다른 위젯에 상대적으로 위치시킴</li></ul><p><img src="/image/ad3-14.png"></p><ul><li>Margins : 사이드 마진이 설정되면, 타겟과 소스 사이에 마진만큼 공간이 생김</li><li>Bias : Bias 속성을 사용하여 한쪽으로 치우치케 설정할 수 있음</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>“안드로이드 레이아웃”, 개발자를 위한 레시피, 2019. 3. 10, <a href="https://recipes4dev.tistory.com/66?category=658689" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/66?category=658689</a></li></ul>]]></content:encoded>
       
       <comments>http://dudri63.github.io/2019/03/10/android3/#disqus_thread</comments>
     </item>
@@ -87,7 +265,7 @@
       
       </description>
       
-      <content:encoded><![CDATA[<p><a href="#1">1. Activity</a><br><a href="#2">2. MainActivity</a><br><a href="#3">3. Intent</a><br><a href="#4">4. Activity 종료</a><br><a href="#5">1. Activity 추가 및 실행</a></p><hr><p><a name="1">1. Activity</a></p><p>일반적으로 안드로이드 시스템에서 앱이 실행되면, 전체 화면에 UI가 표시되고, 사용자가 입력한 화면 터치 등의 이벤트에 따라 앱의 기능이 수행된다.<br>앱의 기능이 수행되는 과정에서, 최초 화면에 표시된 UI의 내용이 일부 변경 혹은 아예 새로운 UI가 화면의 전체 영역에 표시된다.</p><p>예를 들어, 다음과 같은 앱 실행 및 동작과정이 일어난다고 가정한다.</p><ul><li>앱이 실행, 전체 화면에 앱의 UI를 표시</li><li>사용자가 입력한 화면 터치 또는 버튼 터치 등의 이벤트 처리</li><li>새로운 UI를 화면의 전체 영역에 표시</li></ul><p>세가지 활동(작업, Activity)으로 분류할 수 있다.<br><strong>Activity</strong>란 앱에서 위와 같은 역할을 하는 주체이다.</p><hr><p><a name="2">2. MainActivity</a></p><p>안드로이드 Activity는 화면에 표시되는 UI 구성을 위해 가장 기본이 되는 요소이다.<br>안드로이드 앱은 최소 하나 이상의 Activity가 있어야 하고, 앱 실행 시 지정된 Activity가 실행하게 된다.</p><p><img src="/image/ad2-1.png"></p><p>앱 실행시 시작되는 Activity 정보는 “AndroidManifest.xml” 파일에서 확인할 수 있다.<br>위 경우, MainActivity가 앱 실행시 최초로 보여지는 Activity이다.</p><p>단, Activty는 자체적으로 화면에 UI를 그리는 거이 아니며, View 또는 ViewGroup의 다양한 조합을 화면에 배치함으로써, UI를 표시한다.</p><p>다음은 MainActivity 클래스의 일부이다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>R.layout.activity_main을 UI로 표시하고 있음을 확인할 수 있다.</p><hr><p><a name="3">3. Intent</a></p><p>현재 Activity에서 다른 Activity를 실행하는 방법은 startActivity()라는 함수를 호출하는 것이다.<br>그런데, Activity를 실행할 때, 어떠한 <strong>의도(Intent)</strong>를 가지고 Activity를 실행하는지를 기술하여야 하는 과정이 필요하다.</p><p>다음은 어떤 Activity를 명시적(explicit)으로 실행, 암묵적(implicit)으로 실행하는 각각의 경우이다.</p><p><img src="/image/ad2-2.png"></p><p>A라는 Activity의 이름을 정확하게 안다면, 명시적으로 실행할 수 있다.</p><p><img src="/image/ad2-3.png"></p><p>‘전화 걸기’라는 Activity는 직접 만든 것이 아니기 때문에, 정확한 이름을 모른다.<br>따라서 위와 같이 암묵적인 방법으로 실행하여야 한다.</p><p>Intent 클래스의 인스턴스를 생성하여 Activity를 실행하여야 한다.</p><hr><p><a name="4">4. Activity 종료</a></p><p>Activity가 실행된 후, 작업이 완료되어 해당 Activity를 종료할 때는, finish() 함수를 사용한다.<br>혹은 finishActivity() 함수를 호출하여 이전에 실행한 특정 Activity를 종료한다.</p><hr><p><a name="5">5. Activity 추가 및 실행</a></p><p>새로운 Activity를 실행하기 위해 필요한 파일은 두 개이다.<br>하나는 새로운 Activity 클래스 파일(ex. NewActivity.java),<br>다른 하나는 새로운 Activity에 표실된 UI Layout이 정의된 Layout 리소스 XML 파일(ex. /res/layout/activity_new.xml”)이다.</p><p>새로운 Activity를 추가하고 실행하는 과정은 다음 링크를 참조한다.</p><p><a href="https://recipes4dev.tistory.com/69?category=660156" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/69?category=660156</a></p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>“안드로이드 액티비티.”, 개발자를 위한 레시피, 2019. 3. 9, <a href="https://recipes4dev.tistory.com/67?category=660156" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/67?category=660156</a></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<p><a href="#1">1. Activity</a><br><a href="#2">2. MainActivity</a><br><a href="#3">3. Intent</a><br><a href="#4">4. Activity 종료</a><br><a href="#5">1. Activity 추가 및 실행</a></p><hr><p><a name="1">1. Activity</a></p><p>일반적으로 안드로이드 시스템에서 앱이 실행되면, 전체 화면에 UI가 표시되고, 사용자가 입력한 화면 터치 등의 이벤트에 따라 앱의 기능이 수행된다.<br>앱의 기능이 수행되는 과정에서, 최초 화면에 표시된 UI의 내용이 일부 변경 혹은 아예 새로운 UI가 화면의 전체 영역에 표시된다.</p><p>예를 들어, 다음과 같은 앱 실행 및 동작과정이 일어난다고 가정한다.</p><ul><li>앱이 실행, 전체 화면에 앱의 UI를 표시</li><li>사용자가 입력한 화면 터치 또는 버튼 터치 등의 이벤트 처리</li><li>새로운 UI를 화면의 전체 영역에 표시</li></ul><p>세가지 활동(작업, Activity)으로 분류할 수 있다.<br><strong>Activity</strong>란 앱에서 위와 같은 역할을 하는 주체이다.</p><hr><p><a name="2">2. MainActivity</a></p><p>안드로이드 Activity는 화면에 표시되는 UI 구성을 위해 가장 기본이 되는 요소이다.<br>안드로이드 앱은 최소 하나 이상의 Activity가 있어야 하고, 앱 실행 시 지정된 Activity가 실행하게 된다.</p><p><img src="/image/ad2-1.png"></p><p>앱 실행시 시작되는 Activity 정보는 “AndroidManifest.xml” 파일에서 확인할 수 있다.<br>위 경우, MainActivity가 앱 실행시 최초로 보여지는 Activity이다.</p><p>단, Activty는 자체적으로 화면에 UI를 그리는 거이 아니며, View 또는 ViewGroup의 다양한 조합을 화면에 배치함으로써, UI를 표시한다.</p><p>다음은 MainActivity 클래스의 일부이다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>R.layout.activity_main을 UI로 표시하고 있음을 확인할 수 있다.</p><hr><p><a name="3">3. Intent</a></p><p>현재 Activity에서 다른 Activity를 실행하는 방법은 startActivity()라는 함수를 호출하는 것이다.<br>그런데, Activity를 실행할 때, 어떠한 <strong>의도(Intent)</strong>를 가지고 Activity를 실행하는지를 기술하여야 하는 과정이 필요하다.</p><p>다음은 어떤 Activity를 명시적(explicit)으로 실행, 암묵적(implicit)으로 실행하는 각각의 경우이다.</p><p><img src="/image/ad2-2.png"></p><p>A라는 Activity의 이름을 정확하게 안다면, 명시적으로 실행할 수 있다.</p><p><img src="/image/ad2-3.png"></p><p>‘전화 걸기’라는 Activity는 직접 만든 것이 아니기 때문에, 정확한 이름을 모른다.<br>따라서 위와 같이 암묵적인 방법으로 실행하여야 한다.</p><p>Intent 클래스의 인스턴스를 생성하여 Activity를 실행하여야 한다.</p><hr><p><a name="4">4. Activity 종료</a></p><p>Activity가 실행된 후, 작업이 완료되어 해당 Activity를 종료할 때는, finish() 함수를 사용한다.<br>혹은 finishActivity() 함수를 호출하여 이전에 실행한 특정 Activity를 종료한다.</p><hr><p><a name="5">5. Activity 추가 및 실행</a></p><p>새로운 Activity를 실행하기 위해 필요한 파일은 두 개이다.<br>하나는 새로운 Activity 클래스 파일(ex. NewActivity.java),<br>다른 하나는 새로운 Activity에 표실된 UI Layout이 정의된 Layout 리소스 XML 파일(ex. /res/layout/activity_new.xml”)이다.</p><p>새로운 Activity를 추가하고 실행하는 과정은 다음 링크를 참조한다.</p><ul><li><a href="https://recipes4dev.tistory.com/69?category=660156" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/69?category=660156</a></li></ul><hr><p><a name="6">6. Activity Lifecycle</a></p><p><img src="/image/ad2-4.png"></p><p>특정 액티비티가 실행되면, onCreate() -&gt; onStart() -&gt; onResume() -&gt; … 순서대로 실행이 된다.</p><ul><li>onCreate() : Activity가 최초 생성할 때 호출, 초기화 설정</li><li>onStart() : Activity가 사용자에게 보여지기 직전에 호출, Activity 화면을 표시</li><li>onResume() : Activity가 사용자와 상호작용을 하기 직전에 호출, 스택의 최상위에 위치<ul><li>어플리케이션 종료 이벤트 발생 -&gt; onPause() 호출</li><li>Paused 상태에서 다시 onResume()을 호출하여 Resumed 상태로 돌아온다.</li></ul></li><li>onPause() : 다른 Activity가 활성화되었을 때 호출<br>(추후 내용 추가 필요)</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>“안드로이드 액티비티.”, 개발자를 위한 레시피, 2019. 3. 9, <a href="https://recipes4dev.tistory.com/67?category=660156" rel="external nofollow noopener noreferrer" target="_blank">https://recipes4dev.tistory.com/67?category=660156</a></li></ul>]]></content:encoded>
       
       <comments>http://dudri63.github.io/2019/03/09/android2/#disqus_thread</comments>
     </item>

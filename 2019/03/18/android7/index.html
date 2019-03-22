@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Android] WIDGET | 서개발, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Android">
+    
+    <meta name="description" content="1. Input Control1.1 Buttons1.2 Checkboxes1.3 Radio buttons1.4 Toggle buttons1.5 Spinners1.6 Pickers1.7 ListView2. Input Events  1. Input Control 입력 컨트롤은 어플리케이션 인터페이스 중 사용작용을 할 수 있는 UI이다.버튼, 텍스트 버튼, 체크">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] WIDGET">
+<meta property="og:url" content="http://dudri63.github.io/2019/03/18/android7/index.html">
+<meta property="og:site_name" content="서개발, IT blog">
+<meta property="og:description" content="1. Input Control1.1 Buttons1.2 Checkboxes1.3 Radio buttons1.4 Toggle buttons1.5 Spinners1.6 Pickers1.7 ListView2. Input Events  1. Input Control 입력 컨트롤은 어플리케이션 인터페이스 중 사용작용을 할 수 있는 UI이다.버튼, 텍스트 버튼, 체크">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dudri63.github.io/image/ad7-1.png">
+<meta property="og:updated_time" content="2019-03-18T12:21:56.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Android] WIDGET">
+<meta name="twitter:description" content="1. Input Control1.1 Buttons1.2 Checkboxes1.3 Radio buttons1.4 Toggle buttons1.5 Spinners1.6 Pickers1.7 ListView2. Input Events  1. Input Control 입력 컨트롤은 어플리케이션 인터페이스 중 사용작용을 할 수 있는 UI이다.버튼, 텍스트 버튼, 체크">
+<meta name="twitter:image" content="http://dudri63.github.io/image/ad7-1.png">
+    
+    <link rel="canonical" href="http://dudri63.github.io/2019/03/18/android7/">
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-134515006-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Etc/">Etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Etc/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/etc/Android/">Android</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-android7" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Android] WIDGET
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/18/android7/" class="article-date">
+            <time datetime="2019-03-18T09:20:02.000Z" itemprop="datePublished">2019-03-18</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="#1">1. Input Control</a><br><a href="#1.1">1.1 Buttons</a><br><a href="#1.2">1.2 Checkboxes</a><br><a href="#1.3">1.3 Radio buttons</a><br><a href="#1.4">1.4 Toggle buttons</a><br><a href="#1.5">1.5 Spinners</a><br><a href="#1.6">1.6 Pickers</a><br><a href="#1.7">1.7 ListView</a><br><a href="#2">2. Input Events</a></p>
+<hr>
+<p><a name="1">1. Input Control</a></p>
+<p>입력 컨트롤은 어플리케이션 인터페이스 중 사용작용을 할 수 있는 UI이다.<br>버튼, 텍스트 버튼, 체크박스, 토글 버튼 등이 있다.</p>
+<p><a name="1.1">1.1 Buttons</a></p>
+<ul>
+<li>텍스트 또는 아이콘으로 구성</li>
+<li>사용자가 터치할 때 이벤트를 발생해서 어플리케이션과 상호작용</li>
+</ul>
+<p><img src="/image/ad7-1.png"></p>
+<ul>
+<li><code>android:onClick=&quot;&quot;</code> : 버튼에 클릭 이벤트 헨들러를 정의</li>
+<li>클릭 이벤트 핸들러는 프로그램에서 선언할 수도 있다.</li>
+</ul>
+<hr>
+<p><a name="1.2">1.2 Checkboxes</a></p>
+<ul>
+<li>사용자가 목록에서 한 개 이상의 선택을 할 수 있도록 한다.</li>
+<li>일반적으로 체크박스 옵션을 수직 리스트로 표시한다.</li>
+</ul>
+<p><img src="/image/ad7-2.png"></p>
+<hr>
+<p><a name="1.3">1.3 Radio buttons</a></p>
+<ul>
+<li>사용자가 리스트에서 한 개를 선택할 수 있음</li>
+<li>라디오버튼들은 상호 배타적이기 때문에, RadioGroup을 이용해 하나의 그룹으로 만듬</li>
+<li>하나의 그룹으로 만듦으로써 시스템이 한 번에 하나의 라디오 버튼만 선택되도록 함</li>
+</ul>
+<p><img src="/image/ad7-3.png"></p>
+<hr>
+<p><a name="1.4">1.4 Toggle Buttons</a></p>
+<ul>
+<li>사용자가 두 가지 상태 중 한 가지를 선택하도록 한다.</li>
+</ul>
+<p><img src="/image/ad7-4.png"></p>
+<hr>
+<p><a name="1.5">1.5 Spinners</a></p>
+<ul>
+<li>목록에서 하나의 값을 선택하는 기능 제공</li>
+<li>기본적으로 현재 표시된 값을 표시함</li>
+</ul>
+<p><img src="/image/ad7-5.png"></p>
+<hr>
+<p><a name="1.6">1.6 Pickers</a></p>
+<ul>
+<li>사용자가 시간이나 날짜를 선택할 수 있는 컨트롤을 제공</li>
+<li>시간 또는 날짜의 각 파트를 선택하는 컨트롤 제공</li>
+<li>사용자가 유효한 시간/날짜를 선택할 수 있음</li>
+</ul>
+<hr>
+<p><a name="1.7">1.7 ListView</a></p>
+<ul>
+<li>수직으로 스크롤 가능한 view들을 표시</li>
+<li>리스트를 표시하는 유연하고 고성능의 방법은 RecyclerView를 사용하는 것</li>
+</ul>
+<hr>
+<p><a name="2">2. Input Events</a></p>
+<ul>
+<li>어플리케이션에서 사용자의 상호작용 이벤트를 얻는 여러가지 방법이 존재한다.</li>
+<li>Event Listeners<ul>
+<li>하나의 콜백 함수를 가지는 View 클래스 내의 interface</li>
+<li>이벤트가 발생할 경우, 안드로이드 프레임워크에 의해서 이 함수들이 호출됨</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/ad7-6.png"></p>
+<ul>
+<li><p>Event Handlers</p>
+<ul>
+<li>기본 이벤트 핸들러로 사용될 콜백 함수를 정의할 수 있음</li>
+<li>onKeyDown(int, KeyEvent) : 새로운 key 이벤트가 발생할 경우 호출</li>
+<li>onKeyUp(int, KeyEvent) : key up 이벤트가 발생할 경우 호출</li>
+<li>onTouchEvent(MotionEvent) : 터치 스크린 이벤트가 발생할 경우 호출</li>
+<li>onFocusChanged(boolean, int, Rect) : view가 focus를 잃거나 얻을 경우 호출</li>
+</ul>
+</li>
+<li><p>Dialogs</p>
+<ul>
+<li>사용자에게 결정이나 추가 정보를 획득하는 작은 창</li>
+<li>일반적으로 사용자에게 다음 작업에 대한 확인을 위해 사용</li>
+<li>DialogFragment를 확장, custom 레이아웃을 생성할 수 있음</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>cf. 콜백 함수(Callback Function)</p>
+<ol>
+<li>다른 함수의 인자로써 이용되는 함수</li>
+<li>어떤 이벤트에 의해 호출되어지는 함수</li>
+</ol>
+<ul>
+<li><a href="https://satisfactoryplace.tistory.com/18" rel="external nofollow noopener noreferrer" target="_blank">https://satisfactoryplace.tistory.com/18</a></li>
+</ul>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>*</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dudri63.github.io/2019/03/18/android7/" data-id="cjtjs3u67004it2a6crnl7ftw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[Android] WIDGET",
+        "image": "http://dudri63.github.io/image/ad7-1.png",
+        "keywords": "Android",
+        "genre": "etc. Android",
+        "datePublished": "2019-03-18",
+        "dateCreated": "2019-03-18",
+        "dateModified": "2019-03-18",
+        "url": "http://dudri63.github.io/2019/03/18/android7/",
+        "description": "1. Input Control1.1 Buttons1.2 Checkboxes1.3 Radio buttons1.4 Toggle buttons1.5 Spinners1.6 Pickers1.7 ListView2. Input Events
+
+1. Input Control
+입력 컨트롤은 어플리케이션 인터페이스 중 사용작용을 할 수 있는 UI이다.버튼, 텍스트 버튼, 체크"
+        "wordCount": 277
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/03/18/android8/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Android] FRAGMENT
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/03/14/android6/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Android] UI</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/21/android12/" class="title">[Android] LOCATIONS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T10:43:15.000Z" itemprop="datePublished">2019-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/21/android11/" class="title">[Android] SENSORS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T09:32:41.000Z" itemprop="datePublished">2019-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/21/android10/" class="title">[Android] PERMISSIONS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T07:48:18.000Z" itemprop="datePublished">2019-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/19/android9/" class="title">[Android] ListView</a></p>
+                            <p class="item-date"><time datetime="2019-03-19T07:56:09.000Z" itemprop="datePublished">2019-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/03/18/java12/" class="title">[Java] instanceof 연산자</a></p>
+                            <p class="item-date"><time datetime="2019-03-18T13:24:38.000Z" itemprop="datePublished">2019-03-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Etc/">Etc.</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Etc/Android/">Android</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWS/" style="font-size: 12.22px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 18.89px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14.44px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15.56px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13.33px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11.11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14.44px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14.44px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18.89px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16.67px;">Greedy</a> <a href="/tags/Java/" style="font-size: 18.89px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11.11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Repository/" style="font-size: 12.22px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17.78px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/03/18/android7/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

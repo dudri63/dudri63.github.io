@@ -3,13 +3,56 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>서개발, IT blog</title>
+    <title>NoName, IT blog</title>
     <link>http://dudri63.github.io/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 22 Mar 2019 08:04:02 GMT</pubDate>
+    <pubDate>Sun, 24 Mar 2019 06:55:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Java] 익명 객체(Anonymous Object)</title>
+      <link>http://dudri63.github.io/2019/03/24/java14/</link>
+      <guid>http://dudri63.github.io/2019/03/24/java14/</guid>
+      <pubDate>Sun, 24 Mar 2019 06:34:50 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;익명 클래스 : ‘이름이 없는’ 클래스&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<ul><li>익명 클래스 : ‘이름이 없는’ 클래스</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">  private int num = 1;</span><br><span class="line">  public int getNum()&#123;</span><br><span class="line">    retrun this.num;</span><br><span class="line">  &#125;</span><br><span class="line">  public void setNum(int num)&#123;</span><br><span class="line">    this.num = num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>위 코드에서는 Test라는 class가 있다.<br>보통 인스턴스를 사용할 때는 다음과 같다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test t1 = new Test();</span><br></pre></td></tr></table></figure><p>그러나 익명 인스턴스는 다음과 같다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Test t1 = new Test()&#123;</span><br><span class="line">  public int num = 10;</span><br><span class="line">  @Override</span><br><span class="line">  public int getNum()&#123;</span><br><span class="line">    return this.num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>위 코드는 기존의 인스턴스 생성 방식과는 조금 다르다.<br>왜냐하면 new Test()라는 코드 옆에 block이 존재하기 때문이다.<br>위 코드는 new Test()라는 코드 때문에 Test 클래스의 인스턴스 t1을 생성하는 것 같지만, 실제로는 그렇지 않다.<br>그 이유는 다음과 같다.</p><ol><li>getNum() 메소드가 Test 클래스의 멤버 메소드가 아니고, 재정의(Override)된 메소드이다.</li><li>변수 num이 값이 1이 아닌 10으로 변경되었다.<br>즉, t1 인스턴스는 Test 클래스의 것이라기보다는, Test 클래스를 상속받은 다른 클래스의 인스턴스라고 보는 것이 더 가깝다.</li></ol><p>익명 객체를 생성할 때에는 부모 클래스의 인스턴스를 생성하면서 {} 안에 처리구문을 넣는다.<br>처리 구문은 부모클래스의 메소드를 오버라이드 해주는 것이다.</p><p>익명 클래스를 이용하면 아주 간단히 클래스를 생성, 바로 처리할 수 있다는 장점이 있다.</p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>“JAVA-익명클래스(Anonymous class)란?”, 개발자로 홀로 서기, 2019. 3. 24, <a href="https://mommoo.tistory.com/16" rel="external nofollow noopener noreferrer" target="_blank">https://mommoo.tistory.com/16</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/24/java14/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[Java] Static</title>
+      <link>http://dudri63.github.io/2019/03/24/java13/</link>
+      <guid>http://dudri63.github.io/2019/03/24/java13/</guid>
+      <pubDate>Sun, 24 Mar 2019 05:37:35 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. static 변수&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#1.1&quot;&gt;1.1 메모리 효율&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#1.2&quot;&gt;1.2 공유&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. static 메소드&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. static 변수</a><br><a href="#1.1">1.1 메모리 효율</a><br><a href="#1.2">1.2 공유</a><br><a href="#2">2. static 메소드</a></p><hr><p>static : 변수나 메소드 앞에 키워드로서 사용</p><p><a name="1">1. static 변수</a></p><p><a name="1.1">1.1 메모리 효율</a></p><p>다음과 같은 클래스가 있다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class HouseSeo  &#123;</span><br><span class="line">    String lastName = &quot;서&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        HousePark pey = new HouseSeo();</span><br><span class="line">        HousePark pes = new HouseSeo();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>위 클래스를 이용하여 객체를 생성하면 객체마다 객체변수 lastName을 저장하기 위한 메모리를 별도로 할당한다.<br>그런데, HouseSeo 클래스의 lastName은 어떤 객체인지에 관계없이 모두 “서”이어야 한다.<br>그러므로, 굳이 모든 객체마다 lastName을 저장하기 위한 메모리를 할당할 필요는 없다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class HouseSeo  &#123;</span><br><span class="line">    static String lastName = &quot;서&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        HousePark pey = new HouseSeo();</span><br><span class="line">        HousePark pes = new HouseSeo();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>위와 같이 lastName 변수에 static 키워드를 붙이면, 자바는 메모리 할당을 딱 한번만 하게 되어, 메모리 사용상에 이점이 생기게 된다.</p><hr><p>cf. final</p><p>만약 static 변수의 값이 변경되지 않기를 원하는 경우가 생길 수도 있다.<br>(위 경우, lastName이 “서”로 고정되기를 원하는 경우)<br>이 때, final 키워드를 static 키워드 뒤에 붙이면 그 값을 변경하지 못하게 된다.<br>ex. static final String lastName = “서”;</p><hr><p><a name="1.2">1.2 공유</a></p><p>static 변수를 사용하는 또 하나의 이유는 “공유”이다.<br>static으로 변수를 설정할 경우, 같은 메모리 주소를 가리키게 된다.<br>따라서, static 변수의 값을 공유하게 된다.</p><p>웹사이트의 방문자 인원 수 체크를 위한 경우 변수를 static으로 선언하면 좋다.</p><hr><p><a name="2">2. static 메소드</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Counter  &#123;</span><br><span class="line">    static int count = 0;</span><br><span class="line">    Counter() &#123;</span><br><span class="line">        this.count++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static int getCount() &#123;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Counter c1 = new Counter();</span><br><span class="line">        Counter c2 = new Counter();</span><br><span class="line"></span><br><span class="line">        System.out.println(Counter.getCount());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>위 코드에서 getCount() 메소드가 static 메소드임을 유의한다.<br>getCount()는 static 메소드임으로 Counter 객체를 따로 생성하지 않아도, <code>Counter.getCount()</code> 형식으로 메소드를 호출할 수 있다.<br>즉, 클래스의 인스턴스 없이 호출이 가능하며, 인스턴스에서는 호출할 수 없다.</p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>“07-3 정적 변수와 메소드”, 점프 투 자바, 2019. 3. 24, <a href="https://wikidocs.net/228" rel="external nofollow noopener noreferrer" target="_blank">https://wikidocs.net/228</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/03/24/java13/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[Android] LOCATIONS</title>

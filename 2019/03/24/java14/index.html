@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>[Java] 익명 객체(Anonymous Object) | NoName, IT blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="java">
+    
+    <meta name="description" content="익명 클래스 : ‘이름이 없는’ 클래스  123456789public class Test&amp;#123;  private int num = 1;  public int getNum()&amp;#123;    retrun this.num;  &amp;#125;  public void setNum(int num)&amp;#123;    this.num = num;  &amp;#125;&amp;#125">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Java] 익명 객체(Anonymous Object)">
+<meta property="og:url" content="http://dudri63.github.io/2019/03/24/java14/index.html">
+<meta property="og:site_name" content="NoName, IT blog">
+<meta property="og:description" content="익명 클래스 : ‘이름이 없는’ 클래스  123456789public class Test&amp;#123;  private int num = 1;  public int getNum()&amp;#123;    retrun this.num;  &amp;#125;  public void setNum(int num)&amp;#123;    this.num = num;  &amp;#125;&amp;#125">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-24T06:55:26.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Java] 익명 객체(Anonymous Object)">
+<meta name="twitter:description" content="익명 클래스 : ‘이름이 없는’ 클래스  123456789public class Test&amp;#123;  private int num = 1;  public int getNum()&amp;#123;    retrun this.num;  &amp;#125;  public void setNum(int num)&amp;#123;    this.num = num;  &amp;#125;&amp;#125">
+    
+    <link rel="canonical" href="http://dudri63.github.io/2019/03/24/java14/">
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-134515006-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Programming &amp; Study</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/Base/">Base</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/">Basic CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Etc/">Etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Etc/Android/">Android</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/java/">java</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/AWS/">AWS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/Git/">Git</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.md">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Language/java/">java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-java14" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Java] 익명 객체(Anonymous Object)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/24/java14/" class="article-date">
+            <time datetime="2019-03-24T06:34:50.000Z" itemprop="datePublished">2019-03-24</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <ul>
+<li>익명 클래스 : ‘이름이 없는’ 클래스</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">  private int num = 1;</span><br><span class="line">  public int getNum()&#123;</span><br><span class="line">    retrun this.num;</span><br><span class="line">  &#125;</span><br><span class="line">  public void setNum(int num)&#123;</span><br><span class="line">    this.num = num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 코드에서는 Test라는 class가 있다.<br>보통 인스턴스를 사용할 때는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test t1 = new Test();</span><br></pre></td></tr></table></figure>
+<p>그러나 익명 인스턴스는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Test t1 = new Test()&#123;</span><br><span class="line">  public int num = 10;</span><br><span class="line">  @Override</span><br><span class="line">  public int getNum()&#123;</span><br><span class="line">    return this.num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>위 코드는 기존의 인스턴스 생성 방식과는 조금 다르다.<br>왜냐하면 new Test()라는 코드 옆에 block이 존재하기 때문이다.<br>위 코드는 new Test()라는 코드 때문에 Test 클래스의 인스턴스 t1을 생성하는 것 같지만, 실제로는 그렇지 않다.<br>그 이유는 다음과 같다.</p>
+<ol>
+<li>getNum() 메소드가 Test 클래스의 멤버 메소드가 아니고, 재정의(Override)된 메소드이다.</li>
+<li>변수 num이 값이 1이 아닌 10으로 변경되었다.<br>즉, t1 인스턴스는 Test 클래스의 것이라기보다는, Test 클래스를 상속받은 다른 클래스의 인스턴스라고 보는 것이 더 가깝다.</li>
+</ol>
+<p>익명 객체를 생성할 때에는 부모 클래스의 인스턴스를 생성하면서 {} 안에 처리구문을 넣는다.<br>처리 구문은 부모클래스의 메소드를 오버라이드 해주는 것이다.</p>
+<p>익명 클래스를 이용하면 아주 간단히 클래스를 생성, 바로 처리할 수 있다는 장점이 있다.</p>
+<hr>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>“JAVA-익명클래스(Anonymous class)란?”, 개발자로 홀로 서기, 2019. 3. 24, <a href="https://mommoo.tistory.com/16" rel="external nofollow noopener noreferrer" target="_blank">https://mommoo.tistory.com/16</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://dudri63.github.io/2019/03/24/java14/" data-id="cjtml2gpb008kq6a634p1nf9c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Seo Young Ki"
+        },
+        "headline": "[Java] 익명 객체(Anonymous Object)",
+        "image": "http://dudri63.github.io",
+        "keywords": "java",
+        "genre": "Language java",
+        "datePublished": "2019-03-24",
+        "dateCreated": "2019-03-24",
+        "dateModified": "2019-03-24",
+        "url": "http://dudri63.github.io/2019/03/24/java14/",
+        "description": "
+익명 클래스 : ‘이름이 없는’ 클래스
+
+123456789public class Test&#123;  private int num = 1;  public int getNum()&#123;    retrun this.num;  &#125;  public void setNum(int num)&#123;    this.num = num;  &#125;&#125"
+        "wordCount": 232
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/dudri63" target="_blank" rel="external nofollow noopener noreferrer">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/24/java13/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Java] Static</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/java/">java</a></p>
+                            <p class="item-title"><a href="/2019/03/24/java14/" class="title">[Java] 익명 객체(Anonymous Object)</a></p>
+                            <p class="item-date"><time datetime="2019-03-24T06:34:50.000Z" itemprop="datePublished">2019-03-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2019/03/24/java13/" class="title">[Java] Static</a></p>
+                            <p class="item-date"><time datetime="2019-03-24T05:37:35.000Z" itemprop="datePublished">2019-03-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/21/android12/" class="title">[Android] LOCATIONS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T10:43:15.000Z" itemprop="datePublished">2019-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/21/android11/" class="title">[Android] SENSORS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T09:32:41.000Z" itemprop="datePublished">2019-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/Android/">Android</a></p>
+                            <p class="item-title"><a href="/2019/03/21/android10/" class="title">[Android] PERMISSIONS</a></p>
+                            <p class="item-date"><time datetime="2019-03-21T07:48:18.000Z" itemprop="datePublished">2019-03-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">40</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Etc/">Etc.</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Etc/Android/">Android</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/java/">java</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWS/" style="font-size: 12px;">AWS</a> <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 18px;">Android</a> <a href="/tags/Approximation/" style="font-size: 14px;">Approximation</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/DataBase/" style="font-size: 13px;">DataBase</a> <a href="/tags/Deep-Learning/" style="font-size: 11px;">Deep Learning</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 14px;">Divide-and-Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14px;">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 18px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11px;">GitHub</a> <a href="/tags/Greedy/" style="font-size: 16px;">Greedy</a> <a href="/tags/Java/" style="font-size: 19px;">Java</a> <a href="/tags/Machine-Learning/" style="font-size: 11px;">Machine Learning</a> <a href="/tags/NP-완전/" style="font-size: 10px;">NP-완전</a> <a href="/tags/Python/" style="font-size: 16px;">Python</a> <a href="/tags/Repository/" style="font-size: 12px;">Repository</a> <a href="/tags/Sort/" style="font-size: 17px;">Sort</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/해-탐색/" style="font-size: 10px;">해 탐색</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Seo Young Ki</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'dudri';
+    
+    
+    var disqus_url = 'http://dudri63.github.io/2019/03/24/java14/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

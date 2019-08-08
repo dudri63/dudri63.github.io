@@ -8,8 +8,177 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 24 Mar 2019 07:13:54 GMT</pubDate>
+    <pubDate>Thu, 08 Aug 2019 08:53:06 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[SWEA] #1954 달팽이 숫자</title>
+      <link>http://dudri63.github.io/2019/08/08/swea1954/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea1954/</guid>
+      <pubDate>Thu, 08 Aug 2019 08:49:58 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #1954 달팽이 숫자&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #1954 달팽이 숫자
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #1954 달팽이 숫자</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #1954 달팽이 숫자 </a></p><p>SW Expert Academy #1954</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int a[10][10];</span><br><span class="line"></span><br><span class="line">void snail(int num, int n) &#123;</span><br><span class="line">for(int i = 0; i &lt; 11; i++) &#123;</span><br><span class="line">for (int j = 0; j &lt; 11; j++) &#123;</span><br><span class="line">a[i][j] = 0;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">int dc[4] = &#123; 1, 0, -1, 0 &#125;;</span><br><span class="line">int dr[4] = &#123; 0, 1, 0, -1 &#125;;</span><br><span class="line">int index = 0;</span><br><span class="line">int r = 0, c = 0;</span><br><span class="line">for (int i = 1; i &lt;= n*n; i++) &#123;</span><br><span class="line">a[r][c] = i;</span><br><span class="line">r += dr[index];</span><br><span class="line">c += dc[index];</span><br><span class="line">if ((r &gt;= n || c &gt;= n)||</span><br><span class="line">(r &lt;0 || c &lt;0)||</span><br><span class="line">(a[r][c] != 0)) &#123;</span><br><span class="line">r -= dr[index];</span><br><span class="line">c -= dc[index];</span><br><span class="line">index = (index + 1) % 4;</span><br><span class="line">r += dr[index];</span><br><span class="line">c += dc[index];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; &quot;#&quot; &lt;&lt; num &lt;&lt; &quot;\n&quot;;</span><br><span class="line">for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">for (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">cout &lt;&lt; a[i][j] &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int t;</span><br><span class="line">cin &gt;&gt; t;</span><br><span class="line">for (int i = 0; i &lt; t; i++) &#123;</span><br><span class="line">int N;</span><br><span class="line">cin &gt;&gt; N;</span><br><span class="line">snail(i+1, N);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘1954. 달팽이 숫자’, SW Expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea1954/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #1926 간단한 369게임</title>
+      <link>http://dudri63.github.io/2019/08/08/swea1926/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea1926/</guid>
+      <pubDate>Thu, 08 Aug 2019 08:39:49 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #1926 간단한 369게임&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #1926 간단한
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #1926 간단한 369게임</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #1926 간단한 369게임 </a></p><p>SW Expert Academy #1926</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void function(int N) &#123;</span><br><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">int t = 0;</span><br><span class="line">int j = i;</span><br><span class="line">while (j &gt; 0) &#123;</span><br><span class="line">if ((j % 10) != 0 &amp;&amp; (j % 10) % 3 == 0)t++;</span><br><span class="line">j = j / 10;</span><br><span class="line">&#125;</span><br><span class="line">if (t != 0) &#123;</span><br><span class="line">for (int j = 0; j &lt; t; j++) &#123;</span><br><span class="line">cout &lt;&lt; &quot;-&quot;;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">else cout &lt;&lt; i &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int pArr[1000000];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int N;</span><br><span class="line">cin &gt;&gt; N;</span><br><span class="line">function(N);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><p>이 문제를 해결함에도 약간의 어려움을 겪었다.<br>그냥 간단하게 일의 자리만 고려하면 된다. 모든 경우를 생각하려고 하지 말자.<br>단순하게 생각하도록 한다.</p><ul><li>숫자의 일의 자리가 3,6,9 중 하나인지 파악한다. -&gt; %연산자와 숫자 3을 이용하는데, 이 때, 일의 자리 수가 0인 경우에도 3으로 나누었을 때, 나머지가 0이 되기 때문에 이를 주의하여야 한다.</li><li>이 후, 해당 수를 10으로 나누어서, 십의 자리 수를 일의 자리수가 되도록 한다.</li><li>다시 일의 자리가 3,6,9 중 하나인지 파악한다.</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘1926. 간단한 369게임’, SW Expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea1926/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #1859 백만 장자 프로젝트</title>
+      <link>http://dudri63.github.io/2019/08/08/swea1859/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea1859/</guid>
+      <pubDate>Thu, 08 Aug 2019 08:13:44 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #1859 백만 장자 프로젝트&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #1859 백만
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #1859 백만 장자 프로젝트</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #1859 백만 장자 프로젝트 </a></p><p>SW Expert Academy #1859</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">long long stacking(int a[], int N) &#123;</span><br><span class="line">long long total = 0, sum = 0;</span><br><span class="line">for (int k = N - 1; k &gt;= 0; k--) &#123;</span><br><span class="line">if (sum &gt; a[k]) total += sum - a[k];</span><br><span class="line">else sum = a[k];</span><br><span class="line">&#125;</span><br><span class="line">return total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int pArr[1000000];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int t, n;</span><br><span class="line"></span><br><span class="line">cin &gt;&gt; t;</span><br><span class="line">for (int i = 0; i &lt; t; i++) &#123;</span><br><span class="line">cin &gt;&gt; n;</span><br><span class="line">int price;</span><br><span class="line">for (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">cin &gt;&gt; price;</span><br><span class="line">pArr[j] = price;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; &quot;#&quot; &lt;&lt; i + 1 &lt;&lt; &quot; &quot; &lt;&lt; stacking(pArr, n) &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><p>SWEA, D2 문제들 중에서 가장 어려운 문제인 것 같다.<br>위 코드로 구현한 알고리즘의 핵심은 아래와 같다.</p><ul><li>배열을 뒤에서부터 탐색한다.</li><li>이전 index가 가리킨 값보다 현재 index가 가리키는 값이 더 크다면, 현재 index가 가리키는 날에는 물건을 사지 않는다.</li><li><p>이전 index가 가리킨 값보다 현재 index가 가리키는 값이 더 작다면, 현재 index가 기리키는 날에는 물건을 사고, 이전 index가 가리키는 날에 물건을 파는 것이 이득이다.</p></li><li><p>ex. 배열 : {1, 2, 3, 5, 4}인 경우</p></li></ul><ol><li>sum = a[4] = 4</li><li>sum = 4 &lt; a[3] = 5 -&gt; if문 조건 만족 X, sum = a[3] = 5로 업데이트</li><li>sum = 5 &gt; a[2] = 3 -&gt; if문 조건 만족, total = 5 - 3</li><li>sum = 5 &gt; a[1] = 2 -&gt; if문 조건 만족, total = 2 + (5 - 2) = 5</li><li>sum = 5 &gt; a[0] = 1 -&gt; if문 조건 만족, total = 5 + (5 - 1) = 9</li><li>return 9;</li></ol><ul><li>overflow가 발생하는 경우를 주의한다. 위 프로그램에서는 함수의 반환형을 long long으로 하였다. int로 할 경우, int의 최대값(2^31 - 1)을 넘어버리기 때문이다. 이럴 때에는 long long data type(-2^63 ~ 2^63 - 1)을 사용하도록 한다.</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘1859. 백만 장자 프로젝트’, SW Expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea1859/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #1204 최빈수 구하기</title>
+      <link>http://dudri63.github.io/2019/08/08/swea1204/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea1204/</guid>
+      <pubDate>Thu, 08 Aug 2019 07:58:34 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #1204 최빈수 구하기&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #1204 최빈수 구
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #1204 최빈수 구하기</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #1204 최빈수 구하기 </a></p><p>SW Expert Academy #1204 최빈수 구하기</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int t;</span><br><span class="line">cin &gt;&gt; t;</span><br><span class="line">int* testNum = new int[t];</span><br><span class="line">int* mode = new int[t];</span><br><span class="line">for (int i = 0; i &lt; t; i++) &#123;</span><br><span class="line">int num;</span><br><span class="line">cin &gt;&gt; num;</span><br><span class="line">testNum[i] = num;</span><br><span class="line">int* scoreArr = new int[101];</span><br><span class="line">for (int j = 0; j &lt; 1000; j++) &#123;</span><br><span class="line">int score;</span><br><span class="line">cin &gt;&gt; score;</span><br><span class="line">scoreArr[score]++;</span><br><span class="line">&#125;</span><br><span class="line">int index = 0;</span><br><span class="line">for (int k = 0; k &lt; 101; k++) &#123;</span><br><span class="line">if (scoreArr[k] &gt;= scoreArr[index]) &#123;</span><br><span class="line">index = k;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">mode[i] = index;</span><br><span class="line">&#125;</span><br><span class="line">for (int i = 0; i &lt; t; i++) &#123;</span><br><span class="line">cout &lt;&lt; &quot;#&quot; &lt;&lt; testNum[i] &lt;&lt; &quot; &quot; &lt;&lt; mode[i] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><ul><li>각 점수를 획득한 학생들의 수를 저장하는 배열을 생성한다.</li><li>배열을 순차탐색하면서 가장 작은 숫자가 있을 때마다 최빈수 값을 업데이트 한다.</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘1204. 최빈수 구하기’, SW Expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea1204/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #2056 연월일 달력</title>
+      <link>http://dudri63.github.io/2019/08/08/swea2056/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea2056/</guid>
+      <pubDate>Thu, 08 Aug 2019 07:46:30 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #2056 연월일 달력&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #2056 연월일 달력
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #2056 연월일 달력</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #2056 연월일 달력 </a></p><p>SW Expert Academy #2056</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdio&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">bool checkDate(int month, int day) &#123;</span><br><span class="line">return (month ==1 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31)||</span><br><span class="line">(month==2 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 28) ||</span><br><span class="line">(month==3 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31) ||</span><br><span class="line">(month==4 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 30) ||</span><br><span class="line">(month==5 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31) ||</span><br><span class="line">(month==6 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 30) ||</span><br><span class="line">(month==7 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31) ||</span><br><span class="line">(month==8 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31) ||</span><br><span class="line">(month==9 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 30) ||</span><br><span class="line">(month==10 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31) ||</span><br><span class="line">(month==11 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 30) ||</span><br><span class="line">(month==12 &amp;&amp; day &gt;= 1 &amp;&amp; day &lt;= 31);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int t;</span><br><span class="line">scanf(&quot;%d&quot;, &amp;t);</span><br><span class="line">int* arr = new int[t];</span><br><span class="line"></span><br><span class="line">for (int i = 1; i &lt;= t; i++) &#123;</span><br><span class="line">int date;</span><br><span class="line">scanf(&quot;%d&quot;, &amp;date);</span><br><span class="line">int day = date % 100;</span><br><span class="line">date = date / 100;</span><br><span class="line">int month = date % 100;</span><br><span class="line">date = date * 100 + day;</span><br><span class="line">if (checkDate(month, day)) &#123;</span><br><span class="line">arr[i] = date;</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">arr[i] = -1;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">for (int i = 1; i &lt;= t; i++) &#123;</span><br><span class="line">if (arr[i] != -1) &#123;</span><br><span class="line">printf(&quot;#%d %04d/%02d/%02d\n&quot;, i, arr[i] / 10000, (arr[i] / 100) % 100, arr[i] % 100);</span><br><span class="line">&#125;</span><br><span class="line">else printf(&quot;#%d %d\n&quot;, i, arr[i]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><p>개인적으로 처음에 구현을 하는 과정에서 어려움을 겪었다.</p><ol><li>입력 받은 8자리의 숫자에서 ‘월’에 해당하는 숫자를 얻기 위하여, date에서 day만큼 빼고, 다시 어쩌구 저쩌구하는 복잡한 과정을 진행했었다. -&gt; 간단하게 date를 100으로 나누면, day가 날라간다.</li><li>날짜형식으로 출력하는 과정이 어려웠다. 왜냐하면 ‘월’ 또는 ‘일’이 한자리 수일 경우에는 0으로 채워주어야 하기 때문이다. -&gt; 이 부분은 iostream 입출력을 사용하지 않고, cstdio 입출력을 사용하여 해결하였다.</li></ol><ul><li>scanf(“%d”, &amp;y) // 입력을 받을 경우에는 반드시 주소값을 이용하도록 한다.</li><li>%04d // 4자리 십진수, 실제 숫자가 4자리가 안될 경우에는 ‘0’으로 채워놓도록 한다.</li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘2056. 연월일 달력’, SW Expert Academy, <a href="https://www.swexpertacademy.com/main/solvingProblem/solvingProblem.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/solvingProblem/solvingProblem.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea2056/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #2072 홀수만 더하기</title>
+      <link>http://dudri63.github.io/2019/08/08/swea2072/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea2072/</guid>
+      <pubDate>Thu, 08 Aug 2019 07:32:15 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #2072 홀수만 더하기&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #2072 홀수만 더
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #2072 홀수만 더하기</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #2072 홀수만 더하기 </a></p><p>SW Expert Academy #2072</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">bool isOdd(int num) &#123;</span><br><span class="line">return (num % 2) == 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int t;</span><br><span class="line">cin &gt;&gt; t;</span><br><span class="line">int* arr = new int[t];</span><br><span class="line">for (int i = 1; i &lt;= t; i++) &#123;</span><br><span class="line">int total = 0;</span><br><span class="line">for (int j = 0; j &lt; 10; j++) &#123;</span><br><span class="line">int num;</span><br><span class="line">cin &gt;&gt; num;</span><br><span class="line">if (isOdd(num)) &#123;</span><br><span class="line">total += num;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">arr[i] = total;</span><br><span class="line">&#125;</span><br><span class="line">for (int i = 1; i &lt;= t; i++) &#123;</span><br><span class="line">cout &lt;&lt; &quot;#&quot; &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><p>동적 할당 : int* arr = new int[t];</p><p>동적 할당은 사용할 때마다 문법을 헷갈리는 경향이 있으니 확실하게 암기를 하는게 좋을 것 같다.</p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘2072. 홀수만 더하기’, SW Expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea2072/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #2019 더블더블</title>
+      <link>http://dudri63.github.io/2019/08/08/swea2019/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea2019/</guid>
+      <pubDate>Thu, 08 Aug 2019 07:27:04 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #2019 더블더블&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#3&quot;&gt;3. etc&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #2019 더블더블&lt;/a&gt;
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #2019 더블더블</a><br><a href="#2">2. Code</a><br><a href="#3">3. etc</a></p><hr><p><a name="1">1. SWEA #2019 더블더블</a></p><p>SW Expert Academy #2019</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2"> 2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int num;</span><br><span class="line">cin &gt;&gt; num;</span><br><span class="line">for (int i = 0; i &lt;= num; i++) &#123;</span><br><span class="line">cout &lt;&lt; pow(2,i) &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p><a name="3">3. etc</a></p><p>#include&lt;math.h&gt; -&gt; pow(2,i); // 2^i</p><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘2019. 더블더블’, SW expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea2019/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>[SWEA] #1545 거꾸로 출력해 보아요</title>
+      <link>http://dudri63.github.io/2019/08/08/swea1545/</link>
+      <guid>http://dudri63.github.io/2019/08/08/swea1545/</guid>
+      <pubDate>Thu, 08 Aug 2019 07:16:54 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. SWEA #1545 거꾸로 출력해 보아요&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. Code&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. SWEA #1545 거꾸로 출력해 보아요&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SW Ex
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. SWEA #1545 거꾸로 출력해 보아요</a><br><a href="#2">2. Code</a></p><hr><p><a name="1">1. SWEA #1545 거꾸로 출력해 보아요</a></p><p>SW Expert Academy #1545</p><p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p><hr><p><a name="2">2. Code</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">int num;</span><br><span class="line">cin &gt;&gt; num;</span><br><span class="line">for (num; num &gt;= 0; num--) &#123;</span><br><span class="line">cout &lt;&lt; num &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘1545. 거꾸로 출력해 보아요’, SW expert Academy, <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2019/08/08/swea1545/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[Java] 익명 객체(Anonymous Object)</title>

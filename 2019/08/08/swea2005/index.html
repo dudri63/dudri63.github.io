@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="NoName, IT blog">
 <meta property="og:description" content="1. SWEA #2005 파스칼의 삼각형2. Code3. etc  1. SWEA #2005 파스칼의 삼각형  SW Expert Academy #2005 문제 출처 : https://www.swexpertacademy.com/main/code/problem/problemDetail.do  2. Code 1234567891011121314151617181920">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-08T12:08:04.839Z">
+<meta property="og:updated_time" content="2019-08-08T14:01:03.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SWEA] #2005 파스칼의 삼각형">
 <meta name="twitter:description" content="1. SWEA #2005 파스칼의 삼각형2. Code3. etc  1. SWEA #2005 파스칼의 삼각형  SW Expert Academy #2005 문제 출처 : https://www.swexpertacademy.com/main/code/problem/problemDetail.do  2. Code 1234567891011121314151617181920">
@@ -193,7 +193,7 @@ ga('send', 'pageview');
 <p>문제 출처 : <a href="https://www.swexpertacademy.com/main/code/problem/problemDetail.do" rel="external nofollow noopener noreferrer" target="_blank">https://www.swexpertacademy.com/main/code/problem/problemDetail.do</a></p>
 <hr>
 <p><a name="2">2. Code</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int arr[10];</span><br><span class="line"></span><br><span class="line">void initArr() &#123;</span><br><span class="line">	for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">		arr[i] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void pascalTri(int n) &#123;</span><br><span class="line">	initArr();</span><br><span class="line">	arr[0] = 1;</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		for (int j = i; j &gt;= 0; j--) &#123;</span><br><span class="line">			arr[j] = arr[j] + arr[j - 1];</span><br><span class="line">		&#125;</span><br><span class="line">		for (int j = 0; j &lt;= i; j++) &#123;</span><br><span class="line">			cout &lt;&lt; arr[j] &lt;&lt; &quot; &quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; &quot;\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	for (int i = 0; i &lt; t; i++) &#123;</span><br><span class="line">		int n;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		cout &lt;&lt; &quot;#&quot; &lt;&lt; i + 1 &lt;&lt; &quot;\n&quot;;</span><br><span class="line">		pascalTri(n);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initArr</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">		arr[i] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pascalTri</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	initArr();</span><br><span class="line">	arr[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">			arr[j] = arr[j] + arr[j - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; arr[j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> n;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"#"</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">		pascalTri(n);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p><a name="3">3. etc</a></p>
 <p>파스칼의 삼각형를 직삼각형 형태로 나타내면 다음과 같다.</p>
@@ -215,7 +215,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://dudri63.github.io/2019/08/08/swea2005/" data-id="cjz2pj5eh00ap6ga6cqlaux6j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://dudri63.github.io/2019/08/08/swea2005/" data-id="cjz3ty0l300b5axa6283qwjss" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -301,7 +301,7 @@ SW Expert Academy #2005
 
 2. Code
 1234567891011121314151617181920"
-        "wordCount": 275
+        "wordCount": 331
     }
 </script>
 
@@ -377,8 +377,8 @@ SW Expert Academy #2005
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/SWEA/">SWEA</a></p>
-                            <p class="item-title"><a href="/2019/08/08/swea3752/" class="title">[SWEA] #3752 가능한 시험 점수</a></p>
-                            <p class="item-date"><time datetime="2019-08-08T13:15:26.000Z" itemprop="datePublished">2019-08-08</time></p>
+                            <p class="item-title"><a href="/2019/08/09/swea5644/" class="title">[SWEA] #5644 무선 충전&lt;모의&gt;</a></p>
+                            <p class="item-date"><time datetime="2019-08-09T07:33:51.000Z" itemprop="datePublished">2019-08-09</time></p>
                         </div>
                     </li>
                 
@@ -386,8 +386,8 @@ SW Expert Academy #2005
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/SWEA/">SWEA</a></p>
-                            <p class="item-title"><a href="/2019/08/08/swea1989/" class="title">[SWEA] #1989 초심자의 회문 검사</a></p>
-                            <p class="item-date"><time datetime="2019-08-08T13:05:00.000Z" itemprop="datePublished">2019-08-08</time></p>
+                            <p class="item-title"><a href="/2019/08/09/swea1952/" class="title">[SWEA] #1952 수영장&lt;모의&gt;</a></p>
+                            <p class="item-date"><time datetime="2019-08-09T07:19:48.000Z" itemprop="datePublished">2019-08-09</time></p>
                         </div>
                     </li>
                 
@@ -395,8 +395,8 @@ SW Expert Academy #2005
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/SWEA/">SWEA</a></p>
-                            <p class="item-title"><a href="/2019/08/08/swea1986/" class="title">[SWEA] #1986 지그재그 숫자</a></p>
-                            <p class="item-date"><time datetime="2019-08-08T12:58:51.000Z" itemprop="datePublished">2019-08-08</time></p>
+                            <p class="item-title"><a href="/2019/08/09/swea4008/" class="title">[SWEA] #4008 숫자 만들기&lt;모의&gt;</a></p>
+                            <p class="item-date"><time datetime="2019-08-09T07:08:42.000Z" itemprop="datePublished">2019-08-09</time></p>
                         </div>
                     </li>
                 
@@ -404,8 +404,8 @@ SW Expert Academy #2005
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/SWEA/">SWEA</a></p>
-                            <p class="item-title"><a href="/2019/08/08/swea1961/" class="title">[SWEA] #1961 숫자 배열 회전</a></p>
-                            <p class="item-date"><time datetime="2019-08-08T12:49:17.000Z" itemprop="datePublished">2019-08-08</time></p>
+                            <p class="item-title"><a href="/2019/08/09/swea3431/" class="title">[SWEA] #3431 준환이의 운동관리</a></p>
+                            <p class="item-date"><time datetime="2019-08-09T07:06:49.000Z" itemprop="datePublished">2019-08-09</time></p>
                         </div>
                     </li>
                 
@@ -413,8 +413,8 @@ SW Expert Academy #2005
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Algorithm/SWEA/">SWEA</a></p>
-                            <p class="item-title"><a href="/2019/08/08/swea1970/" class="title">[SWEA] #1970 쉬운 거스름돈</a></p>
-                            <p class="item-date"><time datetime="2019-08-08T12:34:34.000Z" itemprop="datePublished">2019-08-08</time></p>
+                            <p class="item-title"><a href="/2019/08/09/swea4013/" class="title">[SWEA] #4013 특이한 자석&lt;모의&gt;</a></p>
+                            <p class="item-date"><time datetime="2019-08-09T07:03:15.000Z" itemprop="datePublished">2019-08-09</time></p>
                         </div>
                     </li>
                 
@@ -427,7 +427,7 @@ SW Expert Academy #2005
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">56</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/SWEA/">SWEA</a><span class="category-list-count">16</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">65</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/Base/">Base</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/SWEA/">SWEA</a><span class="category-list-count">25</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/">Basic CS</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/Data-Structure/">Data Structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Basic-CS/DataBase/">DataBase</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Python/">Python</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/AWS/">AWS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Android/">Android</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/Git/">Git</a><span class="category-list-count">12</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -437,7 +437,7 @@ SW Expert Academy #2005
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">41</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">45</span></li></ul>
         </div>
     </div>
 

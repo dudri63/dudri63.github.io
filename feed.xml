@@ -8,8 +8,32 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 09 Aug 2019 08:06:53 GMT</pubDate>
+    <pubDate>Sun, 02 Feb 2020 13:44:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Spring] </title>
+      <link>http://dudri63.github.io/2020/02/02/spring1/</link>
+      <guid>http://dudri63.github.io/2020/02/02/spring1/</guid>
+      <pubDate>Sun, 02 Feb 2020 13:03:18 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;#1&quot;&gt;1. 웹 애플리케이션&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#2&quot;&gt;2. JSP, Servlet, Spring&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a name=&quot;1&quot;&gt;1. 웹 애플리케이션&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;웹 시스템&lt;/li&gt;
+
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><a href="#1">1. 웹 애플리케이션</a><br><a href="#2">2. JSP, Servlet, Spring</a></p><hr><p><a name="1">1. 웹 애플리케이션</a></p><ul><li>웹 시스템</li></ul><ul><li>정적 컨텐츠 : 클라이언트 머신의 웹 브라우저가 네트워크에 있는 웹 서버로부터 요청한 HTML을 읽어와 표시</li><li>동적 컨텐츠 : 웹 서버에서 애플리케이션 서버에 처리를 요청, DB로부터 데이터를 읽어오거나 가공, 처리 결과를 웹 서버에서 받고, 다시 웹 브라우저에 표시</li></ul><p><a name="2">2. JSP, Servlet, Spring</a></p><ul><li>초창기 웹 기술 : 정적 컨텐츠(HTML file)을 표시하는 기술</li><li><p>CGI : HTTP의 요청으로 실행되는 프로그램, 웹 브라우저의 요청을 받아 CGI가 해당 프로그램을 실행 -&gt; 같은 요청이지만 다른 컨텐츠 반환이 가능해짐 (동적으로 컨텐츠를 반환) / 단, 처리 요청이 많아지면, 성능 저하나 트랜잭션 관리의 어려움</p></li><li><p>JSP, Servlet : 멀티 스레드로 실행, 웹 컨테이너(JSP, Servlet의 실행 기반)는 개발자가 세션 관리를 의식하지 않을 수 있도록 세션을 관리함, JSP로 페이지를 생성, 비즈니스 로직을 Servlet으로 처리하는 아키텍쳐가 장점</p></li><li><p>Spring : EJB에 비하여 저가의 WAS(Tomcat) 사용 가능, 개발 중 테스트 용이, 코드 경량화</p></li></ul><hr><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li>‘스프링4 입문’, 하세가와 유이치 외, 한빛미디어</li></ul>]]></content:encoded>
+      
+      <comments>http://dudri63.github.io/2020/02/02/spring1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>[SWEA] #5644 무선 충전&lt;모의&gt;</title>
